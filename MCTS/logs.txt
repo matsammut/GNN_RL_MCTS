@@ -1,0 +1,15 @@
+07/03/2026 50 iterations
+Final Makespan: 2772
+100 iterations
+Final Makespan: 2724
+500 iterations
+Final Makespan: 2883
+New 50 Iterations:
+Final Makespan: 2952
+New 150 simulations 2000 iterations
+
+Final Makespan: 2965
+150 simulations 5000 iterations
+Final Makespan: 2965
+Actual 5000 iterations
+Final Makespan: 2911
