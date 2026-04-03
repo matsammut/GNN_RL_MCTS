@@ -46,7 +46,7 @@ def solve_instance(trainer, instance_id):
 
 # https://scheduleopt.github.io/benchmarks/jsplib/#best-known-solutions---jsplib
 
-model_folders = ["PPO_ta42_checkpoint_07032026", "PPO_ta52_checkpoint_28012026", "PPO_ta62_checkpoint_30012026", "PPO_ta72_checkpoint_31012026"]
+model_folders = ["PPO_ta72_warm_HGA_27032026","PPO_ta72_warm_GN_25032026","PPO_ta62_warm_GN_25032026","PPO_ta52_warm_GN_27032026"]
 base_dir = "checkpoint_results"
 all_results = []
 
@@ -74,5 +74,6 @@ for folder in model_folders:
 
 # Create and export Table
 df = pd.DataFrame(all_results)
-df.to_csv("tabulated_ppo_results_07032026.csv", index=False)
-print("Evaluation complete. Results saved to tabulated_ppo_results_07032026.csv.")
+filename = "tabulated_ppo_results_EV_comparison_31032026.csv"
+df.to_csv(filename, index=False)
+print("Evaluation complete. Results saved to "+filename)

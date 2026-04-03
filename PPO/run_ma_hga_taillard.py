@@ -4,6 +4,13 @@ run_ma_hga_taillard.py
 
 Run GA, MA (memetic = GA + local search), and HGA (GA + Simulated Annealing hybrid)
 on Taillard instances ta42, ta52, ta62, ta72. 10 trials per instance.
+
+Usage:
+    python3 run_ma_hga_taillard.py
+
+Requirements:
+    python3.8+ (numpy, pandas)
+
 Outputs:
     results_{alg}.csv for each algorithm with per-trial best makespans and gaps.
 """
@@ -24,23 +31,46 @@ INST_DIR = "instances"
 INSTANCES = ["ta42", "ta52", "ta62", "ta72"]
 BKS = {"ta42": 1939, "ta52": 2756, "ta62": 2869, "ta72": 5181}
 
-TRIALS = 3
+TRIALS = 10
 POP_SIZE = 100
-GENERATIONS = 100
+GENERATIONS = 500000
 CROSSOVER_P = 0.9
 MUTATION_P = 0.1
 TOURNAMENT_K = 3
 
 # Local search / SA params (used by MA and HGA)
 SA_ITERS = 2000
-SA_T0 = 1.5
 SA_TEND = 1e-3
 MA_INTENSIFICATION_ON_OFFSPRING = True  # run SA on each offspring (MA)
 HGA_SA_FRACTION = 0.2   # fraction of population to apply SA to each generation (HGA)
 
-OUTPUT_DIR = "ma_hga_results_07022026"
-HILL_COEFFS = [1.0, 1.2, 1.5, 2.0, 2.5]   
+OUTPUT_DIR = "ma_hga_results_active_31032026"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+def calibrate_sa_temperature(jobs, perm, n_samples=200):
+    """
+    Estimate a starting temperature such that ~80% of uphill moves
+    are accepted at T0, following standard SA calibration practice.
+    """
+    deltas = []
+    cur_val = compute_makespan(jobs, perm)
+    cur = perm[:]
+    for _ in range(n_samples):
+        i, j = random.sample(range(len(cur)), 2)
+        cur[i], cur[j] = cur[j], cur[i]
+        val = compute_makespan(jobs, cur)
+        d = val - cur_val
+        if d > 0:
+            deltas.append(d)
+        cur[i], cur[j] = cur[j], cur[i]  # revert
+
+    if not deltas:
+        return 50.0  # fallback
+
+    # Set T0 such that acceptance probability of median uphill delta is ~0.8
+    median_delta = sorted(deltas)[len(deltas) // 2]
+    t0 = -median_delta / math.log(0.8)
+    return t0
 
 def parse_taillard(path):
     with open(path, "r") as f:
@@ -64,19 +94,75 @@ def parse_taillard(path):
 # decode -> greedy forward scheduling
 # ===========================
 def compute_makespan(jobs, perm):
+    """
+    Giffler & Thompson active-schedule decoder.
+    Uses the permutation as a priority list: when multiple operations
+    compete for a machine, the one appearing earliest in `perm` wins.
+    Guarantees the optimal schedule is within the search space.
+    """
     n_jobs = len(jobs)
     n_machines = len(jobs[0])
-    job_next_op = [0] * n_jobs
     job_end = [0] * n_jobs
     machine_end = [0] * n_machines
-    for job in perm:
-        op_idx = job_next_op[job]
-        machine, dur = jobs[job][op_idx]
-        start = max(job_end[job], machine_end[machine])
+    scheduled = [0] * n_jobs  # how many ops of each job have been scheduled
+    total_ops = n_jobs * n_machines
+
+    # Pre-compute priority: for each job j and its k-th occurrence in perm,
+    # store the position index. Lower position = higher priority.
+    # priority_map[(j, k)] = position in perm
+    priority_map = {}  # type: Dict[Tuple[int, int], int]
+    job_count = [0] * n_jobs
+    for pos, j in enumerate(perm):
+        k = job_count[j]
+        priority_map[(j, k)] = pos
+        job_count[j] += 1
+
+    ops_scheduled = 0
+
+    while ops_scheduled < total_ops:
+        # Identify all eligible operations (next unscheduled op per job)
+        eligible = []
+        for j in range(n_jobs):
+            if scheduled[j] < n_machines:
+                op_idx = scheduled[j]
+                machine, dur = jobs[j][op_idx]
+                earliest_start = max(job_end[j], machine_end[machine])
+                earliest_finish = earliest_start + dur
+                eligible.append((j, op_idx, machine, dur, earliest_start, earliest_finish))
+
+        if not eligible:
+            break
+
+        # Find the minimum completion time among all eligible ops
+        min_finish = min(e[5] for e in eligible)
+
+        # Identify the machine that achieves this minimum
+        conflict_machine = None
+        for e in eligible:
+            if e[5] == min_finish:
+                conflict_machine = e[2]
+                break
+
+        # Conflict set: all eligible ops on that machine that could
+        # start before min_finish (i.e. they overlap with the winner)
+        conflict_set = [
+            e for e in eligible
+            if e[2] == conflict_machine and e[4] < min_finish
+        ]
+
+        # Resolve conflict using the pre-computed priority map:
+        # pick the operation whose (job, op_idx) has the lowest
+        # position in the original permutation
+        best_op = min(conflict_set, key=lambda e: priority_map[(e[0], e[1])])
+
+        j, op_idx, machine, dur, _, _ = best_op
+        start = max(job_end[j], machine_end[machine])
         finish = start + dur
-        job_end[job] = finish
+        job_end[j] = finish
         machine_end[machine] = finish
-        job_next_op[job] += 1
+        scheduled[j] += 1
+        ops_scheduled += 1
+
     return max(job_end)
 
 def random_permutation(jobs):
@@ -110,12 +196,35 @@ def order_crossover(parent1, parent2):
         p2_idx = (p2_idx + 1) % L
     return child
 
-def swap_mutation(chrom, mutation_rate=0.02):
+def swap_mutation(chrom, mutation_rate=0.1):
+    """Single swap mutation."""
     chrom = chrom[:]
     if random.random() < mutation_rate:
         i, j = random.sample(range(len(chrom)), 2)
         chrom[i], chrom[j] = chrom[j], chrom[i]
     return chrom
+
+
+def insertion_mutation(chrom, mutation_rate=0.1):
+    """
+    Remove a gene from one position and insert it at another.
+    Produces a larger perturbation than swap while preserving feasibility.
+    """
+    chrom = chrom[:]
+    if random.random() < mutation_rate:
+        i = random.randrange(len(chrom))
+        j = random.randrange(len(chrom))
+        gene = chrom.pop(i)
+        chrom.insert(j, gene)
+    return chrom
+
+
+def mutate(chrom, mutation_rate=0.1):
+    """Apply swap or insertion mutation with equal probability."""
+    if random.random() < 0.5:
+        return swap_mutation(chrom, mutation_rate)
+    else:
+        return insertion_mutation(chrom, mutation_rate)
 
 def tournament_select(pop, fitnesses, k=3):
     idxs = random.sample(range(len(pop)), k)
@@ -126,30 +235,128 @@ def tournament_select(pop, fitnesses, k=3):
 # Simulated Annealing local search (operates on permutations)
 # Small neighborhood: swap two positions, accept if better or by SA prob
 # ===========================
-def simulated_annealing_improve(jobs, perm, iters=1000, t0=1.0, tend=1e-3):
+def build_schedule_detail(jobs, perm):
+    """Decode and return full schedule detail needed for critical path analysis."""
+    n_jobs = len(jobs)
+    n_machines = len(jobs[0])
+    job_next_op = [0] * n_jobs
+    job_end = [0] * n_jobs
+    machine_end = [0] * n_machines
+    machine_order = [[] for _ in range(n_machines)]  # ordered list of (job, op_idx) per machine
+    op_start = {}
+    op_finish = {}
+
+    for job in perm:
+        op_idx = job_next_op[job]
+        machine, dur = jobs[job][op_idx]
+        start = max(job_end[job], machine_end[machine])
+        finish = start + dur
+        job_end[job] = finish
+        machine_end[machine] = finish
+        op_start[(job, op_idx)] = start
+        op_finish[(job, op_idx)] = finish
+        machine_order[machine].append((job, op_idx))
+        job_next_op[job] += 1
+    makespan = max(job_end)
+    return makespan, op_start, op_finish, machine_order
+
+
+def find_critical_path_swaps(jobs, perm):
+    """
+    Identify candidate swap positions on the critical path.
+    Returns a list of (i, j) index pairs in the permutation that correspond
+    to adjacent operations on the same machine along the critical path.
+    """
+    n_machines = len(jobs[0])
+    makespan, op_start, op_finish, machine_order = build_schedule_detail(jobs, perm)
+
+    # Find all operations on the critical path (finish == makespan, trace back)
+    critical_ops = set()
+    # Start from any op that finishes at makespan
+    for key, ft in op_finish.items():
+        if ft == makespan:
+            critical_ops.add(key)
+
+    # Build position index: map (job, op_idx) -> position in perm
+    job_count = {}
+    pos_map = {}
+    for idx, job in enumerate(perm):
+        cnt = job_count.get(job, 0)
+        pos_map[(job, cnt)] = idx
+        job_count[job] = cnt + 1
+
+    # Find adjacent pairs on the same machine within the critical path
+    swap_candidates = []
+    for m in range(n_machines):
+        order = machine_order[m]
+        for k in range(len(order) - 1):
+            op_a = order[k]
+            op_b = order[k + 1]
+            if op_a in critical_ops or op_b in critical_ops:
+                pi = pos_map[op_a]
+                pj = pos_map[op_b]
+                swap_candidates.append((pi, pj))
+    return swap_candidates
+
+
+def simulated_annealing_improve(jobs, perm, iters=1000, t0=50.0, tend=1e-2):
+    """SA with critical-path-biased neighbourhood and calibrated temperature."""
     best = perm[:]
     best_val = compute_makespan(jobs, best)
     cur = best[:]
     cur_val = best_val
+
+    # Recompute critical path candidates periodically
+    recompute_interval = max(1, iters // 10)
+
     for it in range(iters):
-        T = t0 * ((tend / t0) ** (it / max(1, iters-1)))
-        i, j = random.sample(range(len(cur)), 2)
+        T = t0 * ((tend / t0) ** (it / max(1, iters - 1)))
+
+        # Periodically recompute critical-path swaps
+        if it % recompute_interval == 0:
+            cp_swaps = find_critical_path_swaps(jobs, cur)
+
+        # With 70% probability, use a critical-path swap; else random swap
+        if cp_swaps and random.random() < 0.7:
+            i, j = random.choice(cp_swaps)
+        else:
+            i, j = random.sample(range(len(cur)), 2)
+
         cur[i], cur[j] = cur[j], cur[i]
         val = compute_makespan(jobs, cur)
         delta = val - cur_val
+
         if delta <= 0 or random.random() < math.exp(-delta / max(1e-12, T)):
             cur_val = val
             if val < best_val:
                 best_val = val
                 best = cur[:]
         else:
-            # revert swap
             cur[i], cur[j] = cur[j], cur[i]
+
     return best, best_val
 
+def deduplicate_population(pop, fitness, jobs):
+    """
+    Remove duplicate individuals (by makespan + first 20 genes as fingerprint)
+    and replace with random individuals to maintain diversity.
+    """
+    seen = set()
+    for i in range(len(pop)):
+        # Use makespan + partial chromosome as a lightweight fingerprint
+        fingerprint = (fitness[i], tuple(pop[i][:20]))
+        if fingerprint in seen:
+            pop[i] = random_permutation(jobs)
+            fitness[i] = compute_makespan(jobs, pop[i])
+        else:
+            seen.add(fingerprint)
+    return pop, fitness
+# ===========================
 # GA / MA / HGA main loops
+# ===========================
 def run_GA(jobs, pop_size=100, generations=100, cross_p=0.9, mut_p=0.1, seed=None, verbose=False):
     random.seed(seed); np.random.seed(seed)
+    # initial population
     pop = [random_permutation(jobs) for _ in range(pop_size)]
     fitness = [compute_makespan(jobs, ind) for ind in pop]
     best_val = min(fitness); best_ind = deepcopy(pop[fitness.index(best_val)])
@@ -176,7 +383,8 @@ def run_GA(jobs, pop_size=100, generations=100, cross_p=0.9, mut_p=0.1, seed=Non
             best_iter = gen
         if verbose and gen % 10 == 0:
             print(f"GA gen {gen} best {best_val}")
-    return best_ind, best_val, best_iter
+    pop, fitness = deduplicate_population(pop, fitness, jobs)
+    return pop, fitness, best_ind, best_val, best_iter
 
 def run_MA(jobs, pop_size=100, generations=100, cross_p=0.9, mut_p=0.1, sa_iters=500, seed=None, verbose=False):
     random.seed(seed); np.random.seed(seed)
@@ -193,7 +401,8 @@ def run_MA(jobs, pop_size=100, generations=100, cross_p=0.9, mut_p=0.1, sa_iters
             child = order_crossover(p1, p2) if random.random() < cross_p else deepcopy(p1)
             child = swap_mutation(child, mutation_rate=mut_p)
             # local improvement on child (Memetic)
-            child_improved, val = simulated_annealing_improve(jobs, child, iters=sa_iters, t0=SA_T0, tend=SA_TEND)
+            t0 = calibrate_sa_temperature(jobs, child, n_samples=200)
+            child_improved, val =  simulated_annealing_improve(jobs, child, iters=sa_iters, t0=t0, tend=SA_TEND)
             new_pop.append(child_improved)
         pop = new_pop
         fitness = [compute_makespan(jobs, ind) for ind in pop]
@@ -204,18 +413,14 @@ def run_MA(jobs, pop_size=100, generations=100, cross_p=0.9, mut_p=0.1, sa_iters
             best_iter = gen
         if verbose and gen % 10 == 0:
             print(f"MA gen {gen} best {best_val}")
-    return best_ind, best_val, best_iter
+    pop, fitness = deduplicate_population(pop, fitness, jobs)
+    return pop, fitness, best_ind, best_val, best_iter
 
-def run_HGA(jobs,target, pop_size=100, generations=100, cross_p=0.9, mut_p=0.1, sa_fraction=0.2, sa_iters=500, seed=None, verbose=False):
-    # HGA: GA but run SA on the top fraction each generation (intensification)
+def run_HGA(jobs, pop_size=100, generations=100, cross_p=0.9, mut_p=0.1, sa_fraction=0.2, sa_iters=500, seed=None, verbose=False):
     random.seed(seed); np.random.seed(seed)
     pop = [random_permutation(jobs) for _ in range(pop_size)]
     fitness = [compute_makespan(jobs, ind) for ind in pop]
     best_val = min(fitness); best_ind = deepcopy(pop[fitness.index(best_val)])
-
-    patience = 30
-    no_imp_count = 0
-    start_time = time.time()
     best_iter = 0
     for gen in range(1, generations+1):
         new_pop = []
@@ -226,43 +431,35 @@ def run_HGA(jobs,target, pop_size=100, generations=100, cross_p=0.9, mut_p=0.1, 
             child = order_crossover(p1, p2) if random.random() < cross_p else deepcopy(p1)
             child = swap_mutation(child, mutation_rate=mut_p)
             new_pop.append(child)
-        # apply SA on top fraction of population (sorted by fitness)
         pop = new_pop
         fitness = [compute_makespan(jobs, ind) for ind in pop]
-        
-        if no_imp_count >= 5: 
-            idx_sorted = sorted(range(len(pop)), key=lambda i: fitness[i])
-            topk = max(1, int(sa_fraction * pop_size))
-            for i in idx_sorted[:topk]:
-                # Using parameters from your original file
-                improved, val = simulated_annealing_improve(jobs, pop[i], iters=sa_iters)
-                pop[i] = improved
-                fitness[i] = val
-        
+        idx_sorted = sorted(range(len(pop)), key=lambda i: fitness[i])
+        topk = max(1, int(sa_fraction * pop_size))
+        for i in idx_sorted[:topk]:
+            t0 = calibrate_sa_temperature(jobs, child, n_samples=200)
+            improved, val = simulated_annealing_improve(jobs, pop[i], iters=sa_iters, t0=t0, tend=SA_TEND)
+            pop[i] = improved
+            fitness[i] = val
         gen_best = min(fitness)
         if gen_best < best_val:
             best_val = gen_best
             best_ind = deepcopy(pop[fitness.index(gen_best)])
-            no_imp_count = 0 # Reset
-        else:
-            no_imp_count += 1
-# 4. Target Check (PPO Exit)
-        if best_val <= target:
-            return {"best_makespan": best_val, "time": time.time() - start_time, "status": "Success"}
+            best_iter = gen
+        if verbose and gen % 10 == 0:
+            print(f"HGA gen {gen} best {best_val}")
+    pop, fitness = deduplicate_population(pop, fitness, jobs)
+    return pop, fitness, best_ind, best_val, best_iter
 
-        # 5. EARLY STAGNATION EXIT
-        if no_imp_count >= patience:
-            return {"best_makespan": best_val, "time": time.time() - start_time, "status": "DNF"}
-
-    return {"best_makespan": best_val, "time": time.time() - start_time, "status": "DNF"}
+# ===========================
 # Experiment driver
+# ===========================
 def run_trials_for_instance(inst_name, inst_file, alg_name, run_func, trials=10, params=None):
     jobs = parse_taillard(inst_file)
     out = []
     for t in range(trials):
         seed = 1000 + t
         start = time.time()
-        ind, best_val, best_iter = run_func(jobs, seed=seed, **(params or {}))
+        _ ,_ , ind, best_val, best_iter = run_func(jobs, seed=seed, **(params or {}))
         elapsed = time.time() - start
         gap = 100.0 * (best_val - BKS[inst_name]) / BKS[inst_name]
         out.append({
@@ -283,11 +480,21 @@ def main():
         f = os.path.join(INST_DIR, f"{inst}")
         if not os.path.exists(f):
             raise FileNotFoundError(f"Instance file missing: {f}")
+    ga_gens = GENERATIONS // POP_SIZE 
+    # MA: each generation costs pop_size + (pop_size - 1) * sa_iters_ma evaluations
+    MA_SA_ITERS = 500
+    ma_cost_per_gen = POP_SIZE + (POP_SIZE - 1) * MA_SA_ITERS
+    ma_gens = GENERATIONS // ma_cost_per_gen
 
-    ga_params = {"pop_size": POP_SIZE, "generations": GENERATIONS, "cross_p": CROSSOVER_P, "mut_p": MUTATION_P}
-    ma_params = {"pop_size": POP_SIZE, "generations": GENERATIONS, "cross_p": CROSSOVER_P, "mut_p": MUTATION_P, "sa_iters": int(SA_ITERS/4)}
-    hga_params = {"pop_size": POP_SIZE, "generations": GENERATIONS, "cross_p": CROSSOVER_P, "mut_p": MUTATION_P, "sa_fraction": HGA_SA_FRACTION, "sa_iters": int(SA_ITERS/8)}
+    # HGA: each generation costs pop_size + topk * sa_iters_hga
+    HGA_SA_ITERS = 250
+    hga_topk = int(HGA_SA_FRACTION * POP_SIZE)
+    hga_cost_per_gen = POP_SIZE + hga_topk * HGA_SA_ITERS 
+    hga_gens = GENERATIONS // hga_cost_per_gen 
 
+    ga_params  = {"pop_size": POP_SIZE, "generations": ga_gens,  "cross_p": CROSSOVER_P, "mut_p": MUTATION_P}
+    ma_params  = {"pop_size": POP_SIZE, "generations": ma_gens,  "cross_p": CROSSOVER_P, "mut_p": MUTATION_P, "sa_iters": MA_SA_ITERS}
+    hga_params = {"pop_size": POP_SIZE, "generations": hga_gens, "cross_p": CROSSOVER_P, "mut_p": MUTATION_P, "sa_fraction": HGA_SA_FRACTION, "sa_iters": HGA_SA_ITERS}
     for inst in INSTANCES:
         f = os.path.join(INST_DIR, f"{inst}")
 

@@ -1,0 +1,48 @@
+Failure # 1 (occurred at 2026-03-18_08-53-43)
+Traceback (most recent call last):
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/trial_runner.py", line 519, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/ray_trial_executor.py", line 497, in fetch_result
+    result = ray.get(trial_future[0], timeout=DEFAULT_GET_TIMEOUT)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/worker.py", line 1379, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ValueError): [36mray::PPO.train()[39m (pid=2158, ip=192.168.1.92)
+  File "python/ray/_raylet.pyx", line 422, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 456, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 459, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 463, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 415, in ray._raylet.execute_task.function_executor
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer_template.py", line 106, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 465, in __init__
+    super().__init__(config, logger_creator)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/trainable.py", line 96, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 629, in setup
+    self._init(self.config, self.env_creator)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer_template.py", line 133, in _init
+    self.workers = self._make_workers(
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 700, in _make_workers
+    return WorkerSet(
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/evaluation/worker_set.py", line 79, in __init__
+    remote_spaces = ray.get(self.remote_workers(
+ray.exceptions.RayTaskError(ValueError): [36mray::RolloutWorker.foreach_policy()[39m (pid=2159, ip=192.168.1.92)
+  File "python/ray/_raylet.pyx", line 422, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 456, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 459, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 463, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 415, in ray._raylet.execute_task.function_executor
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/evaluation/rollout_worker.py", line 460, in __init__
+    self._build_policy_map(policy_dict, policy_config)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/evaluation/rollout_worker.py", line 1076, in _build_policy_map
+    policy_map[name] = cls(obs_space, act_space, merged_conf)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/policy/tf_policy_template.py", line 217, in __init__
+    DynamicTFPolicy.__init__(
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/policy/dynamic_tf_policy.py", line 167, in __init__
+    self.model = ModelCatalog.get_model_v2(
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/models/catalog.py", line 306, in get_model_v2
+    model_cls = _global_registry.get(RLLIB_MODEL,
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/registry.py", line 137, in get
+    raise ValueError(
+ValueError: Registry value for rllib_model/fc_masked_model_tf doesn't exist.
+

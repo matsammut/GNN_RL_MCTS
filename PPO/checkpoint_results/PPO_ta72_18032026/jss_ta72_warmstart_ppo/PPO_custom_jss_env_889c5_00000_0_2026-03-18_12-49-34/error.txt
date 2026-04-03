@@ -1,0 +1,12 @@
+Failure # 1 (occurred at 2026-03-18_12-50-07)
+Traceback (most recent call last):
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/trial_runner.py", line 569, in _process_trial
+    self._callbacks.on_trial_result(
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/callback.py", line 192, in on_trial_result
+    callback.on_trial_result(**info)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/logger.py", line 424, in on_trial_result
+    self.log_trial_result(iteration, trial, result)
+  File "warm_start.py", line 46, in log_trial_result
+    writer = csv.DictWriter(f, fieldnames=["iteration", "makespan", "bks", "optimality gap"])
+NameError: name 'csv' is not defined
+
