@@ -1,0 +1,31 @@
+Failure # 1 (occurred at 2026-04-06_23-37-46)
+Traceback (most recent call last):
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/trial_runner.py", line 519, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/ray_trial_executor.py", line 497, in fetch_result
+    result = ray.get(trial_future[0], timeout=DEFAULT_GET_TIMEOUT)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/worker.py", line 1379, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=12320, ip=192.168.1.92)
+  File "python/ray/_raylet.pyx", line 463, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 415, in ray._raylet.execute_task.function_executor
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 508, in train
+    raise e
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 494, in train
+    result = Trainable.train(self)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/trainable.py", line 245, in train
+    self.log_result(result)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 538, in log_result
+    self.callbacks.on_train_result(trainer=self, result=result)
+  File "warm_start_GA.py", line 818, in on_train_result
+    env = gym.make(ENV_ID, env_config={"instance_path": INSTANCE_PATH})
+  File "/jss_project/venv/lib/python3.8/site-packages/gym/envs/registration.py", line 145, in make
+    return registry.make(id, **kwargs)
+  File "/jss_project/venv/lib/python3.8/site-packages/gym/envs/registration.py", line 90, in make
+    env = spec.make(**kwargs)
+  File "/jss_project/venv/lib/python3.8/site-packages/gym/envs/registration.py", line 60, in make
+    env = cls(**_kwargs)
+  File "/jss_project/venv/lib/python3.8/site-packages/JSSEnv/envs/JssEnv.py", line 64, in __init__
+    instance_file = open(instance_path, 'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'instances/ta42'
+

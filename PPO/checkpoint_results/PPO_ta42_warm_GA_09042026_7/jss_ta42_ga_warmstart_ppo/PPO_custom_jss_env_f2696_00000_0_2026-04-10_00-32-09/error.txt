@@ -1,0 +1,28 @@
+Failure # 1 (occurred at 2026-04-10_00-32-12)
+Traceback (most recent call last):
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/trial_runner.py", line 519, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/ray_trial_executor.py", line 497, in fetch_result
+    result = ray.get(trial_future[0], timeout=DEFAULT_GET_TIMEOUT)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/worker.py", line 1379, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError: [36mray::PPO.train()[39m (pid=120482, ip=192.168.1.92)
+  File "python/ray/_raylet.pyx", line 422, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 456, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 459, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 463, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 415, in ray._raylet.execute_task.function_executor
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer_template.py", line 106, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 465, in __init__
+    super().__init__(config, logger_creator)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/trainable.py", line 96, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 577, in setup
+    self.config = Trainer.merge_trainer_configs(self._default_config,
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 1055, in merge_trainer_configs
+    return deep_update(config1, config2, _allow_unknown_configs,
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/utils/util.py", line 220, in deep_update
+    raise Exception("Unknown config parameter `{}` ".format(k))
+Exception: Unknown config parameter `bc_weights_path`
+

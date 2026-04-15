@@ -1,0 +1,29 @@
+Failure # 1 (occurred at 2026-04-06_23-49-17)
+Traceback (most recent call last):
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/trial_runner.py", line 519, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/ray_trial_executor.py", line 497, in fetch_result
+    result = ray.get(trial_future[0], timeout=DEFAULT_GET_TIMEOUT)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/worker.py", line 1379, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(NotImplementedError): [36mray::PPO.train()[39m (pid=13609, ip=192.168.1.92)
+  File "python/ray/_raylet.pyx", line 463, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 415, in ray._raylet.execute_task.function_executor
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 508, in train
+    raise e
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 494, in train
+    result = Trainable.train(self)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/tune/trainable.py", line 245, in train
+    self.log_result(result)
+  File "/jss_project/venv/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 538, in log_result
+    self.callbacks.on_train_result(trainer=self, result=result)
+  File "warm_start_GA.py", line 830, in on_train_result
+    new_weights, matched, skipped = _map_bc_to_ppo_weights(bc_model, policy)
+  File "warm_start_GA.py", line 731, in _map_bc_to_ppo_weights
+    bc_vars = {v.name: v.numpy() for v in bc_model.trainable_variables}
+  File "warm_start_GA.py", line 731, in <dictcomp>
+    bc_vars = {v.name: v.numpy() for v in bc_model.trainable_variables}
+  File "/jss_project/venv/lib/python3.8/site-packages/tensorflow/python/ops/resource_variable_ops.py", line 604, in numpy
+    raise NotImplementedError(
+NotImplementedError: numpy() is only available when eager execution is enabled.
+

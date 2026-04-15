@@ -1,0 +1,25 @@
+{
+  "bks_file": "bks.json",
+  "instances": [
+    "ta41",
+    "ta42",
+    "ta43",
+    "ta44",
+    "ta45"
+  ],
+  "gap_target": 20.0,
+  "pop_size": 5000,
+  "total_eval_budget": 500000,
+  "trials": 1,
+  "crossover_p": 0.9,
+  "mutation_p": 0.1,
+  "tournament_k": 3,
+  "ma_sa_iters": 500,
+  "hga_sa_iters": 250,
+  "hga_sa_fraction": 0.2,
+  "sa_tend": 0.001,
+  "n_workers": 33,
+  "ga_generations": 100,
+  "ma_generations": 1,
+  "hga_generations": 1
+}
