@@ -105,6 +105,8 @@ parser.add_argument("--bc-epochs", type=int, default=50,
                     help="Behaviour cloning training epochs (default: 50)")
 parser.add_argument("--target-gap", type=float, default=20.0,
                     help="PPO early-stop gap target %% (default: 20.0)")
+parser.add_argument("--no-warmstart", action="store_true", default=False,
+                    help="Skip EA and BC stages, train PPO from scratch")
 args = parser.parse_args()
 
 ENV_ID = "JSSEnv:jss-v1"
@@ -853,6 +855,7 @@ if __name__ == "__main__":
     logger.info("=" * 70)
     logger.info(f"Instance:       {INSTANCE_PATH}")
     logger.info(f"BKS:            {current_bks}")
+    logger.info(f"Warm-start:     {'DISABLED' if args.no_warmstart else 'ENABLED'}")
     logger.info(f"EA algorithm:   {args.evo_alg}")
     logger.info(f"EA pop size:    {args.evo_pop}")
     logger.info(f"EA generations: {args.evo_gens}")
@@ -864,43 +867,43 @@ if __name__ == "__main__":
     logger.info(f"Dynamic wrapper: ENABLED (progress tracking)")
     logger.info("=" * 70)
 
-    # ── Stage 1: EA demonstrations ──
-    logger.info("")
-    logger.info("═══ Stage 1: Collecting EA Demonstrations ═══")
-    n_demo_episodes = args.evo_pop
-    demos = collect_evolutionary_demonstrations(
-        n_episodes=n_demo_episodes,
-        alg=args.evo_alg,
-        pop_size=args.evo_pop,
-        generations=args.evo_gens,
-        sa_iters=args.evo_sa_iters,
-    )
+    if not args.no_warmstart:
+        # ── Stage 1: EA demonstrations ──
+        logger.info("")
+        logger.info("═══ Stage 1: Collecting EA Demonstrations ═══")
+        n_demo_episodes = args.evo_pop
+        demos = collect_evolutionary_demonstrations(
+            n_episodes=n_demo_episodes,
+            alg=args.evo_alg,
+            pop_size=args.evo_pop,
+            generations=args.evo_gens,
+            sa_iters=args.evo_sa_iters,
+        )
 
-    # ── Stage 2: Behaviour Cloning ──
-    logger.info("")
-    logger.info("═══ Stage 2: Behaviour Cloning ═══")
+        # ── Stage 2: Behaviour Cloning ──
+        logger.info("")
+        logger.info("═══ Stage 2: Behaviour Cloning ═══")
 
-    # Get n_actions from the wrapped env
-    env_tmp = make_wrapped_env(INSTANCE_PATH)
-    obs_tmp = env_tmp.reset()
-    obs_shape = obs_tmp["real_obs"].shape if isinstance(obs_tmp, dict) else obs_tmp.shape
-    n_actions = env_tmp.action_space.n
-    env_tmp.close()
+        env_tmp = make_wrapped_env(INSTANCE_PATH)
+        obs_tmp = env_tmp.reset()
+        obs_shape = obs_tmp["real_obs"].shape if isinstance(obs_tmp, dict) else obs_tmp.shape
+        n_actions = env_tmp.action_space.n
+        env_tmp.close()
 
-    # BC now trains via the updated behaviour_cloning logic
-    bc_model = behaviour_cloning(demos, obs_shape, n_actions)
+        bc_model = behaviour_cloning(demos, obs_shape, n_actions)
+        logger.info(f"  BC obs shape: {obs_shape} | n_actions: {n_actions}")
 
-    logger.info(f"  BC obs shape: {obs_shape} | n_actions: {n_actions}")
-
-    # ── Verify BC weights saved ──
-    if os.path.exists(BC_WEIGHTS_PATH) or os.path.exists(BC_WEIGHTS_PATH + ".index") or os.path.exists(BC_WEIGHTS_PATH + ".h5"):
-        bc_dir = os.path.dirname(BC_WEIGHTS_PATH)
-        bc_prefix = os.path.basename(BC_WEIGHTS_PATH)
-        bc_files = [f for f in os.listdir(bc_dir) if f.startswith(bc_prefix)]
-        logger.info(f"  BC weights verified: {bc_files}")
+        if os.path.exists(BC_WEIGHTS_PATH) or os.path.exists(BC_WEIGHTS_PATH + ".index") or os.path.exists(BC_WEIGHTS_PATH + ".h5"):
+            bc_dir = os.path.dirname(BC_WEIGHTS_PATH)
+            bc_prefix = os.path.basename(BC_WEIGHTS_PATH)
+            bc_files = [f for f in os.listdir(bc_dir) if f.startswith(bc_prefix)]
+            logger.info(f"  BC weights verified: {bc_files}")
+        else:
+            logger.error(f"  BC weights NOT FOUND at {BC_WEIGHTS_PATH}")
+            logger.error(f"  Contents of {CHECKPOINT_DIR}: {os.listdir(CHECKPOINT_DIR)}")
     else:
-        logger.error(f"  BC weights NOT FOUND at {BC_WEIGHTS_PATH}")
-        logger.error(f"  Contents of {CHECKPOINT_DIR}: {os.listdir(CHECKPOINT_DIR)}")
+        logger.info("")
+        logger.info("═══ Skipping Stage 1 & 2 (--no-warmstart) ═══")
 
     # ── Stage 3: PPO fine-tuning ──
     logger.info("")
