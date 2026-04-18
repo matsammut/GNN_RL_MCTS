@@ -163,8 +163,8 @@ def train_func(instance_path: str, num_iterations: int, save_dir: str, bks: floa
             
             print(f"  -> Makespan: {makespan:.2f} | Optimality Gap: {optimality_gap:.2f}%")
 
-            if optimality_gap <= 20.0:
-                print(f"Goal Reached! Optimality gap is {optimality_gap:.2f}% (<= 20%). Stopping early.")
+            if optimality_gap <= 10.0:
+                print(f"Goal Reached! Optimality gap is {optimality_gap:.2f}% (<= 10%). Stopping early.")
                 trainer.save(save_dir) # Save final model before exiting
                 break
         else:

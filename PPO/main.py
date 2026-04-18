@@ -179,7 +179,7 @@ def train_single_instance(
         "metrics_smoothing_episodes": 2000,
         "gamma": 1.0,
         "num_workers": mp.cpu_count(),
-        "train_batch_size": 4000,
+        "train_batch_size": 12000,
         "num_envs_per_worker": 4,
         "rollout_fragment_length": 704,  # TO TUNE
         "sgd_minibatch_size": 128,
