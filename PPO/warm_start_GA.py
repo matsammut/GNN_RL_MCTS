@@ -107,6 +107,8 @@ parser.add_argument("--target-gap", type=float, default=20.0,
                     help="PPO early-stop gap target %% (default: 20.0)")
 parser.add_argument("--no-warmstart", action="store_true", default=False,
                     help="Skip EA and BC stages, train PPO from scratch")
+parser.add_argument("--evo-early-stop", action="store_true", default=False,
+                    help="Stop EA if best makespan doesn't improve for 3 generations")
 args = parser.parse_args()
 
 ENV_ID = "JSSEnv:jss-v1"
@@ -343,8 +345,8 @@ def _run_ea_warmstart_ma(jobs, pop_size, generations, sa_iters, seed=42):
     return pop, fitness, best_ind, best_val
 
 
-def _run_ea_warmstart_hga(jobs, pop_size, generations, sa_iters, sa_fraction=0.2, seed=42):
-    """Lightweight HGA for demonstration collection."""
+def _run_ea_warmstart_ga(jobs, pop_size, generations, seed=42, early_stop=False):
+    """Lightweight GA for demonstration collection. No gap tracking."""
     import random
     random.seed(seed)
     np.random.seed(seed)
@@ -353,7 +355,8 @@ def _run_ea_warmstart_hga(jobs, pop_size, generations, sa_iters, sa_fraction=0.2
     fitness = [compute_makespan(jobs, ind) for ind in pop]
     best_val = min(fitness)
     best_ind = deepcopy(pop[fitness.index(best_val)])
-    topk = max(1, int(sa_fraction * pop_size))
+    
+    patience_counter = 0  # Track generations without improvement
 
     for gen in range(1, generations + 1):
         new_pop = [deepcopy(best_ind)]
@@ -367,28 +370,25 @@ def _run_ea_warmstart_hga(jobs, pop_size, generations, sa_iters, sa_fraction=0.2
 
         pop = new_pop
         fitness = [compute_makespan(jobs, ind) for ind in pop]
-
-        # Selective intensification on top-k
-        idx_sorted = sorted(range(len(pop)), key=lambda i: fitness[i])
-        for i in idx_sorted[:topk]:
-            t0 = calibrate_sa_temperature(jobs, pop[i])
-            improved, val = simulated_annealing_improve(
-                jobs, pop[i], iters=sa_iters, t0=t0, tend=SA_TEND
-            )
-            pop[i] = improved
-            fitness[i] = val
-
         pop, fitness = deduplicate_population(pop, fitness, jobs)
 
         gen_best = min(fitness)
         if gen_best < best_val:
             best_val = gen_best
             best_ind = deepcopy(pop[fitness.index(gen_best)])
+            patience_counter = 0  # Reset counter if we improve
+        else:
+            patience_counter += 1  # Increment if no improvement
 
-        logger.info(f"  HGA warmstart | Gen {gen}/{generations} | Best: {best_val}")
+        # Added patience tracker to the standard log
+        logger.info(f"  GA warmstart | Gen {gen}/{generations} | Best: {best_val} | Patience: {patience_counter}/3")
+
+        # Break the loop if the early stop flag is active and we hit 3 iterations without improvement
+        if early_stop and patience_counter >= 3:
+            logger.info(f"  GA warmstart | Early stopping triggered! Ran for {gen} iterations.")
+            break
 
     return pop, fitness, best_ind, best_val
-
 
 # ───────────────────────────────────────────────
 # 2. Demonstration Collection — Fixed
@@ -450,7 +450,7 @@ def priority_policy_rollout(env, job_priority):
 
     return pairs
 
-def collect_evolutionary_demonstrations(n_episodes, alg, pop_size, generations, sa_iters):
+def collect_evolutionary_demonstrations(n_episodes, alg, pop_size, generations, sa_iters, early_stop=False):
     """
     Run the chosen EA, extract priority-based dispatching rules from the
     best individuals, then roll out consistent demonstrations through
@@ -467,7 +467,7 @@ def collect_evolutionary_demonstrations(n_episodes, alg, pop_size, generations, 
 
     if alg == "GA":
         pop, fitness, best_ind, best_val = _run_ea_warmstart_ga(
-            jobs, pop_size=pop_size, generations=generations, seed=42
+            jobs, pop_size=pop_size, generations=generations, seed=42, early_stop=early_stop
         )
     elif alg == "MA":
         pop, fitness, best_ind, best_val = _run_ea_warmstart_ma(
@@ -878,6 +878,7 @@ if __name__ == "__main__":
             pop_size=args.evo_pop,
             generations=args.evo_gens,
             sa_iters=args.evo_sa_iters,
+            early_stop=args.evo_early_stop,
         )
 
         # ── Stage 2: Behaviour Cloning ──
