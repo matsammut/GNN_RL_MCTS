@@ -1,0 +1,488 @@
+[2026-04-30 09:32:01] INFO     ======================================================================
+[2026-04-30 09:32:01] INFO     EA Warm-Start (Synthetic Instances) → Behaviour Cloning Pipeline
+[2026-04-30 09:32:01] INFO     ======================================================================
+[2026-04-30 09:32:01] INFO     Problem dimensionality:  50 jobs × 15 machines
+[2026-04-30 09:32:01] INFO     Synthetic train count:   20  (seed range: 0–19)
+[2026-04-30 09:32:01] INFO     Eval instances (real):   ['ta51', 'ta52', 'ta53', 'ta54', 'ta55', 'ta56', 'ta57', 'ta58', 'ta59', 'ta60']
+[2026-04-30 09:32:01] INFO     EA algorithm:            GA
+[2026-04-30 09:32:01] INFO     EA pop / gens:           50 / 15
+[2026-04-30 09:32:01] INFO     EA SA iters:             500
+[2026-04-30 09:32:01] INFO     BC epochs:               50
+[2026-04-30 09:32:01] INFO     BC network:              [512, 512, 256]
+[2026-04-30 09:32:01] INFO     BC demo eps/instance:    500  (~375,000 transitions each)
+[2026-04-30 09:32:01] INFO     BC epsilon:              0.05  (5% noise)
+[2026-04-30 09:32:01] INFO     BC eval episodes:        1
+[2026-04-30 09:32:01] INFO     EA baseline on eval:     True
+[2026-04-30 09:32:01] INFO     Significance level:      α=0.05
+[2026-04-30 09:32:01] INFO     Output dir:              /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260430_ta5_exp1
+[2026-04-30 09:32:01] INFO     Log / results file:      /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260430_ta5_exp1/results.txt
+[2026-04-30 09:32:01] INFO     ======================================================================
+[2026-04-30 09:32:01] INFO     
+[2026-04-30 09:32:01] INFO     ═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-04-30 09:32:01] INFO       Generated 20 synthetic instance(s) (50×15) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260430_ta5_exp1/synthetic_instances
+[2026-04-30 09:32:01] INFO     
+[2026-04-30 09:32:01] INFO     ═══ Stage 2: Collecting EA Demonstrations (synthetic instances) ═══
+[2026-04-30 09:32:01] INFO       ── synth_1/20  (synth_50x15_seed0.txt) ──
+[2026-04-30 09:32:03] INFO         GA | Gen 1/15 | Best: 3316 | Patience: 0/3
+[2026-04-30 09:32:05] INFO         GA | Gen 2/15 | Best: 3293 | Patience: 0/3
+[2026-04-30 09:32:06] INFO         GA | Gen 3/15 | Best: 3259 | Patience: 0/3
+[2026-04-30 09:32:08] INFO         GA | Gen 4/15 | Best: 3225 | Patience: 0/3
+[2026-04-30 09:32:09] INFO         GA | Gen 5/15 | Best: 3225 | Patience: 1/3
+[2026-04-30 09:32:11] INFO         GA | Gen 6/15 | Best: 3225 | Patience: 2/3
+[2026-04-30 09:32:13] INFO         GA | Gen 7/15 | Best: 3225 | Patience: 3/3
+[2026-04-30 09:32:13] INFO         GA | Early stopping at gen 7.
+[2026-04-30 09:32:13] INFO         EA finished in 11.8s | best makespan=3225
+[2026-04-30 09:32:13] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 09:35:02] INFO         synth_1/20  (synth_50x15_seed0.txt): 375,000 transitions collected
+[2026-04-30 09:35:02] INFO       ── synth_2/20  (synth_50x15_seed1.txt) ──
+[2026-04-30 09:35:05] INFO         GA | Gen 1/15 | Best: 3095 | Patience: 1/3
+[2026-04-30 09:35:06] INFO         GA | Gen 2/15 | Best: 3078 | Patience: 0/3
+[2026-04-30 09:35:08] INFO         GA | Gen 3/15 | Best: 3037 | Patience: 0/3
+[2026-04-30 09:35:10] INFO         GA | Gen 4/15 | Best: 3037 | Patience: 1/3
+[2026-04-30 09:35:11] INFO         GA | Gen 5/15 | Best: 3037 | Patience: 2/3
+[2026-04-30 09:35:13] INFO         GA | Gen 6/15 | Best: 3037 | Patience: 3/3
+[2026-04-30 09:35:13] INFO         GA | Early stopping at gen 6.
+[2026-04-30 09:35:13] INFO         EA finished in 10.4s | best makespan=3037
+[2026-04-30 09:35:13] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 09:38:05] INFO         synth_2/20  (synth_50x15_seed1.txt): 375,000 transitions collected
+[2026-04-30 09:38:05] INFO       ── synth_3/20  (synth_50x15_seed2.txt) ──
+[2026-04-30 09:38:08] INFO         GA | Gen 1/15 | Best: 3123 | Patience: 0/3
+[2026-04-30 09:38:09] INFO         GA | Gen 2/15 | Best: 3093 | Patience: 0/3
+[2026-04-30 09:38:11] INFO         GA | Gen 3/15 | Best: 3089 | Patience: 0/3
+[2026-04-30 09:38:13] INFO         GA | Gen 4/15 | Best: 3078 | Patience: 0/3
+[2026-04-30 09:38:14] INFO         GA | Gen 5/15 | Best: 3078 | Patience: 1/3
+[2026-04-30 09:38:16] INFO         GA | Gen 6/15 | Best: 3078 | Patience: 2/3
+[2026-04-30 09:38:17] INFO         GA | Gen 7/15 | Best: 3078 | Patience: 3/3
+[2026-04-30 09:38:17] INFO         GA | Early stopping at gen 7.
+[2026-04-30 09:38:17] INFO         EA finished in 11.8s | best makespan=3078
+[2026-04-30 09:38:17] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 09:41:08] INFO         synth_3/20  (synth_50x15_seed2.txt): 375,000 transitions collected
+[2026-04-30 09:41:08] INFO       ── synth_4/20  (synth_50x15_seed3.txt) ──
+[2026-04-30 09:41:10] INFO         GA | Gen 1/15 | Best: 3135 | Patience: 0/3
+[2026-04-30 09:41:12] INFO         GA | Gen 2/15 | Best: 3135 | Patience: 1/3
+[2026-04-30 09:41:13] INFO         GA | Gen 3/15 | Best: 3131 | Patience: 0/3
+[2026-04-30 09:41:15] INFO         GA | Gen 4/15 | Best: 3131 | Patience: 1/3
+[2026-04-30 09:41:17] INFO         GA | Gen 5/15 | Best: 3131 | Patience: 2/3
+[2026-04-30 09:41:18] INFO         GA | Gen 6/15 | Best: 3122 | Patience: 0/3
+[2026-04-30 09:41:20] INFO         GA | Gen 7/15 | Best: 3122 | Patience: 1/3
+[2026-04-30 09:41:21] INFO         GA | Gen 8/15 | Best: 3122 | Patience: 2/3
+[2026-04-30 09:41:23] INFO         GA | Gen 9/15 | Best: 3119 | Patience: 0/3
+[2026-04-30 09:41:24] INFO         GA | Gen 10/15 | Best: 3119 | Patience: 1/3
+[2026-04-30 09:41:26] INFO         GA | Gen 11/15 | Best: 3108 | Patience: 0/3
+[2026-04-30 09:41:28] INFO         GA | Gen 12/15 | Best: 3103 | Patience: 0/3
+[2026-04-30 09:41:29] INFO         GA | Gen 13/15 | Best: 3103 | Patience: 1/3
+[2026-04-30 09:41:31] INFO         GA | Gen 14/15 | Best: 3103 | Patience: 2/3
+[2026-04-30 09:41:32] INFO         GA | Gen 15/15 | Best: 3095 | Patience: 0/3
+[2026-04-30 09:41:32] INFO         EA finished in 24.3s | best makespan=3095
+[2026-04-30 09:41:32] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 09:44:23] INFO         synth_4/20  (synth_50x15_seed3.txt): 375,000 transitions collected
+[2026-04-30 09:44:23] INFO       ── synth_5/20  (synth_50x15_seed4.txt) ──
+[2026-04-30 09:44:26] INFO         GA | Gen 1/15 | Best: 3145 | Patience: 1/3
+[2026-04-30 09:44:27] INFO         GA | Gen 2/15 | Best: 3145 | Patience: 2/3
+[2026-04-30 09:44:29] INFO         GA | Gen 3/15 | Best: 3145 | Patience: 3/3
+[2026-04-30 09:44:29] INFO         GA | Early stopping at gen 3.
+[2026-04-30 09:44:29] INFO         EA finished in 5.6s | best makespan=3145
+[2026-04-30 09:44:29] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 09:47:16] INFO         synth_5/20  (synth_50x15_seed4.txt): 375,000 transitions collected
+[2026-04-30 09:47:16] INFO       ── synth_6/20  (synth_50x15_seed5.txt) ──
+[2026-04-30 09:47:19] INFO         GA | Gen 1/15 | Best: 3099 | Patience: 0/3
+[2026-04-30 09:47:20] INFO         GA | Gen 2/15 | Best: 3099 | Patience: 1/3
+[2026-04-30 09:47:22] INFO         GA | Gen 3/15 | Best: 3099 | Patience: 2/3
+[2026-04-30 09:47:23] INFO         GA | Gen 4/15 | Best: 3099 | Patience: 3/3
+[2026-04-30 09:47:23] INFO         GA | Early stopping at gen 4.
+[2026-04-30 09:47:23] INFO         EA finished in 7.1s | best makespan=3099
+[2026-04-30 09:47:23] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 09:50:12] INFO         synth_6/20  (synth_50x15_seed5.txt): 375,000 transitions collected
+[2026-04-30 09:50:12] INFO       ── synth_7/20  (synth_50x15_seed6.txt) ──
+[2026-04-30 09:50:14] INFO         GA | Gen 1/15 | Best: 3168 | Patience: 0/3
+[2026-04-30 09:50:16] INFO         GA | Gen 2/15 | Best: 3166 | Patience: 0/3
+[2026-04-30 09:50:18] INFO         GA | Gen 3/15 | Best: 3097 | Patience: 0/3
+[2026-04-30 09:50:19] INFO         GA | Gen 4/15 | Best: 3097 | Patience: 1/3
+[2026-04-30 09:50:21] INFO         GA | Gen 5/15 | Best: 3097 | Patience: 2/3
+[2026-04-30 09:50:22] INFO         GA | Gen 6/15 | Best: 3097 | Patience: 3/3
+[2026-04-30 09:50:22] INFO         GA | Early stopping at gen 6.
+[2026-04-30 09:50:22] INFO         EA finished in 10.3s | best makespan=3097
+[2026-04-30 09:50:22] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 09:53:13] INFO         synth_7/20  (synth_50x15_seed6.txt): 375,000 transitions collected
+[2026-04-30 09:53:13] INFO       ── synth_8/20  (synth_50x15_seed7.txt) ──
+[2026-04-30 09:53:16] INFO         GA | Gen 1/15 | Best: 3168 | Patience: 1/3
+[2026-04-30 09:53:17] INFO         GA | Gen 2/15 | Best: 3139 | Patience: 0/3
+[2026-04-30 09:53:19] INFO         GA | Gen 3/15 | Best: 3125 | Patience: 0/3
+[2026-04-30 09:53:20] INFO         GA | Gen 4/15 | Best: 3125 | Patience: 1/3
+[2026-04-30 09:53:22] INFO         GA | Gen 5/15 | Best: 3121 | Patience: 0/3
+[2026-04-30 09:53:23] INFO         GA | Gen 6/15 | Best: 3121 | Patience: 1/3
+[2026-04-30 09:53:25] INFO         GA | Gen 7/15 | Best: 3121 | Patience: 2/3
+[2026-04-30 09:53:26] INFO         GA | Gen 8/15 | Best: 3121 | Patience: 3/3
+[2026-04-30 09:53:26] INFO         GA | Early stopping at gen 8.
+[2026-04-30 09:53:26] INFO         EA finished in 13.3s | best makespan=3121
+[2026-04-30 09:53:26] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 09:56:16] INFO         synth_8/20  (synth_50x15_seed7.txt): 375,000 transitions collected
+[2026-04-30 09:56:16] INFO       ── synth_9/20  (synth_50x15_seed8.txt) ──
+[2026-04-30 09:56:19] INFO         GA | Gen 1/15 | Best: 3109 | Patience: 1/3
+[2026-04-30 09:56:20] INFO         GA | Gen 2/15 | Best: 3109 | Patience: 2/3
+[2026-04-30 09:56:22] INFO         GA | Gen 3/15 | Best: 3109 | Patience: 3/3
+[2026-04-30 09:56:22] INFO         GA | Early stopping at gen 3.
+[2026-04-30 09:56:22] INFO         EA finished in 5.6s | best makespan=3109
+[2026-04-30 09:56:22] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 09:59:09] INFO         synth_9/20  (synth_50x15_seed8.txt): 375,000 transitions collected
+[2026-04-30 09:59:09] INFO       ── synth_10/20  (synth_50x15_seed9.txt) ──
+[2026-04-30 09:59:11] INFO         GA | Gen 1/15 | Best: 3187 | Patience: 1/3
+[2026-04-30 09:59:13] INFO         GA | Gen 2/15 | Best: 3187 | Patience: 2/3
+[2026-04-30 09:59:15] INFO         GA | Gen 3/15 | Best: 3187 | Patience: 3/3
+[2026-04-30 09:59:15] INFO         GA | Early stopping at gen 3.
+[2026-04-30 09:59:15] INFO         EA finished in 5.6s | best makespan=3187
+[2026-04-30 09:59:15] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:02:05] INFO         synth_10/20  (synth_50x15_seed9.txt): 375,000 transitions collected
+[2026-04-30 10:02:05] INFO       ── synth_11/20  (synth_50x15_seed10.txt) ──
+[2026-04-30 10:02:07] INFO         GA | Gen 1/15 | Best: 3237 | Patience: 1/3
+[2026-04-30 10:02:09] INFO         GA | Gen 2/15 | Best: 3237 | Patience: 2/3
+[2026-04-30 10:02:10] INFO         GA | Gen 3/15 | Best: 3217 | Patience: 0/3
+[2026-04-30 10:02:12] INFO         GA | Gen 4/15 | Best: 3175 | Patience: 0/3
+[2026-04-30 10:02:13] INFO         GA | Gen 5/15 | Best: 3150 | Patience: 0/3
+[2026-04-30 10:02:15] INFO         GA | Gen 6/15 | Best: 3150 | Patience: 1/3
+[2026-04-30 10:02:16] INFO         GA | Gen 7/15 | Best: 3150 | Patience: 2/3
+[2026-04-30 10:02:18] INFO         GA | Gen 8/15 | Best: 3150 | Patience: 3/3
+[2026-04-30 10:02:18] INFO         GA | Early stopping at gen 8.
+[2026-04-30 10:02:18] INFO         EA finished in 13.3s | best makespan=3150
+[2026-04-30 10:02:18] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:05:09] INFO         synth_11/20  (synth_50x15_seed10.txt): 375,000 transitions collected
+[2026-04-30 10:05:09] INFO       ── synth_12/20  (synth_50x15_seed11.txt) ──
+[2026-04-30 10:05:12] INFO         GA | Gen 1/15 | Best: 3239 | Patience: 1/3
+[2026-04-30 10:05:13] INFO         GA | Gen 2/15 | Best: 3239 | Patience: 2/3
+[2026-04-30 10:05:15] INFO         GA | Gen 3/15 | Best: 3239 | Patience: 3/3
+[2026-04-30 10:05:15] INFO         GA | Early stopping at gen 3.
+[2026-04-30 10:05:15] INFO         EA finished in 5.6s | best makespan=3239
+[2026-04-30 10:05:15] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:08:03] INFO         synth_12/20  (synth_50x15_seed11.txt): 375,000 transitions collected
+[2026-04-30 10:08:03] INFO       ── synth_13/20  (synth_50x15_seed12.txt) ──
+[2026-04-30 10:08:05] INFO         GA | Gen 1/15 | Best: 3294 | Patience: 1/3
+[2026-04-30 10:08:07] INFO         GA | Gen 2/15 | Best: 3284 | Patience: 0/3
+[2026-04-30 10:08:08] INFO         GA | Gen 3/15 | Best: 3284 | Patience: 1/3
+[2026-04-30 10:08:10] INFO         GA | Gen 4/15 | Best: 3277 | Patience: 0/3
+[2026-04-30 10:08:11] INFO         GA | Gen 5/15 | Best: 3249 | Patience: 0/3
+[2026-04-30 10:08:13] INFO         GA | Gen 6/15 | Best: 3225 | Patience: 0/3
+[2026-04-30 10:08:15] INFO         GA | Gen 7/15 | Best: 3225 | Patience: 1/3
+[2026-04-30 10:08:16] INFO         GA | Gen 8/15 | Best: 3211 | Patience: 0/3
+[2026-04-30 10:08:18] INFO         GA | Gen 9/15 | Best: 3207 | Patience: 0/3
+[2026-04-30 10:08:19] INFO         GA | Gen 10/15 | Best: 3207 | Patience: 1/3
+[2026-04-30 10:08:21] INFO         GA | Gen 11/15 | Best: 3207 | Patience: 2/3
+[2026-04-30 10:08:22] INFO         GA | Gen 12/15 | Best: 3207 | Patience: 3/3
+[2026-04-30 10:08:22] INFO         GA | Early stopping at gen 12.
+[2026-04-30 10:08:22] INFO         EA finished in 19.5s | best makespan=3207
+[2026-04-30 10:08:22] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:11:15] INFO         synth_13/20  (synth_50x15_seed12.txt): 375,000 transitions collected
+[2026-04-30 10:11:15] INFO       ── synth_14/20  (synth_50x15_seed13.txt) ──
+[2026-04-30 10:11:17] INFO         GA | Gen 1/15 | Best: 3151 | Patience: 1/3
+[2026-04-30 10:11:19] INFO         GA | Gen 2/15 | Best: 3151 | Patience: 2/3
+[2026-04-30 10:11:20] INFO         GA | Gen 3/15 | Best: 3151 | Patience: 3/3
+[2026-04-30 10:11:20] INFO         GA | Early stopping at gen 3.
+[2026-04-30 10:11:20] INFO         EA finished in 5.6s | best makespan=3151
+[2026-04-30 10:11:20] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:14:09] INFO         synth_14/20  (synth_50x15_seed13.txt): 375,000 transitions collected
+[2026-04-30 10:14:09] INFO       ── synth_15/20  (synth_50x15_seed14.txt) ──
+[2026-04-30 10:14:11] INFO         GA | Gen 1/15 | Best: 3102 | Patience: 1/3
+[2026-04-30 10:14:12] INFO         GA | Gen 2/15 | Best: 3101 | Patience: 0/3
+[2026-04-30 10:14:14] INFO         GA | Gen 3/15 | Best: 3099 | Patience: 0/3
+[2026-04-30 10:14:16] INFO         GA | Gen 4/15 | Best: 3094 | Patience: 0/3
+[2026-04-30 10:14:17] INFO         GA | Gen 5/15 | Best: 3059 | Patience: 0/3
+[2026-04-30 10:14:19] INFO         GA | Gen 6/15 | Best: 3059 | Patience: 1/3
+[2026-04-30 10:14:20] INFO         GA | Gen 7/15 | Best: 3059 | Patience: 2/3
+[2026-04-30 10:14:22] INFO         GA | Gen 8/15 | Best: 3059 | Patience: 3/3
+[2026-04-30 10:14:22] INFO         GA | Early stopping at gen 8.
+[2026-04-30 10:14:22] INFO         EA finished in 13.3s | best makespan=3059
+[2026-04-30 10:14:22] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:17:12] INFO         synth_15/20  (synth_50x15_seed14.txt): 375,000 transitions collected
+[2026-04-30 10:17:12] INFO       ── synth_16/20  (synth_50x15_seed15.txt) ──
+[2026-04-30 10:17:15] INFO         GA | Gen 1/15 | Best: 3210 | Patience: 1/3
+[2026-04-30 10:17:16] INFO         GA | Gen 2/15 | Best: 3193 | Patience: 0/3
+[2026-04-30 10:17:18] INFO         GA | Gen 3/15 | Best: 3193 | Patience: 1/3
+[2026-04-30 10:17:19] INFO         GA | Gen 4/15 | Best: 3193 | Patience: 2/3
+[2026-04-30 10:17:21] INFO         GA | Gen 5/15 | Best: 3185 | Patience: 0/3
+[2026-04-30 10:17:22] INFO         GA | Gen 6/15 | Best: 3181 | Patience: 0/3
+[2026-04-30 10:17:24] INFO         GA | Gen 7/15 | Best: 3176 | Patience: 0/3
+[2026-04-30 10:17:25] INFO         GA | Gen 8/15 | Best: 3142 | Patience: 0/3
+[2026-04-30 10:17:27] INFO         GA | Gen 9/15 | Best: 3133 | Patience: 0/3
+[2026-04-30 10:17:28] INFO         GA | Gen 10/15 | Best: 3133 | Patience: 1/3
+[2026-04-30 10:17:30] INFO         GA | Gen 11/15 | Best: 3129 | Patience: 0/3
+[2026-04-30 10:17:32] INFO         GA | Gen 12/15 | Best: 3121 | Patience: 0/3
+[2026-04-30 10:17:33] INFO         GA | Gen 13/15 | Best: 3121 | Patience: 1/3
+[2026-04-30 10:17:35] INFO         GA | Gen 14/15 | Best: 3121 | Patience: 2/3
+[2026-04-30 10:17:36] INFO         GA | Gen 15/15 | Best: 3090 | Patience: 0/3
+[2026-04-30 10:17:36] INFO         EA finished in 24.1s | best makespan=3090
+[2026-04-30 10:17:36] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:20:27] INFO         synth_16/20  (synth_50x15_seed15.txt): 375,000 transitions collected
+[2026-04-30 10:20:27] INFO       ── synth_17/20  (synth_50x15_seed16.txt) ──
+[2026-04-30 10:20:29] INFO         GA | Gen 1/15 | Best: 3353 | Patience: 0/3
+[2026-04-30 10:20:31] INFO         GA | Gen 2/15 | Best: 3328 | Patience: 0/3
+[2026-04-30 10:20:32] INFO         GA | Gen 3/15 | Best: 3328 | Patience: 1/3
+[2026-04-30 10:20:34] INFO         GA | Gen 4/15 | Best: 3328 | Patience: 2/3
+[2026-04-30 10:20:36] INFO         GA | Gen 5/15 | Best: 3328 | Patience: 3/3
+[2026-04-30 10:20:36] INFO         GA | Early stopping at gen 5.
+[2026-04-30 10:20:36] INFO         EA finished in 8.7s | best makespan=3328
+[2026-04-30 10:20:36] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:23:28] INFO         synth_17/20  (synth_50x15_seed16.txt): 375,000 transitions collected
+[2026-04-30 10:23:28] INFO       ── synth_18/20  (synth_50x15_seed17.txt) ──
+[2026-04-30 10:23:31] INFO         GA | Gen 1/15 | Best: 3100 | Patience: 0/3
+[2026-04-30 10:23:32] INFO         GA | Gen 2/15 | Best: 3058 | Patience: 0/3
+[2026-04-30 10:23:34] INFO         GA | Gen 3/15 | Best: 3058 | Patience: 1/3
+[2026-04-30 10:23:35] INFO         GA | Gen 4/15 | Best: 3058 | Patience: 2/3
+[2026-04-30 10:23:37] INFO         GA | Gen 5/15 | Best: 3019 | Patience: 0/3
+[2026-04-30 10:23:38] INFO         GA | Gen 6/15 | Best: 3019 | Patience: 1/3
+[2026-04-30 10:23:40] INFO         GA | Gen 7/15 | Best: 3019 | Patience: 2/3
+[2026-04-30 10:23:41] INFO         GA | Gen 8/15 | Best: 3019 | Patience: 3/3
+[2026-04-30 10:23:41] INFO         GA | Early stopping at gen 8.
+[2026-04-30 10:23:41] INFO         EA finished in 13.3s | best makespan=3019
+[2026-04-30 10:23:41] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:26:28] INFO         synth_18/20  (synth_50x15_seed17.txt): 375,000 transitions collected
+[2026-04-30 10:26:28] INFO       ── synth_19/20  (synth_50x15_seed18.txt) ──
+[2026-04-30 10:26:30] INFO         GA | Gen 1/15 | Best: 3230 | Patience: 1/3
+[2026-04-30 10:26:32] INFO         GA | Gen 2/15 | Best: 3230 | Patience: 2/3
+[2026-04-30 10:26:33] INFO         GA | Gen 3/15 | Best: 3230 | Patience: 3/3
+[2026-04-30 10:26:33] INFO         GA | Early stopping at gen 3.
+[2026-04-30 10:26:33] INFO         EA finished in 5.6s | best makespan=3230
+[2026-04-30 10:26:33] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:29:24] INFO         synth_19/20  (synth_50x15_seed18.txt): 375,000 transitions collected
+[2026-04-30 10:29:24] INFO       ── synth_20/20  (synth_50x15_seed19.txt) ──
+[2026-04-30 10:29:26] INFO         GA | Gen 1/15 | Best: 3229 | Patience: 0/3
+[2026-04-30 10:29:28] INFO         GA | Gen 2/15 | Best: 3229 | Patience: 1/3
+[2026-04-30 10:29:29] INFO         GA | Gen 3/15 | Best: 3229 | Patience: 2/3
+[2026-04-30 10:29:31] INFO         GA | Gen 4/15 | Best: 3150 | Patience: 0/3
+[2026-04-30 10:29:32] INFO         GA | Gen 5/15 | Best: 3150 | Patience: 1/3
+[2026-04-30 10:29:34] INFO         GA | Gen 6/15 | Best: 3150 | Patience: 2/3
+[2026-04-30 10:29:35] INFO         GA | Gen 7/15 | Best: 3150 | Patience: 3/3
+[2026-04-30 10:29:35] INFO         GA | Early stopping at gen 7.
+[2026-04-30 10:29:35] INFO         EA finished in 11.7s | best makespan=3150
+[2026-04-30 10:29:35] INFO         Experts: top 25 | Replaying 500 episodes (ε=0.05)
+[2026-04-30 10:32:27] INFO         synth_20/20  (synth_50x15_seed19.txt): 375,000 transitions collected
+[2026-04-30 10:32:27] INFO       Pooled 7,500,000 transitions from 20 synthetic instance(s)
+[2026-04-30 10:32:27] INFO       Demo consistency: all observations unique (good)
+[2026-04-30 10:32:27] INFO     
+[2026-04-30 10:32:27] INFO     ═══ Stage 3: Behaviour Cloning ═══
+[2026-04-30 10:32:27] INFO       Episode-level split: ~9000 train / ~1000 val episodes (6,750,000 / 750,000 transitions)
+[2026-04-30 10:32:43] INFO       Obs shape: (50, 10) | Actions: 51
+[2026-04-30 10:32:43] INFO       BC network: [512, 512, 256] → 51
+[2026-04-30 10:32:43] INFO       Action distribution (top 5): job 49: 135000 (2.0%), job 48: 135000 (2.0%), job 47: 135000 (2.0%), job 46: 135000 (2.0%), job 45: 135000 (2.0%)
+[2026-04-30 10:32:43] INFO     Model: "model"
+[2026-04-30 10:32:43] INFO     _________________________________________________________________
+[2026-04-30 10:32:43] INFO     Layer (type)                 Output Shape              Param #   
+[2026-04-30 10:32:43] INFO     =================================================================
+[2026-04-30 10:32:43] INFO     obs (InputLayer)             [(None, 50, 10)]          0         
+[2026-04-30 10:32:43] INFO     _________________________________________________________________
+[2026-04-30 10:32:43] INFO     flatten (Flatten)            (None, 500)               0         
+[2026-04-30 10:32:43] INFO     _________________________________________________________________
+[2026-04-30 10:32:43] INFO     fc_1 (Dense)                 (None, 512)               256512    
+[2026-04-30 10:32:43] INFO     _________________________________________________________________
+[2026-04-30 10:32:43] INFO     fc_2 (Dense)                 (None, 512)               262656    
+[2026-04-30 10:32:43] INFO     _________________________________________________________________
+[2026-04-30 10:32:43] INFO     fc_3 (Dense)                 (None, 256)               131328    
+[2026-04-30 10:32:43] INFO     _________________________________________________________________
+[2026-04-30 10:32:43] INFO     fc_out (Dense)               (None, 51)                13107     
+[2026-04-30 10:32:43] INFO     =================================================================
+[2026-04-30 10:32:43] INFO     Total params: 663,603
+[2026-04-30 10:32:43] INFO     Trainable params: 663,603
+[2026-04-30 10:32:43] INFO     Non-trainable params: 0
+[2026-04-30 10:32:43] INFO     _________________________________________________________________
+[2026-04-30 10:57:46] INFO       BC complete (11/50 epochs) | val acc: 0.5442 | random baseline: 0.0196
+[2026-04-30 10:57:46] INFO       BC accuracy >> random baseline ✓
+[2026-04-30 10:57:46] INFO       BC weights saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260430_ta5_exp1/bc_weights
+[2026-04-30 10:57:46] INFO     
+[2026-04-30 10:57:46] INFO     ═══ Stage 4: Out-of-Sample Evaluation (real Taillard instances) ═══
+[2026-04-30 10:57:46] INFO       NOTE: none of these instances were seen during training — all training used synthetically generated data.
+[2026-04-30 10:57:46] INFO       ── Evaluating: ta51  (BKS=2760.0) ──
+[2026-04-30 10:57:48] INFO         BC  | avg=3412 (gap +23.62%) | best=3412 (gap +23.62%)
+[2026-04-30 10:57:50] INFO         GA | Gen 1/15 | Best: 3413 | Patience: 0/3
+[2026-04-30 10:57:52] INFO         GA | Gen 2/15 | Best: 3357 | Patience: 0/3
+[2026-04-30 10:57:53] INFO         GA | Gen 3/15 | Best: 3357 | Patience: 1/3
+[2026-04-30 10:57:55] INFO         GA | Gen 4/15 | Best: 3357 | Patience: 2/3
+[2026-04-30 10:57:56] INFO         GA | Gen 5/15 | Best: 3299 | Patience: 0/3
+[2026-04-30 10:57:58] INFO         GA | Gen 6/15 | Best: 3299 | Patience: 1/3
+[2026-04-30 10:57:59] INFO         GA | Gen 7/15 | Best: 3299 | Patience: 2/3
+[2026-04-30 10:58:01] INFO         GA | Gen 8/15 | Best: 3299 | Patience: 3/3
+[2026-04-30 10:58:01] INFO         GA | Early stopping at gen 8.
+[2026-04-30 10:58:01] INFO         EA  | best=3299 (gap +19.53%) in 13.2s
+[2026-04-30 10:58:01] INFO       ── Evaluating: ta52  (BKS=2756.0) ──
+[2026-04-30 10:58:02] INFO         BC  | avg=3455 (gap +25.36%) | best=3455 (gap +25.36%)
+[2026-04-30 10:58:05] INFO         GA | Gen 1/15 | Best: 3322 | Patience: 1/3
+[2026-04-30 10:58:06] INFO         GA | Gen 2/15 | Best: 3249 | Patience: 0/3
+[2026-04-30 10:58:08] INFO         GA | Gen 3/15 | Best: 3235 | Patience: 0/3
+[2026-04-30 10:58:09] INFO         GA | Gen 4/15 | Best: 3235 | Patience: 1/3
+[2026-04-30 10:58:11] INFO         GA | Gen 5/15 | Best: 3235 | Patience: 2/3
+[2026-04-30 10:58:12] INFO         GA | Gen 6/15 | Best: 3235 | Patience: 3/3
+[2026-04-30 10:58:12] INFO         GA | Early stopping at gen 6.
+[2026-04-30 10:58:12] INFO         EA  | best=3235 (gap +17.38%) in 10.3s
+[2026-04-30 10:58:12] INFO       ── Evaluating: ta53  (BKS=2717.0) ──
+[2026-04-30 10:58:14] INFO         BC  | avg=3362 (gap +23.74%) | best=3362 (gap +23.74%)
+[2026-04-30 10:58:16] INFO         GA | Gen 1/15 | Best: 3165 | Patience: 0/3
+[2026-04-30 10:58:18] INFO         GA | Gen 2/15 | Best: 3165 | Patience: 1/3
+[2026-04-30 10:58:19] INFO         GA | Gen 3/15 | Best: 3165 | Patience: 2/3
+[2026-04-30 10:58:21] INFO         GA | Gen 4/15 | Best: 3165 | Patience: 3/3
+[2026-04-30 10:58:21] INFO         GA | Early stopping at gen 4.
+[2026-04-30 10:58:21] INFO         EA  | best=3165 (gap +16.49%) in 7.2s
+[2026-04-30 10:58:21] INFO       ── Evaluating: ta54  (BKS=2839.0) ──
+[2026-04-30 10:58:22] INFO         BC  | avg=3122 (gap +9.97%) | best=3122 (gap +9.97%)
+[2026-04-30 10:58:25] INFO         GA | Gen 1/15 | Best: 3209 | Patience: 0/3
+[2026-04-30 10:58:26] INFO         GA | Gen 2/15 | Best: 3202 | Patience: 0/3
+[2026-04-30 10:58:28] INFO         GA | Gen 3/15 | Best: 3202 | Patience: 1/3
+[2026-04-30 10:58:29] INFO         GA | Gen 4/15 | Best: 3174 | Patience: 0/3
+[2026-04-30 10:58:31] INFO         GA | Gen 5/15 | Best: 3165 | Patience: 0/3
+[2026-04-30 10:58:33] INFO         GA | Gen 6/15 | Best: 3139 | Patience: 0/3
+[2026-04-30 10:58:34] INFO         GA | Gen 7/15 | Best: 3139 | Patience: 1/3
+[2026-04-30 10:58:36] INFO         GA | Gen 8/15 | Best: 3137 | Patience: 0/3
+[2026-04-30 10:58:37] INFO         GA | Gen 9/15 | Best: 3118 | Patience: 0/3
+[2026-04-30 10:58:39] INFO         GA | Gen 10/15 | Best: 3118 | Patience: 1/3
+[2026-04-30 10:58:40] INFO         GA | Gen 11/15 | Best: 3112 | Patience: 0/3
+[2026-04-30 10:58:42] INFO         GA | Gen 12/15 | Best: 3112 | Patience: 1/3
+[2026-04-30 10:58:43] INFO         GA | Gen 13/15 | Best: 3097 | Patience: 0/3
+[2026-04-30 10:58:45] INFO         GA | Gen 14/15 | Best: 3097 | Patience: 1/3
+[2026-04-30 10:58:46] INFO         GA | Gen 15/15 | Best: 3097 | Patience: 2/3
+[2026-04-30 10:58:46] INFO         EA  | best=3097 (gap +9.09%) in 24.2s
+[2026-04-30 10:58:46] INFO       ── Evaluating: ta55  (BKS=2679.0) ──
+[2026-04-30 10:58:48] INFO         BC  | avg=3224 (gap +20.34%) | best=3224 (gap +20.34%)
+[2026-04-30 10:58:50] INFO         GA | Gen 1/15 | Best: 3247 | Patience: 0/3
+[2026-04-30 10:58:52] INFO         GA | Gen 2/15 | Best: 3247 | Patience: 1/3
+[2026-04-30 10:58:53] INFO         GA | Gen 3/15 | Best: 3235 | Patience: 0/3
+[2026-04-30 10:58:55] INFO         GA | Gen 4/15 | Best: 3209 | Patience: 0/3
+[2026-04-30 10:58:56] INFO         GA | Gen 5/15 | Best: 3209 | Patience: 1/3
+[2026-04-30 10:58:58] INFO         GA | Gen 6/15 | Best: 3177 | Patience: 0/3
+[2026-04-30 10:59:00] INFO         GA | Gen 7/15 | Best: 3177 | Patience: 1/3
+[2026-04-30 10:59:01] INFO         GA | Gen 8/15 | Best: 3177 | Patience: 2/3
+[2026-04-30 10:59:03] INFO         GA | Gen 9/15 | Best: 3177 | Patience: 3/3
+[2026-04-30 10:59:03] INFO         GA | Early stopping at gen 9.
+[2026-04-30 10:59:03] INFO         EA  | best=3177 (gap +18.59%) in 14.8s
+[2026-04-30 10:59:03] INFO       ── Evaluating: ta56  (BKS=2781.0) ──
+[2026-04-30 10:59:04] INFO         BC  | avg=3337 (gap +19.99%) | best=3337 (gap +19.99%)
+[2026-04-30 10:59:06] INFO         GA | Gen 1/15 | Best: 3197 | Patience: 0/3
+[2026-04-30 10:59:08] INFO         GA | Gen 2/15 | Best: 3197 | Patience: 1/3
+[2026-04-30 10:59:09] INFO         GA | Gen 3/15 | Best: 3197 | Patience: 2/3
+[2026-04-30 10:59:11] INFO         GA | Gen 4/15 | Best: 3190 | Patience: 0/3
+[2026-04-30 10:59:12] INFO         GA | Gen 5/15 | Best: 3190 | Patience: 1/3
+[2026-04-30 10:59:14] INFO         GA | Gen 6/15 | Best: 3161 | Patience: 0/3
+[2026-04-30 10:59:15] INFO         GA | Gen 7/15 | Best: 3161 | Patience: 1/3
+[2026-04-30 10:59:17] INFO         GA | Gen 8/15 | Best: 3161 | Patience: 2/3
+[2026-04-30 10:59:19] INFO         GA | Gen 9/15 | Best: 3161 | Patience: 3/3
+[2026-04-30 10:59:19] INFO         GA | Early stopping at gen 9.
+[2026-04-30 10:59:19] INFO         EA  | best=3161 (gap +13.66%) in 14.6s
+[2026-04-30 10:59:19] INFO       ── Evaluating: ta57  (BKS=2943.0) ──
+[2026-04-30 10:59:20] INFO         BC  | avg=3305 (gap +12.30%) | best=3305 (gap +12.30%)
+[2026-04-30 10:59:22] INFO         GA | Gen 1/15 | Best: 3405 | Patience: 0/3
+[2026-04-30 10:59:24] INFO         GA | Gen 2/15 | Best: 3405 | Patience: 1/3
+[2026-04-30 10:59:25] INFO         GA | Gen 3/15 | Best: 3405 | Patience: 2/3
+[2026-04-30 10:59:27] INFO         GA | Gen 4/15 | Best: 3344 | Patience: 0/3
+[2026-04-30 10:59:28] INFO         GA | Gen 5/15 | Best: 3340 | Patience: 0/3
+[2026-04-30 10:59:30] INFO         GA | Gen 6/15 | Best: 3325 | Patience: 0/3
+[2026-04-30 10:59:32] INFO         GA | Gen 7/15 | Best: 3302 | Patience: 0/3
+[2026-04-30 10:59:33] INFO         GA | Gen 8/15 | Best: 3298 | Patience: 0/3
+[2026-04-30 10:59:35] INFO         GA | Gen 9/15 | Best: 3266 | Patience: 0/3
+[2026-04-30 10:59:36] INFO         GA | Gen 10/15 | Best: 3266 | Patience: 1/3
+[2026-04-30 10:59:38] INFO         GA | Gen 11/15 | Best: 3264 | Patience: 0/3
+[2026-04-30 10:59:39] INFO         GA | Gen 12/15 | Best: 3264 | Patience: 1/3
+[2026-04-30 10:59:41] INFO         GA | Gen 13/15 | Best: 3255 | Patience: 0/3
+[2026-04-30 10:59:42] INFO         GA | Gen 14/15 | Best: 3194 | Patience: 0/3
+[2026-04-30 10:59:44] INFO         GA | Gen 15/15 | Best: 3194 | Patience: 1/3
+[2026-04-30 10:59:44] INFO         EA  | best=3194 (gap +8.53%) in 23.9s
+[2026-04-30 10:59:44] INFO       ── Evaluating: ta58  (BKS=2885.0) ──
+[2026-04-30 10:59:45] INFO         BC  | avg=3543 (gap +22.81%) | best=3543 (gap +22.81%)
+[2026-04-30 10:59:47] INFO         GA | Gen 1/15 | Best: 3412 | Patience: 0/3
+[2026-04-30 10:59:49] INFO         GA | Gen 2/15 | Best: 3365 | Patience: 0/3
+[2026-04-30 10:59:51] INFO         GA | Gen 3/15 | Best: 3365 | Patience: 1/3
+[2026-04-30 10:59:52] INFO         GA | Gen 4/15 | Best: 3347 | Patience: 0/3
+[2026-04-30 10:59:54] INFO         GA | Gen 5/15 | Best: 3347 | Patience: 1/3
+[2026-04-30 10:59:55] INFO         GA | Gen 6/15 | Best: 3303 | Patience: 0/3
+[2026-04-30 10:59:57] INFO         GA | Gen 7/15 | Best: 3303 | Patience: 1/3
+[2026-04-30 10:59:58] INFO         GA | Gen 8/15 | Best: 3303 | Patience: 2/3
+[2026-04-30 11:00:00] INFO         GA | Gen 9/15 | Best: 3297 | Patience: 0/3
+[2026-04-30 11:00:01] INFO         GA | Gen 10/15 | Best: 3297 | Patience: 1/3
+[2026-04-30 11:00:03] INFO         GA | Gen 11/15 | Best: 3297 | Patience: 2/3
+[2026-04-30 11:00:04] INFO         GA | Gen 12/15 | Best: 3297 | Patience: 3/3
+[2026-04-30 11:00:04] INFO         GA | Early stopping at gen 12.
+[2026-04-30 11:00:04] INFO         EA  | best=3297 (gap +14.28%) in 19.2s
+[2026-04-30 11:00:04] INFO       ── Evaluating: ta59  (BKS=2655.0) ──
+[2026-04-30 11:00:06] INFO         BC  | avg=3147 (gap +18.53%) | best=3147 (gap +18.53%)
+[2026-04-30 11:00:08] INFO         GA | Gen 1/15 | Best: 3187 | Patience: 1/3
+[2026-04-30 11:00:10] INFO         GA | Gen 2/15 | Best: 3183 | Patience: 0/3
+[2026-04-30 11:00:11] INFO         GA | Gen 3/15 | Best: 3175 | Patience: 0/3
+[2026-04-30 11:00:13] INFO         GA | Gen 4/15 | Best: 3175 | Patience: 1/3
+[2026-04-30 11:00:14] INFO         GA | Gen 5/15 | Best: 3101 | Patience: 0/3
+[2026-04-30 11:00:16] INFO         GA | Gen 6/15 | Best: 3101 | Patience: 1/3
+[2026-04-30 11:00:17] INFO         GA | Gen 7/15 | Best: 3101 | Patience: 2/3
+[2026-04-30 11:00:19] INFO         GA | Gen 8/15 | Best: 3101 | Patience: 3/3
+[2026-04-30 11:00:19] INFO         GA | Early stopping at gen 8.
+[2026-04-30 11:00:19] INFO         EA  | best=3101 (gap +16.80%) in 13.2s
+[2026-04-30 11:00:19] INFO       ── Evaluating: ta60  (BKS=2723.0) ──
+[2026-04-30 11:00:20] INFO         BC  | avg=3074 (gap +12.89%) | best=3074 (gap +12.89%)
+[2026-04-30 11:00:23] INFO         GA | Gen 1/15 | Best: 3169 | Patience: 0/3
+[2026-04-30 11:00:24] INFO         GA | Gen 2/15 | Best: 3156 | Patience: 0/3
+[2026-04-30 11:00:26] INFO         GA | Gen 3/15 | Best: 3156 | Patience: 1/3
+[2026-04-30 11:00:27] INFO         GA | Gen 4/15 | Best: 3138 | Patience: 0/3
+[2026-04-30 11:00:29] INFO         GA | Gen 5/15 | Best: 3081 | Patience: 0/3
+[2026-04-30 11:00:30] INFO         GA | Gen 6/15 | Best: 3081 | Patience: 1/3
+[2026-04-30 11:00:32] INFO         GA | Gen 7/15 | Best: 3081 | Patience: 2/3
+[2026-04-30 11:00:33] INFO         GA | Gen 8/15 | Best: 3081 | Patience: 3/3
+[2026-04-30 11:00:33] INFO         GA | Early stopping at gen 8.
+[2026-04-30 11:00:33] INFO         EA  | best=3081 (gap +13.15%) in 13.4s
+[2026-04-30 11:00:33] INFO     
+[2026-04-30 11:00:33] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-04-30 11:00:33] INFO       out_of_sample Summary
+[2026-04-30 11:00:33] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-04-30 11:00:33] INFO       Instance         BKS    BC avg    gap%   BC best    gap%   EA best    gap%
+[2026-04-30 11:00:33] INFO       ──────────────────────────────────────────────────────────────────────────
+[2026-04-30 11:00:33] INFO       ta51            2760      3412  +23.62%      3412  +23.62%      3299  +19.53%
+[2026-04-30 11:00:33] INFO       ta52            2756      3455  +25.36%      3455  +25.36%      3235  +17.38%
+[2026-04-30 11:00:33] INFO       ta53            2717      3362  +23.74%      3362  +23.74%      3165  +16.49%
+[2026-04-30 11:00:33] INFO       ta54            2839      3122   +9.97%      3122   +9.97%      3097   +9.09%
+[2026-04-30 11:00:33] INFO       ta55            2679      3224  +20.34%      3224  +20.34%      3177  +18.59%
+[2026-04-30 11:00:33] INFO       ta56            2781      3337  +19.99%      3337  +19.99%      3161  +13.66%
+[2026-04-30 11:00:33] INFO       ta57            2943      3305  +12.30%      3305  +12.30%      3194   +8.53%
+[2026-04-30 11:00:33] INFO       ta58            2885      3543  +22.81%      3543  +22.81%      3297  +14.28%
+[2026-04-30 11:00:33] INFO       ta59            2655      3147  +18.53%      3147  +18.53%      3101  +16.80%
+[2026-04-30 11:00:33] INFO       ta60            2723      3074  +12.89%      3074  +12.89%      3081  +13.15%
+[2026-04-30 11:00:33] INFO       ──────────────────────────────────────────────────────────────────────────
+[2026-04-30 11:00:33] INFO       MEAN                            +18.96%
+[2026-04-30 11:00:33] INFO       MEAN (EA)                                                           +14.75%
+[2026-04-30 11:00:33] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-04-30 11:00:34] INFO       CSV saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260430_ta5_exp1/bc_eval_out_of_sample.csv
+[2026-04-30 11:00:34] INFO     
+[2026-04-30 11:00:34] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-04-30 11:00:34] INFO       Stage 4: Statistical Tests  (out-of-sample eval instances)
+[2026-04-30 11:00:34] INFO       α = 0.05  |  two-sided tests throughout
+[2026-04-30 11:00:34] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-04-30 11:00:34] INFO     
+[2026-04-30 11:00:34] INFO       T1  BC (out-of-sample) gap% vs BKS
+[2026-04-30 11:00:34] INFO           H₀: mean gap == 0  (BC matches BKS)
+[2026-04-30 11:00:34] INFO           H₁: mean gap ≠ 0
+[2026-04-30 11:00:34] INFO           Values: ['23.62%', '25.36%', '23.74%', '9.97%', '20.34%', '19.99%', '12.30%', '22.81%', '18.53%', '12.89%']
+[2026-04-30 11:00:34] INFO     
+[2026-04-30 11:00:34] INFO       ── T1: BC out-of-sample vs BKS ──
+[2026-04-30 11:00:34] INFO          Test:           Wilcoxon signed-rank  (n=10)
+[2026-04-30 11:00:34] INFO          Statistic:      0.0000
+[2026-04-30 11:00:34] INFO          p-value:        0.0020
+[2026-04-30 11:00:34] INFO          Interpretation: SIGNIFICANT (p=0.0020 < α=0.05) — BC gap is reliably above BKS (worse), mean=+18.96%
+[2026-04-30 11:00:34] INFO     
+[2026-04-30 11:00:34] INFO       T2  BC gap% vs EA gap% (paired per instance)
+[2026-04-30 11:00:34] INFO           H₀: BC gap == EA gap  (BC and EA perform equally)
+[2026-04-30 11:00:34] INFO           H₁: BC gap ≠ EA gap
+[2026-04-30 11:00:34] INFO           BC  gaps: ['23.62%', '25.36%', '23.74%', '9.97%', '20.34%', '19.99%', '12.30%', '22.81%', '18.53%', '12.89%']
+[2026-04-30 11:00:34] INFO           EA  gaps: ['19.53%', '17.38%', '16.49%', '9.09%', '18.59%', '13.66%', '8.53%', '14.28%', '16.80%', '13.15%']
+[2026-04-30 11:00:34] INFO     
+[2026-04-30 11:00:34] INFO       ── T2: BC vs EA (paired, out-of-sample) ──
+[2026-04-30 11:00:34] INFO          Test:           Wilcoxon signed-rank  (n=10)
+[2026-04-30 11:00:34] INFO          Statistic:      1.0000
+[2026-04-30 11:00:34] INFO          p-value:        0.0039
+[2026-04-30 11:00:34] INFO          Interpretation: SIGNIFICANT (p=0.0039 < α=0.05) — BC is WORSE than EA (mean gap: +18.96% vs +14.75%)
+[2026-04-30 11:00:34] INFO     
+[2026-04-30 11:00:34] INFO       T3  Skipped — requires --bc-eval-episodes > 1 and EA baseline.
+[2026-04-30 11:00:34] INFO     
+[2026-04-30 11:00:34] INFO       ── Descriptive Statistics (out-of-sample) ──
+[2026-04-30 11:00:34] INFO       Metric                                       Mean      Std      Min      Max
+[2026-04-30 11:00:34] INFO       ────────────────────────────────────────────────────────────────────────────
+[2026-04-30 11:00:34] INFO       BC gap% (out-of-sample, avg per instance)   +18.96     5.15    +9.97   +25.36
+[2026-04-30 11:00:34] INFO       EA gap% (out-of-sample, best per instance)   +14.75     3.56    +8.53   +19.53
+[2026-04-30 11:00:34] INFO       BC − EA gap% (positive = BC worse)          +4.21     3.00    -0.26    +8.53
+[2026-04-30 11:00:34] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-04-30 11:00:34] INFO     
+[2026-04-30 11:00:34] INFO     ======================================================================
+[2026-04-30 11:00:34] INFO     Pipeline complete.
+[2026-04-30 11:00:34] INFO       BC weights:       /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260430_ta5_exp1/bc_weights
+[2026-04-30 11:00:34] INFO       Eval CSV:         /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260430_ta5_exp1/bc_eval_out_of_sample.csv
+[2026-04-30 11:00:34] INFO       Full log:         /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260430_ta5_exp1/results.txt
+[2026-04-30 11:00:34] INFO     ======================================================================

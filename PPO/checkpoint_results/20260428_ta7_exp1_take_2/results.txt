@@ -1,0 +1,161 @@
+[2026-04-29 11:56:28] INFO     ======================================================================
+[2026-04-29 11:56:28] INFO     Multi-Instance EA Warm-Start → Behaviour Cloning Pipeline
+[2026-04-29 11:56:28] INFO     ======================================================================
+[2026-04-29 11:56:28] INFO     Dimensionality:      100 jobs × 20 machines
+[2026-04-29 11:56:28] INFO     Train instances:     ['ta71', 'ta72', 'ta73', 'ta74', 'ta75', 'ta76', 'ta77', 'ta78']
+[2026-04-29 11:56:28] INFO     Eval instances:      ['ta79', 'ta80']
+[2026-04-29 11:56:28] INFO     EA algorithm:        GA
+[2026-04-29 11:56:28] INFO     EA pop / gens:       50 / 10
+[2026-04-29 11:56:28] INFO     EA SA iters:         500
+[2026-04-29 11:56:28] INFO     BC epochs:           50
+[2026-04-29 11:56:28] INFO     BC network:          [512, 512, 256]
+[2026-04-29 11:56:28] INFO     BC demo eps/inst:    500  (~1,000,000 transitions each)
+[2026-04-29 11:56:28] INFO     BC epsilon:          0.05  (5% noise)
+[2026-04-29 11:56:28] INFO     BC eval episodes:    1
+[2026-04-29 11:56:28] INFO     EA baseline on eval: True
+[2026-04-29 11:56:28] INFO     Significance level:  α=0.05
+[2026-04-29 11:56:28] INFO     Output dir:          /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta7_exp1_take_2
+[2026-04-29 11:56:28] INFO     Log file:            /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta7_exp1_take_2/results.txt
+[2026-04-29 11:56:28] INFO     ======================================================================
+[2026-04-29 11:56:28] INFO     
+[2026-04-29 11:56:28] INFO     ═══ Stage 1: Collecting EA Demonstrations (training instances) ═══
+[2026-04-29 11:56:28] INFO       ── ta71  (BKS=5464.0) ──
+[2026-04-29 11:56:42] INFO         GA | Gen 1/10 | Best: 6071 | Patience: 0/3
+[2026-04-29 11:56:52] INFO         GA | Gen 2/10 | Best: 6071 | Patience: 1/3
+[2026-04-29 11:57:01] INFO         GA | Gen 3/10 | Best: 6071 | Patience: 2/3
+[2026-04-29 11:57:10] INFO         GA | Gen 4/10 | Best: 6048 | Patience: 0/3
+[2026-04-29 11:57:20] INFO         GA | Gen 5/10 | Best: 6048 | Patience: 1/3
+[2026-04-29 11:57:29] INFO         GA | Gen 6/10 | Best: 6048 | Patience: 2/3
+[2026-04-29 11:57:39] INFO         GA | Gen 7/10 | Best: 6044 | Patience: 0/3
+[2026-04-29 11:57:48] INFO         GA | Gen 8/10 | Best: 6025 | Patience: 0/3
+[2026-04-29 11:57:57] INFO         GA | Gen 9/10 | Best: 6025 | Patience: 1/3
+[2026-04-29 11:58:07] INFO         GA | Gen 10/10 | Best: 5988 | Patience: 0/3
+[2026-04-29 11:58:07] INFO         EA finished in 98.2s | best=5988 | gap=9.59%
+[2026-04-29 11:58:07] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 12:11:43] INFO         ta71: 1,000,000 transitions collected
+[2026-04-29 12:11:43] INFO       ── ta72  (BKS=5181.0) ──
+[2026-04-29 12:11:57] INFO         GA | Gen 1/10 | Best: 5703 | Patience: 0/3
+[2026-04-29 12:12:06] INFO         GA | Gen 2/10 | Best: 5677 | Patience: 0/3
+[2026-04-29 12:12:16] INFO         GA | Gen 3/10 | Best: 5661 | Patience: 0/3
+[2026-04-29 12:12:26] INFO         GA | Gen 4/10 | Best: 5661 | Patience: 1/3
+[2026-04-29 12:12:35] INFO         GA | Gen 5/10 | Best: 5658 | Patience: 0/3
+[2026-04-29 12:12:44] INFO         GA | Gen 6/10 | Best: 5648 | Patience: 0/3
+[2026-04-29 12:12:54] INFO         GA | Gen 7/10 | Best: 5648 | Patience: 1/3
+[2026-04-29 12:13:03] INFO         GA | Gen 8/10 | Best: 5639 | Patience: 0/3
+[2026-04-29 12:13:12] INFO         GA | Gen 9/10 | Best: 5601 | Patience: 0/3
+[2026-04-29 12:13:21] INFO         GA | Gen 10/10 | Best: 5601 | Patience: 1/3
+[2026-04-29 12:13:21] INFO         EA finished in 98.5s | best=5601 | gap=8.11%
+[2026-04-29 12:13:21] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 12:26:10] INFO         ta72: 1,000,000 transitions collected
+[2026-04-29 12:26:10] INFO       ── ta73  (BKS=5568.0) ──
+[2026-04-29 12:26:24] INFO         GA | Gen 1/10 | Best: 6165 | Patience: 1/3
+[2026-04-29 12:26:33] INFO         GA | Gen 2/10 | Best: 6157 | Patience: 0/3
+[2026-04-29 12:26:42] INFO         GA | Gen 3/10 | Best: 6083 | Patience: 0/3
+[2026-04-29 12:26:52] INFO         GA | Gen 4/10 | Best: 6083 | Patience: 1/3
+[2026-04-29 12:27:01] INFO         GA | Gen 5/10 | Best: 6077 | Patience: 0/3
+[2026-04-29 12:27:10] INFO         GA | Gen 6/10 | Best: 6077 | Patience: 1/3
+[2026-04-29 12:27:19] INFO         GA | Gen 7/10 | Best: 6055 | Patience: 0/3
+[2026-04-29 12:27:29] INFO         GA | Gen 8/10 | Best: 5996 | Patience: 0/3
+[2026-04-29 12:27:38] INFO         GA | Gen 9/10 | Best: 5996 | Patience: 1/3
+[2026-04-29 12:27:48] INFO         GA | Gen 10/10 | Best: 5996 | Patience: 2/3
+[2026-04-29 12:27:48] INFO         EA finished in 97.3s | best=5996 | gap=7.69%
+[2026-04-29 12:27:48] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 12:41:21] INFO         ta73: 1,000,000 transitions collected
+[2026-04-29 12:41:21] INFO       ── ta74  (BKS=5339.0) ──
+[2026-04-29 12:41:35] INFO         GA | Gen 1/10 | Best: 5779 | Patience: 0/3
+[2026-04-29 12:41:44] INFO         GA | Gen 2/10 | Best: 5779 | Patience: 1/3
+[2026-04-29 12:41:53] INFO         GA | Gen 3/10 | Best: 5753 | Patience: 0/3
+[2026-04-29 12:42:03] INFO         GA | Gen 4/10 | Best: 5749 | Patience: 0/3
+[2026-04-29 12:42:12] INFO         GA | Gen 5/10 | Best: 5749 | Patience: 1/3
+[2026-04-29 12:42:21] INFO         GA | Gen 6/10 | Best: 5749 | Patience: 2/3
+[2026-04-29 12:42:30] INFO         GA | Gen 7/10 | Best: 5749 | Patience: 3/3
+[2026-04-29 12:42:39] INFO         GA | Gen 8/10 | Best: 5749 | Patience: 4/3
+[2026-04-29 12:42:48] INFO         GA | Gen 9/10 | Best: 5749 | Patience: 5/3
+[2026-04-29 12:42:58] INFO         GA | Gen 10/10 | Best: 5749 | Patience: 6/3
+[2026-04-29 12:42:58] INFO         EA finished in 97.0s | best=5749 | gap=7.68%
+[2026-04-29 12:42:58] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 12:55:36] INFO         ta74: 1,000,000 transitions collected
+[2026-04-29 12:55:36] INFO       ── ta75  (BKS=5392.0) ──
+[2026-04-29 12:55:50] INFO         GA | Gen 1/10 | Best: 6117 | Patience: 0/3
+[2026-04-29 12:55:59] INFO         GA | Gen 2/10 | Best: 6093 | Patience: 0/3
+[2026-04-29 12:56:08] INFO         GA | Gen 3/10 | Best: 6093 | Patience: 1/3
+[2026-04-29 12:56:17] INFO         GA | Gen 4/10 | Best: 6072 | Patience: 0/3
+[2026-04-29 12:56:26] INFO         GA | Gen 5/10 | Best: 6072 | Patience: 1/3
+[2026-04-29 12:56:35] INFO         GA | Gen 6/10 | Best: 6054 | Patience: 0/3
+[2026-04-29 12:56:44] INFO         GA | Gen 7/10 | Best: 6054 | Patience: 1/3
+[2026-04-29 12:56:53] INFO         GA | Gen 8/10 | Best: 6054 | Patience: 2/3
+[2026-04-29 12:57:03] INFO         GA | Gen 9/10 | Best: 6043 | Patience: 0/3
+[2026-04-29 12:57:12] INFO         GA | Gen 10/10 | Best: 6043 | Patience: 1/3
+[2026-04-29 12:57:12] INFO         EA finished in 95.9s | best=6043 | gap=12.07%
+[2026-04-29 12:57:12] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 13:10:37] INFO         ta75: 1,000,000 transitions collected
+[2026-04-29 13:10:37] INFO       ── ta76  (BKS=5342.0) ──
+[2026-04-29 13:10:51] INFO         GA | Gen 1/10 | Best: 5932 | Patience: 1/3
+[2026-04-29 13:11:00] INFO         GA | Gen 2/10 | Best: 5932 | Patience: 2/3
+[2026-04-29 13:11:09] INFO         GA | Gen 3/10 | Best: 5920 | Patience: 0/3
+[2026-04-29 13:11:19] INFO         GA | Gen 4/10 | Best: 5836 | Patience: 0/3
+[2026-04-29 13:11:28] INFO         GA | Gen 5/10 | Best: 5836 | Patience: 1/3
+[2026-04-29 13:11:37] INFO         GA | Gen 6/10 | Best: 5836 | Patience: 2/3
+[2026-04-29 13:11:47] INFO         GA | Gen 7/10 | Best: 5836 | Patience: 3/3
+[2026-04-29 13:11:56] INFO         GA | Gen 8/10 | Best: 5836 | Patience: 4/3
+[2026-04-29 13:12:05] INFO         GA | Gen 9/10 | Best: 5836 | Patience: 5/3
+[2026-04-29 13:12:14] INFO         GA | Gen 10/10 | Best: 5836 | Patience: 6/3
+[2026-04-29 13:12:14] INFO         EA finished in 97.2s | best=5836 | gap=9.25%
+[2026-04-29 13:12:14] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 13:24:56] INFO         ta76: 1,000,000 transitions collected
+[2026-04-29 13:24:56] INFO       ── ta77  (BKS=5436.0) ──
+[2026-04-29 13:25:10] INFO         GA | Gen 1/10 | Best: 5954 | Patience: 1/3
+[2026-04-29 13:25:19] INFO         GA | Gen 2/10 | Best: 5944 | Patience: 0/3
+[2026-04-29 13:25:28] INFO         GA | Gen 3/10 | Best: 5934 | Patience: 0/3
+[2026-04-29 13:25:37] INFO         GA | Gen 4/10 | Best: 5934 | Patience: 1/3
+[2026-04-29 13:25:46] INFO         GA | Gen 5/10 | Best: 5914 | Patience: 0/3
+[2026-04-29 13:25:55] INFO         GA | Gen 6/10 | Best: 5886 | Patience: 0/3
+[2026-04-29 13:26:04] INFO         GA | Gen 7/10 | Best: 5862 | Patience: 0/3
+[2026-04-29 13:26:14] INFO         GA | Gen 8/10 | Best: 5862 | Patience: 1/3
+[2026-04-29 13:26:23] INFO         GA | Gen 9/10 | Best: 5862 | Patience: 2/3
+[2026-04-29 13:26:32] INFO         GA | Gen 10/10 | Best: 5862 | Patience: 3/3
+[2026-04-29 13:26:32] INFO         EA finished in 96.1s | best=5862 | gap=7.84%
+[2026-04-29 13:26:32] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 13:39:09] INFO         ta77: 1,000,000 transitions collected
+[2026-04-29 13:39:09] INFO       ── ta78  (BKS=5394.0) ──
+[2026-04-29 13:39:23] INFO         GA | Gen 1/10 | Best: 5902 | Patience: 0/3
+[2026-04-29 13:39:32] INFO         GA | Gen 2/10 | Best: 5902 | Patience: 1/3
+[2026-04-29 13:39:41] INFO         GA | Gen 3/10 | Best: 5902 | Patience: 2/3
+[2026-04-29 13:39:51] INFO         GA | Gen 4/10 | Best: 5900 | Patience: 0/3
+[2026-04-29 13:40:00] INFO         GA | Gen 5/10 | Best: 5900 | Patience: 1/3
+[2026-04-29 13:40:09] INFO         GA | Gen 6/10 | Best: 5900 | Patience: 2/3
+[2026-04-29 13:40:18] INFO         GA | Gen 7/10 | Best: 5884 | Patience: 0/3
+[2026-04-29 13:40:27] INFO         GA | Gen 8/10 | Best: 5884 | Patience: 1/3
+[2026-04-29 13:40:37] INFO         GA | Gen 9/10 | Best: 5825 | Patience: 0/3
+[2026-04-29 13:40:46] INFO         GA | Gen 10/10 | Best: 5825 | Patience: 1/3
+[2026-04-29 13:40:46] INFO         EA finished in 96.7s | best=5825 | gap=7.99%
+[2026-04-29 13:40:46] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 13:54:04] INFO         ta78: 1,000,000 transitions collected
+[2026-04-29 13:54:04] INFO       Pooled 8,000,000 transitions from 8 training instance(s)
+[2026-04-29 13:54:04] INFO       Demo consistency: all observations unique (good)
+[2026-04-29 13:54:04] INFO     
+[2026-04-29 13:54:04] INFO     ═══ Stage 2: Behaviour Cloning ═══
+[2026-04-29 13:54:04] INFO       Episode-level split: ~3600 train episodes / ~400 val episodes (7,200,000 / 800,000 transitions)
+[2026-04-29 13:57:03] INFO       Obs shape: (100, 10) | Actions: 101
+[2026-04-29 13:57:03] INFO       BC network: [512, 512, 256] → 101
+[2026-04-29 13:57:03] INFO       Action distribution (top 5): job 99: 72000 (1.0%), job 98: 72000 (1.0%), job 97: 72000 (1.0%), job 96: 72000 (1.0%), job 95: 72000 (1.0%)
+[2026-04-29 13:57:05] INFO     Model: "model"
+[2026-04-29 13:57:05] INFO     _________________________________________________________________
+[2026-04-29 13:57:05] INFO     Layer (type)                 Output Shape              Param #   
+[2026-04-29 13:57:05] INFO     =================================================================
+[2026-04-29 13:57:05] INFO     obs (InputLayer)             [(None, 100, 10)]         0         
+[2026-04-29 13:57:05] INFO     _________________________________________________________________
+[2026-04-29 13:57:05] INFO     flatten (Flatten)            (None, 1000)              0         
+[2026-04-29 13:57:05] INFO     _________________________________________________________________
+[2026-04-29 13:57:05] INFO     fc_1 (Dense)                 (None, 512)               512512    
+[2026-04-29 13:57:05] INFO     _________________________________________________________________
+[2026-04-29 13:57:05] INFO     fc_2 (Dense)                 (None, 512)               262656    
+[2026-04-29 13:57:05] INFO     _________________________________________________________________
+[2026-04-29 13:57:05] INFO     fc_3 (Dense)                 (None, 256)               131328    
+[2026-04-29 13:57:05] INFO     _________________________________________________________________
+[2026-04-29 13:57:05] INFO     fc_out (Dense)               (None, 101)               25957     
+[2026-04-29 13:57:05] INFO     =================================================================
+[2026-04-29 13:57:05] INFO     Total params: 932,453
+[2026-04-29 13:57:05] INFO     Trainable params: 932,453
+[2026-04-29 13:57:05] INFO     Non-trainable params: 0
+[2026-04-29 13:57:05] INFO     _________________________________________________________________

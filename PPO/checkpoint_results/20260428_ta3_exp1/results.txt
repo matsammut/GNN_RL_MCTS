@@ -1,0 +1,302 @@
+[2026-04-29 13:59:07] INFO     ======================================================================
+[2026-04-29 13:59:07] INFO     Multi-Instance EA Warm-Start → Behaviour Cloning Pipeline
+[2026-04-29 13:59:07] INFO     ======================================================================
+[2026-04-29 13:59:07] INFO     Dimensionality:      30 jobs × 15 machines
+[2026-04-29 13:59:07] INFO     Train instances:     ['ta31', 'ta32', 'ta33', 'ta34', 'ta35', 'ta36', 'ta37', 'ta38']
+[2026-04-29 13:59:07] INFO     Eval instances:      ['ta39', 'ta40']
+[2026-04-29 13:59:07] INFO     EA algorithm:        GA
+[2026-04-29 13:59:07] INFO     EA pop / gens:       50 / 10
+[2026-04-29 13:59:07] INFO     EA SA iters:         500
+[2026-04-29 13:59:07] INFO     BC epochs:           50
+[2026-04-29 13:59:07] INFO     BC network:          [512, 512, 256]
+[2026-04-29 13:59:07] INFO     BC demo eps/inst:    500  (~225,000 transitions each)
+[2026-04-29 13:59:07] INFO     BC epsilon:          0.05  (5% noise)
+[2026-04-29 13:59:07] INFO     BC eval episodes:    1
+[2026-04-29 13:59:07] INFO     EA baseline on eval: True
+[2026-04-29 13:59:07] INFO     Significance level:  α=0.05
+[2026-04-29 13:59:07] INFO     Output dir:          /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta3_exp1
+[2026-04-29 13:59:07] INFO     Log file:            /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta3_exp1/results.txt
+[2026-04-29 13:59:07] INFO     ======================================================================
+[2026-04-29 13:59:07] INFO     
+[2026-04-29 13:59:07] INFO     ═══ Stage 1: Collecting EA Demonstrations (training instances) ═══
+[2026-04-29 13:59:07] INFO       ── ta31  (BKS=1.0) ──
+[2026-04-29 13:59:08] INFO         GA | Gen 1/10 | Best: 2209 | Patience: 1/3
+[2026-04-29 13:59:08] INFO         GA | Gen 2/10 | Best: 2209 | Patience: 2/3
+[2026-04-29 13:59:09] INFO         GA | Gen 3/10 | Best: 2182 | Patience: 0/3
+[2026-04-29 13:59:09] INFO         GA | Gen 4/10 | Best: 2182 | Patience: 1/3
+[2026-04-29 13:59:10] INFO         GA | Gen 5/10 | Best: 2178 | Patience: 0/3
+[2026-04-29 13:59:10] INFO         GA | Gen 6/10 | Best: 2178 | Patience: 1/3
+[2026-04-29 13:59:11] INFO         GA | Gen 7/10 | Best: 2178 | Patience: 2/3
+[2026-04-29 13:59:12] INFO         GA | Gen 8/10 | Best: 2178 | Patience: 3/3
+[2026-04-29 13:59:12] INFO         GA | Gen 9/10 | Best: 2169 | Patience: 0/3
+[2026-04-29 13:59:13] INFO         GA | Gen 10/10 | Best: 2153 | Patience: 0/3
+[2026-04-29 13:59:13] INFO         EA finished in 6.2s | best=2153 | gap=215200.00%
+[2026-04-29 13:59:13] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 14:00:29] INFO         ta31: 225,000 transitions collected
+[2026-04-29 14:00:29] INFO       ── ta32  (BKS=1.0) ──
+[2026-04-29 14:00:30] INFO         GA | Gen 1/10 | Best: 2341 | Patience: 0/3
+[2026-04-29 14:00:30] INFO         GA | Gen 2/10 | Best: 2327 | Patience: 0/3
+[2026-04-29 14:00:31] INFO         GA | Gen 3/10 | Best: 2290 | Patience: 0/3
+[2026-04-29 14:00:32] INFO         GA | Gen 4/10 | Best: 2290 | Patience: 1/3
+[2026-04-29 14:00:32] INFO         GA | Gen 5/10 | Best: 2245 | Patience: 0/3
+[2026-04-29 14:00:33] INFO         GA | Gen 6/10 | Best: 2245 | Patience: 1/3
+[2026-04-29 14:00:33] INFO         GA | Gen 7/10 | Best: 2245 | Patience: 2/3
+[2026-04-29 14:00:34] INFO         GA | Gen 8/10 | Best: 2245 | Patience: 3/3
+[2026-04-29 14:00:35] INFO         GA | Gen 9/10 | Best: 2245 | Patience: 4/3
+[2026-04-29 14:00:35] INFO         GA | Gen 10/10 | Best: 2234 | Patience: 0/3
+[2026-04-29 14:00:35] INFO         EA finished in 6.2s | best=2234 | gap=223300.00%
+[2026-04-29 14:00:35] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 14:01:52] INFO         ta32: 225,000 transitions collected
+[2026-04-29 14:01:52] INFO       ── ta33  (BKS=1.0) ──
+[2026-04-29 14:01:52] INFO         GA | Gen 1/10 | Best: 2341 | Patience: 1/3
+[2026-04-29 14:01:53] INFO         GA | Gen 2/10 | Best: 2341 | Patience: 2/3
+[2026-04-29 14:01:54] INFO         GA | Gen 3/10 | Best: 2324 | Patience: 0/3
+[2026-04-29 14:01:54] INFO         GA | Gen 4/10 | Best: 2324 | Patience: 1/3
+[2026-04-29 14:01:55] INFO         GA | Gen 5/10 | Best: 2279 | Patience: 0/3
+[2026-04-29 14:01:55] INFO         GA | Gen 6/10 | Best: 2279 | Patience: 1/3
+[2026-04-29 14:01:56] INFO         GA | Gen 7/10 | Best: 2279 | Patience: 2/3
+[2026-04-29 14:01:57] INFO         GA | Gen 8/10 | Best: 2278 | Patience: 0/3
+[2026-04-29 14:01:57] INFO         GA | Gen 9/10 | Best: 2278 | Patience: 1/3
+[2026-04-29 14:01:58] INFO         GA | Gen 10/10 | Best: 2278 | Patience: 2/3
+[2026-04-29 14:01:58] INFO         EA finished in 6.2s | best=2278 | gap=227700.00%
+[2026-04-29 14:01:58] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 14:03:13] INFO         ta33: 225,000 transitions collected
+[2026-04-29 14:03:13] INFO       ── ta34  (BKS=1.0) ──
+[2026-04-29 14:03:14] INFO         GA | Gen 1/10 | Best: 2273 | Patience: 1/3
+[2026-04-29 14:03:15] INFO         GA | Gen 2/10 | Best: 2273 | Patience: 2/3
+[2026-04-29 14:03:15] INFO         GA | Gen 3/10 | Best: 2273 | Patience: 3/3
+[2026-04-29 14:03:16] INFO         GA | Gen 4/10 | Best: 2273 | Patience: 4/3
+[2026-04-29 14:03:17] INFO         GA | Gen 5/10 | Best: 2273 | Patience: 5/3
+[2026-04-29 14:03:17] INFO         GA | Gen 6/10 | Best: 2273 | Patience: 6/3
+[2026-04-29 14:03:18] INFO         GA | Gen 7/10 | Best: 2273 | Patience: 7/3
+[2026-04-29 14:03:18] INFO         GA | Gen 8/10 | Best: 2273 | Patience: 8/3
+[2026-04-29 14:03:19] INFO         GA | Gen 9/10 | Best: 2273 | Patience: 9/3
+[2026-04-29 14:03:19] INFO         GA | Gen 10/10 | Best: 2247 | Patience: 0/3
+[2026-04-29 14:03:19] INFO         EA finished in 6.2s | best=2247 | gap=224600.00%
+[2026-04-29 14:03:19] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 14:04:35] INFO         ta34: 225,000 transitions collected
+[2026-04-29 14:04:35] INFO       ── ta35  (BKS=1.0) ──
+[2026-04-29 14:04:36] INFO         GA | Gen 1/10 | Best: 2280 | Patience: 1/3
+[2026-04-29 14:04:37] INFO         GA | Gen 2/10 | Best: 2280 | Patience: 2/3
+[2026-04-29 14:04:37] INFO         GA | Gen 3/10 | Best: 2280 | Patience: 3/3
+[2026-04-29 14:04:38] INFO         GA | Gen 4/10 | Best: 2279 | Patience: 0/3
+[2026-04-29 14:04:38] INFO         GA | Gen 5/10 | Best: 2273 | Patience: 0/3
+[2026-04-29 14:04:39] INFO         GA | Gen 6/10 | Best: 2273 | Patience: 1/3
+[2026-04-29 14:04:39] INFO         GA | Gen 7/10 | Best: 2273 | Patience: 2/3
+[2026-04-29 14:04:40] INFO         GA | Gen 8/10 | Best: 2260 | Patience: 0/3
+[2026-04-29 14:04:41] INFO         GA | Gen 9/10 | Best: 2260 | Patience: 1/3
+[2026-04-29 14:04:41] INFO         GA | Gen 10/10 | Best: 2260 | Patience: 2/3
+[2026-04-29 14:04:41] INFO         EA finished in 6.1s | best=2260 | gap=225900.00%
+[2026-04-29 14:04:41] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 14:05:59] INFO         ta35: 225,000 transitions collected
+[2026-04-29 14:05:59] INFO       ── ta36  (BKS=1.0) ──
+[2026-04-29 14:06:00] INFO         GA | Gen 1/10 | Best: 2333 | Patience: 0/3
+[2026-04-29 14:06:00] INFO         GA | Gen 2/10 | Best: 2333 | Patience: 1/3
+[2026-04-29 14:06:01] INFO         GA | Gen 3/10 | Best: 2333 | Patience: 2/3
+[2026-04-29 14:06:01] INFO         GA | Gen 4/10 | Best: 2295 | Patience: 0/3
+[2026-04-29 14:06:02] INFO         GA | Gen 5/10 | Best: 2284 | Patience: 0/3
+[2026-04-29 14:06:02] INFO         GA | Gen 6/10 | Best: 2284 | Patience: 1/3
+[2026-04-29 14:06:03] INFO         GA | Gen 7/10 | Best: 2284 | Patience: 2/3
+[2026-04-29 14:06:04] INFO         GA | Gen 8/10 | Best: 2284 | Patience: 3/3
+[2026-04-29 14:06:04] INFO         GA | Gen 9/10 | Best: 2284 | Patience: 4/3
+[2026-04-29 14:06:05] INFO         GA | Gen 10/10 | Best: 2262 | Patience: 0/3
+[2026-04-29 14:06:05] INFO         EA finished in 6.1s | best=2262 | gap=226100.00%
+[2026-04-29 14:06:05] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 14:07:22] INFO         ta36: 225,000 transitions collected
+[2026-04-29 14:07:22] INFO       ── ta37  (BKS=1.0) ──
+[2026-04-29 14:07:23] INFO         GA | Gen 1/10 | Best: 2261 | Patience: 0/3
+[2026-04-29 14:07:23] INFO         GA | Gen 2/10 | Best: 2261 | Patience: 1/3
+[2026-04-29 14:07:24] INFO         GA | Gen 3/10 | Best: 2261 | Patience: 2/3
+[2026-04-29 14:07:24] INFO         GA | Gen 4/10 | Best: 2261 | Patience: 3/3
+[2026-04-29 14:07:25] INFO         GA | Gen 5/10 | Best: 2233 | Patience: 0/3
+[2026-04-29 14:07:25] INFO         GA | Gen 6/10 | Best: 2233 | Patience: 1/3
+[2026-04-29 14:07:26] INFO         GA | Gen 7/10 | Best: 2233 | Patience: 2/3
+[2026-04-29 14:07:27] INFO         GA | Gen 8/10 | Best: 2227 | Patience: 0/3
+[2026-04-29 14:07:27] INFO         GA | Gen 9/10 | Best: 2227 | Patience: 1/3
+[2026-04-29 14:07:28] INFO         GA | Gen 10/10 | Best: 2227 | Patience: 2/3
+[2026-04-29 14:07:28] INFO         EA finished in 6.1s | best=2227 | gap=222600.00%
+[2026-04-29 14:07:28] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 14:08:43] INFO         ta37: 225,000 transitions collected
+[2026-04-29 14:08:43] INFO       ── ta38  (BKS=1.0) ──
+[2026-04-29 14:08:44] INFO         GA | Gen 1/10 | Best: 2128 | Patience: 0/3
+[2026-04-29 14:08:45] INFO         GA | Gen 2/10 | Best: 2074 | Patience: 0/3
+[2026-04-29 14:08:45] INFO         GA | Gen 3/10 | Best: 2074 | Patience: 1/3
+[2026-04-29 14:08:46] INFO         GA | Gen 4/10 | Best: 2074 | Patience: 2/3
+[2026-04-29 14:08:46] INFO         GA | Gen 5/10 | Best: 2074 | Patience: 3/3
+[2026-04-29 14:08:47] INFO         GA | Gen 6/10 | Best: 2074 | Patience: 4/3
+[2026-04-29 14:08:47] INFO         GA | Gen 7/10 | Best: 2074 | Patience: 5/3
+[2026-04-29 14:08:48] INFO         GA | Gen 8/10 | Best: 2074 | Patience: 6/3
+[2026-04-29 14:08:49] INFO         GA | Gen 9/10 | Best: 2074 | Patience: 7/3
+[2026-04-29 14:08:49] INFO         GA | Gen 10/10 | Best: 2074 | Patience: 8/3
+[2026-04-29 14:08:49] INFO         EA finished in 6.1s | best=2074 | gap=207300.00%
+[2026-04-29 14:08:49] INFO         Experts: top 25 | Replaying 500 episodes (epsilon=0.05)
+[2026-04-29 14:10:05] INFO         ta38: 225,000 transitions collected
+[2026-04-29 14:10:05] INFO       Pooled 1,800,000 transitions from 8 training instance(s)
+[2026-04-29 14:10:05] INFO       Demo consistency: 0.0% of repeated obs → same action (1 groups)
+[2026-04-29 14:10:05] WARNING    Low consistency (0.0%); BC may struggle.
+[2026-04-29 14:10:05] INFO     
+[2026-04-29 14:10:05] INFO     ═══ Stage 2: Behaviour Cloning ═══
+[2026-04-29 14:10:05] INFO       Episode-level split: ~3600 train episodes / ~400 val episodes (1,620,000 / 180,000 transitions)
+[2026-04-29 14:10:08] INFO       Obs shape: (30, 10) | Actions: 31
+[2026-04-29 14:10:08] INFO       BC network: [512, 512, 256] → 31
+[2026-04-29 14:10:08] INFO       Action distribution (top 5): job 29: 54000 (3.3%), job 28: 54000 (3.3%), job 27: 54000 (3.3%), job 26: 54000 (3.3%), job 25: 54000 (3.3%)
+[2026-04-29 14:10:08] INFO     Model: "model"
+[2026-04-29 14:10:08] INFO     _________________________________________________________________
+[2026-04-29 14:10:08] INFO     Layer (type)                 Output Shape              Param #   
+[2026-04-29 14:10:08] INFO     =================================================================
+[2026-04-29 14:10:08] INFO     obs (InputLayer)             [(None, 30, 10)]          0         
+[2026-04-29 14:10:08] INFO     _________________________________________________________________
+[2026-04-29 14:10:08] INFO     flatten (Flatten)            (None, 300)               0         
+[2026-04-29 14:10:08] INFO     _________________________________________________________________
+[2026-04-29 14:10:08] INFO     fc_1 (Dense)                 (None, 512)               154112    
+[2026-04-29 14:10:08] INFO     _________________________________________________________________
+[2026-04-29 14:10:08] INFO     fc_2 (Dense)                 (None, 512)               262656    
+[2026-04-29 14:10:08] INFO     _________________________________________________________________
+[2026-04-29 14:10:08] INFO     fc_3 (Dense)                 (None, 256)               131328    
+[2026-04-29 14:10:08] INFO     _________________________________________________________________
+[2026-04-29 14:10:08] INFO     fc_out (Dense)               (None, 31)                7967      
+[2026-04-29 14:10:08] INFO     =================================================================
+[2026-04-29 14:10:08] INFO     Total params: 556,063
+[2026-04-29 14:10:08] INFO     Trainable params: 556,063
+[2026-04-29 14:10:08] INFO     Non-trainable params: 0
+[2026-04-29 14:10:08] INFO     _________________________________________________________________
+[2026-04-29 14:23:40] INFO       BC complete (29/50 epochs) | val acc: 0.8316 | random baseline: 0.0323
+[2026-04-29 14:23:40] INFO       BC accuracy >> random baseline ✓
+[2026-04-29 14:23:40] INFO       BC weights saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta3_exp1/bc_weights
+[2026-04-29 14:23:40] INFO     
+[2026-04-29 14:23:40] INFO     ═══ Stage 3a: In-Sample Evaluation (training instances) ═══
+[2026-04-29 14:23:40] INFO       ── Evaluating: ta31  (BKS=1.0) ──
+[2026-04-29 14:23:41] INFO         BC  | avg=2163 (gap +216200.00%) | best=2163 (gap +216200.00%)
+[2026-04-29 14:23:41] INFO       ── Evaluating: ta32  (BKS=1.0) ──
+[2026-04-29 14:23:42] INFO         BC  | avg=2227 (gap +222600.00%) | best=2227 (gap +222600.00%)
+[2026-04-29 14:23:42] INFO       ── Evaluating: ta33  (BKS=1.0) ──
+[2026-04-29 14:23:43] INFO         BC  | avg=2284 (gap +228300.00%) | best=2284 (gap +228300.00%)
+[2026-04-29 14:23:43] INFO       ── Evaluating: ta34  (BKS=1.0) ──
+[2026-04-29 14:23:43] INFO         BC  | avg=2234 (gap +223300.00%) | best=2234 (gap +223300.00%)
+[2026-04-29 14:23:43] INFO       ── Evaluating: ta35  (BKS=1.0) ──
+[2026-04-29 14:23:44] INFO         BC  | avg=2202 (gap +220100.00%) | best=2202 (gap +220100.00%)
+[2026-04-29 14:23:44] INFO       ── Evaluating: ta36  (BKS=1.0) ──
+[2026-04-29 14:23:45] INFO         BC  | avg=2220 (gap +221900.00%) | best=2220 (gap +221900.00%)
+[2026-04-29 14:23:45] INFO       ── Evaluating: ta37  (BKS=1.0) ──
+[2026-04-29 14:23:45] INFO         BC  | avg=2313 (gap +231200.00%) | best=2313 (gap +231200.00%)
+[2026-04-29 14:23:45] INFO       ── Evaluating: ta38  (BKS=1.0) ──
+[2026-04-29 14:23:46] INFO         BC  | avg=2147 (gap +214600.00%) | best=2147 (gap +214600.00%)
+[2026-04-29 14:23:46] INFO     
+[2026-04-29 14:23:46] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-04-29 14:23:46] INFO       in_sample Summary
+[2026-04-29 14:23:46] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-04-29 14:23:46] INFO       Instance         BKS    BC avg    gap%   BC best    gap%
+[2026-04-29 14:23:46] INFO       ────────────────────────────────────────────────────────
+[2026-04-29 14:23:46] INFO       ta31               1      2163 +216200.00%      2163 +216200.00%
+[2026-04-29 14:23:46] INFO       ta32               1      2227 +222600.00%      2227 +222600.00%
+[2026-04-29 14:23:46] INFO       ta33               1      2284 +228300.00%      2284 +228300.00%
+[2026-04-29 14:23:46] INFO       ta34               1      2234 +223300.00%      2234 +223300.00%
+[2026-04-29 14:23:46] INFO       ta35               1      2202 +220100.00%      2202 +220100.00%
+[2026-04-29 14:23:46] INFO       ta36               1      2220 +221900.00%      2220 +221900.00%
+[2026-04-29 14:23:46] INFO       ta37               1      2313 +231200.00%      2313 +231200.00%
+[2026-04-29 14:23:46] INFO       ta38               1      2147 +214600.00%      2147 +214600.00%
+[2026-04-29 14:23:46] INFO       ────────────────────────────────────────────────────────
+[2026-04-29 14:23:46] INFO       MEAN                           +222275.00%
+[2026-04-29 14:23:46] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-04-29 14:23:46] INFO       CSV saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta3_exp1/bc_eval_in_sample.csv
+[2026-04-29 14:23:46] INFO     
+[2026-04-29 14:23:46] INFO     ═══ Stage 3b: Out-of-Sample Evaluation (held-out instances) ═══
+[2026-04-29 14:23:46] INFO       ── Evaluating: ta39  (BKS=1.0) ──
+[2026-04-29 14:23:47] INFO         BC  | avg=2292 (gap +229100.00%) | best=2292 (gap +229100.00%)
+[2026-04-29 14:23:48] INFO         GA | Gen 1/10 | Best: 2221 | Patience: 0/3
+[2026-04-29 14:23:48] INFO         GA | Gen 2/10 | Best: 2217 | Patience: 0/3
+[2026-04-29 14:23:49] INFO         GA | Gen 3/10 | Best: 2178 | Patience: 0/3
+[2026-04-29 14:23:50] INFO         GA | Gen 4/10 | Best: 2143 | Patience: 0/3
+[2026-04-29 14:23:50] INFO         GA | Gen 5/10 | Best: 2143 | Patience: 1/3
+[2026-04-29 14:23:51] INFO         GA | Gen 6/10 | Best: 2143 | Patience: 2/3
+[2026-04-29 14:23:51] INFO         GA | Gen 7/10 | Best: 2143 | Patience: 3/3
+[2026-04-29 14:23:52] INFO         GA | Gen 8/10 | Best: 2143 | Patience: 4/3
+[2026-04-29 14:23:52] INFO         GA | Gen 9/10 | Best: 2143 | Patience: 5/3
+[2026-04-29 14:23:53] INFO         GA | Gen 10/10 | Best: 2143 | Patience: 6/3
+[2026-04-29 14:23:53] INFO         EA  | best=2143 (gap +214200.00%) in 6.1s
+[2026-04-29 14:23:53] INFO       ── Evaluating: ta40  (BKS=1.0) ──
+[2026-04-29 14:23:54] INFO         BC  | avg=2013 (gap +201200.00%) | best=2013 (gap +201200.00%)
+[2026-04-29 14:23:55] INFO         GA | Gen 1/10 | Best: 2174 | Patience: 0/3
+[2026-04-29 14:23:55] INFO         GA | Gen 2/10 | Best: 2173 | Patience: 0/3
+[2026-04-29 14:23:56] INFO         GA | Gen 3/10 | Best: 2163 | Patience: 0/3
+[2026-04-29 14:23:56] INFO         GA | Gen 4/10 | Best: 2151 | Patience: 0/3
+[2026-04-29 14:23:57] INFO         GA | Gen 5/10 | Best: 2140 | Patience: 0/3
+[2026-04-29 14:23:58] INFO         GA | Gen 6/10 | Best: 2140 | Patience: 1/3
+[2026-04-29 14:23:58] INFO         GA | Gen 7/10 | Best: 2140 | Patience: 2/3
+[2026-04-29 14:23:59] INFO         GA | Gen 8/10 | Best: 2092 | Patience: 0/3
+[2026-04-29 14:23:59] INFO         GA | Gen 9/10 | Best: 2092 | Patience: 1/3
+[2026-04-29 14:24:00] INFO         GA | Gen 10/10 | Best: 2092 | Patience: 2/3
+[2026-04-29 14:24:00] INFO         EA  | best=2092 (gap +209100.00%) in 6.1s
+[2026-04-29 14:24:00] INFO     
+[2026-04-29 14:24:00] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-04-29 14:24:00] INFO       out_of_sample Summary
+[2026-04-29 14:24:00] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-04-29 14:24:00] INFO       Instance         BKS    BC avg    gap%   BC best    gap%   EA best    gap%
+[2026-04-29 14:24:00] INFO       ──────────────────────────────────────────────────────────────────────────
+[2026-04-29 14:24:00] INFO       ta39               1      2292 +229100.00%      2292 +229100.00%      2143 +214200.00%
+[2026-04-29 14:24:00] INFO       ta40               1      2013 +201200.00%      2013 +201200.00%      2092 +209100.00%
+[2026-04-29 14:24:00] INFO       ──────────────────────────────────────────────────────────────────────────
+[2026-04-29 14:24:00] INFO       MEAN                           +215150.00%
+[2026-04-29 14:24:00] INFO       MEAN (EA)                                                          +211650.00%
+[2026-04-29 14:24:00] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-04-29 14:24:00] INFO       CSV saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta3_exp1/bc_eval_out_of_sample.csv
+[2026-04-29 14:24:00] INFO     
+[2026-04-29 14:24:00] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-04-29 14:24:00] INFO       Stage 4: Statistical Tests
+[2026-04-29 14:24:00] INFO       α = 0.05  (two-sided)
+[2026-04-29 14:24:00] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-04-29 14:24:00] INFO     
+[2026-04-29 14:24:00] INFO       T1  BC (out-of-sample) gap% vs BKS
+[2026-04-29 14:24:00] INFO           H₀: mean gap == 0  (BC matches BKS)
+[2026-04-29 14:24:00] INFO           H₁: mean gap ≠ 0
+[2026-04-29 14:24:00] INFO           Values: ['229100.00%', '201200.00%']
+[2026-04-29 14:24:00] INFO     
+[2026-04-29 14:24:00] INFO       ── T1: BC out-of-sample vs BKS ──
+[2026-04-29 14:24:00] INFO          Test:          sign test  (n=2)
+[2026-04-29 14:24:00] INFO          Statistic:     2.0000
+[2026-04-29 14:24:00] INFO          p-value:       0.5000
+[2026-04-29 14:24:00] INFO          Interpretation: NOT significant (p=0.5000 ≥ α=0.05) — cannot rule out BC matching BKS, mean=+215150.00%
+[2026-04-29 14:24:00] WARNING       ⚠  Only 2 instances — statistical power is very low. Results are indicative only. Add more eval instances for reliability.
+[2026-04-29 14:24:00] INFO     
+[2026-04-29 14:24:00] INFO       T2  BC (out-of-sample) vs EA baseline (out-of-sample)
+[2026-04-29 14:24:00] INFO           H₀: BC gap == EA gap  (no difference)
+[2026-04-29 14:24:00] INFO           H₁: BC gap ≠ EA gap
+[2026-04-29 14:24:00] INFO           BC  gaps: ['229100.00%', '201200.00%']
+[2026-04-29 14:24:00] INFO           EA  gaps: ['214200.00%', '209100.00%']
+[2026-04-29 14:24:00] INFO     
+[2026-04-29 14:24:00] INFO       ── T2: BC vs EA (out-of-sample) ──
+[2026-04-29 14:24:00] INFO          Test:          sign test  (n=2)
+[2026-04-29 14:24:00] INFO          Statistic:     1.0000
+[2026-04-29 14:24:00] INFO          p-value:       1.5000
+[2026-04-29 14:24:00] INFO          Interpretation: NOT significant (p=1.5000 ≥ α=0.05) — no reliable difference between BC and EA (mean gap: +215150.00% vs +211650.00%)
+[2026-04-29 14:24:00] WARNING       ⚠  Only 2 instances — statistical power is very low. Results are indicative only. Add more eval instances for reliability.
+[2026-04-29 14:24:00] INFO     
+[2026-04-29 14:24:00] INFO       T3  BC out-of-sample vs BC in-sample
+[2026-04-29 14:24:00] INFO           H₀: gap(out-of-sample) == gap(in-sample)  (BC generalises)
+[2026-04-29 14:24:00] INFO           H₁: gap(out-of-sample) ≠ gap(in-sample)
+[2026-04-29 14:24:00] INFO           OOS gaps: ['229100.00%', '201200.00%']
+[2026-04-29 14:24:00] INFO           IS  gaps: ['216200.00%', '222600.00%', '228300.00%', '223300.00%', '220100.00%', '221900.00%', '231200.00%', '214600.00%']
+[2026-04-29 14:24:00] INFO     
+[2026-04-29 14:24:00] INFO       ── T3: BC generalisation (OOS vs IS) ──
+[2026-04-29 14:24:00] INFO          Test:          sign test  (n=2)
+[2026-04-29 14:24:00] INFO          Statistic:     1.0000
+[2026-04-29 14:24:00] INFO          p-value:       1.5000
+[2026-04-29 14:24:00] INFO          Interpretation: NOT significant (p=1.5000 ≥ α=0.05) — no reliable difference between BC (OOS) and BC (IS) (mean gap: +215150.00% vs +222275.00%)
+[2026-04-29 14:24:00] WARNING       ⚠  Only 2 instances — statistical power is very low. Results are indicative only. Add more eval instances for reliability.
+[2026-04-29 14:24:00] INFO     
+[2026-04-29 14:24:00] INFO       ── Descriptive Statistics ──
+[2026-04-29 14:24:00] INFO       Metric                                  Mean      Std      Min      Max
+[2026-04-29 14:24:00] INFO       ───────────────────────────────────────────────────────────────────────
+[2026-04-29 14:24:00] INFO       BC gap% (out-of-sample)             +215150.00 13950.00 +201200.00 +229100.00
+[2026-04-29 14:24:00] INFO       BC gap% (in-sample)                 +222275.00  5217.70 +214600.00 +231200.00
+[2026-04-29 14:24:00] INFO       EA gap% (out-of-sample)             +211650.00  2550.00 +209100.00 +214200.00
+[2026-04-29 14:24:00] INFO       BC − EA gap% (out-of-sample)        +3500.00 11400.00 -7900.00 +14900.00
+[2026-04-29 14:24:00] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-04-29 14:24:00] INFO     
+[2026-04-29 14:24:00] INFO     ======================================================================
+[2026-04-29 14:24:00] INFO     Pipeline complete.
+[2026-04-29 14:24:00] INFO       BC weights:        /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta3_exp1/bc_weights
+[2026-04-29 14:24:00] INFO       In-sample CSV:     /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta3_exp1/bc_eval_in_sample.csv
+[2026-04-29 14:24:00] INFO       Out-of-sample CSV: /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta3_exp1/bc_eval_out_of_sample.csv
+[2026-04-29 14:24:00] INFO       Full log:          /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260428_ta3_exp1/results.txt
+[2026-04-29 14:24:00] INFO     ======================================================================
