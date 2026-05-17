@@ -1,0 +1,58 @@
+[2026-05-09 19:21:12] INFO     Using device: cpu
+[2026-05-09 19:21:12] INFO     ======================================================================
+[2026-05-09 19:21:12] INFO     EA Warm-Start → GNN + CQL (Conservative Q-Learning) Pipeline
+[2026-05-09 19:21:12] INFO     ======================================================================
+[2026-05-09 19:21:12] INFO     Problem dimensionality:  30 jobs × 20 machines
+[2026-05-09 19:21:12] INFO     Synthetic train count:   2
+[2026-05-09 19:21:12] INFO     Eval instances (real):   ['ta46', 'ta47', 'ta48']
+[2026-05-09 19:21:12] INFO     EA algorithm:            GA
+[2026-05-09 19:21:12] INFO     EA pop / gens:           50 / 10
+[2026-05-09 19:21:12] INFO     GNN:                     3 layers, 128 hidden, 4 heads
+[2026-05-09 19:21:12] INFO     CQL:                     α=1.0, γ=0.99, τ=0.005
+[2026-05-09 19:21:12] INFO     CQL epochs / batch:      100 / 378
+[2026-05-09 19:21:12] INFO     CQL demo eps/instance:   25
+[2026-05-09 19:21:12] INFO     CQL epsilon:             0.05
+[2026-05-09 19:21:12] INFO     Buffer cap:              200,000 transitions
+[2026-05-09 19:21:12] INFO     Eval episodes:           1
+[2026-05-09 19:21:12] INFO     Device:                  cpu
+[2026-05-09 19:21:12] INFO     Output dir:              /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260506_obj2_16
+[2026-05-09 19:21:12] INFO     ======================================================================
+[2026-05-09 19:21:12] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-09 19:21:12] INFO       Generated 2 synthetic instance(s) (30×20) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260506_obj2_16/synthetic_instances
+[2026-05-09 19:21:12] INFO     
+═══ Stage 2: Collecting Offline EA Data (graph-structured) ═══
+[2026-05-09 19:21:12] INFO       ── synth_1/2  (synth_30x20_seed0.txt) ──
+[2026-05-09 19:21:13] INFO         GA | Gen 1/10 | Best: 2571
+[2026-05-09 19:21:14] INFO         GA | Gen 2/10 | Best: 2559
+[2026-05-09 19:21:15] INFO         GA | Gen 3/10 | Best: 2559
+[2026-05-09 19:21:16] INFO         GA | Gen 4/10 | Best: 2535
+[2026-05-09 19:21:17] INFO         GA | Gen 5/10 | Best: 2535
+[2026-05-09 19:21:17] INFO         GA | Gen 6/10 | Best: 2535
+[2026-05-09 19:21:18] INFO         GA | Gen 7/10 | Best: 2535
+[2026-05-09 19:21:18] INFO         GA | Early stopping at gen 7.
+[2026-05-09 19:21:18] INFO         EA finished in 6.7s | best makespan=2535
+[2026-05-09 19:21:18] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-09 19:22:53] INFO         synth_1/2  (synth_30x20_seed0.txt): 15,000 transitions collected  (buffer RAM ≈ 922 MB)
+[2026-05-09 19:22:53] INFO       ── synth_2/2  (synth_30x20_seed1.txt) ──
+[2026-05-09 19:22:55] INFO         GA | Gen 1/10 | Best: 2601
+[2026-05-09 19:22:56] INFO         GA | Gen 2/10 | Best: 2595
+[2026-05-09 19:22:56] INFO         GA | Gen 3/10 | Best: 2594
+[2026-05-09 19:22:57] INFO         GA | Gen 4/10 | Best: 2594
+[2026-05-09 19:22:58] INFO         GA | Gen 5/10 | Best: 2587
+[2026-05-09 19:22:59] INFO         GA | Gen 6/10 | Best: 2548
+[2026-05-09 19:23:00] INFO         GA | Gen 7/10 | Best: 2548
+[2026-05-09 19:23:01] INFO         GA | Gen 8/10 | Best: 2548
+[2026-05-09 19:23:02] INFO         GA | Gen 9/10 | Best: 2548
+[2026-05-09 19:23:02] INFO         GA | Early stopping at gen 9.
+[2026-05-09 19:23:02] INFO         EA finished in 8.4s | best makespan=2548
+[2026-05-09 19:23:02] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-09 19:24:36] INFO         synth_2/2  (synth_30x20_seed1.txt): 15,000 transitions collected  (buffer RAM ≈ 1845 MB)
+[2026-05-09 19:24:36] INFO       Pooled 30,000 transitions  (total buffer RAM ≈ 1845 MB)
+[2026-05-09 19:24:36] INFO     
+═══ Stage 3: Conservative Q-Learning (CQL) with GNN ═══
+[2026-05-09 19:24:36] INFO       Dataset size: 30,000 transitions  (RAM ≈ 1845 MB)
+[2026-05-09 19:24:36] INFO       GNN: 3 layers, 128 hidden, 4 heads
+[2026-05-09 19:24:36] INFO       CQL: α=1.0, γ=0.99, τ=0.005
+[2026-05-09 19:24:36] INFO       Training: 100 epochs, batch=378, lr=0.0003
+[2026-05-09 19:24:36] INFO       Q-network parameters: 178,562

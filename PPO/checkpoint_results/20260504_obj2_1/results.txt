@@ -1,0 +1,105 @@
+[2026-05-05 08:33:52] INFO       Detected FEATURES_PER_JOB=10 via DynamicJSSWrapper (real_obs size=300, n_jobs=30)
+[2026-05-05 08:33:52] INFO     ======================================================================
+[2026-05-05 08:33:52] INFO     BC → PPO Curriculum Pipeline  (cross-dimensionality JSSP transfer)
+[2026-05-05 08:33:52] INFO     ======================================================================
+[2026-05-05 08:33:52] INFO     Families (small→large):  [(30, 20)]
+[2026-05-05 08:33:52] INFO     MAX_JOBS=30  MAX_MACHINES=20  N_ACTIONS=31
+[2026-05-05 08:33:52] INFO     FEATURES_PER_JOB=10  REAL_OBS_SIZE=300  FULL_OBS_SIZE=331
+[2026-05-05 08:33:52] INFO     Synthetic per family:    5  (master seed=0)
+[2026-05-05 08:33:52] INFO     Eval instances:          ['ta42']
+[2026-05-05 08:33:52] INFO     EA algorithm:            GA  pop=50  gens=10
+[2026-05-05 08:33:52] INFO     BC epochs:               50  network=[512, 512, 256]  epsilon=0.05
+[2026-05-05 08:33:52] INFO     BC demo eps/instance:    500
+[2026-05-05 08:33:52] INFO     PPO iters/phase:         100  workers=2  lr=5e-05
+[2026-05-05 08:33:52] INFO     Eval episodes:           1  EA baseline=True
+[2026-05-05 08:33:52] INFO     Significance level:      α=0.05
+[2026-05-05 08:33:52] INFO     Output dir:              /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260504_obj2_1
+[2026-05-05 08:33:52] INFO     Results log:             /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260504_obj2_1/results.txt
+[2026-05-05 08:33:52] INFO     ======================================================================
+[2026-05-05 08:33:52] INFO     
+[2026-05-05 08:33:52] INFO     ═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-05 08:33:52] INFO       Generated 5 synthetic instances (30×20) → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260504_obj2_1/synthetic/30x20
+[2026-05-05 08:33:52] INFO       Validating FEATURES_PER_JOB is consistent across all families...
+[2026-05-05 08:33:52] INFO       ✓ FEATURES_PER_JOB=10 consistent across all families.
+[2026-05-05 08:33:52] INFO     
+[2026-05-05 08:33:52] INFO     ═══ Stage 2: Collecting EA Demonstrations (all families) ═══
+[2026-05-05 08:33:52] INFO       Family 30×20 — 5 instance(s)
+[2026-05-05 08:33:52] INFO       ── 30×20  inst 1/5  (synth_30x20_s0.txt) ──
+[2026-05-05 08:33:54] INFO         GA | Gen 1/10 | Best: 2504 | Patience: 0/3
+[2026-05-05 08:33:54] INFO         GA | Gen 2/10 | Best: 2504 | Patience: 1/3
+[2026-05-05 08:33:55] INFO         GA | Gen 3/10 | Best: 2504 | Patience: 2/3
+[2026-05-05 08:33:56] INFO         GA | Gen 4/10 | Best: 2504 | Patience: 3/3
+[2026-05-05 08:33:56] INFO         GA | Early stopping at gen 4.
+[2026-05-05 08:33:56] INFO         EA finished in 4.0s | best=2504
+[2026-05-05 08:36:05] INFO         30×20  inst 1/5  (synth_30x20_s0.txt): 300,000 padded transitions
+[2026-05-05 08:36:05] INFO       ── 30×20  inst 2/5  (synth_30x20_s1.txt) ──
+[2026-05-05 08:36:06] INFO         GA | Gen 1/10 | Best: 2619 | Patience: 1/3
+[2026-05-05 08:36:07] INFO         GA | Gen 2/10 | Best: 2601 | Patience: 0/3
+[2026-05-05 08:36:08] INFO         GA | Gen 3/10 | Best: 2601 | Patience: 1/3
+[2026-05-05 08:36:09] INFO         GA | Gen 4/10 | Best: 2512 | Patience: 0/3
+[2026-05-05 08:36:09] INFO         GA | Gen 5/10 | Best: 2512 | Patience: 1/3
+[2026-05-05 08:36:10] INFO         GA | Gen 6/10 | Best: 2512 | Patience: 2/3
+[2026-05-05 08:36:11] INFO         GA | Gen 7/10 | Best: 2512 | Patience: 3/3
+[2026-05-05 08:36:11] INFO         GA | Early stopping at gen 7.
+[2026-05-05 08:36:11] INFO         EA finished in 6.6s | best=2512
+[2026-05-05 08:38:19] INFO         30×20  inst 2/5  (synth_30x20_s1.txt): 300,000 padded transitions
+[2026-05-05 08:38:19] INFO       ── 30×20  inst 3/5  (synth_30x20_s2.txt) ──
+[2026-05-05 08:38:20] INFO         GA | Gen 1/10 | Best: 2493 | Patience: 1/3
+[2026-05-05 08:38:21] INFO         GA | Gen 2/10 | Best: 2493 | Patience: 2/3
+[2026-05-05 08:38:22] INFO         GA | Gen 3/10 | Best: 2493 | Patience: 3/3
+[2026-05-05 08:38:22] INFO         GA | Early stopping at gen 3.
+[2026-05-05 08:38:22] INFO         EA finished in 3.1s | best=2493
+[2026-05-05 08:40:30] INFO         30×20  inst 3/5  (synth_30x20_s2.txt): 300,000 padded transitions
+[2026-05-05 08:40:30] INFO       ── 30×20  inst 4/5  (synth_30x20_s3.txt) ──
+[2026-05-05 08:40:31] INFO         GA | Gen 1/10 | Best: 2513 | Patience: 0/3
+[2026-05-05 08:40:32] INFO         GA | Gen 2/10 | Best: 2469 | Patience: 0/3
+[2026-05-05 08:40:33] INFO         GA | Gen 3/10 | Best: 2469 | Patience: 1/3
+[2026-05-05 08:40:34] INFO         GA | Gen 4/10 | Best: 2469 | Patience: 2/3
+[2026-05-05 08:40:35] INFO         GA | Gen 5/10 | Best: 2469 | Patience: 3/3
+[2026-05-05 08:40:35] INFO         GA | Early stopping at gen 5.
+[2026-05-05 08:40:35] INFO         EA finished in 4.8s | best=2469
+[2026-05-05 08:42:43] INFO         30×20  inst 4/5  (synth_30x20_s3.txt): 300,000 padded transitions
+[2026-05-05 08:42:43] INFO       ── 30×20  inst 5/5  (synth_30x20_s4.txt) ──
+[2026-05-05 08:42:44] INFO         GA | Gen 1/10 | Best: 2527 | Patience: 1/3
+[2026-05-05 08:42:45] INFO         GA | Gen 2/10 | Best: 2493 | Patience: 0/3
+[2026-05-05 08:42:46] INFO         GA | Gen 3/10 | Best: 2493 | Patience: 1/3
+[2026-05-05 08:42:47] INFO         GA | Gen 4/10 | Best: 2493 | Patience: 2/3
+[2026-05-05 08:42:48] INFO         GA | Gen 5/10 | Best: 2493 | Patience: 3/3
+[2026-05-05 08:42:48] INFO         GA | Early stopping at gen 5.
+[2026-05-05 08:42:48] INFO         EA finished in 4.8s | best=2493
+[2026-05-05 08:44:55] INFO         30×20  inst 5/5  (synth_30x20_s4.txt): 300,000 padded transitions
+[2026-05-05 08:44:55] INFO       Pooled 1,500,000 padded transitions from 1 families × 5 instances
+[2026-05-05 08:44:55] INFO       Demo consistency: all observations unique (good)
+[2026-05-05 08:44:55] INFO     
+[2026-05-05 08:44:55] INFO     ═══ Stage 3: Behaviour Cloning (single padded model) ═══
+[2026-05-05 08:44:55] INFO       Episode-level split: ~2250 train / ~250 val (1,350,000 / 150,000 transitions)
+[2026-05-05 08:44:57] INFO       Obs shape: (331,) | Actions: 31
+[2026-05-05 08:44:57] INFO       BC network: [512, 512, 256] → 31
+[2026-05-05 08:44:57] INFO       Action distribution (top 5): job 29: 45000 (3.3%), job 28: 45000 (3.3%), job 27: 45000 (3.3%), job 26: 45000 (3.3%), job 25: 45000 (3.3%)
+[2026-05-05 08:44:57] INFO     Model: "shared_mlp"
+[2026-05-05 08:44:57] INFO     _________________________________________________________________
+[2026-05-05 08:44:57] INFO     Layer (type)                 Output Shape              Param #   
+[2026-05-05 08:44:57] INFO     =================================================================
+[2026-05-05 08:44:57] INFO     obs_input (InputLayer)       [(None, 331)]             0         
+[2026-05-05 08:44:57] INFO     _________________________________________________________________
+[2026-05-05 08:44:57] INFO     fc_1 (Dense)                 (None, 512)               169984    
+[2026-05-05 08:44:57] INFO     _________________________________________________________________
+[2026-05-05 08:44:57] INFO     fc_2 (Dense)                 (None, 512)               262656    
+[2026-05-05 08:44:57] INFO     _________________________________________________________________
+[2026-05-05 08:44:57] INFO     fc_3 (Dense)                 (None, 256)               131328    
+[2026-05-05 08:44:57] INFO     _________________________________________________________________
+[2026-05-05 08:44:57] INFO     policy_head (Dense)          (None, 31)                7967      
+[2026-05-05 08:44:57] INFO     =================================================================
+[2026-05-05 08:44:57] INFO     Total params: 571,935
+[2026-05-05 08:44:57] INFO     Trainable params: 571,935
+[2026-05-05 08:44:57] INFO     Non-trainable params: 0
+[2026-05-05 08:44:57] INFO     _________________________________________________________________
+[2026-05-05 08:57:24] INFO       BC complete (22/50 epochs) | val acc: 0.8344 | random: 0.0323
+[2026-05-05 08:57:24] INFO       BC accuracy >> random baseline ✓
+[2026-05-05 08:57:24] INFO       BC weights saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260504_obj2_1/bc_weights
+[2026-05-05 08:57:24] INFO     
+[2026-05-05 08:57:24] INFO     ═══ Stage 4: PPO Curriculum Training ═══
+[2026-05-05 08:57:24] INFO       Phases: 30×20
+[2026-05-05 08:57:24] INFO       Phase 1 initialised from BC weights; subsequent phases restore previous phase weights.
+[2026-05-05 08:57:28] INFO     
+[2026-05-05 08:57:28] INFO       ── PPO Phase 1/1: 30x20 (5 instances) ──

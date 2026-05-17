@@ -1,0 +1,1290 @@
+[2026-05-16 18:08:56] INFO     Using device: cpu
+[2026-05-16 18:08:56] INFO     ======================================================================
+[2026-05-16 18:08:56] INFO     EA Warm-Start → MLP + CQL  (stabilised v2)
+[2026-05-16 18:08:56] INFO     ======================================================================
+[2026-05-16 18:08:56] INFO     Problem:           30 jobs × 20 machines
+[2026-05-16 18:08:56] INFO     Train instances:   50 synthetic
+[2026-05-16 18:08:56] INFO     Eval instances:    ['ta41', 'ta42', 'ta43', 'ta44', 'ta45', 'ta46', 'ta47', 'ta48', 'ta49']
+[2026-05-16 18:08:56] INFO     EA:                GA  pop=50  gens=15  sa_iters=300
+[2026-05-16 18:08:56] INFO     MLP:               [512, 512, 256]  dropout=0.1
+[2026-05-16 18:08:56] INFO     BC pre-training:   10 epochs  lr=0.001
+[2026-05-16 18:08:56] INFO     CQL α (fixed):     0.5
+[2026-05-16 18:08:56] INFO     CQL target update: hard every 100 batches  (τ=0.001 between hard updates)
+[2026-05-16 18:08:56] INFO     Training:          1000 epochs  batch=2048  lr=5e-05
+[2026-05-16 18:08:56] INFO     Demo eps/inst:     25  ε=0.05
+[2026-05-16 18:08:56] INFO     Buffer cap:        500,000
+[2026-05-16 18:08:56] INFO     Device:            cpu
+[2026-05-16 18:08:56] INFO     Output:            /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint
+[2026-05-16 18:08:56] INFO     ======================================================================
+[2026-05-16 18:08:56] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-16 18:08:56] INFO       Generated 50 synthetic instance(s) (30×20) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/synthetic_instances
+[2026-05-16 18:08:56] INFO     
+═══ Stage 2: Collecting Offline EA Demonstrations ═══
+[2026-05-16 18:08:56] INFO       obs_dim=300  n_actions=31
+[2026-05-16 18:08:56] INFO       ── synth_1/50  (synth_30x20_seed0.txt) ──
+[2026-05-16 18:08:58] INFO         GA | Gen 1/15 | Best: 2571
+[2026-05-16 18:08:59] INFO         GA | Gen 2/15 | Best: 2559
+[2026-05-16 18:09:00] INFO         GA | Gen 3/15 | Best: 2559
+[2026-05-16 18:09:00] INFO         GA | Gen 4/15 | Best: 2535
+[2026-05-16 18:09:01] INFO         GA | Gen 5/15 | Best: 2535
+[2026-05-16 18:09:02] INFO         GA | Gen 6/15 | Best: 2535
+[2026-05-16 18:09:03] INFO         GA | Gen 7/15 | Best: 2535
+[2026-05-16 18:09:03] INFO         GA | Early stopping at gen 7.
+[2026-05-16 18:09:03] INFO         EA finished in 7.0s | best makespan=2535
+[2026-05-16 18:09:03] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:09:10] INFO         synth_1/50  (synth_30x20_seed0.txt): 15,000 transitions  (buffer RAM ≈ 17 MB)
+[2026-05-16 18:09:10] INFO         Reward stats — mean=0.0202  std=0.0071  min=-0.1141  max=0.3454
+[2026-05-16 18:09:10] INFO       ── synth_2/50  (synth_30x20_seed1.txt) ──
+[2026-05-16 18:09:11] INFO         GA | Gen 1/15 | Best: 2601
+[2026-05-16 18:09:12] INFO         GA | Gen 2/15 | Best: 2595
+[2026-05-16 18:09:13] INFO         GA | Gen 3/15 | Best: 2594
+[2026-05-16 18:09:14] INFO         GA | Gen 4/15 | Best: 2594
+[2026-05-16 18:09:15] INFO         GA | Gen 5/15 | Best: 2587
+[2026-05-16 18:09:15] INFO         GA | Gen 6/15 | Best: 2548
+[2026-05-16 18:09:16] INFO         GA | Gen 7/15 | Best: 2548
+[2026-05-16 18:09:17] INFO         GA | Gen 8/15 | Best: 2548
+[2026-05-16 18:09:18] INFO         GA | Gen 9/15 | Best: 2548
+[2026-05-16 18:09:18] INFO         GA | Early stopping at gen 9.
+[2026-05-16 18:09:18] INFO         EA finished in 8.4s | best makespan=2548
+[2026-05-16 18:09:18] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:09:25] INFO         synth_2/50  (synth_30x20_seed1.txt): 15,000 transitions  (buffer RAM ≈ 34 MB)
+[2026-05-16 18:09:25] INFO         Reward stats — mean=0.0203  std=0.0089  min=-0.0192  max=0.4360
+[2026-05-16 18:09:25] INFO       ── synth_3/50  (synth_30x20_seed2.txt) ──
+[2026-05-16 18:09:26] INFO         GA | Gen 1/15 | Best: 2493
+[2026-05-16 18:09:27] INFO         GA | Gen 2/15 | Best: 2493
+[2026-05-16 18:09:28] INFO         GA | Gen 3/15 | Best: 2493
+[2026-05-16 18:09:28] INFO         GA | Early stopping at gen 3.
+[2026-05-16 18:09:28] INFO         EA finished in 3.1s | best makespan=2493
+[2026-05-16 18:09:28] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:09:34] INFO         synth_3/50  (synth_30x20_seed2.txt): 15,000 transitions  (buffer RAM ≈ 51 MB)
+[2026-05-16 18:09:34] INFO         Reward stats — mean=0.0202  std=0.0071  min=-0.1224  max=0.3650
+[2026-05-16 18:09:34] INFO       ── synth_4/50  (synth_30x20_seed3.txt) ──
+[2026-05-16 18:09:36] INFO         GA | Gen 1/15 | Best: 2452
+[2026-05-16 18:09:37] INFO         GA | Gen 2/15 | Best: 2452
+[2026-05-16 18:09:37] INFO         GA | Gen 3/15 | Best: 2449
+[2026-05-16 18:09:38] INFO         GA | Gen 4/15 | Best: 2418
+[2026-05-16 18:09:39] INFO         GA | Gen 5/15 | Best: 2418
+[2026-05-16 18:09:40] INFO         GA | Gen 6/15 | Best: 2418
+[2026-05-16 18:09:41] INFO         GA | Gen 7/15 | Best: 2394
+[2026-05-16 18:09:42] INFO         GA | Gen 8/15 | Best: 2394
+[2026-05-16 18:09:43] INFO         GA | Gen 9/15 | Best: 2394
+[2026-05-16 18:09:43] INFO         GA | Gen 10/15 | Best: 2394
+[2026-05-16 18:09:43] INFO         GA | Early stopping at gen 10.
+[2026-05-16 18:09:43] INFO         EA finished in 9.1s | best makespan=2394
+[2026-05-16 18:09:43] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:09:50] INFO         synth_4/50  (synth_30x20_seed3.txt): 15,000 transitions  (buffer RAM ≈ 69 MB)
+[2026-05-16 18:09:50] INFO         Reward stats — mean=0.0200  std=0.0053  min=-0.2056  max=0.2351
+[2026-05-16 18:09:50] INFO       ── synth_5/50  (synth_30x20_seed4.txt) ──
+[2026-05-16 18:09:51] INFO         GA | Gen 1/15 | Best: 2511
+[2026-05-16 18:09:52] INFO         GA | Gen 2/15 | Best: 2455
+[2026-05-16 18:09:53] INFO         GA | Gen 3/15 | Best: 2455
+[2026-05-16 18:09:54] INFO         GA | Gen 4/15 | Best: 2455
+[2026-05-16 18:09:55] INFO         GA | Gen 5/15 | Best: 2455
+[2026-05-16 18:09:55] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:09:55] INFO         EA finished in 4.8s | best makespan=2455
+[2026-05-16 18:09:55] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:10:01] INFO         synth_5/50  (synth_30x20_seed4.txt): 15,000 transitions  (buffer RAM ≈ 86 MB)
+[2026-05-16 18:10:01] INFO         Reward stats — mean=0.0203  std=0.0078  min=0.0200  max=0.3438
+[2026-05-16 18:10:01] INFO       ── synth_6/50  (synth_30x20_seed5.txt) ──
+[2026-05-16 18:10:03] INFO         GA | Gen 1/15 | Best: 2466
+[2026-05-16 18:10:04] INFO         GA | Gen 2/15 | Best: 2456
+[2026-05-16 18:10:04] INFO         GA | Gen 3/15 | Best: 2421
+[2026-05-16 18:10:05] INFO         GA | Gen 4/15 | Best: 2421
+[2026-05-16 18:10:06] INFO         GA | Gen 5/15 | Best: 2421
+[2026-05-16 18:10:07] INFO         GA | Gen 6/15 | Best: 2421
+[2026-05-16 18:10:07] INFO         GA | Early stopping at gen 6.
+[2026-05-16 18:10:07] INFO         EA finished in 5.6s | best makespan=2421
+[2026-05-16 18:10:07] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:10:14] INFO         synth_6/50  (synth_30x20_seed5.txt): 15,000 transitions  (buffer RAM ≈ 103 MB)
+[2026-05-16 18:10:14] INFO         Reward stats — mean=0.0203  std=0.0089  min=-0.0192  max=0.4310
+[2026-05-16 18:10:14] INFO       ── synth_7/50  (synth_30x20_seed6.txt) ──
+[2026-05-16 18:10:15] INFO         GA | Gen 1/15 | Best: 2407
+[2026-05-16 18:10:16] INFO         GA | Gen 2/15 | Best: 2407
+[2026-05-16 18:10:17] INFO         GA | Gen 3/15 | Best: 2407
+[2026-05-16 18:10:17] INFO         GA | Early stopping at gen 3.
+[2026-05-16 18:10:17] INFO         EA finished in 3.1s | best makespan=2407
+[2026-05-16 18:10:17] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:10:23] INFO         synth_7/50  (synth_30x20_seed6.txt): 15,000 transitions  (buffer RAM ≈ 120 MB)
+[2026-05-16 18:10:23] INFO         Reward stats — mean=0.0202  std=0.0066  min=-0.1649  max=0.3918
+[2026-05-16 18:10:23] INFO       ── synth_8/50  (synth_30x20_seed7.txt) ──
+[2026-05-16 18:10:25] INFO         GA | Gen 1/15 | Best: 2509
+[2026-05-16 18:10:25] INFO         GA | Gen 2/15 | Best: 2499
+[2026-05-16 18:10:26] INFO         GA | Gen 3/15 | Best: 2426
+[2026-05-16 18:10:27] INFO         GA | Gen 4/15 | Best: 2426
+[2026-05-16 18:10:28] INFO         GA | Gen 5/15 | Best: 2426
+[2026-05-16 18:10:29] INFO         GA | Gen 6/15 | Best: 2426
+[2026-05-16 18:10:29] INFO         GA | Early stopping at gen 6.
+[2026-05-16 18:10:29] INFO         EA finished in 5.7s | best makespan=2426
+[2026-05-16 18:10:29] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:10:35] INFO         synth_8/50  (synth_30x20_seed7.txt): 15,000 transitions  (buffer RAM ≈ 137 MB)
+[2026-05-16 18:10:35] INFO         Reward stats — mean=0.0201  std=0.0055  min=-0.1552  max=0.2982
+[2026-05-16 18:10:35] INFO       ── synth_9/50  (synth_30x20_seed8.txt) ──
+[2026-05-16 18:10:37] INFO         GA | Gen 1/15 | Best: 2478
+[2026-05-16 18:10:38] INFO         GA | Gen 2/15 | Best: 2478
+[2026-05-16 18:10:39] INFO         GA | Gen 3/15 | Best: 2478
+[2026-05-16 18:10:39] INFO         GA | Gen 4/15 | Best: 2459
+[2026-05-16 18:10:40] INFO         GA | Gen 5/15 | Best: 2459
+[2026-05-16 18:10:41] INFO         GA | Gen 6/15 | Best: 2459
+[2026-05-16 18:10:42] INFO         GA | Gen 7/15 | Best: 2458
+[2026-05-16 18:10:43] INFO         GA | Gen 8/15 | Best: 2458
+[2026-05-16 18:10:44] INFO         GA | Gen 9/15 | Best: 2451
+[2026-05-16 18:10:45] INFO         GA | Gen 10/15 | Best: 2451
+[2026-05-16 18:10:45] INFO         GA | Gen 11/15 | Best: 2441
+[2026-05-16 18:10:46] INFO         GA | Gen 12/15 | Best: 2441
+[2026-05-16 18:10:47] INFO         GA | Gen 13/15 | Best: 2441
+[2026-05-16 18:10:48] INFO         GA | Gen 14/15 | Best: 2394
+[2026-05-16 18:10:49] INFO         GA | Gen 15/15 | Best: 2394
+[2026-05-16 18:10:49] INFO         EA finished in 13.4s | best makespan=2394
+[2026-05-16 18:10:49] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:10:55] INFO         synth_9/50  (synth_30x20_seed8.txt): 15,000 transitions  (buffer RAM ≈ 154 MB)
+[2026-05-16 18:10:55] INFO         Reward stats — mean=0.0202  std=0.0078  min=-0.1868  max=0.3792
+[2026-05-16 18:10:55] INFO       ── synth_10/50  (synth_30x20_seed9.txt) ──
+[2026-05-16 18:10:57] INFO         GA | Gen 1/15 | Best: 2495
+[2026-05-16 18:10:58] INFO         GA | Gen 2/15 | Best: 2479
+[2026-05-16 18:10:59] INFO         GA | Gen 3/15 | Best: 2466
+[2026-05-16 18:10:59] INFO         GA | Gen 4/15 | Best: 2447
+[2026-05-16 18:11:00] INFO         GA | Gen 5/15 | Best: 2447
+[2026-05-16 18:11:01] INFO         GA | Gen 6/15 | Best: 2447
+[2026-05-16 18:11:02] INFO         GA | Gen 7/15 | Best: 2444
+[2026-05-16 18:11:03] INFO         GA | Gen 8/15 | Best: 2444
+[2026-05-16 18:11:04] INFO         GA | Gen 9/15 | Best: 2427
+[2026-05-16 18:11:05] INFO         GA | Gen 10/15 | Best: 2427
+[2026-05-16 18:11:05] INFO         GA | Gen 11/15 | Best: 2418
+[2026-05-16 18:11:06] INFO         GA | Gen 12/15 | Best: 2418
+[2026-05-16 18:11:07] INFO         GA | Gen 13/15 | Best: 2418
+[2026-05-16 18:11:08] INFO         GA | Gen 14/15 | Best: 2409
+[2026-05-16 18:11:09] INFO         GA | Gen 15/15 | Best: 2409
+[2026-05-16 18:11:09] INFO         EA finished in 13.5s | best makespan=2409
+[2026-05-16 18:11:09] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:11:15] INFO         synth_10/50  (synth_30x20_seed9.txt): 15,000 transitions  (buffer RAM ≈ 172 MB)
+[2026-05-16 18:11:15] INFO         Reward stats — mean=0.0202  std=0.0067  min=-0.0402  max=0.3583
+[2026-05-16 18:11:15] INFO       ── synth_11/50  (synth_30x20_seed10.txt) ──
+[2026-05-16 18:11:17] INFO         GA | Gen 1/15 | Best: 2515
+[2026-05-16 18:11:18] INFO         GA | Gen 2/15 | Best: 2515
+[2026-05-16 18:11:19] INFO         GA | Gen 3/15 | Best: 2462
+[2026-05-16 18:11:19] INFO         GA | Gen 4/15 | Best: 2462
+[2026-05-16 18:11:20] INFO         GA | Gen 5/15 | Best: 2462
+[2026-05-16 18:11:21] INFO         GA | Gen 6/15 | Best: 2462
+[2026-05-16 18:11:21] INFO         GA | Early stopping at gen 6.
+[2026-05-16 18:11:21] INFO         EA finished in 5.7s | best makespan=2462
+[2026-05-16 18:11:21] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:11:28] INFO         synth_11/50  (synth_30x20_seed10.txt): 15,000 transitions  (buffer RAM ≈ 189 MB)
+[2026-05-16 18:11:28] INFO         Reward stats — mean=0.0202  std=0.0076  min=-0.1120  max=0.4120
+[2026-05-16 18:11:28] INFO       ── synth_12/50  (synth_30x20_seed11.txt) ──
+[2026-05-16 18:11:29] INFO         GA | Gen 1/15 | Best: 2503
+[2026-05-16 18:11:30] INFO         GA | Gen 2/15 | Best: 2474
+[2026-05-16 18:11:31] INFO         GA | Gen 3/15 | Best: 2474
+[2026-05-16 18:11:32] INFO         GA | Gen 4/15 | Best: 2474
+[2026-05-16 18:11:33] INFO         GA | Gen 5/15 | Best: 2474
+[2026-05-16 18:11:33] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:11:33] INFO         EA finished in 4.8s | best makespan=2474
+[2026-05-16 18:11:33] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:11:39] INFO         synth_12/50  (synth_30x20_seed11.txt): 15,000 transitions  (buffer RAM ≈ 206 MB)
+[2026-05-16 18:11:39] INFO         Reward stats — mean=0.0201  std=0.0058  min=-0.2064  max=0.3009
+[2026-05-16 18:11:39] INFO       ── synth_13/50  (synth_30x20_seed12.txt) ──
+[2026-05-16 18:11:41] INFO         GA | Gen 1/15 | Best: 2498
+[2026-05-16 18:11:41] INFO         GA | Gen 2/15 | Best: 2498
+[2026-05-16 18:11:42] INFO         GA | Gen 3/15 | Best: 2362
+[2026-05-16 18:11:43] INFO         GA | Gen 4/15 | Best: 2362
+[2026-05-16 18:11:44] INFO         GA | Gen 5/15 | Best: 2362
+[2026-05-16 18:11:45] INFO         GA | Gen 6/15 | Best: 2362
+[2026-05-16 18:11:45] INFO         GA | Early stopping at gen 6.
+[2026-05-16 18:11:45] INFO         EA finished in 5.7s | best makespan=2362
+[2026-05-16 18:11:45] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:11:51] INFO         synth_13/50  (synth_30x20_seed12.txt): 15,000 transitions  (buffer RAM ≈ 223 MB)
+[2026-05-16 18:11:51] INFO         Reward stats — mean=0.0200  std=0.0060  min=-0.2107  max=0.2846
+[2026-05-16 18:11:51] INFO       ── synth_14/50  (synth_30x20_seed13.txt) ──
+[2026-05-16 18:11:53] INFO         GA | Gen 1/15 | Best: 2453
+[2026-05-16 18:11:54] INFO         GA | Gen 2/15 | Best: 2453
+[2026-05-16 18:11:55] INFO         GA | Gen 3/15 | Best: 2405
+[2026-05-16 18:11:55] INFO         GA | Gen 4/15 | Best: 2405
+[2026-05-16 18:11:56] INFO         GA | Gen 5/15 | Best: 2394
+[2026-05-16 18:11:57] INFO         GA | Gen 6/15 | Best: 2394
+[2026-05-16 18:11:58] INFO         GA | Gen 7/15 | Best: 2394
+[2026-05-16 18:11:59] INFO         GA | Gen 8/15 | Best: 2394
+[2026-05-16 18:11:59] INFO         GA | Early stopping at gen 8.
+[2026-05-16 18:11:59] INFO         EA finished in 7.4s | best makespan=2394
+[2026-05-16 18:11:59] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:12:06] INFO         synth_14/50  (synth_30x20_seed13.txt): 15,000 transitions  (buffer RAM ≈ 240 MB)
+[2026-05-16 18:12:06] INFO         Reward stats — mean=0.0201  std=0.0053  min=-0.2766  max=0.2518
+[2026-05-16 18:12:06] INFO       ── synth_15/50  (synth_30x20_seed14.txt) ──
+[2026-05-16 18:12:07] INFO         GA | Gen 1/15 | Best: 2524
+[2026-05-16 18:12:08] INFO         GA | Gen 2/15 | Best: 2510
+[2026-05-16 18:12:09] INFO         GA | Gen 3/15 | Best: 2509
+[2026-05-16 18:12:09] INFO         GA | Gen 4/15 | Best: 2509
+[2026-05-16 18:12:10] INFO         GA | Gen 5/15 | Best: 2509
+[2026-05-16 18:12:11] INFO         GA | Gen 6/15 | Best: 2491
+[2026-05-16 18:12:12] INFO         GA | Gen 7/15 | Best: 2491
+[2026-05-16 18:12:13] INFO         GA | Gen 8/15 | Best: 2485
+[2026-05-16 18:12:14] INFO         GA | Gen 9/15 | Best: 2474
+[2026-05-16 18:12:15] INFO         GA | Gen 10/15 | Best: 2474
+[2026-05-16 18:12:16] INFO         GA | Gen 11/15 | Best: 2474
+[2026-05-16 18:12:16] INFO         GA | Gen 12/15 | Best: 2474
+[2026-05-16 18:12:16] INFO         GA | Early stopping at gen 12.
+[2026-05-16 18:12:16] INFO         EA finished in 11.0s | best makespan=2474
+[2026-05-16 18:12:16] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:12:23] INFO         synth_15/50  (synth_30x20_seed14.txt): 15,000 transitions  (buffer RAM ≈ 257 MB)
+[2026-05-16 18:12:23] INFO         Reward stats — mean=0.0201  std=0.0054  min=-0.2104  max=0.2827
+[2026-05-16 18:12:23] INFO       ── synth_16/50  (synth_30x20_seed15.txt) ──
+[2026-05-16 18:12:24] INFO         GA | Gen 1/15 | Best: 2370
+[2026-05-16 18:12:25] INFO         GA | Gen 2/15 | Best: 2370
+[2026-05-16 18:12:26] INFO         GA | Gen 3/15 | Best: 2370
+[2026-05-16 18:12:27] INFO         GA | Gen 4/15 | Best: 2339
+[2026-05-16 18:12:28] INFO         GA | Gen 5/15 | Best: 2328
+[2026-05-16 18:12:29] INFO         GA | Gen 6/15 | Best: 2314
+[2026-05-16 18:12:30] INFO         GA | Gen 7/15 | Best: 2308
+[2026-05-16 18:12:31] INFO         GA | Gen 8/15 | Best: 2272
+[2026-05-16 18:12:31] INFO         GA | Gen 9/15 | Best: 2272
+[2026-05-16 18:12:32] INFO         GA | Gen 10/15 | Best: 2272
+[2026-05-16 18:12:33] INFO         GA | Gen 11/15 | Best: 2272
+[2026-05-16 18:12:33] INFO         GA | Early stopping at gen 11.
+[2026-05-16 18:12:33] INFO         EA finished in 10.1s | best makespan=2272
+[2026-05-16 18:12:33] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:12:40] INFO         synth_16/50  (synth_30x20_seed15.txt): 15,000 transitions  (buffer RAM ≈ 275 MB)
+[2026-05-16 18:12:40] INFO         Reward stats — mean=0.0201  std=0.0060  min=-0.1693  max=0.3413
+[2026-05-16 18:12:40] INFO       ── synth_17/50  (synth_30x20_seed16.txt) ──
+[2026-05-16 18:12:41] INFO         GA | Gen 1/15 | Best: 2381
+[2026-05-16 18:12:42] INFO         GA | Gen 2/15 | Best: 2381
+[2026-05-16 18:12:43] INFO         GA | Gen 3/15 | Best: 2381
+[2026-05-16 18:12:43] INFO         GA | Early stopping at gen 3.
+[2026-05-16 18:12:43] INFO         EA finished in 3.1s | best makespan=2381
+[2026-05-16 18:12:43] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:12:49] INFO         synth_17/50  (synth_30x20_seed16.txt): 15,000 transitions  (buffer RAM ≈ 292 MB)
+[2026-05-16 18:12:49] INFO         Reward stats — mean=0.0203  std=0.0092  min=-0.0199  max=0.4547
+[2026-05-16 18:12:49] INFO       ── synth_18/50  (synth_30x20_seed17.txt) ──
+[2026-05-16 18:12:51] INFO         GA | Gen 1/15 | Best: 2389
+[2026-05-16 18:12:51] INFO         GA | Gen 2/15 | Best: 2389
+[2026-05-16 18:12:52] INFO         GA | Gen 3/15 | Best: 2384
+[2026-05-16 18:12:53] INFO         GA | Gen 4/15 | Best: 2378
+[2026-05-16 18:12:54] INFO         GA | Gen 5/15 | Best: 2378
+[2026-05-16 18:12:55] INFO         GA | Gen 6/15 | Best: 2378
+[2026-05-16 18:12:56] INFO         GA | Gen 7/15 | Best: 2378
+[2026-05-16 18:12:56] INFO         GA | Early stopping at gen 7.
+[2026-05-16 18:12:56] INFO         EA finished in 6.7s | best makespan=2378
+[2026-05-16 18:12:56] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:13:02] INFO         synth_18/50  (synth_30x20_seed17.txt): 15,000 transitions  (buffer RAM ≈ 309 MB)
+[2026-05-16 18:13:02] INFO         Reward stats — mean=0.0203  std=0.0094  min=-0.0578  max=0.4552
+[2026-05-16 18:13:02] INFO       ── synth_19/50  (synth_30x20_seed18.txt) ──
+[2026-05-16 18:13:04] INFO         GA | Gen 1/15 | Best: 2466
+[2026-05-16 18:13:05] INFO         GA | Gen 2/15 | Best: 2457
+[2026-05-16 18:13:06] INFO         GA | Gen 3/15 | Best: 2417
+[2026-05-16 18:13:06] INFO         GA | Gen 4/15 | Best: 2417
+[2026-05-16 18:13:07] INFO         GA | Gen 5/15 | Best: 2417
+[2026-05-16 18:13:08] INFO         GA | Gen 6/15 | Best: 2386
+[2026-05-16 18:13:09] INFO         GA | Gen 7/15 | Best: 2386
+[2026-05-16 18:13:10] INFO         GA | Gen 8/15 | Best: 2386
+[2026-05-16 18:13:11] INFO         GA | Gen 9/15 | Best: 2386
+[2026-05-16 18:13:11] INFO         GA | Early stopping at gen 9.
+[2026-05-16 18:13:11] INFO         EA finished in 8.4s | best makespan=2386
+[2026-05-16 18:13:11] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:13:17] INFO         synth_19/50  (synth_30x20_seed18.txt): 15,000 transitions  (buffer RAM ≈ 326 MB)
+[2026-05-16 18:13:17] INFO         Reward stats — mean=0.0202  std=0.0063  min=-0.0303  max=0.3532
+[2026-05-16 18:13:17] INFO       ── synth_20/50  (synth_30x20_seed19.txt) ──
+[2026-05-16 18:13:19] INFO         GA | Gen 1/15 | Best: 2490
+[2026-05-16 18:13:20] INFO         GA | Gen 2/15 | Best: 2471
+[2026-05-16 18:13:20] INFO         GA | Gen 3/15 | Best: 2471
+[2026-05-16 18:13:21] INFO         GA | Gen 4/15 | Best: 2471
+[2026-05-16 18:13:22] INFO         GA | Gen 5/15 | Best: 2471
+[2026-05-16 18:13:22] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:13:22] INFO         EA finished in 4.8s | best makespan=2471
+[2026-05-16 18:13:22] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:13:29] INFO         synth_20/50  (synth_30x20_seed19.txt): 15,000 transitions  (buffer RAM ≈ 343 MB)
+[2026-05-16 18:13:29] INFO         Reward stats — mean=0.0203  std=0.0084  min=-0.1115  max=0.4328
+[2026-05-16 18:13:29] INFO       ── synth_21/50  (synth_30x20_seed20.txt) ──
+[2026-05-16 18:13:30] INFO         GA | Gen 1/15 | Best: 2474
+[2026-05-16 18:13:31] INFO         GA | Gen 2/15 | Best: 2474
+[2026-05-16 18:13:32] INFO         GA | Gen 3/15 | Best: 2465
+[2026-05-16 18:13:33] INFO         GA | Gen 4/15 | Best: 2445
+[2026-05-16 18:13:34] INFO         GA | Gen 5/15 | Best: 2419
+[2026-05-16 18:13:34] INFO         GA | Gen 6/15 | Best: 2419
+[2026-05-16 18:13:35] INFO         GA | Gen 7/15 | Best: 2409
+[2026-05-16 18:13:36] INFO         GA | Gen 8/15 | Best: 2409
+[2026-05-16 18:13:37] INFO         GA | Gen 9/15 | Best: 2409
+[2026-05-16 18:13:38] INFO         GA | Gen 10/15 | Best: 2409
+[2026-05-16 18:13:38] INFO         GA | Early stopping at gen 10.
+[2026-05-16 18:13:38] INFO         EA finished in 9.1s | best makespan=2409
+[2026-05-16 18:13:38] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:13:44] INFO         synth_21/50  (synth_30x20_seed20.txt): 15,000 transitions  (buffer RAM ≈ 360 MB)
+[2026-05-16 18:13:44] INFO         Reward stats — mean=0.0202  std=0.0068  min=-0.3370  max=0.3168
+[2026-05-16 18:13:44] INFO       ── synth_22/50  (synth_30x20_seed21.txt) ──
+[2026-05-16 18:13:46] INFO         GA | Gen 1/15 | Best: 2364
+[2026-05-16 18:13:47] INFO         GA | Gen 2/15 | Best: 2364
+[2026-05-16 18:13:48] INFO         GA | Gen 3/15 | Best: 2336
+[2026-05-16 18:13:48] INFO         GA | Gen 4/15 | Best: 2336
+[2026-05-16 18:13:49] INFO         GA | Gen 5/15 | Best: 2336
+[2026-05-16 18:13:50] INFO         GA | Gen 6/15 | Best: 2336
+[2026-05-16 18:13:50] INFO         GA | Early stopping at gen 6.
+[2026-05-16 18:13:50] INFO         EA finished in 5.7s | best makespan=2336
+[2026-05-16 18:13:50] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:13:57] INFO         synth_22/50  (synth_30x20_seed21.txt): 15,000 transitions  (buffer RAM ≈ 378 MB)
+[2026-05-16 18:13:57] INFO         Reward stats — mean=0.0201  std=0.0067  min=-0.3696  max=0.3111
+[2026-05-16 18:13:57] INFO       ── synth_23/50  (synth_30x20_seed22.txt) ──
+[2026-05-16 18:13:58] INFO         GA | Gen 1/15 | Best: 2542
+[2026-05-16 18:13:59] INFO         GA | Gen 2/15 | Best: 2542
+[2026-05-16 18:14:00] INFO         GA | Gen 3/15 | Best: 2517
+[2026-05-16 18:14:01] INFO         GA | Gen 4/15 | Best: 2517
+[2026-05-16 18:14:02] INFO         GA | Gen 5/15 | Best: 2517
+[2026-05-16 18:14:02] INFO         GA | Gen 6/15 | Best: 2486
+[2026-05-16 18:14:03] INFO         GA | Gen 7/15 | Best: 2486
+[2026-05-16 18:14:04] INFO         GA | Gen 8/15 | Best: 2486
+[2026-05-16 18:14:05] INFO         GA | Gen 9/15 | Best: 2486
+[2026-05-16 18:14:05] INFO         GA | Early stopping at gen 9.
+[2026-05-16 18:14:05] INFO         EA finished in 8.3s | best makespan=2486
+[2026-05-16 18:14:05] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:14:12] INFO         synth_23/50  (synth_30x20_seed22.txt): 15,000 transitions  (buffer RAM ≈ 395 MB)
+[2026-05-16 18:14:12] INFO         Reward stats — mean=0.0202  std=0.0077  min=-0.1288  max=0.3679
+[2026-05-16 18:14:12] INFO       ── synth_24/50  (synth_30x20_seed23.txt) ──
+[2026-05-16 18:14:13] INFO         GA | Gen 1/15 | Best: 2418
+[2026-05-16 18:14:14] INFO         GA | Gen 2/15 | Best: 2418
+[2026-05-16 18:14:15] INFO         GA | Gen 3/15 | Best: 2418
+[2026-05-16 18:14:15] INFO         GA | Early stopping at gen 3.
+[2026-05-16 18:14:15] INFO         EA finished in 3.0s | best makespan=2418
+[2026-05-16 18:14:15] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:14:21] INFO         synth_24/50  (synth_30x20_seed23.txt): 15,000 transitions  (buffer RAM ≈ 412 MB)
+[2026-05-16 18:14:21] INFO         Reward stats — mean=0.0203  std=0.0086  min=-0.2261  max=0.3467
+[2026-05-16 18:14:21] INFO       ── synth_25/50  (synth_30x20_seed24.txt) ──
+[2026-05-16 18:14:22] INFO         GA | Gen 1/15 | Best: 2509
+[2026-05-16 18:14:23] INFO         GA | Gen 2/15 | Best: 2509
+[2026-05-16 18:14:24] INFO         GA | Gen 3/15 | Best: 2509
+[2026-05-16 18:14:25] INFO         GA | Gen 4/15 | Best: 2509
+[2026-05-16 18:14:25] INFO         GA | Early stopping at gen 4.
+[2026-05-16 18:14:25] INFO         EA finished in 4.0s | best makespan=2509
+[2026-05-16 18:14:25] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:14:32] INFO         synth_25/50  (synth_30x20_seed24.txt): 15,000 transitions  (buffer RAM ≈ 429 MB)
+[2026-05-16 18:14:32] INFO         Reward stats — mean=0.0201  std=0.0069  min=-0.1873  max=0.4026
+[2026-05-16 18:14:32] INFO       ── synth_26/50  (synth_30x20_seed25.txt) ──
+[2026-05-16 18:14:33] INFO         GA | Gen 1/15 | Best: 2445
+[2026-05-16 18:14:34] INFO         GA | Gen 2/15 | Best: 2445
+[2026-05-16 18:14:35] INFO         GA | Gen 3/15 | Best: 2402
+[2026-05-16 18:14:36] INFO         GA | Gen 4/15 | Best: 2402
+[2026-05-16 18:14:37] INFO         GA | Gen 5/15 | Best: 2402
+[2026-05-16 18:14:37] INFO         GA | Gen 6/15 | Best: 2394
+[2026-05-16 18:14:38] INFO         GA | Gen 7/15 | Best: 2394
+[2026-05-16 18:14:39] INFO         GA | Gen 8/15 | Best: 2394
+[2026-05-16 18:14:40] INFO         GA | Gen 9/15 | Best: 2394
+[2026-05-16 18:14:40] INFO         GA | Early stopping at gen 9.
+[2026-05-16 18:14:40] INFO         EA finished in 8.4s | best makespan=2394
+[2026-05-16 18:14:40] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:14:47] INFO         synth_26/50  (synth_30x20_seed25.txt): 15,000 transitions  (buffer RAM ≈ 446 MB)
+[2026-05-16 18:14:47] INFO         Reward stats — mean=0.0202  std=0.0067  min=-0.0343  max=0.3145
+[2026-05-16 18:14:47] INFO       ── synth_27/50  (synth_30x20_seed26.txt) ──
+[2026-05-16 18:14:48] INFO         GA | Gen 1/15 | Best: 2680
+[2026-05-16 18:14:49] INFO         GA | Gen 2/15 | Best: 2618
+[2026-05-16 18:14:50] INFO         GA | Gen 3/15 | Best: 2618
+[2026-05-16 18:14:51] INFO         GA | Gen 4/15 | Best: 2618
+[2026-05-16 18:14:51] INFO         GA | Gen 5/15 | Best: 2618
+[2026-05-16 18:14:51] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:14:51] INFO         EA finished in 4.8s | best makespan=2618
+[2026-05-16 18:14:51] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:14:58] INFO         synth_27/50  (synth_30x20_seed26.txt): 15,000 transitions  (buffer RAM ≈ 463 MB)
+[2026-05-16 18:14:58] INFO         Reward stats — mean=0.0201  std=0.0046  min=-0.0870  max=0.2759
+[2026-05-16 18:14:58] INFO       ── synth_28/50  (synth_30x20_seed27.txt) ──
+[2026-05-16 18:14:59] INFO         GA | Gen 1/15 | Best: 2584
+[2026-05-16 18:15:00] INFO         GA | Gen 2/15 | Best: 2552
+[2026-05-16 18:15:01] INFO         GA | Gen 3/15 | Best: 2552
+[2026-05-16 18:15:02] INFO         GA | Gen 4/15 | Best: 2552
+[2026-05-16 18:15:03] INFO         GA | Gen 5/15 | Best: 2552
+[2026-05-16 18:15:03] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:15:03] INFO         EA finished in 4.9s | best makespan=2552
+[2026-05-16 18:15:03] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:15:10] INFO         synth_28/50  (synth_30x20_seed27.txt): 15,000 transitions  (buffer RAM ≈ 481 MB)
+[2026-05-16 18:15:10] INFO         Reward stats — mean=0.0203  std=0.0088  min=0.0200  max=0.4275
+[2026-05-16 18:15:10] INFO       ── synth_29/50  (synth_30x20_seed28.txt) ──
+[2026-05-16 18:15:11] INFO         GA | Gen 1/15 | Best: 2506
+[2026-05-16 18:15:12] INFO         GA | Gen 2/15 | Best: 2506
+[2026-05-16 18:15:13] INFO         GA | Gen 3/15 | Best: 2506
+[2026-05-16 18:15:14] INFO         GA | Gen 4/15 | Best: 2506
+[2026-05-16 18:15:14] INFO         GA | Early stopping at gen 4.
+[2026-05-16 18:15:14] INFO         EA finished in 3.9s | best makespan=2506
+[2026-05-16 18:15:14] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:15:20] INFO         synth_29/50  (synth_30x20_seed28.txt): 15,000 transitions  (buffer RAM ≈ 498 MB)
+[2026-05-16 18:15:20] INFO         Reward stats — mean=0.0203  std=0.0091  min=0.0020  max=0.3991
+[2026-05-16 18:15:20] INFO       ── synth_30/50  (synth_30x20_seed29.txt) ──
+[2026-05-16 18:15:21] INFO         GA | Gen 1/15 | Best: 2499
+[2026-05-16 18:15:22] INFO         GA | Gen 2/15 | Best: 2470
+[2026-05-16 18:15:23] INFO         GA | Gen 3/15 | Best: 2470
+[2026-05-16 18:15:24] INFO         GA | Gen 4/15 | Best: 2470
+[2026-05-16 18:15:25] INFO         GA | Gen 5/15 | Best: 2470
+[2026-05-16 18:15:25] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:15:25] INFO         EA finished in 4.8s | best makespan=2470
+[2026-05-16 18:15:25] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:15:31] INFO         synth_30/50  (synth_30x20_seed29.txt): 15,000 transitions  (buffer RAM ≈ 515 MB)
+[2026-05-16 18:15:31] INFO         Reward stats — mean=0.0203  std=0.0083  min=-0.0751  max=0.3662
+[2026-05-16 18:15:31] INFO       ── synth_31/50  (synth_30x20_seed30.txt) ──
+[2026-05-16 18:15:33] INFO         GA | Gen 1/15 | Best: 2586
+[2026-05-16 18:15:34] INFO         GA | Gen 2/15 | Best: 2573
+[2026-05-16 18:15:35] INFO         GA | Gen 3/15 | Best: 2573
+[2026-05-16 18:15:35] INFO         GA | Gen 4/15 | Best: 2551
+[2026-05-16 18:15:36] INFO         GA | Gen 5/15 | Best: 2536
+[2026-05-16 18:15:37] INFO         GA | Gen 6/15 | Best: 2536
+[2026-05-16 18:15:38] INFO         GA | Gen 7/15 | Best: 2536
+[2026-05-16 18:15:39] INFO         GA | Gen 8/15 | Best: 2527
+[2026-05-16 18:15:40] INFO         GA | Gen 9/15 | Best: 2527
+[2026-05-16 18:15:41] INFO         GA | Gen 10/15 | Best: 2527
+[2026-05-16 18:15:41] INFO         GA | Gen 11/15 | Best: 2527
+[2026-05-16 18:15:41] INFO         GA | Early stopping at gen 11.
+[2026-05-16 18:15:41] INFO         EA finished in 10.0s | best makespan=2527
+[2026-05-16 18:15:41] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:15:48] INFO         synth_31/50  (synth_30x20_seed30.txt): 15,000 transitions  (buffer RAM ≈ 532 MB)
+[2026-05-16 18:15:48] INFO         Reward stats — mean=0.0202  std=0.0069  min=-0.0235  max=0.3544
+[2026-05-16 18:15:48] INFO       ── synth_32/50  (synth_30x20_seed31.txt) ──
+[2026-05-16 18:15:49] INFO         GA | Gen 1/15 | Best: 2463
+[2026-05-16 18:15:50] INFO         GA | Gen 2/15 | Best: 2463
+[2026-05-16 18:15:51] INFO         GA | Gen 3/15 | Best: 2463
+[2026-05-16 18:15:51] INFO         GA | Early stopping at gen 3.
+[2026-05-16 18:15:51] INFO         EA finished in 3.1s | best makespan=2463
+[2026-05-16 18:15:51] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:15:58] INFO         synth_32/50  (synth_30x20_seed31.txt): 15,000 transitions  (buffer RAM ≈ 549 MB)
+[2026-05-16 18:15:58] INFO         Reward stats — mean=0.0201  std=0.0067  min=-0.3393  max=0.3387
+[2026-05-16 18:15:58] INFO       ── synth_33/50  (synth_30x20_seed32.txt) ──
+[2026-05-16 18:15:59] INFO         GA | Gen 1/15 | Best: 2507
+[2026-05-16 18:16:00] INFO         GA | Gen 2/15 | Best: 2476
+[2026-05-16 18:16:01] INFO         GA | Gen 3/15 | Best: 2476
+[2026-05-16 18:16:02] INFO         GA | Gen 4/15 | Best: 2476
+[2026-05-16 18:16:02] INFO         GA | Gen 5/15 | Best: 2476
+[2026-05-16 18:16:02] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:16:02] INFO         EA finished in 4.9s | best makespan=2476
+[2026-05-16 18:16:02] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:16:09] INFO         synth_33/50  (synth_30x20_seed32.txt): 15,000 transitions  (buffer RAM ≈ 566 MB)
+[2026-05-16 18:16:09] INFO         Reward stats — mean=0.0201  std=0.0051  min=-0.1799  max=0.2179
+[2026-05-16 18:16:09] INFO       ── synth_34/50  (synth_30x20_seed33.txt) ──
+[2026-05-16 18:16:10] INFO         GA | Gen 1/15 | Best: 2558
+[2026-05-16 18:16:11] INFO         GA | Gen 2/15 | Best: 2459
+[2026-05-16 18:16:12] INFO         GA | Gen 3/15 | Best: 2459
+[2026-05-16 18:16:13] INFO         GA | Gen 4/15 | Best: 2459
+[2026-05-16 18:16:14] INFO         GA | Gen 5/15 | Best: 2459
+[2026-05-16 18:16:14] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:16:14] INFO         EA finished in 4.9s | best makespan=2459
+[2026-05-16 18:16:14] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:16:45] INFO         synth_34/50  (synth_30x20_seed33.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:16:45] INFO         Reward stats — mean=0.0202  std=0.0061  min=-0.2240  max=0.3006
+[2026-05-16 18:16:45] INFO       ── synth_35/50  (synth_30x20_seed34.txt) ──
+[2026-05-16 18:16:46] INFO         GA | Gen 1/15 | Best: 2584
+[2026-05-16 18:16:47] INFO         GA | Gen 2/15 | Best: 2554
+[2026-05-16 18:16:48] INFO         GA | Gen 3/15 | Best: 2554
+[2026-05-16 18:16:49] INFO         GA | Gen 4/15 | Best: 2554
+[2026-05-16 18:16:49] INFO         GA | Gen 5/15 | Best: 2554
+[2026-05-16 18:16:49] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:16:49] INFO         EA finished in 4.8s | best makespan=2554
+[2026-05-16 18:16:49] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:17:32] INFO         synth_35/50  (synth_30x20_seed34.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:17:32] INFO         Reward stats — mean=0.0203  std=0.0080  min=-0.0564  max=0.3743
+[2026-05-16 18:17:32] INFO       ── synth_36/50  (synth_30x20_seed35.txt) ──
+[2026-05-16 18:17:34] INFO         GA | Gen 1/15 | Best: 2360
+[2026-05-16 18:17:34] INFO         GA | Gen 2/15 | Best: 2360
+[2026-05-16 18:17:35] INFO         GA | Gen 3/15 | Best: 2360
+[2026-05-16 18:17:36] INFO         GA | Gen 4/15 | Best: 2360
+[2026-05-16 18:17:36] INFO         GA | Early stopping at gen 4.
+[2026-05-16 18:17:36] INFO         EA finished in 4.0s | best makespan=2360
+[2026-05-16 18:17:36] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:18:19] INFO         synth_36/50  (synth_30x20_seed35.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:18:19] INFO         Reward stats — mean=0.0203  std=0.0085  min=-0.1580  max=0.4119
+[2026-05-16 18:18:19] INFO       ── synth_37/50  (synth_30x20_seed36.txt) ──
+[2026-05-16 18:18:20] INFO         GA | Gen 1/15 | Best: 2613
+[2026-05-16 18:18:21] INFO         GA | Gen 2/15 | Best: 2613
+[2026-05-16 18:18:22] INFO         GA | Gen 3/15 | Best: 2609
+[2026-05-16 18:18:23] INFO         GA | Gen 4/15 | Best: 2609
+[2026-05-16 18:18:24] INFO         GA | Gen 5/15 | Best: 2563
+[2026-05-16 18:18:25] INFO         GA | Gen 6/15 | Best: 2563
+[2026-05-16 18:18:26] INFO         GA | Gen 7/15 | Best: 2537
+[2026-05-16 18:18:26] INFO         GA | Gen 8/15 | Best: 2537
+[2026-05-16 18:18:27] INFO         GA | Gen 9/15 | Best: 2537
+[2026-05-16 18:18:28] INFO         GA | Gen 10/15 | Best: 2537
+[2026-05-16 18:18:28] INFO         GA | Early stopping at gen 10.
+[2026-05-16 18:18:28] INFO         EA finished in 9.1s | best makespan=2537
+[2026-05-16 18:18:28] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:19:11] INFO         synth_37/50  (synth_30x20_seed36.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:19:11] INFO         Reward stats — mean=0.0202  std=0.0067  min=-0.0194  max=0.2644
+[2026-05-16 18:19:11] INFO       ── synth_38/50  (synth_30x20_seed37.txt) ──
+[2026-05-16 18:19:12] INFO         GA | Gen 1/15 | Best: 2457
+[2026-05-16 18:19:13] INFO         GA | Gen 2/15 | Best: 2454
+[2026-05-16 18:19:14] INFO         GA | Gen 3/15 | Best: 2454
+[2026-05-16 18:19:15] INFO         GA | Gen 4/15 | Best: 2454
+[2026-05-16 18:19:16] INFO         GA | Gen 5/15 | Best: 2454
+[2026-05-16 18:19:16] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:19:16] INFO         EA finished in 4.8s | best makespan=2454
+[2026-05-16 18:19:16] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:19:58] INFO         synth_38/50  (synth_30x20_seed37.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:19:58] INFO         Reward stats — mean=0.0203  std=0.0093  min=-0.0737  max=0.4214
+[2026-05-16 18:19:58] INFO       ── synth_39/50  (synth_30x20_seed38.txt) ──
+[2026-05-16 18:20:00] INFO         GA | Gen 1/15 | Best: 2339
+[2026-05-16 18:20:01] INFO         GA | Gen 2/15 | Best: 2339
+[2026-05-16 18:20:02] INFO         GA | Gen 3/15 | Best: 2339
+[2026-05-16 18:20:02] INFO         GA | Gen 4/15 | Best: 2339
+[2026-05-16 18:20:02] INFO         GA | Early stopping at gen 4.
+[2026-05-16 18:20:02] INFO         EA finished in 3.9s | best makespan=2339
+[2026-05-16 18:20:02] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:20:45] INFO         synth_39/50  (synth_30x20_seed38.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:20:45] INFO         Reward stats — mean=0.0202  std=0.0076  min=-0.2173  max=0.4326
+[2026-05-16 18:20:45] INFO       ── synth_40/50  (synth_30x20_seed39.txt) ──
+[2026-05-16 18:20:47] INFO         GA | Gen 1/15 | Best: 2583
+[2026-05-16 18:20:47] INFO         GA | Gen 2/15 | Best: 2545
+[2026-05-16 18:20:48] INFO         GA | Gen 3/15 | Best: 2545
+[2026-05-16 18:20:49] INFO         GA | Gen 4/15 | Best: 2538
+[2026-05-16 18:20:50] INFO         GA | Gen 5/15 | Best: 2522
+[2026-05-16 18:20:51] INFO         GA | Gen 6/15 | Best: 2508
+[2026-05-16 18:20:52] INFO         GA | Gen 7/15 | Best: 2508
+[2026-05-16 18:20:53] INFO         GA | Gen 8/15 | Best: 2508
+[2026-05-16 18:20:53] INFO         GA | Gen 9/15 | Best: 2508
+[2026-05-16 18:20:53] INFO         GA | Early stopping at gen 9.
+[2026-05-16 18:20:53] INFO         EA finished in 8.3s | best makespan=2508
+[2026-05-16 18:20:53] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:21:36] INFO         synth_40/50  (synth_30x20_seed39.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:21:36] INFO         Reward stats — mean=0.0204  std=0.0105  min=-0.1415  max=0.4985
+[2026-05-16 18:21:36] INFO       ── synth_41/50  (synth_30x20_seed40.txt) ──
+[2026-05-16 18:21:38] INFO         GA | Gen 1/15 | Best: 2438
+[2026-05-16 18:21:39] INFO         GA | Gen 2/15 | Best: 2438
+[2026-05-16 18:21:39] INFO         GA | Gen 3/15 | Best: 2412
+[2026-05-16 18:21:40] INFO         GA | Gen 4/15 | Best: 2412
+[2026-05-16 18:21:41] INFO         GA | Gen 5/15 | Best: 2412
+[2026-05-16 18:21:42] INFO         GA | Gen 6/15 | Best: 2381
+[2026-05-16 18:21:43] INFO         GA | Gen 7/15 | Best: 2381
+[2026-05-16 18:21:44] INFO         GA | Gen 8/15 | Best: 2370
+[2026-05-16 18:21:45] INFO         GA | Gen 9/15 | Best: 2364
+[2026-05-16 18:21:45] INFO         GA | Gen 10/15 | Best: 2343
+[2026-05-16 18:21:46] INFO         GA | Gen 11/15 | Best: 2343
+[2026-05-16 18:21:47] INFO         GA | Gen 12/15 | Best: 2343
+[2026-05-16 18:21:48] INFO         GA | Gen 13/15 | Best: 2316
+[2026-05-16 18:21:49] INFO         GA | Gen 14/15 | Best: 2316
+[2026-05-16 18:21:50] INFO         GA | Gen 15/15 | Best: 2316
+[2026-05-16 18:21:50] INFO         EA finished in 13.5s | best makespan=2316
+[2026-05-16 18:21:50] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:22:33] INFO         synth_41/50  (synth_30x20_seed40.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:22:33] INFO         Reward stats — mean=0.0200  std=0.0055  min=-0.4550  max=0.1884
+[2026-05-16 18:22:33] INFO       ── synth_42/50  (synth_30x20_seed41.txt) ──
+[2026-05-16 18:22:34] INFO         GA | Gen 1/15 | Best: 2614
+[2026-05-16 18:22:35] INFO         GA | Gen 2/15 | Best: 2614
+[2026-05-16 18:22:36] INFO         GA | Gen 3/15 | Best: 2614
+[2026-05-16 18:22:37] INFO         GA | Gen 4/15 | Best: 2614
+[2026-05-16 18:22:37] INFO         GA | Early stopping at gen 4.
+[2026-05-16 18:22:37] INFO         EA finished in 3.9s | best makespan=2614
+[2026-05-16 18:22:37] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:23:19] INFO         synth_42/50  (synth_30x20_seed41.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:23:19] INFO         Reward stats — mean=0.0202  std=0.0074  min=-0.0680  max=0.3566
+[2026-05-16 18:23:19] INFO       ── synth_43/50  (synth_30x20_seed42.txt) ──
+[2026-05-16 18:23:21] INFO         GA | Gen 1/15 | Best: 2528
+[2026-05-16 18:23:22] INFO         GA | Gen 2/15 | Best: 2528
+[2026-05-16 18:23:22] INFO         GA | Gen 3/15 | Best: 2512
+[2026-05-16 18:23:23] INFO         GA | Gen 4/15 | Best: 2502
+[2026-05-16 18:23:24] INFO         GA | Gen 5/15 | Best: 2477
+[2026-05-16 18:23:25] INFO         GA | Gen 6/15 | Best: 2470
+[2026-05-16 18:23:26] INFO         GA | Gen 7/15 | Best: 2470
+[2026-05-16 18:23:27] INFO         GA | Gen 8/15 | Best: 2453
+[2026-05-16 18:23:28] INFO         GA | Gen 9/15 | Best: 2430
+[2026-05-16 18:23:29] INFO         GA | Gen 10/15 | Best: 2430
+[2026-05-16 18:23:29] INFO         GA | Gen 11/15 | Best: 2430
+[2026-05-16 18:23:30] INFO         GA | Gen 12/15 | Best: 2430
+[2026-05-16 18:23:30] INFO         GA | Early stopping at gen 12.
+[2026-05-16 18:23:30] INFO         EA finished in 10.9s | best makespan=2430
+[2026-05-16 18:23:30] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:24:13] INFO         synth_43/50  (synth_30x20_seed42.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:24:13] INFO         Reward stats — mean=0.0202  std=0.0065  min=-0.0232  max=0.2998
+[2026-05-16 18:24:13] INFO       ── synth_44/50  (synth_30x20_seed43.txt) ──
+[2026-05-16 18:24:14] INFO         GA | Gen 1/15 | Best: 2607
+[2026-05-16 18:24:15] INFO         GA | Gen 2/15 | Best: 2576
+[2026-05-16 18:24:16] INFO         GA | Gen 3/15 | Best: 2576
+[2026-05-16 18:24:17] INFO         GA | Gen 4/15 | Best: 2576
+[2026-05-16 18:24:18] INFO         GA | Gen 5/15 | Best: 2576
+[2026-05-16 18:24:18] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:24:18] INFO         EA finished in 4.8s | best makespan=2576
+[2026-05-16 18:24:18] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:25:01] INFO         synth_44/50  (synth_30x20_seed43.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:25:01] INFO         Reward stats — mean=0.0201  std=0.0058  min=-0.1877  max=0.2879
+[2026-05-16 18:25:01] INFO       ── synth_45/50  (synth_30x20_seed44.txt) ──
+[2026-05-16 18:25:02] INFO         GA | Gen 1/15 | Best: 2414
+[2026-05-16 18:25:03] INFO         GA | Gen 2/15 | Best: 2414
+[2026-05-16 18:25:04] INFO         GA | Gen 3/15 | Best: 2414
+[2026-05-16 18:25:04] INFO         GA | Gen 4/15 | Best: 2414
+[2026-05-16 18:25:04] INFO         GA | Early stopping at gen 4.
+[2026-05-16 18:25:04] INFO         EA finished in 3.9s | best makespan=2414
+[2026-05-16 18:25:04] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:25:47] INFO         synth_45/50  (synth_30x20_seed44.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:25:47] INFO         Reward stats — mean=0.0203  std=0.0099  min=-0.0608  max=0.4695
+[2026-05-16 18:25:47] INFO       ── synth_46/50  (synth_30x20_seed45.txt) ──
+[2026-05-16 18:25:49] INFO         GA | Gen 1/15 | Best: 2369
+[2026-05-16 18:25:49] INFO         GA | Gen 2/15 | Best: 2305
+[2026-05-16 18:25:50] INFO         GA | Gen 3/15 | Best: 2305
+[2026-05-16 18:25:51] INFO         GA | Gen 4/15 | Best: 2302
+[2026-05-16 18:25:52] INFO         GA | Gen 5/15 | Best: 2302
+[2026-05-16 18:25:53] INFO         GA | Gen 6/15 | Best: 2246
+[2026-05-16 18:25:54] INFO         GA | Gen 7/15 | Best: 2246
+[2026-05-16 18:25:55] INFO         GA | Gen 8/15 | Best: 2246
+[2026-05-16 18:25:56] INFO         GA | Gen 9/15 | Best: 2246
+[2026-05-16 18:25:56] INFO         GA | Early stopping at gen 9.
+[2026-05-16 18:25:56] INFO         EA finished in 8.2s | best makespan=2246
+[2026-05-16 18:25:56] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:26:38] INFO         synth_46/50  (synth_30x20_seed45.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:26:38] INFO         Reward stats — mean=0.0202  std=0.0070  min=-0.0446  max=0.4274
+[2026-05-16 18:26:38] INFO       ── synth_47/50  (synth_30x20_seed46.txt) ──
+[2026-05-16 18:26:40] INFO         GA | Gen 1/15 | Best: 2428
+[2026-05-16 18:26:40] INFO         GA | Gen 2/15 | Best: 2428
+[2026-05-16 18:26:41] INFO         GA | Gen 3/15 | Best: 2391
+[2026-05-16 18:26:42] INFO         GA | Gen 4/15 | Best: 2391
+[2026-05-16 18:26:43] INFO         GA | Gen 5/15 | Best: 2391
+[2026-05-16 18:26:44] INFO         GA | Gen 6/15 | Best: 2391
+[2026-05-16 18:26:44] INFO         GA | Early stopping at gen 6.
+[2026-05-16 18:26:44] INFO         EA finished in 5.7s | best makespan=2391
+[2026-05-16 18:26:44] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:27:27] INFO         synth_47/50  (synth_30x20_seed46.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:27:27] INFO         Reward stats — mean=0.0201  std=0.0060  min=-0.1138  max=0.3483
+[2026-05-16 18:27:27] INFO       ── synth_48/50  (synth_30x20_seed47.txt) ──
+[2026-05-16 18:27:28] INFO         GA | Gen 1/15 | Best: 2497
+[2026-05-16 18:27:29] INFO         GA | Gen 2/15 | Best: 2497
+[2026-05-16 18:27:30] INFO         GA | Gen 3/15 | Best: 2451
+[2026-05-16 18:27:31] INFO         GA | Gen 4/15 | Best: 2451
+[2026-05-16 18:27:31] INFO         GA | Gen 5/15 | Best: 2451
+[2026-05-16 18:27:32] INFO         GA | Gen 6/15 | Best: 2424
+[2026-05-16 18:27:33] INFO         GA | Gen 7/15 | Best: 2418
+[2026-05-16 18:27:34] INFO         GA | Gen 8/15 | Best: 2418
+[2026-05-16 18:27:35] INFO         GA | Gen 9/15 | Best: 2418
+[2026-05-16 18:27:36] INFO         GA | Gen 10/15 | Best: 2396
+[2026-05-16 18:27:37] INFO         GA | Gen 11/15 | Best: 2396
+[2026-05-16 18:27:37] INFO         GA | Gen 12/15 | Best: 2396
+[2026-05-16 18:27:38] INFO         GA | Gen 13/15 | Best: 2396
+[2026-05-16 18:27:38] INFO         GA | Early stopping at gen 13.
+[2026-05-16 18:27:38] INFO         EA finished in 11.7s | best makespan=2396
+[2026-05-16 18:27:38] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:28:21] INFO         synth_48/50  (synth_30x20_seed47.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:28:21] INFO         Reward stats — mean=0.0198  std=0.0069  min=-0.3264  max=0.1577
+[2026-05-16 18:28:21] INFO       ── synth_49/50  (synth_30x20_seed48.txt) ──
+[2026-05-16 18:28:22] INFO         GA | Gen 1/15 | Best: 2581
+[2026-05-16 18:28:23] INFO         GA | Gen 2/15 | Best: 2560
+[2026-05-16 18:28:24] INFO         GA | Gen 3/15 | Best: 2560
+[2026-05-16 18:28:25] INFO         GA | Gen 4/15 | Best: 2560
+[2026-05-16 18:28:26] INFO         GA | Gen 5/15 | Best: 2560
+[2026-05-16 18:28:26] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:28:26] INFO         EA finished in 4.9s | best makespan=2560
+[2026-05-16 18:28:26] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:29:09] INFO         synth_49/50  (synth_30x20_seed48.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:29:09] INFO         Reward stats — mean=0.0201  std=0.0075  min=-0.2456  max=0.3696
+[2026-05-16 18:29:09] INFO       ── synth_50/50  (synth_30x20_seed49.txt) ──
+[2026-05-16 18:29:10] INFO         GA | Gen 1/15 | Best: 2457
+[2026-05-16 18:29:11] INFO         GA | Gen 2/15 | Best: 2383
+[2026-05-16 18:29:12] INFO         GA | Gen 3/15 | Best: 2383
+[2026-05-16 18:29:13] INFO         GA | Gen 4/15 | Best: 2383
+[2026-05-16 18:29:14] INFO         GA | Gen 5/15 | Best: 2383
+[2026-05-16 18:29:14] INFO         GA | Early stopping at gen 5.
+[2026-05-16 18:29:14] INFO         EA finished in 4.8s | best makespan=2383
+[2026-05-16 18:29:14] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 18:29:56] INFO         synth_50/50  (synth_30x20_seed49.txt): 15,000 transitions  (buffer RAM ≈ 572 MB)
+[2026-05-16 18:29:56] INFO         Reward stats — mean=0.0202  std=0.0060  min=-0.1583  max=0.3809
+[2026-05-16 18:29:56] INFO       Pooled 500,000 transitions  (RAM ≈ 572 MB)
+[2026-05-16 18:29:56] INFO     
+═══ Stage 3: BC Pre-Training + MLP Conservative Q-Learning ═══
+[2026-05-16 18:29:56] INFO       Dataset:        500,000 transitions  (RAM ≈ 572 MB)
+[2026-05-16 18:29:56] INFO       MLP arch:       [512, 512, 256]  dropout=0.1
+[2026-05-16 18:29:56] INFO       CQL α (fixed):  0.5  (no schedule — avoids ramp-into-instability)
+[2026-05-16 18:29:56] INFO       Target update:  hard copy every 100 batches
+[2026-05-16 18:29:56] INFO       Training:       1000 epochs  batch=2048  lr=5e-05
+[2026-05-16 18:29:56] INFO       BC pre-train:   10 epochs  lr=0.001
+[2026-05-16 18:29:56] INFO       Parameters:     556,920
+[2026-05-16 18:29:56] INFO     
+  ── BC Pre-Training (10 epochs, lr=0.001) ──
+[2026-05-16 18:29:56] INFO       Purpose: warm-up Q to expert actions before CQL starts.
+[2026-05-16 18:29:56] INFO       Without this, Q diverges from epoch 2 due to random init.
+[2026-05-16 18:30:31] INFO         BC Epoch   1/10 | Loss=0.6126 | Acc=67.6% (best=67.6%) | 35s elapsed
+[2026-05-16 18:32:48] INFO         BC Epoch   5/10 | Loss=0.5253 | Acc=75.9% (best=75.9%) | 171s elapsed
+[2026-05-16 18:35:52] INFO         BC Epoch  10/10 | Loss=0.4539 | Acc=80.2% (best=80.2%) | 355s elapsed
+[2026-05-16 18:35:52] INFO       BC pre-training complete | best accuracy: 80.2%
+[2026-05-16 18:35:52] INFO     
+  ── CQL Fine-Tuning (1000 epochs) ──
+[2026-05-16 18:35:55] INFO     [Ep   1|B    20/245] α=0.500 | Loss=61.4259 (TD=61.2129 CQL=0.2130) | ∇=29.926 | Q(μ=-911872896.000 σ=283481568.000 min=-1000000000.000 max=18.761) | LR=5.00e-05 | target_in=80b | 6.0 b/s ETA 37s | [data=1.7s fwd=0.8s bwd=0.8s]
+[2026-05-16 18:35:58] INFO     [Ep   1|B    40/245] α=0.500 | Loss=55.0809 (TD=54.8631 CQL=0.2177) | ∇=24.794 | Q(μ=-911290112.000 σ=284326464.000 min=-1000000000.000 max=16.749) | LR=5.00e-05 | target_in=60b | 6.1 b/s ETA 34s | [data=3.3s fwd=1.7s bwd=1.5s]
+[2026-05-16 18:36:01] INFO     [Ep   1|B    60/245] α=0.500 | Loss=49.2538 (TD=49.0291 CQL=0.2247) | ∇=17.776 | Q(μ=-909478720.000 σ=286929056.000 min=-1000000000.000 max=11.201) | LR=5.00e-05 | target_in=40b | 6.1 b/s ETA 30s | [data=4.9s fwd=2.6s bwd=2.3s]
+[2026-05-16 18:36:05] INFO     [Ep   1|B    80/245] α=0.500 | Loss=47.2539 (TD=47.0305 CQL=0.2234) | ∇=16.718 | Q(μ=-912896640.000 σ=281988256.000 min=-1000000000.000 max=12.101) | LR=5.00e-05 | target_in=20b | 6.1 b/s ETA 27s | [data=6.6s fwd=3.5s bwd=3.0s]
+[2026-05-16 18:36:08] INFO     [Ep   1|B   100/245] α=0.500 | Loss=42.8461 (TD=42.6122 CQL=0.2339) | ∇=13.912 | Q(μ=-912455616.000 σ=282632960.000 min=-1000000000.000 max=9.435) | LR=5.00e-05 | target_in=100b | 6.2 b/s ETA 24s | [data=8.2s fwd=4.3s bwd=3.7s]
+[2026-05-16 18:36:11] INFO     [Ep   1|B   120/245] α=0.500 | Loss=17.3381 (TD=17.0980 CQL=0.2401) | ∇=11.634 | Q(μ=-905462144.000 σ=292577440.000 min=-1000000000.000 max=8.439) | LR=5.00e-05 | target_in=80b | 6.2 b/s ETA 20s | [data=9.8s fwd=5.1s bwd=4.4s]
+[2026-05-16 18:36:14] INFO     [Ep   1|B   140/245] α=0.500 | Loss=15.6187 (TD=15.3753 CQL=0.2434) | ∇=8.567 | Q(μ=-907572800.000 σ=289629952.000 min=-1000000000.000 max=8.675) | LR=5.00e-05 | target_in=60b | 6.3 b/s ETA 17s | [data=11.3s fwd=6.0s bwd=5.0s]
+[2026-05-16 18:36:17] INFO     [Ep   1|B   160/245] α=0.500 | Loss=13.9505 (TD=13.6977 CQL=0.2527) | ∇=7.253 | Q(μ=-911006464.000 σ=284736160.000 min=-1000000000.000 max=6.812) | LR=5.00e-05 | target_in=40b | 6.3 b/s ETA 13s | [data=12.8s fwd=6.8s bwd=5.7s]
+[2026-05-16 18:36:20] INFO     [Ep   1|B   180/245] α=0.500 | Loss=13.3987 (TD=13.1431 CQL=0.2556) | ∇=6.747 | Q(μ=-910833280.000 σ=284986112.000 min=-1000000000.000 max=6.573) | LR=5.00e-05 | target_in=20b | 6.4 b/s ETA 10s | [data=14.4s fwd=7.6s bwd=6.3s]
+[2026-05-16 18:36:23] INFO     [Ep   1|B   200/245] α=0.500 | Loss=12.3189 (TD=12.0610 CQL=0.2579) | ∇=5.896 | Q(μ=-911337344.000 σ=284258112.000 min=-1000000000.000 max=5.581) | LR=5.00e-05 | target_in=100b | 6.4 b/s ETA 7s | [data=15.9s fwd=8.5s bwd=7.0s]
+[2026-05-16 18:36:26] INFO     [Ep   1|B   220/245] α=0.500 | Loss=5.7140 (TD=5.4496 CQL=0.2643) | ∇=4.661 | Q(μ=-908423296.000 σ=288429280.000 min=-1000000000.000 max=5.537) | LR=5.00e-05 | target_in=80b | 6.4 b/s ETA 4s | [data=17.4s fwd=9.3s bwd=7.7s]
+[2026-05-16 18:36:29] INFO     [Ep   1|B   240/245] α=0.500 | Loss=5.1227 (TD=4.8545 CQL=0.2682) | ∇=4.137 | Q(μ=-912613248.000 σ=282402976.000 min=-1000000000.000 max=5.377) | LR=5.00e-05 | target_in=60b | 6.4 b/s ETA 1s | [data=18.9s fwd=10.1s bwd=8.4s]
+[2026-05-16 18:36:30] INFO     [Ep   1|B   245/245] α=0.500 | Loss=1.2351 (TD=1.1650 CQL=0.0701) | ∇=6.872 | Q(μ=-905913728.000 σ=291964704.000 min=-1000000000.000 max=3.851) | LR=5.00e-05 | target_in=55b | 6.4 b/s ETA 0s | [data=19.3s fwd=10.3s bwd=8.5s]
+[2026-05-16 18:36:30] INFO     [Ep   1 DONE] AvgLoss=27.8006 (TD=27.5585 CQL=0.2421) | 38.1s (245 batches) | [data=19.3s fwd=10.3s bwd=8.5s]
+[2026-05-16 18:36:30] INFO       Model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:36:33] INFO     [Ep   2|B    20/245] α=0.500 | Loss=4.5065 (TD=4.2276 CQL=0.2789) | ∇=3.015 | Q(μ=-912644672.000 σ=282356928.000 min=-1000000000.000 max=4.925) | LR=5.00e-05 | target_in=35b | 6.4 b/s ETA 35s | [data=1.6s fwd=0.9s bwd=0.7s]
+[2026-05-16 18:36:36] INFO     [Ep   2|B    40/245] α=0.500 | Loss=4.1946 (TD=3.9084 CQL=0.2862) | ∇=2.580 | Q(μ=-910360768.000 σ=285666112.000 min=-1000000000.000 max=3.304) | LR=5.00e-05 | target_in=15b | 6.4 b/s ETA 32s | [data=3.1s fwd=1.8s bwd=1.4s]
+[2026-05-16 18:36:39] INFO     [Ep   2|B    60/245] α=0.500 | Loss=3.5611 (TD=3.2684 CQL=0.2927) | ∇=2.521 | Q(μ=-906218304.000 σ=291526784.000 min=-1000000000.000 max=2.483) | LR=5.00e-05 | target_in=95b | 6.4 b/s ETA 29s | [data=4.6s fwd=2.6s bwd=2.2s]
+[2026-05-16 18:36:42] INFO     [Ep   2|B    80/245] α=0.500 | Loss=1.8403 (TD=1.5438 CQL=0.2965) | ∇=1.463 | Q(μ=-907116032.000 σ=290271680.000 min=-1000000000.000 max=2.007) | LR=5.00e-05 | target_in=75b | 6.4 b/s ETA 26s | [data=6.1s fwd=3.5s bwd=2.9s]
+[2026-05-16 18:36:45] INFO     [Ep   2|B   100/245] α=0.500 | Loss=1.7194 (TD=1.4131 CQL=0.3063) | ∇=1.300 | Q(μ=-905446528.000 σ=292599264.000 min=-1000000000.000 max=1.583) | LR=5.00e-05 | target_in=55b | 6.4 b/s ETA 23s | [data=7.6s fwd=4.4s bwd=3.6s]
+[2026-05-16 18:36:48] INFO     [Ep   2|B   120/245] α=0.500 | Loss=1.5969 (TD=1.2845 CQL=0.3124) | ∇=0.998 | Q(μ=-911227072.000 σ=284417600.000 min=-1000000000.000 max=1.206) | LR=5.00e-05 | target_in=35b | 6.4 b/s ETA 20s | [data=9.2s fwd=5.3s bwd=4.3s]
+[2026-05-16 18:36:52] INFO     [Ep   2|B   140/245] α=0.500 | Loss=1.5584 (TD=1.2437 CQL=0.3147) | ∇=1.002 | Q(μ=-912865152.000 σ=282034400.000 min=-1000000000.000 max=2.827) | LR=5.00e-05 | target_in=15b | 6.4 b/s ETA 16s | [data=10.7s fwd=6.1s bwd=5.1s]
+[2026-05-16 18:36:55] INFO     [Ep   2|B   160/245] α=0.500 | Loss=1.3647 (TD=1.0444 CQL=0.3203) | ∇=1.341 | Q(μ=-910534080.000 σ=285417056.000 min=-1000000000.000 max=2.070) | LR=5.00e-05 | target_in=95b | 6.4 b/s ETA 13s | [data=12.2s fwd=7.0s bwd=5.8s]
+[2026-05-16 18:36:58] INFO     [Ep   2|B   180/245] α=0.500 | Loss=0.8841 (TD=0.5558 CQL=0.3283) | ∇=0.647 | Q(μ=-913652672.000 σ=280878016.000 min=-1000000000.000 max=1.419) | LR=5.00e-05 | target_in=75b | 6.4 b/s ETA 10s | [data=13.8s fwd=7.9s bwd=6.5s]
+[2026-05-16 18:37:01] INFO     [Ep   2|B   200/245] α=0.500 | Loss=0.8479 (TD=0.5133 CQL=0.3346) | ∇=0.582 | Q(μ=-907903616.000 σ=289163904.000 min=-1000000000.000 max=1.964) | LR=5.00e-05 | target_in=55b | 6.4 b/s ETA 7s | [data=15.3s fwd=8.7s bwd=7.2s]
+[2026-05-16 18:37:04] INFO     [Ep   2|B   220/245] α=0.500 | Loss=0.8250 (TD=0.4882 CQL=0.3368) | ∇=0.475 | Q(μ=-909762240.000 σ=286524000.000 min=-1000000000.000 max=0.883) | LR=5.00e-05 | target_in=35b | 6.4 b/s ETA 4s | [data=16.8s fwd=9.6s bwd=7.8s]
+[2026-05-16 18:37:07] INFO     [Ep   2|B   240/245] α=0.500 | Loss=0.8105 (TD=0.4711 CQL=0.3394) | ∇=0.484 | Q(μ=-913825920.000 σ=280622688.000 min=-1000000000.000 max=0.727) | LR=5.00e-05 | target_in=15b | 6.4 b/s ETA 1s | [data=18.4s fwd=10.4s bwd=8.5s]
+[2026-05-16 18:37:08] INFO     [Ep   2|B   245/245] α=0.500 | Loss=0.2037 (TD=0.1191 CQL=0.0846) | ∇=1.318 | Q(μ=-912970176.000 σ=281894176.000 min=-1000000000.000 max=0.505) | LR=5.00e-05 | target_in=10b | 6.4 b/s ETA 0s | [data=18.8s fwd=10.6s bwd=8.7s]
+[2026-05-16 18:37:08] INFO     [Ep   2 DONE] AvgLoss=1.9521 (TD=1.6393 CQL=0.3128) | 38.1s (245 batches) | [data=18.8s fwd=10.6s bwd=8.7s]
+[2026-05-16 18:37:08] INFO       Model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:37:11] INFO     [Ep   3|B    20/245] α=0.500 | Loss=0.7342 (TD=0.3930 CQL=0.3412) | ∇=0.665 | Q(μ=-906044992.000 σ=291768064.000 min=-1000000000.000 max=0.981) | LR=5.00e-05 | target_in=90b | 6.2 b/s ETA 36s | [data=1.6s fwd=0.8s bwd=0.8s]
+[2026-05-16 18:37:14] INFO     [Ep   3|B    40/245] α=0.500 | Loss=0.6429 (TD=0.2982 CQL=0.3448) | ∇=0.385 | Q(μ=-907194752.000 σ=290161184.000 min=-1000000000.000 max=1.129) | LR=5.00e-05 | target_in=70b | 6.4 b/s ETA 32s | [data=3.2s fwd=1.6s bwd=1.4s]
+[2026-05-16 18:37:17] INFO     [Ep   3|B    60/245] α=0.500 | Loss=0.6306 (TD=0.2821 CQL=0.3484) | ∇=0.347 | Q(μ=-908029696.000 σ=288986080.000 min=-1000000000.000 max=0.634) | LR=5.00e-05 | target_in=50b | 6.5 b/s ETA 29s | [data=4.7s fwd=2.5s bwd=2.1s]
+[2026-05-16 18:37:20] INFO     [Ep   3|B    80/245] α=0.500 | Loss=0.6183 (TD=0.2699 CQL=0.3484) | ∇=0.302 | Q(μ=-908092608.000 σ=288897088.000 min=-1000000000.000 max=0.900) | LR=5.00e-05 | target_in=30b | 6.5 b/s ETA 25s | [data=6.2s fwd=3.3s bwd=2.8s]
+[2026-05-16 18:37:23] INFO     [Ep   3|B   100/245] α=0.500 | Loss=0.6153 (TD=0.2655 CQL=0.3498) | ∇=0.350 | Q(μ=-910817472.000 σ=285008800.000 min=-1000000000.000 max=0.581) | LR=5.00e-05 | target_in=10b | 6.5 b/s ETA 22s | [data=7.7s fwd=4.2s bwd=3.4s]
+[2026-05-16 18:37:26] INFO     [Ep   3|B   120/245] α=0.500 | Loss=0.5817 (TD=0.2299 CQL=0.3517) | ∇=0.524 | Q(μ=-913416448.000 σ=281225664.000 min=-1000000000.000 max=1.853) | LR=5.00e-05 | target_in=90b | 6.5 b/s ETA 19s | [data=9.2s fwd=5.0s bwd=4.1s]
+[2026-05-16 18:37:29] INFO     [Ep   3|B   140/245] α=0.500 | Loss=0.5507 (TD=0.1933 CQL=0.3574) | ∇=0.267 | Q(μ=-910124480.000 σ=286005216.000 min=-1000000000.000 max=0.631) | LR=5.00e-05 | target_in=70b | 6.5 b/s ETA 16s | [data=10.7s fwd=6.0s bwd=4.7s]
+[2026-05-16 18:37:32] INFO     [Ep   3|B   160/245] α=0.500 | Loss=0.5370 (TD=0.1797 CQL=0.3574) | ∇=0.252 | Q(μ=-906186752.000 σ=291570688.000 min=-1000000000.000 max=0.496) | LR=5.00e-05 | target_in=50b | 6.5 b/s ETA 13s | [data=12.3s fwd=6.8s bwd=5.4s]
+[2026-05-16 18:37:36] INFO     [Ep   3|B   180/245] α=0.500 | Loss=0.5371 (TD=0.1793 CQL=0.3578) | ∇=0.255 | Q(μ=-907541312.000 σ=289674272.000 min=-1000000000.000 max=1.021) | LR=5.00e-05 | target_in=30b | 6.5 b/s ETA 10s | [data=14.0s fwd=7.7s bwd=6.1s]
+[2026-05-16 18:37:39] INFO     [Ep   3|B   200/245] α=0.500 | Loss=0.5330 (TD=0.1740 CQL=0.3590) | ∇=0.304 | Q(μ=-909636160.000 σ=286704128.000 min=-1000000000.000 max=0.461) | LR=5.00e-05 | target_in=10b | 6.5 b/s ETA 7s | [data=15.5s fwd=8.6s bwd=6.8s]
+[2026-05-16 18:37:42] INFO     [Ep   3|B   220/245] α=0.500 | Loss=0.5150 (TD=0.1559 CQL=0.3592) | ∇=0.329 | Q(μ=-907698880.000 σ=289452544.000 min=-1000000000.000 max=0.345) | LR=5.00e-05 | target_in=90b | 6.5 b/s ETA 4s | [data=17.0s fwd=9.5s bwd=7.5s]
+[2026-05-16 18:37:45] INFO     [Ep   3|B   240/245] α=0.500 | Loss=0.4953 (TD=0.1361 CQL=0.3592) | ∇=0.189 | Q(μ=-909840960.000 σ=286411360.000 min=-1000000000.000 max=0.927) | LR=5.00e-05 | target_in=70b | 6.5 b/s ETA 1s | [data=18.5s fwd=10.2s bwd=8.1s]
+[2026-05-16 18:37:45] INFO     [Ep   3|B   245/245] α=0.500 | Loss=0.1204 (TD=0.0308 CQL=0.0896) | ∇=0.342 | Q(μ=-912746176.000 σ=282222112.000 min=-1000000000.000 max=0.344) | LR=5.00e-05 | target_in=65b | 6.5 b/s ETA 0s | [data=18.8s fwd=10.4s bwd=8.2s]
+[2026-05-16 18:37:45] INFO     [Ep   3 DONE] AvgLoss=0.5805 (TD=0.2276 CQL=0.3530) | 37.5s (245 batches) | [data=18.8s fwd=10.4s bwd=8.2s]
+[2026-05-16 18:37:45] INFO       Model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:37:48] INFO     [Ep   4|B    20/245] α=0.500 | Loss=0.4930 (TD=0.1346 CQL=0.3584) | ∇=0.207 | Q(μ=-911746880.000 σ=283664576.000 min=-1000000000.000 max=1.105) | LR=5.00e-05 | target_in=45b | 6.7 b/s ETA 33s | [data=1.5s fwd=0.8s bwd=0.6s]
+[2026-05-16 18:37:51] INFO     [Ep   4|B    40/245] α=0.500 | Loss=0.4903 (TD=0.1294 CQL=0.3608) | ∇=0.199 | Q(μ=-904658880.000 σ=293687488.000 min=-1000000000.000 max=1.138) | LR=5.00e-05 | target_in=25b | 6.7 b/s ETA 30s | [data=3.0s fwd=1.6s bwd=1.3s]
+[2026-05-16 18:37:54] INFO     [Ep   4|B    60/245] α=0.500 | Loss=0.4927 (TD=0.1280 CQL=0.3647) | ∇=0.174 | Q(μ=-908313088.000 σ=288585344.000 min=-1000000000.000 max=0.248) | LR=5.00e-05 | target_in=5b | 6.6 b/s ETA 28s | [data=4.7s fwd=2.4s bwd=1.9s]
+[2026-05-16 18:37:57] INFO     [Ep   4|B    80/245] α=0.500 | Loss=0.4705 (TD=0.1097 CQL=0.3608) | ∇=0.216 | Q(μ=-911888512.000 σ=283458688.000 min=-1000000000.000 max=0.219) | LR=5.00e-05 | target_in=85b | 6.6 b/s ETA 25s | [data=6.2s fwd=3.3s bwd=2.6s]
+[2026-05-16 18:38:00] INFO     [Ep   4|B   100/245] α=0.500 | Loss=0.4669 (TD=0.1001 CQL=0.3668) | ∇=0.139 | Q(μ=-907525632.000 σ=289696416.000 min=-1000000000.000 max=0.396) | LR=5.00e-05 | target_in=65b | 6.6 b/s ETA 22s | [data=7.8s fwd=4.1s bwd=3.2s]
+[2026-05-16 18:38:04] INFO     [Ep   4|B   120/245] α=0.500 | Loss=0.4670 (TD=0.1016 CQL=0.3655) | ∇=0.167 | Q(μ=-912219392.000 σ=282977440.000 min=-1000000000.000 max=0.970) | LR=5.00e-05 | target_in=45b | 6.6 b/s ETA 19s | [data=9.3s fwd=5.0s bwd=3.9s]
+[2026-05-16 18:38:07] INFO     [Ep   4|B   140/245] α=0.500 | Loss=0.4596 (TD=0.0954 CQL=0.3642) | ∇=0.136 | Q(μ=-912865152.000 σ=282034400.000 min=-1000000000.000 max=0.599) | LR=5.00e-05 | target_in=25b | 6.5 b/s ETA 16s | [data=10.8s fwd=5.8s bwd=4.7s]
+[2026-05-16 18:38:10] INFO     [Ep   4|B   160/245] α=0.500 | Loss=0.4611 (TD=0.0964 CQL=0.3647) | ∇=0.134 | Q(μ=-910140224.000 σ=285982624.000 min=-1000000000.000 max=0.588) | LR=5.00e-05 | target_in=5b | 6.6 b/s ETA 13s | [data=12.4s fwd=6.7s bwd=5.4s]
+[2026-05-16 18:38:13] INFO     [Ep   4|B   180/245] α=0.500 | Loss=0.4515 (TD=0.0854 CQL=0.3660) | ∇=0.192 | Q(μ=-913904768.000 σ=280506496.000 min=-1000000000.000 max=0.682) | LR=5.00e-05 | target_in=85b | 6.6 b/s ETA 10s | [data=13.9s fwd=7.5s bwd=6.0s]
+[2026-05-16 18:38:16] INFO     [Ep   4|B   200/245] α=0.500 | Loss=0.4483 (TD=0.0803 CQL=0.3680) | ∇=0.136 | Q(μ=-912487104.000 σ=282586976.000 min=-1000000000.000 max=0.916) | LR=5.00e-05 | target_in=65b | 6.6 b/s ETA 7s | [data=15.5s fwd=8.3s bwd=6.7s]
+[2026-05-16 18:38:19] INFO     [Ep   4|B   220/245] α=0.500 | Loss=0.4452 (TD=0.0793 CQL=0.3658) | ∇=0.125 | Q(μ=-908486400.000 σ=288340032.000 min=-1000000000.000 max=1.085) | LR=5.00e-05 | target_in=45b | 6.6 b/s ETA 4s | [data=17.0s fwd=9.1s bwd=7.3s]
+[2026-05-16 18:38:22] INFO     [Ep   4|B   240/245] α=0.500 | Loss=0.4420 (TD=0.0745 CQL=0.3675) | ∇=0.129 | Q(μ=-911494912.000 σ=284030048.000 min=-1000000000.000 max=1.115) | LR=5.00e-05 | target_in=25b | 6.5 b/s ETA 1s | [data=18.7s fwd=10.0s bwd=8.1s]
+[2026-05-16 18:38:23] INFO     [Ep   4|B   245/245] α=0.500 | Loss=0.1098 (TD=0.0188 CQL=0.0910) | ∇=0.237 | Q(μ=-905801792.000 σ=292120384.000 min=-1000000000.000 max=-0.049) | LR=5.00e-05 | target_in=20b | 6.5 b/s ETA 0s | [data=19.0s fwd=10.2s bwd=8.2s]
+[2026-05-16 18:38:23] INFO     [Ep   4 DONE] AvgLoss=0.4651 (TD=0.1007 CQL=0.3644) | 37.4s (245 batches) | [data=19.0s fwd=10.2s bwd=8.2s]
+[2026-05-16 18:38:23] INFO       Model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:38:26] INFO     [Ep   5|B    20/245] α=0.500 | Loss=0.4428 (TD=0.0735 CQL=0.3693) | ∇=0.107 | Q(μ=-911841344.000 σ=283527360.000 min=-1000000000.000 max=0.342) | LR=5.00e-05 | target_in=100b | 6.6 b/s ETA 34s | [data=1.6s fwd=0.8s bwd=0.7s]
+[2026-05-16 18:38:29] INFO     [Ep   5|B    40/245] α=0.500 | Loss=0.4323 (TD=0.0640 CQL=0.3683) | ∇=0.164 | Q(μ=-907084480.000 σ=290315840.000 min=-1000000000.000 max=1.294) | LR=5.00e-05 | target_in=80b | 6.7 b/s ETA 31s | [data=3.1s fwd=1.6s bwd=1.3s]
+[2026-05-16 18:38:32] INFO     [Ep   5|B    60/245] α=0.500 | Loss=0.4303 (TD=0.0626 CQL=0.3676) | ∇=0.150 | Q(μ=-909368448.000 σ=287086336.000 min=-1000000000.000 max=0.886) | LR=5.00e-05 | target_in=60b | 6.7 b/s ETA 28s | [data=4.7s fwd=2.4s bwd=1.9s]
+[2026-05-16 18:38:35] INFO     [Ep   5|B    80/245] α=0.500 | Loss=0.4278 (TD=0.0602 CQL=0.3676) | ∇=0.126 | Q(μ=-908927424.000 σ=287714208.000 min=-1000000000.000 max=0.875) | LR=5.00e-05 | target_in=40b | 6.7 b/s ETA 25s | [data=6.2s fwd=3.2s bwd=2.6s]
+[2026-05-16 18:38:38] INFO     [Ep   5|B   100/245] α=0.500 | Loss=0.4296 (TD=0.0589 CQL=0.3707) | ∇=0.111 | Q(μ=-910565504.000 σ=285371744.000 min=-1000000000.000 max=1.509) | LR=5.00e-05 | target_in=20b | 6.6 b/s ETA 22s | [data=7.8s fwd=4.1s bwd=3.2s]
+[2026-05-16 18:38:41] INFO     [Ep   5|B   120/245] α=0.500 | Loss=0.4264 (TD=0.0570 CQL=0.3693) | ∇=0.138 | Q(μ=-910140160.000 σ=285982624.000 min=-1000000000.000 max=0.470) | LR=5.00e-05 | target_in=100b | 6.6 b/s ETA 19s | [data=9.4s fwd=4.9s bwd=3.9s]
+[2026-05-16 18:38:44] INFO     [Ep   5|B   140/245] α=0.500 | Loss=0.4190 (TD=0.0508 CQL=0.3682) | ∇=0.111 | Q(μ=-907777600.000 σ=289341568.000 min=-1000000000.000 max=0.203) | LR=5.00e-05 | target_in=80b | 6.6 b/s ETA 16s | [data=10.9s fwd=5.7s bwd=4.5s]
+[2026-05-16 18:38:47] INFO     [Ep   5|B   160/245] α=0.500 | Loss=0.4214 (TD=0.0496 CQL=0.3718) | ∇=0.114 | Q(μ=-909053440.000 σ=287535008.000 min=-1000000000.000 max=0.094) | LR=5.00e-05 | target_in=60b | 6.7 b/s ETA 13s | [data=12.4s fwd=6.5s bwd=5.2s]
+[2026-05-16 18:38:50] INFO     [Ep   5|B   180/245] α=0.500 | Loss=0.4202 (TD=0.0485 CQL=0.3717) | ∇=0.118 | Q(μ=-908612352.000 σ=288161440.000 min=-1000000000.000 max=0.300) | LR=5.00e-05 | target_in=40b | 6.7 b/s ETA 10s | [data=13.9s fwd=7.3s bwd=5.8s]
+[2026-05-16 18:38:53] INFO     [Ep   5|B   200/245] α=0.500 | Loss=0.4173 (TD=0.0479 CQL=0.3694) | ∇=0.112 | Q(μ=-908092672.000 σ=288897088.000 min=-1000000000.000 max=0.456) | LR=5.00e-05 | target_in=20b | 6.7 b/s ETA 7s | [data=15.4s fwd=8.1s bwd=6.5s]
+[2026-05-16 18:38:56] INFO     [Ep   5|B   220/245] α=0.500 | Loss=0.4174 (TD=0.0469 CQL=0.3705) | ∇=0.101 | Q(μ=-910014272.000 σ=286163264.000 min=-1000000000.000 max=0.233) | LR=5.00e-05 | target_in=100b | 6.7 b/s ETA 4s | [data=16.9s fwd=8.9s bwd=7.1s]
+[2026-05-16 18:38:59] INFO     [Ep   5|B   240/245] α=0.500 | Loss=0.4147 (TD=0.0446 CQL=0.3700) | ∇=0.109 | Q(μ=-904438400.000 σ=293991072.000 min=-1000000000.000 max=0.170) | LR=5.00e-05 | target_in=80b | 6.7 b/s ETA 1s | [data=18.5s fwd=9.7s bwd=7.8s]
+[2026-05-16 18:38:59] INFO     [Ep   5|B   245/245] α=0.500 | Loss=0.1033 (TD=0.0105 CQL=0.0928) | ∇=0.175 | Q(μ=-913754240.000 σ=280741984.000 min=-1000000000.000 max=-0.156) | LR=5.00e-05 | target_in=75b | 6.7 b/s ETA 0s | [data=18.9s fwd=9.9s bwd=7.9s]
+[2026-05-16 18:38:59] INFO     [Ep   5 DONE] AvgLoss=0.4247 (TD=0.0551 CQL=0.3696) | 36.7s (245 batches) | [data=18.9s fwd=9.9s bwd=7.9s]
+[2026-05-16 18:38:59] INFO       Model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:39:02] INFO     [Ep   6|B    20/245] α=0.500 | Loss=0.4111 (TD=0.0418 CQL=0.3692) | ∇=0.121 | Q(μ=-911038144.000 σ=284690688.000 min=-1000000000.000 max=0.655) | LR=5.00e-05 | target_in=55b | 6.7 b/s ETA 34s | [data=1.6s fwd=0.8s bwd=0.7s]
+[2026-05-16 18:39:05] INFO     [Ep   6|B    40/245] α=0.500 | Loss=0.4151 (TD=0.0412 CQL=0.3739) | ∇=0.104 | Q(μ=-911794176.000 σ=283595968.000 min=-1000000000.000 max=-0.025) | LR=5.00e-05 | target_in=35b | 6.7 b/s ETA 31s | [data=3.1s fwd=1.6s bwd=1.3s]
+[2026-05-16 18:39:08] INFO     [Ep   6|B    60/245] α=0.500 | Loss=0.4111 (TD=0.0404 CQL=0.3707) | ∇=0.110 | Q(μ=-909951232.000 σ=286253504.000 min=-1000000000.000 max=0.247) | LR=5.00e-05 | target_in=15b | 6.7 b/s ETA 28s | [data=4.6s fwd=2.4s bwd=2.0s]
+[2026-05-16 18:39:12] INFO     [Ep   6|B    80/245] α=0.500 | Loss=0.4117 (TD=0.0399 CQL=0.3718) | ∇=0.124 | Q(μ=-909006144.000 σ=287602240.000 min=-1000000000.000 max=0.518) | LR=5.00e-05 | target_in=95b | 6.5 b/s ETA 25s | [data=6.3s fwd=3.2s bwd=2.7s]
+[2026-05-16 18:39:15] INFO     [Ep   6|B   100/245] α=0.500 | Loss=0.4066 (TD=0.0373 CQL=0.3694) | ∇=0.121 | Q(μ=-908502208.000 σ=288317728.000 min=-1000000000.000 max=0.424) | LR=5.00e-05 | target_in=75b | 6.5 b/s ETA 22s | [data=7.9s fwd=4.1s bwd=3.4s]
+[2026-05-16 18:39:18] INFO     [Ep   6|B   120/245] α=0.500 | Loss=0.4089 (TD=0.0363 CQL=0.3726) | ∇=0.108 | Q(μ=-908187136.000 σ=288763552.000 min=-1000000000.000 max=0.024) | LR=5.00e-05 | target_in=55b | 6.4 b/s ETA 19s | [data=9.5s fwd=5.0s bwd=4.2s]
+[2026-05-16 18:39:21] INFO     [Ep   6|B   140/245] α=0.500 | Loss=0.4091 (TD=0.0359 CQL=0.3732) | ∇=0.096 | Q(μ=-909872512.000 σ=286366272.000 min=-1000000000.000 max=0.571) | LR=5.00e-05 | target_in=35b | 6.4 b/s ETA 16s | [data=11.0s fwd=5.8s bwd=4.9s]
+[2026-05-16 18:39:24] INFO     [Ep   6|B   160/245] α=0.500 | Loss=0.4099 (TD=0.0359 CQL=0.3739) | ∇=0.089 | Q(μ=-910644288.000 σ=285258400.000 min=-1000000000.000 max=0.166) | LR=5.00e-05 | target_in=15b | 6.4 b/s ETA 13s | [data=12.5s fwd=6.7s bwd=5.7s]
+[2026-05-16 18:39:27] INFO     [Ep   6|B   180/245] α=0.500 | Loss=0.4080 (TD=0.0346 CQL=0.3734) | ∇=0.114 | Q(μ=-902847552.000 σ=296167264.000 min=-1000000000.000 max=0.228) | LR=5.00e-05 | target_in=95b | 6.4 b/s ETA 10s | [data=14.1s fwd=7.5s bwd=6.4s]
+[2026-05-16 18:39:31] INFO     [Ep   6|B   200/245] α=0.500 | Loss=0.4098 (TD=0.0339 CQL=0.3759) | ∇=0.100 | Q(μ=-910927808.000 σ=284849824.000 min=-1000000000.000 max=0.062) | LR=5.00e-05 | target_in=75b | 6.4 b/s ETA 7s | [data=15.6s fwd=8.4s bwd=7.1s]
+[2026-05-16 18:39:34] INFO     [Ep   6|B   220/245] α=0.500 | Loss=0.4066 (TD=0.0342 CQL=0.3724) | ∇=0.110 | Q(μ=-911022272.000 σ=284713440.000 min=-1000000000.000 max=0.274) | LR=5.00e-05 | target_in=55b | 6.4 b/s ETA 4s | [data=17.1s fwd=9.3s bwd=7.8s]
+[2026-05-16 18:39:37] INFO     [Ep   6|B   240/245] α=0.500 | Loss=0.4050 (TD=0.0326 CQL=0.3724) | ∇=0.101 | Q(μ=-912046144.000 σ=283229664.000 min=-1000000000.000 max=0.011) | LR=5.00e-05 | target_in=35b | 6.4 b/s ETA 1s | [data=18.7s fwd=10.1s bwd=8.5s]
+[2026-05-16 18:39:38] INFO     [Ep   6|B   245/245] α=0.500 | Loss=0.1019 (TD=0.0081 CQL=0.0938) | ∇=0.133 | Q(μ=-901769472.000 σ=297642432.000 min=-1000000000.000 max=-0.157) | LR=5.00e-05 | target_in=30b | 6.4 b/s ETA 0s | [data=19.0s fwd=10.4s bwd=8.7s]
+[2026-05-16 18:39:38] INFO     [Ep   6 DONE] AvgLoss=0.4094 (TD=0.0369 CQL=0.3725) | 38.1s (245 batches) | [data=19.0s fwd=10.4s bwd=8.7s]
+[2026-05-16 18:39:38] INFO       Model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:39:41] INFO     [Ep   7|B    20/245] α=0.500 | Loss=0.4053 (TD=0.0320 CQL=0.3733) | ∇=0.110 | Q(μ=-908124032.000 σ=288852576.000 min=-1000000000.000 max=0.819) | LR=5.00e-05 | target_in=10b | 6.5 b/s ETA 35s | [data=1.6s fwd=0.8s bwd=0.7s]
+[2026-05-16 18:39:44] INFO     [Ep   7|B    40/245] α=0.500 | Loss=0.4040 (TD=0.0316 CQL=0.3724) | ∇=0.099 | Q(μ=-913385024.000 σ=281271968.000 min=-1000000000.000 max=0.084) | LR=5.00e-05 | target_in=90b | 6.5 b/s ETA 32s | [data=3.2s fwd=1.7s bwd=1.3s]
+[2026-05-16 18:39:47] INFO     [Ep   7|B    60/245] α=0.500 | Loss=0.4037 (TD=0.0307 CQL=0.3729) | ∇=0.095 | Q(μ=-907651584.000 σ=289519072.000 min=-1000000000.000 max=0.495) | LR=5.00e-05 | target_in=70b | 6.4 b/s ETA 29s | [data=4.7s fwd=2.6s bwd=2.1s]
+[2026-05-16 18:39:50] INFO     [Ep   7|B    80/245] α=0.500 | Loss=0.4032 (TD=0.0304 CQL=0.3728) | ∇=0.094 | Q(μ=-908691136.000 σ=288049728.000 min=-1000000000.000 max=0.480) | LR=5.00e-05 | target_in=50b | 6.4 b/s ETA 26s | [data=6.2s fwd=3.5s bwd=2.9s]
+[2026-05-16 18:39:53] INFO     [Ep   7|B   100/245] α=0.500 | Loss=0.4046 (TD=0.0306 CQL=0.3740) | ∇=0.090 | Q(μ=-910644352.000 σ=285258400.000 min=-1000000000.000 max=0.038) | LR=5.00e-05 | target_in=30b | 6.3 b/s ETA 23s | [data=7.8s fwd=4.3s bwd=3.6s]
+[2026-05-16 18:39:57] INFO     [Ep   7|B   120/245] α=0.500 | Loss=0.4040 (TD=0.0301 CQL=0.3739) | ∇=0.099 | Q(μ=-907966656.000 σ=289075008.000 min=-1000000000.000 max=0.330) | LR=5.00e-05 | target_in=10b | 6.3 b/s ETA 20s | [data=9.4s fwd=5.2s bwd=4.4s]
+[2026-05-16 18:40:00] INFO     [Ep   7|B   140/245] α=0.500 | Loss=0.4021 (TD=0.0292 CQL=0.3729) | ∇=0.099 | Q(μ=-910329280.000 σ=285711360.000 min=-1000000000.000 max=0.403) | LR=5.00e-05 | target_in=90b | 6.3 b/s ETA 17s | [data=11.0s fwd=6.1s bwd=5.1s]
+[2026-05-16 18:40:03] INFO     [Ep   7|B   160/245] α=0.500 | Loss=0.4055 (TD=0.0285 CQL=0.3770) | ∇=0.081 | Q(μ=-907541312.000 σ=289674272.000 min=-1000000000.000 max=0.218) | LR=5.00e-05 | target_in=70b | 6.3 b/s ETA 13s | [data=12.5s fwd=7.0s bwd=5.8s]
+[2026-05-16 18:40:06] INFO     [Ep   7|B   180/245] α=0.500 | Loss=0.4006 (TD=0.0291 CQL=0.3715) | ∇=0.096 | Q(μ=-909510208.000 σ=286884096.000 min=-1000000000.000 max=-0.026) | LR=5.00e-05 | target_in=50b | 6.3 b/s ETA 10s | [data=14.0s fwd=7.8s bwd=6.5s]
+[2026-05-16 18:40:09] INFO     [Ep   7|B   200/245] α=0.500 | Loss=0.3993 (TD=0.0284 CQL=0.3709) | ∇=0.097 | Q(μ=-908722688.000 σ=288005024.000 min=-1000000000.000 max=0.082) | LR=5.00e-05 | target_in=30b | 6.3 b/s ETA 7s | [data=15.5s fwd=8.7s bwd=7.4s]
+[2026-05-16 18:40:13] INFO     [Ep   7|B   220/245] α=0.500 | Loss=0.4036 (TD=0.0284 CQL=0.3752) | ∇=0.082 | Q(μ=-908297408.000 σ=288607616.000 min=-1000000000.000 max=0.253) | LR=5.00e-05 | target_in=10b | 6.3 b/s ETA 4s | [data=17.2s fwd=9.6s bwd=8.1s]
+[2026-05-16 18:40:16] INFO     [Ep   7|B   240/245] α=0.500 | Loss=0.4035 (TD=0.0279 CQL=0.3756) | ∇=0.093 | Q(μ=-910077184.000 σ=286072960.000 min=-1000000000.000 max=-0.008) | LR=5.00e-05 | target_in=90b | 6.3 b/s ETA 1s | [data=18.7s fwd=10.5s bwd=8.9s]
+[2026-05-16 18:40:16] INFO     [Ep   7|B   245/245] α=0.500 | Loss=0.1002 (TD=0.0068 CQL=0.0934) | ∇=0.133 | Q(μ=-909273920.000 σ=287234880.000 min=-1000000000.000 max=-0.058) | LR=5.00e-05 | target_in=85b | 6.3 b/s ETA 0s | [data=19.0s fwd=10.7s bwd=9.0s]
+[2026-05-16 18:40:16] INFO     [Ep   7 DONE] AvgLoss=0.4032 (TD=0.0297 CQL=0.3735) | 38.8s (245 batches) | [data=19.0s fwd=10.7s bwd=9.0s]
+[2026-05-16 18:40:16] INFO       Model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:40:19] INFO     [Ep   8|B    20/245] α=0.500 | Loss=0.3989 (TD=0.0272 CQL=0.3717) | ∇=0.099 | Q(μ=-907336576.000 σ=289962144.000 min=-1000000000.000 max=0.322) | LR=5.00e-05 | target_in=65b | 6.8 b/s ETA 33s | [data=1.5s fwd=0.8s bwd=0.7s]
+[2026-05-16 18:40:22] INFO     [Ep   8|B    40/245] α=0.500 | Loss=0.3991 (TD=0.0273 CQL=0.3718) | ∇=0.091 | Q(μ=-911321536.000 σ=284280896.000 min=-1000000000.000 max=0.690) | LR=5.00e-05 | target_in=45b | 6.8 b/s ETA 30s | [data=2.9s fwd=1.6s bwd=1.3s]
+[2026-05-16 18:40:25] INFO     [Ep   8|B    60/245] α=0.500 | Loss=0.4003 (TD=0.0269 CQL=0.3734) | ∇=0.088 | Q(μ=-908769856.000 σ=287937952.000 min=-1000000000.000 max=0.767) | LR=5.00e-05 | target_in=25b | 6.9 b/s ETA 27s | [data=4.3s fwd=2.5s bwd=2.0s]
+[2026-05-16 18:40:28] INFO     [Ep   8|B    80/245] α=0.500 | Loss=0.4014 (TD=0.0268 CQL=0.3746) | ∇=0.075 | Q(μ=-908801472.000 σ=287893216.000 min=-1000000000.000 max=0.416) | LR=5.00e-05 | target_in=5b | 6.8 b/s ETA 24s | [data=5.8s fwd=3.4s bwd=2.6s]
+[2026-05-16 18:40:31] INFO     [Ep   8|B   100/245] α=0.500 | Loss=0.4031 (TD=0.0261 CQL=0.3769) | ∇=0.098 | Q(μ=-911164032.000 σ=284508672.000 min=-1000000000.000 max=0.634) | LR=5.00e-05 | target_in=85b | 6.7 b/s ETA 22s | [data=7.3s fwd=4.2s bwd=3.3s]
+[2026-05-16 18:40:34] INFO     [Ep   8|B   120/245] α=0.500 | Loss=0.4008 (TD=0.0260 CQL=0.3748) | ∇=0.087 | Q(μ=-910943552.000 σ=284827104.000 min=-1000000000.000 max=0.656) | LR=5.00e-05 | target_in=65b | 6.7 b/s ETA 19s | [data=8.7s fwd=5.2s bwd=4.0s]
+[2026-05-16 18:40:37] INFO     [Ep   8|B   140/245] α=0.500 | Loss=0.3996 (TD=0.0257 CQL=0.3739) | ∇=0.091 | Q(μ=-909510208.000 σ=286884096.000 min=-1000000000.000 max=-0.032) | LR=5.00e-05 | target_in=45b | 6.7 b/s ETA 16s | [data=10.2s fwd=6.0s bwd=4.7s]
+[2026-05-16 18:40:40] INFO     [Ep   8|B   160/245] α=0.500 | Loss=0.4000 (TD=0.0258 CQL=0.3741) | ∇=0.076 | Q(μ=-909730752.000 σ=286569056.000 min=-1000000000.000 max=0.046) | LR=5.00e-05 | target_in=25b | 6.7 b/s ETA 13s | [data=11.6s fwd=6.9s bwd=5.4s]
+[2026-05-16 18:40:43] INFO     [Ep   8|B   180/245] α=0.500 | Loss=0.4004 (TD=0.0264 CQL=0.3741) | ∇=0.077 | Q(μ=-908864384.000 σ=287803744.000 min=-1000000000.000 max=0.161) | LR=5.00e-05 | target_in=5b | 6.7 b/s ETA 10s | [data=13.0s fwd=7.8s bwd=6.1s]
+[2026-05-16 18:40:46] INFO     [Ep   8|B   200/245] α=0.500 | Loss=0.3969 (TD=0.0255 CQL=0.3714) | ∇=0.083 | Q(μ=-913652672.000 σ=280878016.000 min=-1000000000.000 max=0.046) | LR=5.00e-05 | target_in=85b | 6.7 b/s ETA 7s | [data=14.4s fwd=8.6s bwd=6.7s]
+[2026-05-16 18:40:49] INFO     [Ep   8|B   220/245] α=0.500 | Loss=0.4017 (TD=0.0253 CQL=0.3764) | ∇=0.092 | Q(μ=-911636544.000 σ=283824544.000 min=-1000000000.000 max=-0.106) | LR=5.00e-05 | target_in=65b | 6.7 b/s ETA 4s | [data=15.9s fwd=9.5s bwd=7.5s]
+[2026-05-16 18:40:52] INFO     [Ep   8|B   240/245] α=0.500 | Loss=0.3993 (TD=0.0253 CQL=0.3740) | ∇=0.083 | Q(μ=-910471040.000 σ=285507648.000 min=-1000000000.000 max=0.266) | LR=5.00e-05 | target_in=45b | 6.7 b/s ETA 1s | [data=17.3s fwd=10.4s bwd=8.2s]
+[2026-05-16 18:40:53] INFO     [Ep   8|B   245/245] α=0.500 | Loss=0.0991 (TD=0.0061 CQL=0.0930) | ∇=0.119 | Q(μ=-911178048.000 σ=284502112.000 min=-1000000000.000 max=-0.102) | LR=5.00e-05 | target_in=40b | 6.7 b/s ETA 0s | [data=17.7s fwd=10.6s bwd=8.4s]
+[2026-05-16 18:40:53] INFO     [Ep   8 DONE] AvgLoss=0.4000 (TD=0.0262 CQL=0.3739) | 36.7s (245 batches) | [data=17.7s fwd=10.6s bwd=8.4s]
+[2026-05-16 18:40:53] INFO       Model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:40:56] INFO     [Ep   9|B    20/245] α=0.500 | Loss=0.3998 (TD=0.0250 CQL=0.3748) | ∇=0.077 | Q(μ=-910187456.000 σ=285914848.000 min=-1000000000.000 max=-0.001) | LR=5.00e-05 | target_in=20b | 6.7 b/s ETA 34s | [data=1.5s fwd=0.8s bwd=0.7s]
+[2026-05-16 18:40:59] INFO     [Ep   9|B    40/245] α=0.500 | Loss=0.3989 (TD=0.0248 CQL=0.3741) | ∇=0.080 | Q(μ=-911967424.000 σ=283344224.000 min=-1000000000.000 max=0.242) | LR=5.00e-05 | target_in=100b | 6.7 b/s ETA 31s | [data=2.9s fwd=1.7s bwd=1.4s]
+[2026-05-16 18:41:02] INFO     [Ep   9|B    60/245] α=0.500 | Loss=0.3991 (TD=0.0248 CQL=0.3743) | ∇=0.089 | Q(μ=-907714560.000 σ=289430336.000 min=-1000000000.000 max=0.307) | LR=5.00e-05 | target_in=80b | 6.7 b/s ETA 28s | [data=4.3s fwd=2.6s bwd=2.1s]
+[2026-05-16 18:41:05] INFO     [Ep   9|B    80/245] α=0.500 | Loss=0.3986 (TD=0.0249 CQL=0.3737) | ∇=0.080 | Q(μ=-914692288.000 σ=279340864.000 min=-1000000000.000 max=0.379) | LR=5.00e-05 | target_in=60b | 6.7 b/s ETA 25s | [data=5.8s fwd=3.4s bwd=2.8s]
+[2026-05-16 18:41:08] INFO     [Ep   9|B   100/245] α=0.500 | Loss=0.4009 (TD=0.0247 CQL=0.3763) | ∇=0.080 | Q(μ=-909400000.000 σ=287041408.000 min=-1000000000.000 max=0.147) | LR=5.00e-05 | target_in=40b | 6.7 b/s ETA 22s | [data=7.2s fwd=4.3s bwd=3.4s]
+[2026-05-16 18:41:11] INFO     [Ep   9|B   120/245] α=0.500 | Loss=0.3973 (TD=0.0243 CQL=0.3730) | ∇=0.077 | Q(μ=-907053056.000 σ=290360000.000 min=-1000000000.000 max=0.318) | LR=5.00e-05 | target_in=20b | 6.7 b/s ETA 19s | [data=8.6s fwd=5.1s bwd=4.1s]
+[2026-05-16 18:41:14] INFO     [Ep   9|B   140/245] α=0.500 | Loss=0.3972 (TD=0.0241 CQL=0.3731) | ∇=0.077 | Q(μ=-911006528.000 σ=284736160.000 min=-1000000000.000 max=1.160) | LR=5.00e-05 | target_in=100b | 6.7 b/s ETA 16s | [data=10.2s fwd=6.0s bwd=4.8s]
+[2026-05-16 18:41:17] INFO     [Ep   9|B   160/245] α=0.500 | Loss=0.3992 (TD=0.0239 CQL=0.3752) | ∇=0.089 | Q(μ=-909321152.000 σ=287153696.000 min=-1000000000.000 max=0.078) | LR=5.00e-05 | target_in=80b | 6.7 b/s ETA 13s | [data=11.6s fwd=6.9s bwd=5.5s]
+[2026-05-16 18:41:20] INFO     [Ep   9|B   180/245] α=0.500 | Loss=0.3971 (TD=0.0238 CQL=0.3733) | ∇=0.083 | Q(μ=-910880512.000 σ=284917984.000 min=-1000000000.000 max=0.450) | LR=5.00e-05 | target_in=60b | 6.7 b/s ETA 10s | [data=13.0s fwd=7.7s bwd=6.2s]
+[2026-05-16 18:41:23] INFO     [Ep   9|B   200/245] α=0.500 | Loss=0.3962 (TD=0.0235 CQL=0.3727) | ∇=0.073 | Q(μ=-914172480.000 σ=280110976.000 min=-1000000000.000 max=0.273) | LR=5.00e-05 | target_in=40b | 6.7 b/s ETA 7s | [data=14.5s fwd=8.6s bwd=6.9s]
+[2026-05-16 18:41:26] INFO     [Ep   9|B   220/245] α=0.500 | Loss=0.3979 (TD=0.0237 CQL=0.3743) | ∇=0.078 | Q(μ=-908391872.000 σ=288473856.000 min=-1000000000.000 max=0.075) | LR=5.00e-05 | target_in=20b | 6.7 b/s ETA 4s | [data=15.9s fwd=9.4s bwd=7.6s]
+[2026-05-16 18:41:29] INFO     [Ep   9|B   240/245] α=0.500 | Loss=0.3954 (TD=0.0238 CQL=0.3716) | ∇=0.074 | Q(μ=-911589376.000 σ=283893088.000 min=-1000000000.000 max=0.581) | LR=5.00e-05 | target_in=100b | 6.7 b/s ETA 1s | [data=17.4s fwd=10.2s bwd=8.3s]
+[2026-05-16 18:41:30] INFO     [Ep   9|B   245/245] α=0.500 | Loss=0.1005 (TD=0.0057 CQL=0.0948) | ∇=0.088 | Q(μ=-908601984.000 σ=288190176.000 min=-1000000000.000 max=-0.220) | LR=5.00e-05 | target_in=95b | 6.7 b/s ETA 0s | [data=17.7s fwd=10.3s bwd=8.5s]
+[2026-05-16 18:41:30] INFO     [Ep   9 DONE] AvgLoss=0.3982 (TD=0.0242 CQL=0.3740) | 36.5s (245 batches) | [data=17.7s fwd=10.3s bwd=8.5s]
+[2026-05-16 18:41:30] INFO       Model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:41:33] INFO     [Ep  10|B    20/245] α=0.500 | Loss=0.3976 (TD=0.0237 CQL=0.3740) | ∇=0.089 | Q(μ=-911573632.000 σ=283915904.000 min=-1000000000.000 max=0.208) | LR=5.00e-05 | target_in=75b | 6.3 b/s ETA 36s | [data=1.6s fwd=0.9s bwd=0.7s]
+[2026-05-16 18:41:36] INFO     [Ep  10|B    40/245] α=0.500 | Loss=0.3977 (TD=0.0232 CQL=0.3745) | ∇=0.074 | Q(μ=-909746496.000 σ=286546528.000 min=-1000000000.000 max=0.470) | LR=5.00e-05 | target_in=55b | 6.5 b/s ETA 31s | [data=3.0s fwd=1.8s bwd=1.3s]
+[2026-05-16 18:41:39] INFO     [Ep  10|B    60/245] α=0.500 | Loss=0.3957 (TD=0.0230 CQL=0.3728) | ∇=0.050 | Q(μ=-913684224.000 σ=280831616.000 min=-1000000000.000 max=0.226) | LR=5.00e-05 | target_in=35b | 6.4 b/s ETA 29s | [data=4.6s fwd=2.7s bwd=2.0s]
+[2026-05-16 18:41:42] INFO     [Ep  10|B    80/245] α=0.500 | Loss=0.3955 (TD=0.0228 CQL=0.3727) | ∇=0.041 | Q(μ=-913274688.000 σ=281433952.000 min=-1000000000.000 max=-0.010) | LR=5.00e-05 | target_in=15b | 6.4 b/s ETA 26s | [data=6.2s fwd=3.6s bwd=2.7s]
+[2026-05-16 18:41:45] INFO     [Ep  10|B   100/245] α=0.500 | Loss=0.3966 (TD=0.0241 CQL=0.3725) | ∇=0.100 | Q(μ=-910549760.000 σ=285394400.000 min=-1000000000.000 max=0.115) | LR=5.00e-05 | target_in=95b | 6.4 b/s ETA 23s | [data=7.9s fwd=4.4s bwd=3.4s]
+[2026-05-16 18:41:49] INFO     [Ep  10|B   120/245] α=0.500 | Loss=0.3947 (TD=0.0261 CQL=0.3686) | ∇=0.048 | Q(μ=-911967296.000 σ=283344224.000 min=-1000000000.000 max=0.234) | LR=5.00e-05 | target_in=75b | 6.3 b/s ETA 20s | [data=9.4s fwd=5.3s bwd=4.2s]
+[2026-05-16 18:41:51] INFO     [Ep  10|B   140/245] α=0.500 | Loss=0.3960 (TD=0.0269 CQL=0.3691) | ∇=0.040 | Q(μ=-911431808.000 σ=284121312.000 min=-1000000000.000 max=0.249) | LR=5.00e-05 | target_in=55b | 6.4 b/s ETA 16s | [data=10.9s fwd=6.1s bwd=4.8s]
+[2026-05-16 18:41:55] INFO     [Ep  10|B   160/245] α=0.500 | Loss=0.3967 (TD=0.0266 CQL=0.3701) | ∇=0.049 | Q(μ=-908580864.000 σ=288206080.000 min=-1000000000.000 max=0.552) | LR=5.00e-05 | target_in=35b | 6.4 b/s ETA 13s | [data=12.4s fwd=7.0s bwd=5.6s]
+[2026-05-16 18:41:58] INFO     [Ep  10|B   180/245] α=0.500 | Loss=0.3984 (TD=0.0267 CQL=0.3718) | ∇=0.049 | Q(μ=-912392576.000 σ=282724896.000 min=-1000000000.000 max=0.570) | LR=5.00e-05 | target_in=15b | 6.4 b/s ETA 10s | [data=13.9s fwd=7.8s bwd=6.3s]
+[2026-05-16 18:42:01] INFO     [Ep  10|B   200/245] α=0.500 | Loss=0.3961 (TD=0.0277 CQL=0.3684) | ∇=0.078 | Q(μ=-912124864.000 σ=283115072.000 min=-1000000000.000 max=0.219) | LR=5.00e-05 | target_in=95b | 6.4 b/s ETA 7s | [data=15.5s fwd=8.7s bwd=7.0s]
+[2026-05-16 18:42:05] INFO     [Ep  10|B   220/245] α=0.500 | Loss=0.4021 (TD=0.0300 CQL=0.3721) | ∇=0.061 | Q(μ=-906801024.000 σ=290712992.000 min=-1000000000.000 max=0.256) | LR=5.00e-05 | target_in=75b | 6.2 b/s ETA 4s | [data=17.0s fwd=10.4s bwd=8.2s]
+[2026-05-16 18:42:08] INFO     [Ep  10|B   240/245] α=0.500 | Loss=0.4003 (TD=0.0300 CQL=0.3703) | ∇=0.048 | Q(μ=-910376448.000 σ=285643488.000 min=-1000000000.000 max=0.212) | LR=5.00e-05 | target_in=55b | 6.2 b/s ETA 1s | [data=18.5s fwd=11.2s bwd=8.9s]
+[2026-05-16 18:42:09] INFO     [Ep  10|B   245/245] α=0.500 | Loss=0.1000 (TD=0.0074 CQL=0.0926) | ∇=0.100 | Q(μ=-910841984.000 σ=284987200.000 min=-1000000000.000 max=-0.032) | LR=5.00e-05 | target_in=50b | 6.2 b/s ETA 0s | [data=18.8s fwd=11.4s bwd=9.1s]
+[2026-05-16 18:42:09] INFO     [Ep  10 DONE] AvgLoss=0.3973 (TD=0.0260 CQL=0.3714) | 39.2s (245 batches) | [data=18.8s fwd=11.4s bwd=9.1s]
+[2026-05-16 18:42:09] INFO       Model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:42:13] INFO     [Ep  11|B    20/245] α=0.500 | Loss=0.3987 (TD=0.0300 CQL=0.3687) | ∇=0.054 | Q(μ=-910612736.000 σ=285303744.000 min=-1000000000.000 max=0.850) | LR=5.00e-05 | target_in=30b | 5.3 b/s ETA 43s | [data=1.5s fwd=1.4s bwd=0.9s]
+[2026-05-16 18:42:16] INFO     [Ep  11|B    40/245] α=0.500 | Loss=0.3993 (TD=0.0303 CQL=0.3691) | ∇=0.054 | Q(μ=-911809792.000 σ=283573088.000 min=-1000000000.000 max=0.222) | LR=5.00e-05 | target_in=10b | 5.8 b/s ETA 35s | [data=3.0s fwd=2.2s bwd=1.7s]
+[2026-05-16 18:42:19] INFO     [Ep  11|B    60/245] α=0.500 | Loss=0.3993 (TD=0.0312 CQL=0.3681) | ∇=0.086 | Q(μ=-912550144.000 σ=282495008.000 min=-1000000000.000 max=0.206) | LR=5.00e-05 | target_in=90b | 6.1 b/s ETA 30s | [data=4.4s fwd=3.1s bwd=2.3s]
+[2026-05-16 18:42:22] INFO     [Ep  11|B    80/245] α=0.500 | Loss=0.3996 (TD=0.0317 CQL=0.3679) | ∇=0.043 | Q(μ=-910423808.000 σ=285575584.000 min=-1000000000.000 max=0.043) | LR=5.00e-05 | target_in=70b | 6.1 b/s ETA 27s | [data=6.0s fwd=4.0s bwd=3.0s]
+[2026-05-16 18:42:25] INFO     [Ep  11|B   100/245] α=0.500 | Loss=0.4017 (TD=0.0315 CQL=0.3702) | ∇=0.052 | Q(μ=-909683392.000 σ=286636608.000 min=-1000000000.000 max=0.091) | LR=5.00e-05 | target_in=50b | 6.2 b/s ETA 23s | [data=7.4s fwd=5.0s bwd=3.7s]
+[2026-05-16 18:42:28] INFO     [Ep  11|B   120/245] α=0.500 | Loss=0.4003 (TD=0.0317 CQL=0.3686) | ∇=0.044 | Q(μ=-908880192.000 σ=287781344.000 min=-1000000000.000 max=0.019) | LR=5.00e-05 | target_in=30b | 6.3 b/s ETA 20s | [data=8.8s fwd=5.8s bwd=4.4s]
+[2026-05-16 18:42:31] INFO     [Ep  11|B   140/245] α=0.500 | Loss=0.4029 (TD=0.0315 CQL=0.3714) | ∇=0.064 | Q(μ=-910092992.000 σ=286050368.000 min=-1000000000.000 max=0.094) | LR=5.00e-05 | target_in=10b | 6.3 b/s ETA 17s | [data=10.3s fwd=6.7s bwd=5.1s]
+[2026-05-16 18:42:34] INFO     [Ep  11|B   160/245] α=0.500 | Loss=0.4005 (TD=0.0321 CQL=0.3684) | ∇=0.086 | Q(μ=-907163328.000 σ=290205376.000 min=-1000000000.000 max=0.349) | LR=5.00e-05 | target_in=90b | 6.4 b/s ETA 13s | [data=11.7s fwd=7.6s bwd=5.8s]
+[2026-05-16 18:42:37] INFO     [Ep  11|B   180/245] α=0.500 | Loss=0.4004 (TD=0.0325 CQL=0.3679) | ∇=0.045 | Q(μ=-909100672.000 σ=287467776.000 min=-1000000000.000 max=0.181) | LR=5.00e-05 | target_in=70b | 6.4 b/s ETA 10s | [data=13.1s fwd=8.4s bwd=6.5s]
+[2026-05-16 18:42:40] INFO     [Ep  11|B   200/245] α=0.500 | Loss=0.3986 (TD=0.0325 CQL=0.3661) | ∇=0.063 | Q(μ=-910171776.000 σ=285937440.000 min=-1000000000.000 max=0.139) | LR=5.00e-05 | target_in=50b | 6.4 b/s ETA 7s | [data=14.6s fwd=9.3s bwd=7.1s]
+[2026-05-16 18:42:43] INFO     [Ep  11|B   220/245] α=0.500 | Loss=0.4005 (TD=0.0314 CQL=0.3691) | ∇=0.051 | Q(μ=-908722688.000 σ=288005024.000 min=-1000000000.000 max=0.219) | LR=5.00e-05 | target_in=30b | 6.5 b/s ETA 4s | [data=16.0s fwd=10.1s bwd=7.8s]
+[2026-05-16 18:42:46] INFO     [Ep  11|B   240/245] α=0.500 | Loss=0.4006 (TD=0.0322 CQL=0.3684) | ∇=0.045 | Q(μ=-908580928.000 σ=288206080.000 min=-1000000000.000 max=0.486) | LR=5.00e-05 | target_in=10b | 6.5 b/s ETA 1s | [data=17.4s fwd=11.0s bwd=8.4s]
+[2026-05-16 18:42:47] INFO     [Ep  11|B   245/245] α=0.500 | Loss=0.0997 (TD=0.0084 CQL=0.0913) | ∇=0.123 | Q(μ=-910729984.000 σ=285148640.000 min=-1000000000.000 max=0.050) | LR=5.00e-05 | target_in=5b | 6.5 b/s ETA 0s | [data=17.8s fwd=11.2s bwd=8.6s]
+[2026-05-16 18:42:47] INFO     [Ep  11 DONE] AvgLoss=0.4002 (TD=0.0316 CQL=0.3686) | 37.6s (245 batches) | [data=17.8s fwd=11.2s bwd=8.6s]
+[2026-05-16 18:42:50] INFO     [Ep  12|B    20/245] α=0.500 | Loss=0.4005 (TD=0.0319 CQL=0.3686) | ∇=0.078 | Q(μ=-908281600.000 σ=288629888.000 min=-1000000000.000 max=0.161) | LR=5.00e-05 | target_in=85b | 6.7 b/s ETA 34s | [data=1.6s fwd=0.9s bwd=0.6s]
+[2026-05-16 18:42:52] INFO     [Ep  12|B    40/245] α=0.500 | Loss=0.4003 (TD=0.0319 CQL=0.3684) | ∇=0.057 | Q(μ=-909084992.000 σ=287490208.000 min=-1000000000.000 max=0.081) | LR=5.00e-05 | target_in=65b | 6.7 b/s ETA 31s | [data=3.0s fwd=1.7s bwd=1.2s]
+[2026-05-16 18:42:55] INFO     [Ep  12|B    60/245] α=0.500 | Loss=0.3972 (TD=0.0315 CQL=0.3658) | ∇=0.048 | Q(μ=-911557952.000 σ=283938752.000 min=-1000000000.000 max=0.151) | LR=5.00e-05 | target_in=45b | 6.8 b/s ETA 27s | [data=4.4s fwd=2.5s bwd=1.9s]
+[2026-05-16 18:42:58] INFO     [Ep  12|B    80/245] α=0.500 | Loss=0.3988 (TD=0.0319 CQL=0.3669) | ∇=0.048 | Q(μ=-915416832.000 σ=278262208.000 min=-1000000000.000 max=0.101) | LR=5.00e-05 | target_in=25b | 6.8 b/s ETA 24s | [data=5.8s fwd=3.4s bwd=2.6s]
+[2026-05-16 18:43:01] INFO     [Ep  12|B   100/245] α=0.500 | Loss=0.4023 (TD=0.0314 CQL=0.3709) | ∇=0.040 | Q(μ=-910171776.000 σ=285937440.000 min=-1000000000.000 max=0.328) | LR=5.00e-05 | target_in=5b | 6.7 b/s ETA 22s | [data=7.3s fwd=4.3s bwd=3.4s]
+[2026-05-16 18:43:05] INFO     [Ep  12|B   120/245] α=0.500 | Loss=0.4023 (TD=0.0323 CQL=0.3700) | ∇=0.038 | Q(μ=-908895936.000 σ=287758976.000 min=-1000000000.000 max=0.129) | LR=5.00e-05 | target_in=85b | 6.7 b/s ETA 19s | [data=8.7s fwd=5.2s bwd=4.0s]
+[2026-05-16 18:43:08] INFO     [Ep  12|B   140/245] α=0.500 | Loss=0.4029 (TD=0.0328 CQL=0.3701) | ∇=0.054 | Q(μ=-909463040.000 σ=286951520.000 min=-1000000000.000 max=0.221) | LR=5.00e-05 | target_in=65b | 6.6 b/s ETA 16s | [data=10.3s fwd=6.1s bwd=4.7s]
+[2026-05-16 18:43:11] INFO     [Ep  12|B   160/245] α=0.500 | Loss=0.3992 (TD=0.0325 CQL=0.3667) | ∇=0.061 | Q(μ=-909856768.000 σ=286388800.000 min=-1000000000.000 max=1.322) | LR=5.00e-05 | target_in=45b | 6.6 b/s ETA 13s | [data=11.7s fwd=7.0s bwd=5.4s]
+[2026-05-16 18:43:14] INFO     [Ep  12|B   180/245] α=0.500 | Loss=0.4001 (TD=0.0321 CQL=0.3680) | ∇=0.053 | Q(μ=-910030016.000 σ=286140672.000 min=-1000000000.000 max=0.762) | LR=5.00e-05 | target_in=25b | 6.6 b/s ETA 10s | [data=13.4s fwd=7.9s bwd=6.1s]
+[2026-05-16 18:43:17] INFO     [Ep  12|B   200/245] α=0.500 | Loss=0.4006 (TD=0.0323 CQL=0.3683) | ∇=0.047 | Q(μ=-908265856.000 σ=288652192.000 min=-1000000000.000 max=0.116) | LR=5.00e-05 | target_in=5b | 6.6 b/s ETA 7s | [data=14.9s fwd=8.8s bwd=6.8s]
+[2026-05-16 18:43:20] INFO     [Ep  12|B   220/245] α=0.500 | Loss=0.4011 (TD=0.0325 CQL=0.3687) | ∇=0.042 | Q(μ=-909856768.000 σ=286388800.000 min=-1000000000.000 max=0.283) | LR=5.00e-05 | target_in=85b | 6.5 b/s ETA 4s | [data=16.3s fwd=9.7s bwd=7.5s]
+[2026-05-16 18:43:23] INFO     [Ep  12|B   240/245] α=0.500 | Loss=0.3998 (TD=0.0329 CQL=0.3669) | ∇=0.048 | Q(μ=-909919744.000 σ=286298624.000 min=-1000000000.000 max=0.211) | LR=5.00e-05 | target_in=65b | 6.5 b/s ETA 1s | [data=17.8s fwd=10.6s bwd=8.2s]
+[2026-05-16 18:43:24] INFO     [Ep  12|B   245/245] α=0.500 | Loss=0.0995 (TD=0.0082 CQL=0.0913) | ∇=0.087 | Q(μ=-913306240.000 σ=281401216.000 min=-1000000000.000 max=0.680) | LR=5.00e-05 | target_in=60b | 6.6 b/s ETA 0s | [data=18.1s fwd=10.8s bwd=8.4s]
+[2026-05-16 18:43:24] INFO     [Ep  12 DONE] AvgLoss=0.4004 (TD=0.0322 CQL=0.3682) | 37.3s (245 batches) | [data=18.1s fwd=10.8s bwd=8.4s]
+[2026-05-16 18:43:27] INFO     [Ep  13|B    20/245] α=0.500 | Loss=0.4015 (TD=0.0324 CQL=0.3692) | ∇=0.052 | Q(μ=-907604352.000 σ=289585600.000 min=-1000000000.000 max=0.479) | LR=5.00e-05 | target_in=40b | 6.2 b/s ETA 36s | [data=1.6s fwd=0.9s bwd=0.7s]
+[2026-05-16 18:43:30] INFO     [Ep  13|B    40/245] α=0.500 | Loss=0.3991 (TD=0.0325 CQL=0.3666) | ∇=0.045 | Q(μ=-910077248.000 σ=286072960.000 min=-1000000000.000 max=0.117) | LR=5.00e-05 | target_in=20b | 6.4 b/s ETA 32s | [data=3.1s fwd=1.8s bwd=1.4s]
+[2026-05-16 18:43:33] INFO     [Ep  13|B    60/245] α=0.500 | Loss=0.3990 (TD=0.0321 CQL=0.3670) | ∇=0.039 | Q(μ=-910864768.000 σ=284940672.000 min=-1000000000.000 max=0.159) | LR=5.00e-05 | target_in=100b | 6.4 b/s ETA 29s | [data=4.5s fwd=2.8s bwd=2.1s]
+[2026-05-16 18:43:36] INFO     [Ep  13|B    80/245] α=0.500 | Loss=0.4020 (TD=0.0328 CQL=0.3691) | ∇=0.041 | Q(μ=-910360704.000 σ=285666112.000 min=-1000000000.000 max=0.217) | LR=5.00e-05 | target_in=80b | 6.4 b/s ETA 26s | [data=5.9s fwd=3.7s bwd=2.9s]
+[2026-05-16 18:43:40] INFO     [Ep  13|B   100/245] α=0.500 | Loss=0.4000 (TD=0.0331 CQL=0.3669) | ∇=0.042 | Q(μ=-909021888.000 σ=287579840.000 min=-1000000000.000 max=0.305) | LR=5.00e-05 | target_in=60b | 6.4 b/s ETA 23s | [data=7.4s fwd=4.6s bwd=3.7s]
+[2026-05-16 18:43:43] INFO     [Ep  13|B   120/245] α=0.500 | Loss=0.4010 (TD=0.0324 CQL=0.3685) | ∇=0.054 | Q(μ=-905840256.000 σ=292052832.000 min=-1000000000.000 max=0.281) | LR=5.00e-05 | target_in=40b | 6.4 b/s ETA 20s | [data=8.9s fwd=5.5s bwd=4.3s]
+[2026-05-16 18:43:46] INFO     [Ep  13|B   140/245] α=0.500 | Loss=0.4003 (TD=0.0325 CQL=0.3678) | ∇=0.046 | Q(μ=-911904384.000 σ=283435808.000 min=-1000000000.000 max=0.147) | LR=5.00e-05 | target_in=20b | 6.4 b/s ETA 16s | [data=10.4s fwd=6.4s bwd=5.1s]
+[2026-05-16 18:43:49] INFO     [Ep  13|B   160/245] α=0.500 | Loss=0.3973 (TD=0.0320 CQL=0.3652) | ∇=0.046 | Q(μ=-912392576.000 σ=282724896.000 min=-1000000000.000 max=0.336) | LR=5.00e-05 | target_in=100b | 6.4 b/s ETA 13s | [data=12.0s fwd=7.3s bwd=5.7s]
+[2026-05-16 18:43:52] INFO     [Ep  13|B   180/245] α=0.500 | Loss=0.3992 (TD=0.0332 CQL=0.3660) | ∇=0.070 | Q(μ=-911683840.000 σ=283756000.000 min=-1000000000.000 max=0.851) | LR=5.00e-05 | target_in=80b | 6.4 b/s ETA 10s | [data=13.6s fwd=8.1s bwd=6.3s]
+[2026-05-16 18:43:55] INFO     [Ep  13|B   200/245] α=0.500 | Loss=0.4021 (TD=0.0329 CQL=0.3692) | ∇=0.042 | Q(μ=-907320832.000 σ=289984256.000 min=-1000000000.000 max=0.381) | LR=5.00e-05 | target_in=60b | 6.3 b/s ETA 7s | [data=15.4s fwd=9.0s bwd=7.1s]
+[2026-05-16 18:43:59] INFO     [Ep  13|B   220/245] α=0.500 | Loss=0.4037 (TD=0.0337 CQL=0.3700) | ∇=0.042 | Q(μ=-908958976.000 σ=287669440.000 min=-1000000000.000 max=0.328) | LR=5.00e-05 | target_in=40b | 6.2 b/s ETA 4s | [data=17.1s fwd=10.0s bwd=8.2s]
+[2026-05-16 18:44:02] INFO     [Ep  13|B   240/245] α=0.500 | Loss=0.3984 (TD=0.0333 CQL=0.3651) | ∇=0.041 | Q(μ=-909384192.000 σ=287063872.000 min=-1000000000.000 max=0.345) | LR=5.00e-05 | target_in=20b | 6.2 b/s ETA 1s | [data=18.7s fwd=10.9s bwd=8.9s]
+[2026-05-16 18:44:03] INFO     [Ep  13|B   245/245] α=0.500 | Loss=0.0993 (TD=0.0082 CQL=0.0911) | ∇=0.109 | Q(μ=-911178048.000 σ=284502112.000 min=-1000000000.000 max=0.187) | LR=5.00e-05 | target_in=15b | 6.2 b/s ETA 0s | [data=19.0s fwd=11.1s bwd=9.1s]
+[2026-05-16 18:44:03] INFO     [Ep  13 DONE] AvgLoss=0.4002 (TD=0.0328 CQL=0.3675) | 39.3s (245 batches) | [data=19.0s fwd=11.1s bwd=9.1s]
+[2026-05-16 18:44:07] INFO     [Ep  14|B    20/245] α=0.500 | Loss=0.3981 (TD=0.0330 CQL=0.3652) | ∇=0.069 | Q(μ=-910234816.000 σ=285847040.000 min=-1000000000.000 max=0.230) | LR=5.00e-05 | target_in=95b | 5.5 b/s ETA 41s | [data=1.6s fwd=1.0s bwd=1.0s]
+[2026-05-16 18:44:10] INFO     [Ep  14|B    40/245] α=0.500 | Loss=0.4013 (TD=0.0333 CQL=0.3680) | ∇=0.046 | Q(μ=-911951616.000 σ=283367136.000 min=-1000000000.000 max=0.278) | LR=5.00e-05 | target_in=75b | 6.0 b/s ETA 34s | [data=3.1s fwd=1.9s bwd=1.7s]
+[2026-05-16 18:44:13] INFO     [Ep  14|B    60/245] α=0.500 | Loss=0.3981 (TD=0.0336 CQL=0.3645) | ∇=0.044 | Q(μ=-908344576.000 σ=288540768.000 min=-1000000000.000 max=0.252) | LR=5.00e-05 | target_in=55b | 6.2 b/s ETA 30s | [data=4.6s fwd=2.7s bwd=2.4s]
+[2026-05-16 18:44:17] INFO     [Ep  14|B    80/245] α=0.500 | Loss=0.4011 (TD=0.0331 CQL=0.3681) | ∇=0.086 | Q(μ=-911053696.000 σ=284667936.000 min=-1000000000.000 max=0.443) | LR=5.00e-05 | target_in=35b | 6.0 b/s ETA 28s | [data=6.4s fwd=3.7s bwd=3.3s]
+[2026-05-16 18:44:20] INFO     [Ep  14|B   100/245] α=0.500 | Loss=0.3988 (TD=0.0334 CQL=0.3654) | ∇=0.064 | Q(μ=-912266688.000 σ=282908608.000 min=-1000000000.000 max=0.329) | LR=5.00e-05 | target_in=15b | 6.0 b/s ETA 24s | [data=8.0s fwd=4.7s bwd=4.1s]
+[2026-05-16 18:44:23] INFO     [Ep  14|B   120/245] α=0.500 | Loss=0.4001 (TD=0.0338 CQL=0.3664) | ∇=0.132 | Q(μ=-912392576.000 σ=282724896.000 min=-1000000000.000 max=0.791) | LR=5.00e-05 | target_in=95b | 5.9 b/s ETA 21s | [data=9.6s fwd=5.6s bwd=5.0s]
+[2026-05-16 18:44:27] INFO     [Ep  14|B   140/245] α=0.500 | Loss=0.3980 (TD=0.0343 CQL=0.3637) | ∇=0.079 | Q(μ=-910912064.000 σ=284872544.000 min=-1000000000.000 max=1.010) | LR=5.00e-05 | target_in=75b | 5.9 b/s ETA 18s | [data=11.2s fwd=6.5s bwd=5.8s]
+[2026-05-16 18:44:30] INFO     [Ep  14|B   160/245] α=0.500 | Loss=0.4034 (TD=0.0345 CQL=0.3690) | ∇=0.059 | Q(μ=-908832896.000 σ=287848480.000 min=-1000000000.000 max=0.947) | LR=5.00e-05 | target_in=55b | 6.0 b/s ETA 14s | [data=12.8s fwd=7.5s bwd=6.6s]
+[2026-05-16 18:44:33] INFO     [Ep  14|B   180/245] α=0.500 | Loss=0.4004 (TD=0.0345 CQL=0.3659) | ∇=0.042 | Q(μ=-907809152.000 σ=289297184.000 min=-1000000000.000 max=0.271) | LR=5.00e-05 | target_in=35b | 5.9 b/s ETA 11s | [data=14.3s fwd=8.4s bwd=7.6s]
+[2026-05-16 18:44:37] INFO     [Ep  14|B   200/245] α=0.500 | Loss=0.4009 (TD=0.0346 CQL=0.3662) | ∇=0.049 | Q(μ=-913306176.000 σ=281387680.000 min=-1000000000.000 max=1.280) | LR=5.00e-05 | target_in=15b | 6.0 b/s ETA 8s | [data=15.9s fwd=9.3s bwd=8.3s]
+[2026-05-16 18:44:40] INFO     [Ep  14|B   220/245] α=0.500 | Loss=0.4011 (TD=0.0347 CQL=0.3664) | ∇=0.093 | Q(μ=-910108800.000 σ=286027808.000 min=-1000000000.000 max=0.567) | LR=5.00e-05 | target_in=95b | 6.0 b/s ETA 4s | [data=17.5s fwd=10.2s bwd=9.2s]
+[2026-05-16 18:44:44] INFO     [Ep  14|B   240/245] α=0.500 | Loss=0.4011 (TD=0.0353 CQL=0.3658) | ∇=0.096 | Q(μ=-909210944.000 σ=287310816.000 min=-1000000000.000 max=0.598) | LR=5.00e-05 | target_in=75b | 5.9 b/s ETA 1s | [data=19.2s fwd=11.2s bwd=10.1s]
+[2026-05-16 18:44:44] INFO     [Ep  14|B   245/245] α=0.500 | Loss=0.1010 (TD=0.0090 CQL=0.0921) | ∇=0.112 | Q(μ=-914650240.000 σ=279416672.000 min=-1000000000.000 max=0.246) | LR=5.00e-05 | target_in=70b | 5.9 b/s ETA 0s | [data=19.7s fwd=11.4s bwd=10.3s]
+[2026-05-16 18:44:44] INFO     [Ep  14 DONE] AvgLoss=0.4003 (TD=0.0340 CQL=0.3663) | 41.4s (245 batches) | [data=19.7s fwd=11.4s bwd=10.3s]
+[2026-05-16 18:44:48] INFO     [Ep  15|B    20/245] α=0.500 | Loss=0.4028 (TD=0.0348 CQL=0.3680) | ∇=0.052 | Q(μ=-911164032.000 σ=284508672.000 min=-1000000000.000 max=0.397) | LR=5.00e-05 | target_in=50b | 5.1 b/s ETA 44s | [data=1.6s fwd=1.0s bwd=1.3s]
+[2026-05-16 18:44:52] INFO     [Ep  15|B    40/245] α=0.500 | Loss=0.4001 (TD=0.0356 CQL=0.3645) | ∇=0.047 | Q(μ=-909683456.000 σ=286636608.000 min=-1000000000.000 max=0.679) | LR=5.00e-05 | target_in=30b | 5.2 b/s ETA 40s | [data=3.2s fwd=2.0s bwd=2.5s]
+[2026-05-16 18:44:56] INFO     [Ep  15|B    60/245] α=0.500 | Loss=0.4012 (TD=0.0353 CQL=0.3659) | ∇=0.079 | Q(μ=-908754176.000 σ=287960320.000 min=-1000000000.000 max=0.321) | LR=5.00e-05 | target_in=10b | 5.3 b/s ETA 35s | [data=4.8s fwd=2.9s bwd=3.6s]
+[2026-05-16 18:44:59] INFO     [Ep  15|B    80/245] α=0.500 | Loss=0.3982 (TD=0.0358 CQL=0.3624) | ∇=0.049 | Q(μ=-912455616.000 σ=282632960.000 min=-1000000000.000 max=0.535) | LR=5.00e-05 | target_in=90b | 5.4 b/s ETA 30s | [data=6.4s fwd=3.9s bwd=4.4s]
+[2026-05-16 18:45:03] INFO     [Ep  15|B   100/245] α=0.500 | Loss=0.3995 (TD=0.0368 CQL=0.3627) | ∇=0.079 | Q(μ=-911447616.000 σ=284098496.000 min=-1000000000.000 max=0.538) | LR=5.00e-05 | target_in=70b | 5.4 b/s ETA 27s | [data=8.0s fwd=4.9s bwd=5.8s]
+[2026-05-16 18:45:07] INFO     [Ep  15|B   120/245] α=0.500 | Loss=0.4029 (TD=0.0369 CQL=0.3660) | ∇=0.041 | Q(μ=-905619648.000 σ=292359008.000 min=-1000000000.000 max=0.398) | LR=5.00e-05 | target_in=50b | 5.4 b/s ETA 23s | [data=9.8s fwd=5.8s bwd=6.7s]
+[2026-05-16 18:45:10] INFO     [Ep  15|B   140/245] α=0.500 | Loss=0.4008 (TD=0.0368 CQL=0.3641) | ∇=0.062 | Q(μ=-907494016.000 σ=289740736.000 min=-1000000000.000 max=0.630) | LR=5.00e-05 | target_in=30b | 5.5 b/s ETA 19s | [data=11.3s fwd=6.7s bwd=7.6s]
+[2026-05-16 18:45:14] INFO     [Ep  15|B   160/245] α=0.500 | Loss=0.4016 (TD=0.0368 CQL=0.3648) | ∇=0.078 | Q(μ=-909021952.000 σ=287579840.000 min=-1000000000.000 max=0.776) | LR=5.00e-05 | target_in=10b | 5.4 b/s ETA 16s | [data=12.9s fwd=7.7s bwd=8.9s]
+[2026-05-16 18:45:18] INFO     [Ep  15|B   180/245] α=0.500 | Loss=0.4029 (TD=0.0370 CQL=0.3659) | ∇=0.055 | Q(μ=-907462592.000 σ=289785024.000 min=-1000000000.000 max=0.920) | LR=5.00e-05 | target_in=90b | 5.4 b/s ETA 12s | [data=14.4s fwd=8.7s bwd=10.0s]
+[2026-05-16 18:45:21] INFO     [Ep  15|B   200/245] α=0.500 | Loss=0.4022 (TD=0.0382 CQL=0.3640) | ∇=0.071 | Q(μ=-909084992.000 σ=287490208.000 min=-1000000000.000 max=0.682) | LR=5.00e-05 | target_in=70b | 5.5 b/s ETA 8s | [data=16.0s fwd=9.6s bwd=10.7s]
+[2026-05-16 18:45:24] INFO     [Ep  15|B   220/245] α=0.500 | Loss=0.4039 (TD=0.0376 CQL=0.3663) | ∇=0.052 | Q(μ=-909730688.000 σ=286569056.000 min=-1000000000.000 max=1.084) | LR=5.00e-05 | target_in=50b | 5.5 b/s ETA 5s | [data=17.5s fwd=10.6s bwd=11.7s]
+[2026-05-16 18:45:28] INFO     [Ep  15|B   240/245] α=0.500 | Loss=0.4019 (TD=0.0377 CQL=0.3642) | ∇=0.055 | Q(μ=-907572928.000 σ=289629952.000 min=-1000000000.000 max=1.001) | LR=5.00e-05 | target_in=30b | 5.5 b/s ETA 1s | [data=19.1s fwd=11.5s bwd=12.8s]
+[2026-05-16 18:45:29] INFO     [Ep  15|B   245/245] α=0.500 | Loss=0.1018 (TD=0.0099 CQL=0.0919) | ∇=0.140 | Q(μ=-910954048.000 σ=284825632.000 min=-1000000000.000 max=0.307) | LR=5.00e-05 | target_in=25b | 5.5 b/s ETA 0s | [data=19.5s fwd=11.7s bwd=13.0s]
+[2026-05-16 18:45:29] INFO     [Ep  15 DONE] AvgLoss=0.4016 (TD=0.0367 CQL=0.3650) | 44.2s (245 batches) | [data=19.5s fwd=11.7s bwd=13.0s]
+[2026-05-16 18:45:32] INFO     [Ep  16|B    20/245] α=0.500 | Loss=0.4005 (TD=0.0382 CQL=0.3623) | ∇=0.047 | Q(μ=-911179776.000 σ=284485888.000 min=-1000000000.000 max=0.528) | LR=5.00e-05 | target_in=5b | 5.6 b/s ETA 40s | [data=1.6s fwd=1.0s bwd=1.1s]
+[2026-05-16 18:45:36] INFO     [Ep  16|B    40/245] α=0.500 | Loss=0.4027 (TD=0.0395 CQL=0.3632) | ∇=0.048 | Q(μ=-909557504.000 σ=286816640.000 min=-1000000000.000 max=0.551) | LR=5.00e-05 | target_in=85b | 5.7 b/s ETA 36s | [data=3.1s fwd=1.9s bwd=2.0s]
+[2026-05-16 18:45:39] INFO     [Ep  16|B    60/245] α=0.500 | Loss=0.4048 (TD=0.0389 CQL=0.3659) | ∇=0.066 | Q(μ=-908297408.000 σ=288607616.000 min=-1000000000.000 max=0.679) | LR=5.00e-05 | target_in=65b | 5.9 b/s ETA 31s | [data=4.7s fwd=2.8s bwd=2.7s]
+[2026-05-16 18:45:42] INFO     [Ep  16|B    80/245] α=0.500 | Loss=0.4024 (TD=0.0397 CQL=0.3627) | ∇=0.054 | Q(μ=-909069120.000 σ=287512608.000 min=-1000000000.000 max=0.716) | LR=5.00e-05 | target_in=45b | 5.9 b/s ETA 28s | [data=6.2s fwd=3.7s bwd=3.6s]
+[2026-05-16 18:45:46] INFO     [Ep  16|B   100/245] α=0.500 | Loss=0.4048 (TD=0.0393 CQL=0.3655) | ∇=0.053 | Q(μ=-908029696.000 σ=288986080.000 min=-1000000000.000 max=0.604) | LR=5.00e-05 | target_in=25b | 5.9 b/s ETA 25s | [data=7.7s fwd=4.7s bwd=4.7s]
+[2026-05-16 18:45:49] INFO     [Ep  16|B   120/245] α=0.500 | Loss=0.4041 (TD=0.0387 CQL=0.3653) | ∇=0.061 | Q(μ=-910612800.000 σ=285303744.000 min=-1000000000.000 max=0.857) | LR=5.00e-05 | target_in=5b | 5.8 b/s ETA 21s | [data=9.2s fwd=5.6s bwd=5.7s]
+[2026-05-16 18:45:53] INFO     [Ep  16|B   140/245] α=0.500 | Loss=0.4032 (TD=0.0398 CQL=0.3634) | ∇=0.067 | Q(μ=-908344704.000 σ=288540768.000 min=-1000000000.000 max=1.056) | LR=5.00e-05 | target_in=85b | 5.9 b/s ETA 18s | [data=10.8s fwd=6.5s bwd=6.6s]
+[2026-05-16 18:45:56] INFO     [Ep  16|B   160/245] α=0.500 | Loss=0.4012 (TD=0.0403 CQL=0.3610) | ∇=0.064 | Q(μ=-908943232.000 σ=287691808.000 min=-1000000000.000 max=1.007) | LR=5.00e-05 | target_in=65b | 5.9 b/s ETA 14s | [data=12.3s fwd=7.3s bwd=7.2s]
+[2026-05-16 18:45:59] INFO     [Ep  16|B   180/245] α=0.500 | Loss=0.4030 (TD=0.0402 CQL=0.3628) | ∇=0.056 | Q(μ=-913700032.000 σ=280808416.000 min=-1000000000.000 max=0.924) | LR=5.00e-05 | target_in=45b | 5.9 b/s ETA 11s | [data=14.0s fwd=8.3s bwd=8.0s]
+[2026-05-16 18:46:02] INFO     [Ep  16|B   200/245] α=0.500 | Loss=0.4047 (TD=0.0401 CQL=0.3646) | ∇=0.064 | Q(μ=-905603904.000 σ=292380864.000 min=-1000000000.000 max=0.554) | LR=5.00e-05 | target_in=25b | 6.0 b/s ETA 8s | [data=15.5s fwd=9.2s bwd=8.7s]
+[2026-05-16 18:46:05] INFO     [Ep  16|B   220/245] α=0.500 | Loss=0.4036 (TD=0.0406 CQL=0.3631) | ∇=0.064 | Q(μ=-910534016.000 σ=285417056.000 min=-1000000000.000 max=0.677) | LR=5.00e-05 | target_in=5b | 6.0 b/s ETA 4s | [data=17.1s fwd=10.0s bwd=9.3s]
+[2026-05-16 18:46:08] INFO     [Ep  16|B   240/245] α=0.500 | Loss=0.4043 (TD=0.0409 CQL=0.3634) | ∇=0.055 | Q(μ=-907714624.000 σ=289430336.000 min=-1000000000.000 max=0.906) | LR=5.00e-05 | target_in=85b | 6.1 b/s ETA 1s | [data=18.6s fwd=10.9s bwd=9.8s]
+[2026-05-16 18:46:09] INFO     [Ep  16|B   245/245] α=0.500 | Loss=0.0999 (TD=0.0103 CQL=0.0896) | ∇=0.135 | Q(μ=-910842112.000 σ=284987200.000 min=-1000000000.000 max=0.503) | LR=5.00e-05 | target_in=80b | 6.1 b/s ETA 0s | [data=18.9s fwd=11.0s bwd=10.0s]
+[2026-05-16 18:46:09] INFO     [Ep  16 DONE] AvgLoss=0.4032 (TD=0.0397 CQL=0.3635) | 39.9s (245 batches) | [data=18.9s fwd=11.0s bwd=10.0s]
+[2026-05-16 18:46:12] INFO     [Ep  17|B    20/245] α=0.500 | Loss=0.4050 (TD=0.0405 CQL=0.3645) | ∇=0.054 | Q(μ=-910423744.000 σ=285575584.000 min=-1000000000.000 max=1.002) | LR=5.00e-05 | target_in=60b | 6.4 b/s ETA 35s | [data=1.5s fwd=0.9s bwd=0.7s]
+[2026-05-16 18:46:15] INFO     [Ep  17|B    40/245] α=0.500 | Loss=0.4036 (TD=0.0410 CQL=0.3626) | ∇=0.078 | Q(μ=-913778752.000 σ=280692352.000 min=-1000000000.000 max=1.294) | LR=5.00e-05 | target_in=40b | 6.1 b/s ETA 33s | [data=3.0s fwd=1.8s bwd=1.7s]
+[2026-05-16 18:46:18] INFO     [Ep  17|B    60/245] α=0.500 | Loss=0.4020 (TD=0.0411 CQL=0.3609) | ∇=0.073 | Q(μ=-912124864.000 σ=283115072.000 min=-1000000000.000 max=0.661) | LR=5.00e-05 | target_in=20b | 6.1 b/s ETA 30s | [data=4.6s fwd=2.8s bwd=2.4s]
+[2026-05-16 18:46:22] INFO     [Ep  17|B    80/245] α=0.500 | Loss=0.4014 (TD=0.0410 CQL=0.3604) | ∇=0.060 | Q(μ=-911069568.000 σ=284645184.000 min=-1000000000.000 max=0.722) | LR=5.00e-05 | target_in=100b | 6.2 b/s ETA 27s | [data=6.1s fwd=3.7s bwd=3.1s]
+[2026-05-16 18:46:25] INFO     [Ep  17|B   100/245] α=0.500 | Loss=0.4053 (TD=0.0418 CQL=0.3635) | ∇=0.095 | Q(μ=-910974976.000 σ=284781632.000 min=-1000000000.000 max=1.005) | LR=5.00e-05 | target_in=80b | 6.0 b/s ETA 24s | [data=7.6s fwd=4.6s bwd=4.4s]
+[2026-05-16 18:46:29] INFO     [Ep  17|B   120/245] α=0.500 | Loss=0.4039 (TD=0.0414 CQL=0.3625) | ∇=0.055 | Q(μ=-907950784.000 σ=289097216.000 min=-1000000000.000 max=0.854) | LR=5.00e-05 | target_in=60b | 6.0 b/s ETA 21s | [data=9.1s fwd=5.6s bwd=5.4s]
+[2026-05-16 18:46:32] INFO     [Ep  17|B   140/245] α=0.500 | Loss=0.4020 (TD=0.0413 CQL=0.3607) | ∇=0.061 | Q(μ=-910628544.000 σ=285281056.000 min=-1000000000.000 max=0.986) | LR=5.00e-05 | target_in=40b | 6.0 b/s ETA 18s | [data=10.6s fwd=6.6s bwd=6.3s]
+[2026-05-16 18:46:35] INFO     [Ep  17|B   160/245] α=0.500 | Loss=0.4058 (TD=0.0408 CQL=0.3650) | ∇=0.062 | Q(μ=-909919808.000 σ=286298624.000 min=-1000000000.000 max=1.595) | LR=5.00e-05 | target_in=20b | 6.0 b/s ETA 14s | [data=12.0s fwd=7.5s bwd=7.2s]
+[2026-05-16 18:46:39] INFO     [Ep  17|B   180/245] α=0.500 | Loss=0.4028 (TD=0.0415 CQL=0.3613) | ∇=0.083 | Q(μ=-911038016.000 σ=284690688.000 min=-1000000000.000 max=1.243) | LR=5.00e-05 | target_in=100b | 6.0 b/s ETA 11s | [data=13.5s fwd=8.4s bwd=8.0s]
+[2026-05-16 18:46:42] INFO     [Ep  17|B   200/245] α=0.500 | Loss=0.4046 (TD=0.0427 CQL=0.3619) | ∇=0.065 | Q(μ=-906549056.000 σ=291065344.000 min=-1000000000.000 max=0.882) | LR=5.00e-05 | target_in=80b | 6.0 b/s ETA 7s | [data=15.0s fwd=9.4s bwd=8.7s]
+[2026-05-16 18:46:45] INFO     [Ep  17|B   220/245] α=0.500 | Loss=0.4044 (TD=0.0420 CQL=0.3624) | ∇=0.085 | Q(μ=-909399936.000 σ=287041408.000 min=-1000000000.000 max=0.939) | LR=5.00e-05 | target_in=60b | 6.1 b/s ETA 4s | [data=16.6s fwd=10.3s bwd=9.4s]
+[2026-05-16 18:46:48] INFO     [Ep  17|B   240/245] α=0.500 | Loss=0.4058 (TD=0.0420 CQL=0.3638) | ∇=0.057 | Q(μ=-909699200.000 σ=286614080.000 min=-1000000000.000 max=0.958) | LR=5.00e-05 | target_in=40b | 6.1 b/s ETA 1s | [data=18.3s fwd=11.2s bwd=10.1s]
+[2026-05-16 18:46:49] INFO     [Ep  17|B   245/245] α=0.500 | Loss=0.1017 (TD=0.0108 CQL=0.0909) | ∇=0.193 | Q(μ=-903001600.000 σ=295971904.000 min=-1000000000.000 max=0.717) | LR=5.00e-05 | target_in=35b | 6.1 b/s ETA 0s | [data=18.6s fwd=11.4s bwd=10.3s]
+[2026-05-16 18:46:49] INFO     [Ep  17 DONE] AvgLoss=0.4039 (TD=0.0414 CQL=0.3625) | 40.3s (245 batches) | [data=18.6s fwd=11.4s bwd=10.3s]
+[2026-05-16 18:46:52] INFO     [Ep  18|B    20/245] α=0.500 | Loss=0.4050 (TD=0.0416 CQL=0.3634) | ∇=0.055 | Q(μ=-908643968.000 σ=288116768.000 min=-1000000000.000 max=0.674) | LR=5.00e-05 | target_in=15b | 6.3 b/s ETA 36s | [data=1.5s fwd=0.9s bwd=0.7s]
+[2026-05-16 18:46:55] INFO     [Ep  18|B    40/245] α=0.500 | Loss=0.4039 (TD=0.0421 CQL=0.3617) | ∇=0.096 | Q(μ=-911195648.000 σ=284463136.000 min=-1000000000.000 max=0.781) | LR=5.00e-05 | target_in=95b | 6.4 b/s ETA 32s | [data=3.0s fwd=1.9s bwd=1.4s]
+[2026-05-16 18:46:59] INFO     [Ep  18|B    60/245] α=0.500 | Loss=0.4051 (TD=0.0420 CQL=0.3632) | ∇=0.053 | Q(μ=-910549760.000 σ=285394400.000 min=-1000000000.000 max=0.787) | LR=5.00e-05 | target_in=75b | 6.2 b/s ETA 30s | [data=4.5s fwd=2.9s bwd=2.3s]
+[2026-05-16 18:47:02] INFO     [Ep  18|B    80/245] α=0.500 | Loss=0.4040 (TD=0.0423 CQL=0.3617) | ∇=0.059 | Q(μ=-910187456.000 σ=285914848.000 min=-1000000000.000 max=1.086) | LR=5.00e-05 | target_in=55b | 6.2 b/s ETA 27s | [data=6.0s fwd=3.8s bwd=3.1s]
+[2026-05-16 18:47:05] INFO     [Ep  18|B   100/245] α=0.500 | Loss=0.4016 (TD=0.0413 CQL=0.3603) | ∇=0.082 | Q(μ=-911542080.000 σ=283961568.000 min=-1000000000.000 max=1.363) | LR=5.00e-05 | target_in=35b | 6.2 b/s ETA 23s | [data=7.7s fwd=4.8s bwd=3.7s]
+[2026-05-16 18:47:08] INFO     [Ep  18|B   120/245] α=0.500 | Loss=0.4021 (TD=0.0412 CQL=0.3608) | ∇=0.100 | Q(μ=-910565568.000 σ=285371744.000 min=-1000000000.000 max=1.050) | LR=5.00e-05 | target_in=15b | 6.2 b/s ETA 20s | [data=9.2s fwd=5.7s bwd=4.4s]
+[2026-05-16 18:47:11] INFO     [Ep  18|B   140/245] α=0.500 | Loss=0.4033 (TD=0.0419 CQL=0.3614) | ∇=0.053 | Q(μ=-912439872.000 σ=282655936.000 min=-1000000000.000 max=0.825) | LR=5.00e-05 | target_in=95b | 6.2 b/s ETA 17s | [data=10.8s fwd=6.7s bwd=5.0s]
+[2026-05-16 18:47:15] INFO     [Ep  18|B   160/245] α=0.500 | Loss=0.4034 (TD=0.0432 CQL=0.3601) | ∇=0.084 | Q(μ=-906596224.000 σ=290999328.000 min=-1000000000.000 max=0.737) | LR=5.00e-05 | target_in=75b | 6.2 b/s ETA 14s | [data=12.4s fwd=7.6s bwd=5.8s]
+[2026-05-16 18:47:18] INFO     [Ep  18|B   180/245] α=0.500 | Loss=0.4035 (TD=0.0426 CQL=0.3609) | ∇=0.060 | Q(μ=-914140928.000 σ=280157568.000 min=-1000000000.000 max=0.772) | LR=5.00e-05 | target_in=55b | 6.2 b/s ETA 11s | [data=13.9s fwd=8.6s bwd=6.6s]
+[2026-05-16 18:47:21] INFO     [Ep  18|B   200/245] α=0.500 | Loss=0.4039 (TD=0.0430 CQL=0.3609) | ∇=0.061 | Q(μ=-910912064.000 σ=284872544.000 min=-1000000000.000 max=1.022) | LR=5.00e-05 | target_in=35b | 6.2 b/s ETA 7s | [data=15.4s fwd=9.5s bwd=7.4s]
+[2026-05-16 18:47:24] INFO     [Ep  18|B   220/245] α=0.500 | Loss=0.4055 (TD=0.0431 CQL=0.3624) | ∇=0.066 | Q(μ=-907887872.000 σ=289186112.000 min=-1000000000.000 max=1.096) | LR=5.00e-05 | target_in=15b | 6.2 b/s ETA 4s | [data=16.9s fwd=10.5s bwd=8.1s]
+[2026-05-16 18:47:27] INFO     [Ep  18|B   240/245] α=0.500 | Loss=0.4039 (TD=0.0425 CQL=0.3614) | ∇=0.059 | Q(μ=-909273920.000 σ=287221056.000 min=-1000000000.000 max=0.935) | LR=5.00e-05 | target_in=95b | 6.2 b/s ETA 1s | [data=18.4s fwd=11.4s bwd=8.7s]
+[2026-05-16 18:47:28] INFO     [Ep  18|B   245/245] α=0.500 | Loss=0.1018 (TD=0.0106 CQL=0.0912) | ∇=0.156 | Q(μ=-911402112.000 σ=284178048.000 min=-1000000000.000 max=0.504) | LR=5.00e-05 | target_in=90b | 6.2 b/s ETA 0s | [data=18.9s fwd=11.6s bwd=8.9s]
+[2026-05-16 18:47:28] INFO     [Ep  18 DONE] AvgLoss=0.4038 (TD=0.0422 CQL=0.3616) | 39.4s (245 batches) | [data=18.9s fwd=11.6s bwd=8.9s]
+[2026-05-16 18:47:31] INFO     [Ep  19|B    20/245] α=0.500 | Loss=0.4051 (TD=0.0434 CQL=0.3617) | ∇=0.063 | Q(μ=-904438400.000 σ=293991072.000 min=-1000000000.000 max=0.916) | LR=5.00e-05 | target_in=70b | 6.3 b/s ETA 36s | [data=1.6s fwd=1.0s bwd=0.7s]
+[2026-05-16 18:47:35] INFO     [Ep  19|B    40/245] α=0.500 | Loss=0.4033 (TD=0.0437 CQL=0.3597) | ∇=0.063 | Q(μ=-908754176.000 σ=287960320.000 min=-1000000000.000 max=1.042) | LR=5.00e-05 | target_in=50b | 6.3 b/s ETA 33s | [data=3.1s fwd=1.9s bwd=1.3s]
+[2026-05-16 18:47:38] INFO     [Ep  19|B    60/245] α=0.500 | Loss=0.4038 (TD=0.0439 CQL=0.3599) | ∇=0.088 | Q(μ=-912833728.000 σ=282080512.000 min=-1000000000.000 max=1.025) | LR=5.00e-05 | target_in=30b | 6.1 b/s ETA 30s | [data=4.7s fwd=2.9s bwd=2.2s]
+[2026-05-16 18:47:41] INFO     [Ep  19|B    80/245] α=0.500 | Loss=0.4042 (TD=0.0437 CQL=0.3605) | ∇=0.078 | Q(μ=-908108352.000 σ=288874848.000 min=-1000000000.000 max=0.862) | LR=5.00e-05 | target_in=10b | 6.1 b/s ETA 27s | [data=6.2s fwd=3.9s bwd=3.0s]
+[2026-05-16 18:47:44] INFO     [Ep  19|B   100/245] α=0.500 | Loss=0.4042 (TD=0.0446 CQL=0.3596) | ∇=0.065 | Q(μ=-909069120.000 σ=287512608.000 min=-1000000000.000 max=0.719) | LR=5.00e-05 | target_in=90b | 6.2 b/s ETA 23s | [data=7.7s fwd=4.8s bwd=3.7s]
+[2026-05-16 18:47:48] INFO     [Ep  19|B   120/245] α=0.500 | Loss=0.4010 (TD=0.0445 CQL=0.3565) | ∇=0.091 | Q(μ=-910644352.000 σ=285258400.000 min=-1000000000.000 max=1.067) | LR=5.00e-05 | target_in=70b | 6.2 b/s ETA 20s | [data=9.2s fwd=5.7s bwd=4.5s]
+[2026-05-16 18:47:51] INFO     [Ep  19|B   140/245] α=0.500 | Loss=0.4027 (TD=0.0443 CQL=0.3584) | ∇=0.065 | Q(μ=-912487168.000 σ=282586976.000 min=-1000000000.000 max=1.134) | LR=5.00e-05 | target_in=50b | 6.2 b/s ETA 17s | [data=10.7s fwd=6.7s bwd=5.2s]
+[2026-05-16 18:47:54] INFO     [Ep  19|B   160/245] α=0.500 | Loss=0.4068 (TD=0.0445 CQL=0.3623) | ∇=0.067 | Q(μ=-907273664.000 σ=290050624.000 min=-1000000000.000 max=0.972) | LR=5.00e-05 | target_in=30b | 6.2 b/s ETA 14s | [data=12.3s fwd=7.7s bwd=6.0s]
+[2026-05-16 18:47:59] INFO     [Ep  19|B   180/245] α=0.500 | Loss=0.4060 (TD=0.0441 CQL=0.3619) | ∇=0.076 | Q(μ=-912109120.000 σ=283137984.000 min=-1000000000.000 max=0.816) | LR=5.00e-05 | target_in=10b | 5.9 b/s ETA 11s | [data=13.8s fwd=9.3s bwd=7.2s]
+[2026-05-16 18:48:02] INFO     [Ep  19|B   200/245] α=0.500 | Loss=0.4045 (TD=0.0451 CQL=0.3594) | ∇=0.077 | Q(μ=-910864768.000 σ=284940672.000 min=-1000000000.000 max=0.852) | LR=5.00e-05 | target_in=90b | 6.0 b/s ETA 8s | [data=15.3s fwd=10.3s bwd=8.0s]
+[2026-05-16 18:48:05] INFO     [Ep  19|B   220/245] α=0.500 | Loss=0.4093 (TD=0.0471 CQL=0.3622) | ∇=0.081 | Q(μ=-907131776.000 σ=290249568.000 min=-1000000000.000 max=1.202) | LR=5.00e-05 | target_in=70b | 6.0 b/s ETA 4s | [data=16.8s fwd=11.3s bwd=8.7s]
+[2026-05-16 18:48:08] INFO     [Ep  19|B   240/245] α=0.500 | Loss=0.4046 (TD=0.0462 CQL=0.3583) | ∇=0.085 | Q(μ=-911116800.000 σ=284576960.000 min=-1000000000.000 max=1.082) | LR=5.00e-05 | target_in=50b | 6.0 b/s ETA 1s | [data=18.3s fwd=12.2s bwd=9.4s]
+[2026-05-16 18:48:09] INFO     [Ep  19|B   245/245] α=0.500 | Loss=0.0997 (TD=0.0121 CQL=0.0876) | ∇=0.427 | Q(μ=-916442368.000 σ=276738304.000 min=-1000000000.000 max=0.674) | LR=5.00e-05 | target_in=45b | 6.0 b/s ETA 0s | [data=18.6s fwd=12.4s bwd=9.5s]
+[2026-05-16 18:48:09] INFO     [Ep  19 DONE] AvgLoss=0.4045 (TD=0.0447 CQL=0.3598) | 40.6s (245 batches) | [data=18.6s fwd=12.4s bwd=9.5s]
+[2026-05-16 18:48:12] INFO     [Ep  20|B    20/245] α=0.500 | Loss=0.4042 (TD=0.0453 CQL=0.3589) | ∇=0.061 | Q(μ=-908108352.000 σ=288874848.000 min=-1000000000.000 max=0.851) | LR=5.00e-05 | target_in=25b | 6.3 b/s ETA 36s | [data=1.5s fwd=1.0s bwd=0.7s]
+[2026-05-16 18:48:15] INFO     [Ep  20|B    40/245] α=0.500 | Loss=0.4051 (TD=0.0455 CQL=0.3596) | ∇=0.057 | Q(μ=-906722368.000 σ=290823168.000 min=-1000000000.000 max=0.794) | LR=5.00e-05 | target_in=5b | 6.1 b/s ETA 33s | [data=3.2s fwd=1.9s bwd=1.4s]
+[2026-05-16 18:48:19] INFO     [Ep  20|B    60/245] α=0.500 | Loss=0.4061 (TD=0.0458 CQL=0.3603) | ∇=0.092 | Q(μ=-909195200.000 σ=287333248.000 min=-1000000000.000 max=1.348) | LR=5.00e-05 | target_in=85b | 6.2 b/s ETA 30s | [data=4.7s fwd=2.9s bwd=2.1s]
+[2026-05-16 18:48:22] INFO     [Ep  20|B    80/245] α=0.500 | Loss=0.4054 (TD=0.0462 CQL=0.3592) | ∇=0.095 | Q(μ=-910612800.000 σ=285303744.000 min=-1000000000.000 max=0.924) | LR=5.00e-05 | target_in=65b | 6.2 b/s ETA 27s | [data=6.2s fwd=3.9s bwd=2.9s]
+[2026-05-16 18:48:25] INFO     [Ep  20|B   100/245] α=0.500 | Loss=0.4060 (TD=0.0463 CQL=0.3597) | ∇=0.062 | Q(μ=-909163648.000 σ=287378112.000 min=-1000000000.000 max=1.097) | LR=5.00e-05 | target_in=45b | 6.2 b/s ETA 23s | [data=7.7s fwd=4.9s bwd=3.5s]
+[2026-05-16 18:48:29] INFO     [Ep  20|B   120/245] α=0.500 | Loss=0.4038 (TD=0.0458 CQL=0.3580) | ∇=0.093 | Q(μ=-909903936.000 σ=286321152.000 min=-1000000000.000 max=0.890) | LR=5.00e-05 | target_in=25b | 5.9 b/s ETA 21s | [data=9.2s fwd=6.3s bwd=4.7s]
+[2026-05-16 18:48:35] INFO     [Ep  20|B   140/245] α=0.500 | Loss=0.4058 (TD=0.0462 CQL=0.3596) | ∇=0.123 | Q(μ=-907572864.000 σ=289629952.000 min=-1000000000.000 max=1.121) | LR=5.00e-05 | target_in=5b | 5.4 b/s ETA 20s | [data=10.8s fwd=9.0s bwd=6.3s]
+[2026-05-16 18:48:38] INFO     [Ep  20|B   160/245] α=0.500 | Loss=0.4042 (TD=0.0465 CQL=0.3578) | ∇=0.107 | Q(μ=-912376896.000 σ=282747872.000 min=-1000000000.000 max=0.998) | LR=5.00e-05 | target_in=85b | 5.4 b/s ETA 16s | [data=12.3s fwd=10.0s bwd=7.1s]
+[2026-05-16 18:48:42] INFO     [Ep  20|B   180/245] α=0.500 | Loss=0.4064 (TD=0.0474 CQL=0.3590) | ∇=0.078 | Q(μ=-907903616.000 σ=289163904.000 min=-1000000000.000 max=1.855) | LR=5.00e-05 | target_in=65b | 5.5 b/s ETA 12s | [data=13.8s fwd=11.2s bwd=8.0s]
+[2026-05-16 18:48:45] INFO     [Ep  20|B   200/245] α=0.500 | Loss=0.4037 (TD=0.0475 CQL=0.3562) | ∇=0.066 | Q(μ=-911321536.000 σ=284280896.000 min=-1000000000.000 max=0.892) | LR=5.00e-05 | target_in=45b | 5.5 b/s ETA 8s | [data=15.3s fwd=12.2s bwd=9.1s]
+[2026-05-16 18:48:49] INFO     [Ep  20|B   220/245] α=0.500 | Loss=0.4056 (TD=0.0471 CQL=0.3585) | ∇=0.074 | Q(μ=-907698816.000 σ=289452544.000 min=-1000000000.000 max=0.958) | LR=5.00e-05 | target_in=25b | 5.4 b/s ETA 5s | [data=16.9s fwd=13.3s bwd=10.3s]
+[2026-05-16 18:48:53] INFO     [Ep  20|B   240/245] α=0.500 | Loss=0.4035 (TD=0.0468 CQL=0.3567) | ∇=0.084 | Q(μ=-910912064.000 σ=284872544.000 min=-1000000000.000 max=1.100) | LR=5.00e-05 | target_in=5b | 5.4 b/s ETA 1s | [data=18.4s fwd=14.3s bwd=11.4s]
+[2026-05-16 18:48:54] INFO     [Ep  20|B   245/245] α=0.500 | Loss=0.1018 (TD=0.0115 CQL=0.0903) | ∇=0.182 | Q(μ=-913194176.000 σ=281565664.000 min=-1000000000.000 max=0.924) | LR=5.00e-05 | target_in=100b | 5.5 b/s ETA 0s | [data=18.7s fwd=14.5s bwd=11.6s]
+[2026-05-16 18:48:54] INFO     [Ep  20 DONE] AvgLoss=0.4050 (TD=0.0464 CQL=0.3587) | 44.9s (245 batches) | [data=18.7s fwd=14.5s bwd=11.6s]
+[2026-05-16 18:48:57] INFO     [Ep  21|B    20/245] α=0.500 | Loss=0.4059 (TD=0.0482 CQL=0.3577) | ∇=0.065 | Q(μ=-905446464.000 σ=292599264.000 min=-1000000000.000 max=1.117) | LR=5.00e-05 | target_in=80b | 5.9 b/s ETA 38s | [data=1.5s fwd=1.0s bwd=0.8s]
+[2026-05-16 18:49:00] INFO     [Ep  21|B    40/245] α=0.500 | Loss=0.4046 (TD=0.0469 CQL=0.3577) | ∇=0.082 | Q(μ=-908313152.000 σ=288585344.000 min=-1000000000.000 max=0.917) | LR=5.00e-05 | target_in=60b | 6.1 b/s ETA 34s | [data=3.0s fwd=2.0s bwd=1.5s]
+[2026-05-16 18:49:04] INFO     [Ep  21|B    60/245] α=0.500 | Loss=0.4053 (TD=0.0478 CQL=0.3575) | ∇=0.090 | Q(μ=-907950784.000 σ=289097216.000 min=-1000000000.000 max=1.373) | LR=5.00e-05 | target_in=40b | 6.1 b/s ETA 30s | [data=4.5s fwd=3.0s bwd=2.2s]
+[2026-05-16 18:49:07] INFO     [Ep  21|B    80/245] α=0.500 | Loss=0.4067 (TD=0.0480 CQL=0.3587) | ∇=0.076 | Q(μ=-912077568.000 σ=283183840.000 min=-1000000000.000 max=1.135) | LR=5.00e-05 | target_in=20b | 6.2 b/s ETA 27s | [data=5.9s fwd=4.0s bwd=3.0s]
+[2026-05-16 18:49:10] INFO     [Ep  21|B   100/245] α=0.500 | Loss=0.4030 (TD=0.0477 CQL=0.3552) | ∇=0.081 | Q(μ=-909825216.000 σ=286433888.000 min=-1000000000.000 max=1.192) | LR=5.00e-05 | target_in=100b | 6.2 b/s ETA 24s | [data=7.5s fwd=5.0s bwd=3.7s]
+[2026-05-16 18:49:13] INFO     [Ep  21|B   120/245] α=0.500 | Loss=0.4068 (TD=0.0487 CQL=0.3581) | ∇=0.110 | Q(μ=-910817536.000 σ=285008800.000 min=-1000000000.000 max=1.313) | LR=5.00e-05 | target_in=80b | 6.2 b/s ETA 20s | [data=9.0s fwd=6.0s bwd=4.4s]
+[2026-05-16 18:49:18] INFO     [Ep  21|B   140/245] α=0.500 | Loss=0.4057 (TD=0.0489 CQL=0.3568) | ∇=0.074 | Q(μ=-907966656.000 σ=289075008.000 min=-1000000000.000 max=1.363) | LR=5.00e-05 | target_in=60b | 5.8 b/s ETA 18s | [data=10.5s fwd=7.9s bwd=5.6s]
+[2026-05-16 18:49:21] INFO     [Ep  21|B   160/245] α=0.500 | Loss=0.4083 (TD=0.0493 CQL=0.3590) | ∇=0.099 | Q(μ=-908832960.000 σ=287848480.000 min=-1000000000.000 max=1.104) | LR=5.00e-05 | target_in=40b | 5.8 b/s ETA 15s | [data=12.1s fwd=8.9s bwd=6.7s]
+[2026-05-16 18:49:25] INFO     [Ep  21|B   180/245] α=0.500 | Loss=0.4043 (TD=0.0486 CQL=0.3557) | ∇=0.065 | Q(μ=-913794496.000 σ=280669120.000 min=-1000000000.000 max=1.137) | LR=5.00e-05 | target_in=20b | 5.7 b/s ETA 11s | [data=13.6s fwd=10.0s bwd=7.7s]
+[2026-05-16 18:49:28] INFO     [Ep  21|B   200/245] α=0.500 | Loss=0.4044 (TD=0.0499 CQL=0.3545) | ∇=0.070 | Q(μ=-906517568.000 σ=291109312.000 min=-1000000000.000 max=1.204) | LR=5.00e-05 | target_in=100b | 5.8 b/s ETA 8s | [data=15.1s fwd=11.0s bwd=8.5s]
+[2026-05-16 18:49:31] INFO     [Ep  21|B   220/245] α=0.500 | Loss=0.4087 (TD=0.0502 CQL=0.3585) | ∇=0.072 | Q(μ=-908155584.000 σ=288808064.000 min=-1000000000.000 max=1.576) | LR=5.00e-05 | target_in=80b | 5.8 b/s ETA 4s | [data=16.6s fwd=12.0s bwd=9.1s]
+[2026-05-16 18:49:35] INFO     [Ep  21|B   240/245] α=0.500 | Loss=0.4030 (TD=0.0498 CQL=0.3533) | ∇=0.135 | Q(μ=-910880512.000 σ=284917984.000 min=-1000000000.000 max=1.715) | LR=5.00e-05 | target_in=60b | 5.8 b/s ETA 1s | [data=18.2s fwd=13.0s bwd=10.0s]
+[2026-05-16 18:49:36] INFO     [Ep  21|B   245/245] α=0.500 | Loss=0.1018 (TD=0.0126 CQL=0.0892) | ∇=0.176 | Q(μ=-907481856.000 σ=289771904.000 min=-1000000000.000 max=0.689) | LR=5.00e-05 | target_in=55b | 5.8 b/s ETA 0s | [data=18.7s fwd=13.2s bwd=10.2s]
+[2026-05-16 18:49:36] INFO     [Ep  21 DONE] AvgLoss=0.4056 (TD=0.0487 CQL=0.3569) | 42.1s (245 batches) | [data=18.7s fwd=13.2s bwd=10.2s]
+[2026-05-16 18:49:39] INFO     [Ep  22|B    20/245] α=0.500 | Loss=0.4058 (TD=0.0498 CQL=0.3560) | ∇=0.077 | Q(μ=-908628096.000 σ=288139104.000 min=-1000000000.000 max=1.194) | LR=5.00e-05 | target_in=35b | 6.0 b/s ETA 37s | [data=1.5s fwd=1.0s bwd=0.7s]
+[2026-05-16 18:49:42] INFO     [Ep  22|B    40/245] α=0.500 | Loss=0.4045 (TD=0.0503 CQL=0.3543) | ∇=0.072 | Q(μ=-907131840.000 σ=290249568.000 min=-1000000000.000 max=1.601) | LR=5.00e-05 | target_in=15b | 6.2 b/s ETA 33s | [data=3.0s fwd=2.0s bwd=1.5s]
+[2026-05-16 18:49:45] INFO     [Ep  22|B    60/245] α=0.500 | Loss=0.4067 (TD=0.0495 CQL=0.3572) | ∇=0.080 | Q(μ=-907336576.000 σ=289962144.000 min=-1000000000.000 max=1.538) | LR=5.00e-05 | target_in=95b | 6.2 b/s ETA 30s | [data=4.5s fwd=3.0s bwd=2.2s]
+[2026-05-16 18:49:49] INFO     [Ep  22|B    80/245] α=0.500 | Loss=0.4056 (TD=0.0516 CQL=0.3540) | ∇=0.072 | Q(μ=-911998848.000 σ=283298400.000 min=-1000000000.000 max=1.148) | LR=5.00e-05 | target_in=75b | 6.2 b/s ETA 27s | [data=6.0s fwd=4.0s bwd=2.9s]
+[2026-05-16 18:49:52] INFO     [Ep  22|B   100/245] α=0.500 | Loss=0.4052 (TD=0.0502 CQL=0.3550) | ∇=0.067 | Q(μ=-910061504.000 σ=286095520.000 min=-1000000000.000 max=1.026) | LR=5.00e-05 | target_in=55b | 6.1 b/s ETA 24s | [data=7.5s fwd=5.0s bwd=4.0s]
+[2026-05-16 18:49:56] INFO     [Ep  22|B   120/245] α=0.500 | Loss=0.4067 (TD=0.0509 CQL=0.3558) | ∇=0.106 | Q(μ=-911557824.000 σ=283938752.000 min=-1000000000.000 max=1.253) | LR=5.00e-05 | target_in=35b | 6.0 b/s ETA 21s | [data=8.9s fwd=6.0s bwd=5.0s]
+[2026-05-16 18:49:59] INFO     [Ep  22|B   140/245] α=0.500 | Loss=0.4057 (TD=0.0511 CQL=0.3546) | ∇=0.070 | Q(μ=-908565120.000 σ=288228416.000 min=-1000000000.000 max=1.758) | LR=5.00e-05 | target_in=15b | 6.0 b/s ETA 18s | [data=10.5s fwd=7.0s bwd=5.9s]
+[2026-05-16 18:50:03] INFO     [Ep  22|B   160/245] α=0.500 | Loss=0.4043 (TD=0.0504 CQL=0.3539) | ∇=0.135 | Q(μ=-909714944.000 σ=286591584.000 min=-1000000000.000 max=1.243) | LR=5.00e-05 | target_in=95b | 6.0 b/s ETA 14s | [data=12.0s fwd=8.0s bwd=6.7s]
+[2026-05-16 18:50:06] INFO     [Ep  22|B   180/245] α=0.500 | Loss=0.4087 (TD=0.0515 CQL=0.3572) | ∇=0.100 | Q(μ=-908139840.000 σ=288830336.000 min=-1000000000.000 max=1.449) | LR=5.00e-05 | target_in=75b | 6.0 b/s ETA 11s | [data=13.5s fwd=9.0s bwd=7.4s]
+[2026-05-16 18:50:09] INFO     [Ep  22|B   200/245] α=0.500 | Loss=0.4053 (TD=0.0509 CQL=0.3544) | ∇=0.079 | Q(μ=-908911680.000 σ=287736576.000 min=-1000000000.000 max=1.357) | LR=5.00e-05 | target_in=55b | 6.0 b/s ETA 7s | [data=15.0s fwd=10.1s bwd=8.1s]
+[2026-05-16 18:50:12] INFO     [Ep  22|B   220/245] α=0.500 | Loss=0.4054 (TD=0.0514 CQL=0.3540) | ∇=0.107 | Q(μ=-912046144.000 σ=283229696.000 min=-1000000000.000 max=1.969) | LR=5.00e-05 | target_in=35b | 6.0 b/s ETA 4s | [data=16.5s fwd=11.1s bwd=9.0s]
+[2026-05-16 18:50:16] INFO     [Ep  22|B   240/245] α=0.500 | Loss=0.4036 (TD=0.0504 CQL=0.3532) | ∇=0.095 | Q(μ=-911510656.000 σ=284007232.000 min=-1000000000.000 max=1.271) | LR=5.00e-05 | target_in=15b | 6.0 b/s ETA 1s | [data=18.0s fwd=12.1s bwd=10.0s]
+[2026-05-16 18:50:17] INFO     [Ep  22|B   245/245] α=0.500 | Loss=0.1006 (TD=0.0127 CQL=0.0879) | ∇=0.228 | Q(μ=-912074112.000 σ=283202560.000 min=-1000000000.000 max=0.961) | LR=5.00e-05 | target_in=10b | 6.0 b/s ETA 0s | [data=18.3s fwd=12.3s bwd=10.1s]
+[2026-05-16 18:50:17] INFO     [Ep  22 DONE] AvgLoss=0.4056 (TD=0.0507 CQL=0.3549) | 40.8s (245 batches) | [data=18.3s fwd=12.3s bwd=10.1s]
+[2026-05-16 18:50:20] INFO     [Ep  23|B    20/245] α=0.500 | Loss=0.4071 (TD=0.0520 CQL=0.3552) | ∇=0.090 | Q(μ=-910628544.000 σ=285281056.000 min=-1000000000.000 max=1.090) | LR=4.99e-05 | target_in=90b | 5.9 b/s ETA 38s | [data=1.6s fwd=1.0s bwd=0.8s]
+[2026-05-16 18:50:23] INFO     [Ep  23|B    40/245] α=0.500 | Loss=0.4052 (TD=0.0525 CQL=0.3527) | ∇=0.086 | Q(μ=-910912064.000 σ=284872544.000 min=-1000000000.000 max=1.694) | LR=4.99e-05 | target_in=70b | 6.1 b/s ETA 34s | [data=3.1s fwd=2.0s bwd=1.5s]
+[2026-05-16 18:50:26] INFO     [Ep  23|B    60/245] α=0.500 | Loss=0.4044 (TD=0.0518 CQL=0.3526) | ∇=0.072 | Q(μ=-907887872.000 σ=289186112.000 min=-1000000000.000 max=1.195) | LR=4.99e-05 | target_in=50b | 6.1 b/s ETA 30s | [data=4.7s fwd=2.9s bwd=2.3s]
+[2026-05-16 18:50:30] INFO     [Ep  23|B    80/245] α=0.500 | Loss=0.4052 (TD=0.0517 CQL=0.3536) | ∇=0.067 | Q(μ=-912077568.000 σ=283183840.000 min=-1000000000.000 max=1.416) | LR=4.99e-05 | target_in=30b | 6.1 b/s ETA 27s | [data=6.1s fwd=3.9s bwd=3.1s]
+[2026-05-16 18:50:33] INFO     [Ep  23|B   100/245] α=0.500 | Loss=0.4029 (TD=0.0513 CQL=0.3516) | ∇=0.093 | Q(μ=-909069120.000 σ=287512608.000 min=-1000000000.000 max=1.113) | LR=4.99e-05 | target_in=10b | 6.0 b/s ETA 24s | [data=7.6s fwd=5.0s bwd=4.0s]
+[2026-05-16 18:50:37] INFO     [Ep  23|B   120/245] α=0.500 | Loss=0.4069 (TD=0.0520 CQL=0.3549) | ∇=0.138 | Q(μ=-914125184.000 σ=280180832.000 min=-1000000000.000 max=1.252) | LR=4.99e-05 | target_in=90b | 6.0 b/s ETA 21s | [data=9.1s fwd=6.0s bwd=5.0s]
+[2026-05-16 18:50:40] INFO     [Ep  23|B   140/245] α=0.500 | Loss=0.4040 (TD=0.0526 CQL=0.3514) | ∇=0.066 | Q(μ=-911321536.000 σ=284280896.000 min=-1000000000.000 max=1.136) | LR=4.99e-05 | target_in=70b | 6.0 b/s ETA 18s | [data=10.6s fwd=7.0s bwd=5.7s]
+[2026-05-16 18:50:43] INFO     [Ep  23|B   160/245] α=0.500 | Loss=0.4065 (TD=0.0524 CQL=0.3540) | ∇=0.132 | Q(μ=-907478336.000 σ=289762880.000 min=-1000000000.000 max=1.313) | LR=4.99e-05 | target_in=50b | 6.0 b/s ETA 14s | [data=12.1s fwd=8.0s bwd=6.7s]
+[2026-05-16 18:50:47] INFO     [Ep  23|B   180/245] α=0.500 | Loss=0.4066 (TD=0.0526 CQL=0.3540) | ∇=0.081 | Q(μ=-912471488.000 σ=282609984.000 min=-1000000000.000 max=1.452) | LR=4.99e-05 | target_in=30b | 5.9 b/s ETA 11s | [data=13.7s fwd=9.0s bwd=7.9s]
+[2026-05-16 18:50:51] INFO     [Ep  23|B   200/245] α=0.500 | Loss=0.4027 (TD=0.0528 CQL=0.3499) | ∇=0.084 | Q(μ=-909289664.000 σ=287198624.000 min=-1000000000.000 max=1.514) | LR=4.99e-05 | target_in=10b | 5.8 b/s ETA 8s | [data=15.3s fwd=10.1s bwd=9.0s]
+[2026-05-16 18:50:55] INFO     [Ep  23|B   220/245] α=0.500 | Loss=0.4050 (TD=0.0533 CQL=0.3517) | ∇=0.076 | Q(μ=-912991104.000 σ=281849824.000 min=-1000000000.000 max=1.279) | LR=4.99e-05 | target_in=90b | 5.8 b/s ETA 4s | [data=16.8s fwd=11.1s bwd=10.1s]
+[2026-05-16 18:50:58] INFO     [Ep  23|B   240/245] α=0.500 | Loss=0.4024 (TD=0.0539 CQL=0.3485) | ∇=0.085 | Q(μ=-910801728.000 σ=285031520.000 min=-1000000000.000 max=1.016) | LR=4.99e-05 | target_in=70b | 5.8 b/s ETA 1s | [data=18.2s fwd=12.1s bwd=10.9s]
+[2026-05-16 18:50:59] INFO     [Ep  23|B   245/245] α=0.500 | Loss=0.1023 (TD=0.0138 CQL=0.0886) | ∇=0.209 | Q(μ=-907257792.000 σ=290086688.000 min=-1000000000.000 max=1.186) | LR=4.99e-05 | target_in=65b | 5.8 b/s ETA 0s | [data=18.5s fwd=12.3s bwd=11.1s]
+[2026-05-16 18:50:59] INFO     [Ep  23 DONE] AvgLoss=0.4050 (TD=0.0525 CQL=0.3525) | 41.9s (245 batches) | [data=18.5s fwd=12.3s bwd=11.1s]
+[2026-05-16 18:51:02] INFO     [Ep  24|B    20/245] α=0.500 | Loss=0.4029 (TD=0.0539 CQL=0.3490) | ∇=0.081 | Q(μ=-911589376.000 σ=283893088.000 min=-1000000000.000 max=1.235) | LR=4.99e-05 | target_in=45b | 6.1 b/s ETA 37s | [data=1.5s fwd=1.0s bwd=0.7s]
+[2026-05-16 18:51:05] INFO     [Ep  24|B    40/245] α=0.500 | Loss=0.4021 (TD=0.0528 CQL=0.3493) | ∇=0.077 | Q(μ=-911636608.000 σ=283824544.000 min=-1000000000.000 max=1.247) | LR=4.99e-05 | target_in=25b | 6.2 b/s ETA 33s | [data=3.0s fwd=2.0s bwd=1.5s]
+[2026-05-16 18:51:08] INFO     [Ep  24|B    60/245] α=0.500 | Loss=0.4040 (TD=0.0537 CQL=0.3503) | ∇=0.099 | Q(μ=-907620096.000 σ=289563424.000 min=-1000000000.000 max=1.475) | LR=4.99e-05 | target_in=5b | 6.2 b/s ETA 30s | [data=4.5s fwd=2.9s bwd=2.2s]
+[2026-05-16 18:51:12] INFO     [Ep  24|B    80/245] α=0.500 | Loss=0.4069 (TD=0.0546 CQL=0.3524) | ∇=0.078 | Q(μ=-906233984.000 σ=291504832.000 min=-1000000000.000 max=1.929) | LR=4.99e-05 | target_in=85b | 6.0 b/s ETA 28s | [data=6.2s fwd=4.0s bwd=3.2s]
+[2026-05-16 18:51:16] INFO     [Ep  24|B   100/245] α=0.500 | Loss=0.4056 (TD=0.0541 CQL=0.3515) | ∇=0.094 | Q(μ=-909982848.000 σ=286208384.000 min=-1000000000.000 max=1.375) | LR=4.99e-05 | target_in=65b | 5.8 b/s ETA 25s | [data=7.7s fwd=5.0s bwd=4.7s]
+[2026-05-16 18:51:19] INFO     [Ep  24|B   120/245] α=0.500 | Loss=0.4044 (TD=0.0546 CQL=0.3498) | ∇=0.073 | Q(μ=-909636224.000 σ=286704128.000 min=-1000000000.000 max=1.481) | LR=4.99e-05 | target_in=45b | 5.8 b/s ETA 21s | [data=9.2s fwd=6.0s bwd=5.4s]
+[2026-05-16 18:51:22] INFO     [Ep  24|B   140/245] α=0.500 | Loss=0.4049 (TD=0.0554 CQL=0.3495) | ∇=0.104 | Q(μ=-908139904.000 σ=288830336.000 min=-1000000000.000 max=1.519) | LR=4.99e-05 | target_in=25b | 5.9 b/s ETA 18s | [data=10.7s fwd=6.9s bwd=6.1s]
+[2026-05-16 18:51:25] INFO     [Ep  24|B   160/245] α=0.500 | Loss=0.4076 (TD=0.0552 CQL=0.3525) | ∇=0.100 | Q(μ=-908045376.000 σ=288963808.000 min=-1000000000.000 max=1.409) | LR=4.99e-05 | target_in=5b | 5.9 b/s ETA 14s | [data=12.2s fwd=7.9s bwd=6.9s]
+[2026-05-16 18:51:29] INFO     [Ep  24|B   180/245] α=0.500 | Loss=0.4063 (TD=0.0562 CQL=0.3501) | ∇=0.093 | Q(μ=-908297408.000 σ=288607616.000 min=-1000000000.000 max=1.216) | LR=4.99e-05 | target_in=85b | 5.9 b/s ETA 11s | [data=13.7s fwd=8.9s bwd=7.9s]
+[2026-05-16 18:51:32] INFO     [Ep  24|B   200/245] α=0.500 | Loss=0.4054 (TD=0.0560 CQL=0.3494) | ∇=0.090 | Q(μ=-911447616.000 σ=284098496.000 min=-1000000000.000 max=1.257) | LR=4.99e-05 | target_in=65b | 5.9 b/s ETA 8s | [data=15.2s fwd=9.9s bwd=8.9s]
+[2026-05-16 18:51:36] INFO     [Ep  24|B   220/245] α=0.500 | Loss=0.4035 (TD=0.0557 CQL=0.3478) | ∇=0.083 | Q(μ=-907131776.000 σ=290249568.000 min=-1000000000.000 max=1.142) | LR=4.99e-05 | target_in=45b | 5.9 b/s ETA 4s | [data=16.7s fwd=10.9s bwd=9.7s]
+[2026-05-16 18:51:39] INFO     [Ep  24|B   240/245] α=0.500 | Loss=0.4067 (TD=0.0561 CQL=0.3506) | ∇=0.080 | Q(μ=-909210944.000 σ=287310816.000 min=-1000000000.000 max=1.239) | LR=4.99e-05 | target_in=25b | 5.9 b/s ETA 1s | [data=18.2s fwd=11.9s bwd=10.5s]
+[2026-05-16 18:51:40] INFO     [Ep  24|B   245/245] α=0.500 | Loss=0.0992 (TD=0.0137 CQL=0.0855) | ∇=0.193 | Q(μ=-918122496.000 σ=274192960.000 min=-1000000000.000 max=1.026) | LR=4.99e-05 | target_in=20b | 5.9 b/s ETA 0s | [data=18.6s fwd=12.1s bwd=10.7s]
+[2026-05-16 18:51:40] INFO     [Ep  24 DONE] AvgLoss=0.4049 (TD=0.0549 CQL=0.3500) | 41.4s (245 batches) | [data=18.6s fwd=12.1s bwd=10.7s]
+[2026-05-16 18:51:43] INFO     [Ep  25|B    20/245] α=0.500 | Loss=0.4040 (TD=0.0552 CQL=0.3488) | ∇=0.087 | Q(μ=-911290112.000 σ=284326464.000 min=-1000000000.000 max=1.377) | LR=4.99e-05 | target_in=100b | 6.1 b/s ETA 37s | [data=1.6s fwd=1.0s bwd=0.7s]
+[2026-05-16 18:51:46] INFO     [Ep  25|B    40/245] α=0.500 | Loss=0.4069 (TD=0.0574 CQL=0.3494) | ∇=0.083 | Q(μ=-909683456.000 σ=286636608.000 min=-1000000000.000 max=1.131) | LR=4.99e-05 | target_in=80b | 6.1 b/s ETA 34s | [data=3.0s fwd=1.9s bwd=1.6s]
+[2026-05-16 18:51:50] INFO     [Ep  25|B    60/245] α=0.500 | Loss=0.4060 (TD=0.0568 CQL=0.3492) | ∇=0.077 | Q(μ=-908864384.000 σ=287803744.000 min=-1000000000.000 max=1.408) | LR=4.99e-05 | target_in=60b | 6.0 b/s ETA 31s | [data=4.6s fwd=2.9s bwd=2.5s]
+[2026-05-16 18:51:53] INFO     [Ep  25|B    80/245] α=0.500 | Loss=0.4046 (TD=0.0569 CQL=0.3477) | ∇=0.102 | Q(μ=-907572800.000 σ=289629952.000 min=-1000000000.000 max=1.617) | LR=4.99e-05 | target_in=40b | 6.1 b/s ETA 27s | [data=6.1s fwd=3.8s bwd=3.2s]
+[2026-05-16 18:51:56] INFO     [Ep  25|B   100/245] α=0.500 | Loss=0.4048 (TD=0.0579 CQL=0.3469) | ∇=0.087 | Q(μ=-910486784.000 σ=285484992.000 min=-1000000000.000 max=1.446) | LR=4.99e-05 | target_in=20b | 6.1 b/s ETA 24s | [data=7.7s fwd=4.8s bwd=3.9s]
+[2026-05-16 18:52:00] INFO     [Ep  25|B   120/245] α=0.500 | Loss=0.4058 (TD=0.0570 CQL=0.3488) | ∇=0.108 | Q(μ=-909935424.000 σ=286276064.000 min=-1000000000.000 max=1.332) | LR=4.99e-05 | target_in=100b | 6.0 b/s ETA 21s | [data=9.2s fwd=5.8s bwd=4.8s]
+[2026-05-16 18:52:03] INFO     [Ep  25|B   140/245] α=0.500 | Loss=0.4052 (TD=0.0565 CQL=0.3487) | ∇=0.081 | Q(μ=-911368768.000 σ=284212512.000 min=-1000000000.000 max=1.314) | LR=4.99e-05 | target_in=80b | 6.0 b/s ETA 17s | [data=10.9s fwd=6.8s bwd=5.7s]
+[2026-05-16 18:52:07] INFO     [Ep  25|B   160/245] α=0.500 | Loss=0.4035 (TD=0.0580 CQL=0.3455) | ∇=0.091 | Q(μ=-911006592.000 σ=284736160.000 min=-1000000000.000 max=1.249) | LR=4.99e-05 | target_in=60b | 5.9 b/s ETA 14s | [data=12.4s fwd=7.8s bwd=6.9s]
+[2026-05-16 18:52:10] INFO     [Ep  25|B   180/245] α=0.500 | Loss=0.4035 (TD=0.0580 CQL=0.3455) | ∇=0.103 | Q(μ=-911526336.000 σ=283984384.000 min=-1000000000.000 max=1.124) | LR=4.99e-05 | target_in=40b | 5.9 b/s ETA 11s | [data=13.9s fwd=8.8s bwd=7.7s]
+[2026-05-16 18:52:14] INFO     [Ep  25|B   200/245] α=0.500 | Loss=0.4044 (TD=0.0563 CQL=0.3481) | ∇=0.093 | Q(μ=-907446784.000 σ=289807168.000 min=-1000000000.000 max=1.700) | LR=4.99e-05 | target_in=20b | 5.9 b/s ETA 8s | [data=15.4s fwd=9.8s bwd=8.6s]
+[2026-05-16 18:52:17] INFO     [Ep  25|B   220/245] α=0.500 | Loss=0.4076 (TD=0.0579 CQL=0.3497) | ∇=0.084 | Q(μ=-908202752.000 σ=288741280.000 min=-1000000000.000 max=1.306) | LR=4.99e-05 | target_in=100b | 5.9 b/s ETA 4s | [data=17.0s fwd=10.8s bwd=9.6s]
+[2026-05-16 18:52:21] INFO     [Ep  25|B   240/245] α=0.500 | Loss=0.4038 (TD=0.0595 CQL=0.3442) | ∇=0.087 | Q(μ=-910392256.000 σ=285620832.000 min=-1000000000.000 max=1.464) | LR=4.99e-05 | target_in=80b | 5.9 b/s ETA 1s | [data=18.5s fwd=11.7s bwd=10.5s]
+[2026-05-16 18:52:21] INFO     [Ep  25|B   245/245] α=0.500 | Loss=0.1035 (TD=0.0152 CQL=0.0883) | ∇=0.269 | Q(μ=-907257856.000 σ=290086688.000 min=-1000000000.000 max=1.078) | LR=4.99e-05 | target_in=75b | 5.9 b/s ETA 0s | [data=18.8s fwd=11.9s bwd=10.7s]
+[2026-05-16 18:52:21] INFO     [Ep  25 DONE] AvgLoss=0.4052 (TD=0.0574 CQL=0.3478) | 41.4s (245 batches) | [data=18.8s fwd=11.9s bwd=10.7s]
+[2026-05-16 18:52:26] INFO     [Ep  26|B    20/245] α=0.500 | Loss=0.4061 (TD=0.0591 CQL=0.3470) | ∇=0.095 | Q(μ=-908958976.000 σ=287669440.000 min=-1000000000.000 max=1.328) | LR=4.99e-05 | target_in=55b | 4.8 b/s ETA 47s | [data=1.6s fwd=1.0s bwd=1.5s]
+[2026-05-16 18:52:29] INFO     [Ep  26|B    40/245] α=0.500 | Loss=0.4053 (TD=0.0585 CQL=0.3468) | ∇=0.098 | Q(μ=-910455296.000 σ=285530304.000 min=-1000000000.000 max=1.308) | LR=4.99e-05 | target_in=35b | 5.3 b/s ETA 39s | [data=3.1s fwd=2.0s bwd=2.4s]
+[2026-05-16 18:52:32] INFO     [Ep  26|B    60/245] α=0.500 | Loss=0.4022 (TD=0.0588 CQL=0.3433) | ∇=0.085 | Q(μ=-911526336.000 σ=283984384.000 min=-1000000000.000 max=1.419) | LR=4.99e-05 | target_in=15b | 5.6 b/s ETA 33s | [data=4.6s fwd=3.0s bwd=3.2s]
+[2026-05-16 18:52:35] INFO     [Ep  26|B    80/245] α=0.500 | Loss=0.4056 (TD=0.0596 CQL=0.3460) | ∇=0.090 | Q(μ=-909636224.000 σ=286704128.000 min=-1000000000.000 max=1.730) | LR=4.99e-05 | target_in=95b | 5.7 b/s ETA 29s | [data=6.1s fwd=4.0s bwd=3.9s]
+[2026-05-16 18:52:39] INFO     [Ep  26|B   100/245] α=0.500 | Loss=0.4050 (TD=0.0598 CQL=0.3453) | ∇=0.080 | Q(μ=-908990400.000 σ=287624640.000 min=-1000000000.000 max=1.299) | LR=4.99e-05 | target_in=75b | 5.8 b/s ETA 25s | [data=7.6s fwd=4.9s bwd=4.7s]
+[2026-05-16 18:52:42] INFO     [Ep  26|B   120/245] α=0.500 | Loss=0.4050 (TD=0.0596 CQL=0.3454) | ∇=0.140 | Q(μ=-909667712.000 σ=286659104.000 min=-1000000000.000 max=1.425) | LR=4.99e-05 | target_in=55b | 5.8 b/s ETA 22s | [data=9.1s fwd=5.9s bwd=5.7s]
+[2026-05-16 18:52:45] INFO     [Ep  26|B   140/245] α=0.500 | Loss=0.4076 (TD=0.0604 CQL=0.3472) | ∇=0.082 | Q(μ=-908785664.000 σ=287915584.000 min=-1000000000.000 max=1.171) | LR=4.99e-05 | target_in=35b | 5.8 b/s ETA 18s | [data=10.5s fwd=6.9s bwd=6.6s]
+[2026-05-16 18:52:49] INFO     [Ep  26|B   160/245] α=0.500 | Loss=0.4065 (TD=0.0598 CQL=0.3467) | ∇=0.091 | Q(μ=-912896640.000 σ=281988256.000 min=-1000000000.000 max=1.556) | LR=4.99e-05 | target_in=15b | 5.9 b/s ETA 15s | [data=12.0s fwd=7.9s bwd=7.4s]
+[2026-05-16 18:52:53] INFO     [Ep  26|B   180/245] α=0.500 | Loss=0.4056 (TD=0.0596 CQL=0.3460) | ∇=0.087 | Q(μ=-910565504.000 σ=285371744.000 min=-1000000000.000 max=1.268) | LR=4.99e-05 | target_in=95b | 5.7 b/s ETA 11s | [data=13.5s fwd=9.3s bwd=8.5s]
+[2026-05-16 18:52:56] INFO     [Ep  26|B   200/245] α=0.500 | Loss=0.4050 (TD=0.0605 CQL=0.3445) | ∇=0.086 | Q(μ=-910140224.000 σ=285982624.000 min=-1000000000.000 max=1.873) | LR=4.99e-05 | target_in=75b | 5.8 b/s ETA 8s | [data=15.1s fwd=10.3s bwd=9.3s]
+[2026-05-16 18:52:59] INFO     [Ep  26|B   220/245] α=0.500 | Loss=0.4063 (TD=0.0612 CQL=0.3451) | ∇=0.096 | Q(μ=-911195520.000 σ=284463136.000 min=-1000000000.000 max=1.461) | LR=4.99e-05 | target_in=55b | 5.8 b/s ETA 4s | [data=16.6s fwd=11.3s bwd=10.1s]
+[2026-05-16 18:53:03] INFO     [Ep  26|B   240/245] α=0.500 | Loss=0.4042 (TD=0.0608 CQL=0.3433) | ∇=0.105 | Q(μ=-908061120.000 σ=288941568.000 min=-1000000000.000 max=2.387) | LR=4.99e-05 | target_in=35b | 5.8 b/s ETA 1s | [data=18.1s fwd=12.2s bwd=10.8s]
+[2026-05-16 18:53:03] INFO     [Ep  26|B   245/245] α=0.500 | Loss=0.1017 (TD=0.0150 CQL=0.0868) | ∇=0.263 | Q(μ=-904905728.000 σ=293361280.000 min=-1000000000.000 max=1.017) | LR=4.99e-05 | target_in=30b | 5.9 b/s ETA 0s | [data=18.4s fwd=12.4s bwd=11.0s]
+[2026-05-16 18:53:03] INFO     [Ep  26 DONE] AvgLoss=0.4054 (TD=0.0598 CQL=0.3456) | 41.9s (245 batches) | [data=18.4s fwd=12.4s bwd=11.0s]
+[2026-05-16 18:53:06] INFO     [Ep  27|B    20/245] α=0.500 | Loss=0.4040 (TD=0.0602 CQL=0.3438) | ∇=0.114 | Q(μ=-908974592.000 σ=287647040.000 min=-1000000000.000 max=1.433) | LR=4.99e-05 | target_in=10b | 6.1 b/s ETA 37s | [data=1.5s fwd=1.0s bwd=0.7s]
+[2026-05-16 18:53:10] INFO     [Ep  27|B    40/245] α=0.500 | Loss=0.4047 (TD=0.0610 CQL=0.3437) | ∇=0.094 | Q(μ=-909478656.000 σ=286929056.000 min=-1000000000.000 max=1.462) | LR=4.99e-05 | target_in=90b | 6.2 b/s ETA 33s | [data=3.0s fwd=2.0s bwd=1.5s]
+[2026-05-16 18:53:13] INFO     [Ep  27|B    60/245] α=0.500 | Loss=0.4055 (TD=0.0620 CQL=0.3436) | ∇=0.088 | Q(μ=-907746112.000 σ=289385952.000 min=-1000000000.000 max=1.467) | LR=4.99e-05 | target_in=70b | 6.2 b/s ETA 30s | [data=4.5s fwd=2.9s bwd=2.2s]
+[2026-05-16 18:53:16] INFO     [Ep  27|B    80/245] α=0.500 | Loss=0.4056 (TD=0.0610 CQL=0.3446) | ∇=0.110 | Q(μ=-907541312.000 σ=289674272.000 min=-1000000000.000 max=1.438) | LR=4.99e-05 | target_in=50b | 6.2 b/s ETA 27s | [data=6.1s fwd=3.9s bwd=2.9s]
+[2026-05-16 18:53:19] INFO     [Ep  27|B   100/245] α=0.500 | Loss=0.4046 (TD=0.0612 CQL=0.3434) | ∇=0.105 | Q(μ=-909399936.000 σ=287041408.000 min=-1000000000.000 max=1.328) | LR=4.99e-05 | target_in=30b | 6.2 b/s ETA 23s | [data=7.6s fwd=4.8s bwd=3.7s]
+[2026-05-16 18:53:23] INFO     [Ep  27|B   120/245] α=0.500 | Loss=0.4050 (TD=0.0620 CQL=0.3429) | ∇=0.084 | Q(μ=-909793728.000 σ=286478944.000 min=-1000000000.000 max=1.654) | LR=4.99e-05 | target_in=10b | 6.2 b/s ETA 20s | [data=9.2s fwd=5.8s bwd=4.5s]
+[2026-05-16 18:53:26] INFO     [Ep  27|B   140/245] α=0.500 | Loss=0.4026 (TD=0.0615 CQL=0.3411) | ∇=0.177 | Q(μ=-909258240.000 σ=287243488.000 min=-1000000000.000 max=1.574) | LR=4.99e-05 | target_in=90b | 6.2 b/s ETA 17s | [data=10.6s fwd=6.8s bwd=5.3s]
+[2026-05-16 18:53:30] INFO     [Ep  27|B   160/245] α=0.500 | Loss=0.4081 (TD=0.0619 CQL=0.3462) | ∇=0.122 | Q(μ=-906517568.000 σ=291109312.000 min=-1000000000.000 max=1.417) | LR=4.99e-05 | target_in=70b | 6.1 b/s ETA 14s | [data=12.1s fwd=7.8s bwd=6.4s]
+[2026-05-16 18:53:33] INFO     [Ep  27|B   180/245] α=0.500 | Loss=0.4063 (TD=0.0618 CQL=0.3445) | ∇=0.084 | Q(μ=-906501760.000 σ=291131328.000 min=-1000000000.000 max=1.402) | LR=4.99e-05 | target_in=50b | 6.1 b/s ETA 11s | [data=13.6s fwd=8.8s bwd=7.3s]
+[2026-05-16 18:53:36] INFO     [Ep  27|B   200/245] α=0.500 | Loss=0.4066 (TD=0.0626 CQL=0.3440) | ∇=0.097 | Q(μ=-908754176.000 σ=287960320.000 min=-1000000000.000 max=1.587) | LR=4.99e-05 | target_in=30b | 6.1 b/s ETA 7s | [data=15.1s fwd=9.7s bwd=8.1s]
+[2026-05-16 18:53:39] INFO     [Ep  27|B   220/245] α=0.500 | Loss=0.4043 (TD=0.0624 CQL=0.3419) | ∇=0.191 | Q(μ=-910880576.000 σ=284917984.000 min=-1000000000.000 max=1.491) | LR=4.99e-05 | target_in=10b | 6.1 b/s ETA 4s | [data=16.7s fwd=10.7s bwd=8.9s]
+[2026-05-16 18:53:43] INFO     [Ep  27|B   240/245] α=0.500 | Loss=0.4029 (TD=0.0618 CQL=0.3411) | ∇=0.102 | Q(μ=-909793728.000 σ=286478944.000 min=-1000000000.000 max=1.497) | LR=4.99e-05 | target_in=90b | 6.0 b/s ETA 1s | [data=18.2s fwd=11.6s bwd=9.9s]
+[2026-05-16 18:53:44] INFO     [Ep  27|B   245/245] α=0.500 | Loss=0.1030 (TD=0.0158 CQL=0.0872) | ∇=0.266 | Q(μ=-901769472.000 σ=297642432.000 min=-1000000000.000 max=1.176) | LR=4.99e-05 | target_in=85b | 6.0 b/s ETA 0s | [data=18.6s fwd=11.8s bwd=10.1s]
+[2026-05-16 18:53:44] INFO     [Ep  27 DONE] AvgLoss=0.4052 (TD=0.0617 CQL=0.3435) | 40.5s (245 batches) | [data=18.6s fwd=11.8s bwd=10.1s]
+[2026-05-16 18:53:47] INFO     [Ep  28|B    20/245] α=0.500 | Loss=0.4061 (TD=0.0628 CQL=0.3433) | ∇=0.123 | Q(μ=-907746112.000 σ=289385952.000 min=-1000000000.000 max=1.583) | LR=4.99e-05 | target_in=65b | 6.0 b/s ETA 37s | [data=1.5s fwd=1.0s bwd=0.8s]
+[2026-05-16 18:53:50] INFO     [Ep  28|B    40/245] α=0.500 | Loss=0.4047 (TD=0.0624 CQL=0.3422) | ∇=0.091 | Q(μ=-906927040.000 σ=290536576.000 min=-1000000000.000 max=1.502) | LR=4.99e-05 | target_in=45b | 6.1 b/s ETA 33s | [data=3.1s fwd=1.9s bwd=1.5s]
+[2026-05-16 18:53:53] INFO     [Ep  28|B    60/245] α=0.500 | Loss=0.4032 (TD=0.0622 CQL=0.3410) | ∇=0.088 | Q(μ=-909856768.000 σ=286388800.000 min=-1000000000.000 max=1.350) | LR=4.99e-05 | target_in=25b | 6.2 b/s ETA 30s | [data=4.7s fwd=2.8s bwd=2.2s]
+[2026-05-16 18:53:57] INFO     [Ep  28|B    80/245] α=0.500 | Loss=0.4016 (TD=0.0617 CQL=0.3399) | ∇=0.117 | Q(μ=-912534336.000 σ=282517984.000 min=-1000000000.000 max=1.372) | LR=4.99e-05 | target_in=5b | 6.1 b/s ETA 27s | [data=6.2s fwd=3.8s bwd=3.0s]
+[2026-05-16 18:54:00] INFO     [Ep  28|B   100/245] α=0.500 | Loss=0.4055 (TD=0.0634 CQL=0.3422) | ∇=0.099 | Q(μ=-908990400.000 σ=287624640.000 min=-1000000000.000 max=1.402) | LR=4.99e-05 | target_in=85b | 6.2 b/s ETA 24s | [data=7.8s fwd=4.8s bwd=3.7s]
+[2026-05-16 18:54:04] INFO     [Ep  28|B   120/245] α=0.500 | Loss=0.4031 (TD=0.0634 CQL=0.3397) | ∇=0.095 | Q(μ=-909998400.000 σ=286185824.000 min=-1000000000.000 max=1.553) | LR=4.99e-05 | target_in=65b | 6.0 b/s ETA 21s | [data=9.5s fwd=5.8s bwd=4.8s]
+[2026-05-16 18:54:07] INFO     [Ep  28|B   140/245] α=0.500 | Loss=0.4074 (TD=0.0636 CQL=0.3438) | ∇=0.099 | Q(μ=-910313536.000 σ=285733984.000 min=-1000000000.000 max=1.550) | LR=4.99e-05 | target_in=45b | 6.0 b/s ETA 18s | [data=11.0s fwd=6.8s bwd=5.7s]
+[2026-05-16 18:54:10] INFO     [Ep  28|B   160/245] α=0.500 | Loss=0.4061 (TD=0.0637 CQL=0.3424) | ∇=0.150 | Q(μ=-913526656.000 σ=281063488.000 min=-1000000000.000 max=1.415) | LR=4.99e-05 | target_in=25b | 6.0 b/s ETA 14s | [data=12.5s fwd=7.7s bwd=6.5s]
+[2026-05-16 18:54:14] INFO     [Ep  28|B   180/245] α=0.500 | Loss=0.4059 (TD=0.0627 CQL=0.3432) | ∇=0.106 | Q(μ=-907840640.000 σ=289252768.000 min=-1000000000.000 max=1.529) | LR=4.99e-05 | target_in=5b | 6.0 b/s ETA 11s | [data=14.0s fwd=8.6s bwd=7.3s]
+[2026-05-16 18:54:17] INFO     [Ep  28|B   200/245] α=0.500 | Loss=0.4061 (TD=0.0632 CQL=0.3429) | ∇=0.090 | Q(μ=-907935104.000 σ=289119456.000 min=-1000000000.000 max=1.589) | LR=4.99e-05 | target_in=85b | 5.9 b/s ETA 8s | [data=15.5s fwd=9.6s bwd=8.5s]
+[2026-05-16 18:54:21] INFO     [Ep  28|B   220/245] α=0.500 | Loss=0.4054 (TD=0.0632 CQL=0.3422) | ∇=0.095 | Q(μ=-907431104.000 σ=289829312.000 min=-1000000000.000 max=1.550) | LR=4.99e-05 | target_in=65b | 5.9 b/s ETA 4s | [data=17.0s fwd=10.6s bwd=9.3s]
+[2026-05-16 18:54:25] INFO     [Ep  28|B   240/245] α=0.500 | Loss=0.4034 (TD=0.0638 CQL=0.3395) | ∇=0.106 | Q(μ=-910833344.000 σ=284986112.000 min=-1000000000.000 max=1.528) | LR=4.99e-05 | target_in=45b | 5.9 b/s ETA 1s | [data=18.7s fwd=11.6s bwd=10.5s]
+[2026-05-16 18:54:25] INFO     [Ep  28|B   245/245] α=0.500 | Loss=0.1009 (TD=0.0157 CQL=0.0852) | ∇=0.277 | Q(μ=-909609984.000 σ=286755424.000 min=-1000000000.000 max=1.404) | LR=4.99e-05 | target_in=40b | 5.9 b/s ETA 0s | [data=19.1s fwd=11.8s bwd=10.8s]
+[2026-05-16 18:54:25] INFO     [Ep  28 DONE] AvgLoss=0.4048 (TD=0.0630 CQL=0.3418) | 41.7s (245 batches) | [data=19.1s fwd=11.8s bwd=10.8s]
+[2026-05-16 18:54:29] INFO     [Ep  29|B    20/245] α=0.500 | Loss=0.4044 (TD=0.0629 CQL=0.3415) | ∇=0.098 | Q(μ=-906753792.000 σ=290779104.000 min=-1000000000.000 max=1.561) | LR=4.99e-05 | target_in=20b | 6.0 b/s ETA 38s | [data=1.5s fwd=1.0s bwd=0.8s]
+[2026-05-16 18:54:32] INFO     [Ep  29|B    40/245] α=0.500 | Loss=0.4044 (TD=0.0639 CQL=0.3404) | ∇=0.100 | Q(μ=-908596672.000 σ=288183776.000 min=-1000000000.000 max=1.404) | LR=4.99e-05 | target_in=100b | 6.1 b/s ETA 34s | [data=3.0s fwd=2.0s bwd=1.6s]
+[2026-05-16 18:54:35] INFO     [Ep  29|B    60/245] α=0.500 | Loss=0.4045 (TD=0.0642 CQL=0.3403) | ∇=0.098 | Q(μ=-914140928.000 σ=280157568.000 min=-1000000000.000 max=1.691) | LR=4.99e-05 | target_in=80b | 6.1 b/s ETA 30s | [data=4.5s fwd=2.9s bwd=2.3s]
+[2026-05-16 18:54:39] INFO     [Ep  29|B    80/245] α=0.500 | Loss=0.4022 (TD=0.0643 CQL=0.3378) | ∇=0.100 | Q(μ=-911872768.000 σ=283481568.000 min=-1000000000.000 max=1.485) | LR=4.99e-05 | target_in=60b | 6.1 b/s ETA 27s | [data=6.1s fwd=3.9s bwd=3.1s]
+[2026-05-16 18:54:42] INFO     [Ep  29|B   100/245] α=0.500 | Loss=0.4040 (TD=0.0652 CQL=0.3388) | ∇=0.095 | Q(μ=-910581184.000 σ=285349056.000 min=-1000000000.000 max=1.694) | LR=4.99e-05 | target_in=40b | 6.0 b/s ETA 24s | [data=7.6s fwd=4.9s bwd=4.1s]
+[2026-05-16 18:54:45] INFO     [Ep  29|B   120/245] α=0.500 | Loss=0.4050 (TD=0.0640 CQL=0.3410) | ∇=0.119 | Q(μ=-909258240.000 σ=287243488.000 min=-1000000000.000 max=1.736) | LR=4.99e-05 | target_in=20b | 6.1 b/s ETA 21s | [data=9.1s fwd=5.8s bwd=4.8s]
+[2026-05-16 18:54:49] INFO     [Ep  29|B   140/245] α=0.500 | Loss=0.4030 (TD=0.0649 CQL=0.3380) | ∇=0.108 | Q(μ=-912014592.000 σ=283275520.000 min=-1000000000.000 max=1.537) | LR=4.99e-05 | target_in=100b | 6.0 b/s ETA 17s | [data=10.7s fwd=6.7s bwd=5.7s]
+[2026-05-16 18:54:52] INFO     [Ep  29|B   160/245] α=0.500 | Loss=0.4057 (TD=0.0642 CQL=0.3414) | ∇=0.116 | Q(μ=-908769856.000 σ=287937952.000 min=-1000000000.000 max=1.459) | LR=4.99e-05 | target_in=80b | 6.0 b/s ETA 14s | [data=12.2s fwd=7.7s bwd=6.6s]
+[2026-05-16 18:54:55] INFO     [Ep  29|B   180/245] α=0.500 | Loss=0.4084 (TD=0.0654 CQL=0.3430) | ∇=0.110 | Q(μ=-910329280.000 σ=285711360.000 min=-1000000000.000 max=1.581) | LR=4.99e-05 | target_in=60b | 6.0 b/s ETA 11s | [data=13.9s fwd=8.7s bwd=7.3s]
+[2026-05-16 18:54:59] INFO     [Ep  29|B   200/245] α=0.500 | Loss=0.4058 (TD=0.0657 CQL=0.3401) | ∇=0.098 | Q(μ=-909447232.000 σ=286974016.000 min=-1000000000.000 max=1.840) | LR=4.99e-05 | target_in=40b | 6.0 b/s ETA 8s | [data=15.4s fwd=9.7s bwd=8.2s]
+[2026-05-16 18:55:02] INFO     [Ep  29|B   220/245] α=0.500 | Loss=0.4047 (TD=0.0652 CQL=0.3395) | ∇=0.106 | Q(μ=-906076480.000 σ=291724224.000 min=-1000000000.000 max=1.625) | LR=4.99e-05 | target_in=20b | 6.0 b/s ETA 4s | [data=17.0s fwd=10.7s bwd=9.2s]
+[2026-05-16 18:55:06] INFO     [Ep  29|B   240/245] α=0.500 | Loss=0.4035 (TD=0.0650 CQL=0.3385) | ∇=0.106 | Q(μ=-911022272.000 σ=284713440.000 min=-1000000000.000 max=1.605) | LR=4.99e-05 | target_in=100b | 6.0 b/s ETA 1s | [data=18.5s fwd=11.7s bwd=10.0s]
+[2026-05-16 18:55:06] INFO     [Ep  29|B   245/245] α=0.500 | Loss=0.1020 (TD=0.0165 CQL=0.0855) | ∇=0.311 | Q(μ=-908601920.000 σ=288190176.000 min=-1000000000.000 max=1.382) | LR=4.99e-05 | target_in=95b | 6.0 b/s ETA 0s | [data=18.8s fwd=11.9s bwd=10.1s]
+[2026-05-16 18:55:06] INFO     [Ep  29 DONE] AvgLoss=0.4047 (TD=0.0646 CQL=0.3401) | 40.9s (245 batches) | [data=18.8s fwd=11.9s bwd=10.1s]
+[2026-05-16 18:55:10] INFO     [Ep  30|B    20/245] α=0.500 | Loss=0.4045 (TD=0.0649 CQL=0.3396) | ∇=0.103 | Q(μ=-912676224.000 σ=282310880.000 min=-1000000000.000 max=1.684) | LR=4.99e-05 | target_in=75b | 5.7 b/s ETA 40s | [data=1.6s fwd=1.0s bwd=0.9s]
+[2026-05-16 18:55:13] INFO     [Ep  30|B    40/245] α=0.500 | Loss=0.4038 (TD=0.0657 CQL=0.3381) | ∇=0.101 | Q(μ=-908769920.000 σ=287937952.000 min=-1000000000.000 max=1.766) | LR=4.99e-05 | target_in=55b | 5.9 b/s ETA 35s | [data=3.2s fwd=2.0s bwd=1.5s]
+[2026-05-16 18:55:17] INFO     [Ep  30|B    60/245] α=0.500 | Loss=0.4036 (TD=0.0652 CQL=0.3384) | ∇=0.112 | Q(μ=-907415296.000 σ=289851456.000 min=-1000000000.000 max=1.612) | LR=4.99e-05 | target_in=35b | 5.9 b/s ETA 32s | [data=5.0s fwd=3.0s bwd=2.3s]
+[2026-05-16 18:55:20] INFO     [Ep  30|B    80/245] α=0.500 | Loss=0.4048 (TD=0.0648 CQL=0.3400) | ∇=0.096 | Q(μ=-912644672.000 σ=282356928.000 min=-1000000000.000 max=1.591) | LR=4.99e-05 | target_in=15b | 5.9 b/s ETA 28s | [data=6.6s fwd=4.0s bwd=3.0s]
+[2026-05-16 18:55:23] INFO     [Ep  30|B   100/245] α=0.500 | Loss=0.4053 (TD=0.0663 CQL=0.3390) | ∇=0.111 | Q(μ=-908911680.000 σ=287736576.000 min=-1000000000.000 max=1.782) | LR=4.99e-05 | target_in=95b | 5.9 b/s ETA 25s | [data=8.1s fwd=5.0s bwd=3.8s]
+[2026-05-16 18:55:27] INFO     [Ep  30|B   120/245] α=0.500 | Loss=0.4057 (TD=0.0655 CQL=0.3402) | ∇=0.089 | Q(μ=-910565504.000 σ=285371744.000 min=-1000000000.000 max=1.666) | LR=4.99e-05 | target_in=75b | 5.8 b/s ETA 22s | [data=9.7s fwd=6.3s bwd=4.7s]
+[2026-05-16 18:55:31] INFO     [Ep  30|B   140/245] α=0.500 | Loss=0.4018 (TD=0.0658 CQL=0.3360) | ∇=0.092 | Q(μ=-906927040.000 σ=290536576.000 min=-1000000000.000 max=1.692) | LR=4.99e-05 | target_in=55b | 5.7 b/s ETA 18s | [data=11.2s fwd=7.6s bwd=5.6s]
+[2026-05-16 18:55:35] INFO     [Ep  30|B   160/245] α=0.500 | Loss=0.4028 (TD=0.0647 CQL=0.3381) | ∇=0.092 | Q(μ=-911179904.000 σ=284485888.000 min=-1000000000.000 max=1.840) | LR=4.99e-05 | target_in=35b | 5.5 b/s ETA 15s | [data=12.8s fwd=9.2s bwd=7.0s]
+[2026-05-16 18:55:39] INFO     [Ep  30|B   180/245] α=0.500 | Loss=0.4046 (TD=0.0653 CQL=0.3393) | ∇=0.121 | Q(μ=-909447168.000 σ=286974016.000 min=-1000000000.000 max=1.613) | LR=4.99e-05 | target_in=15b | 5.6 b/s ETA 12s | [data=14.4s fwd=10.2s bwd=7.7s]
+[2026-05-16 18:55:42] INFO     [Ep  30|B   200/245] α=0.500 | Loss=0.4072 (TD=0.0679 CQL=0.3393) | ∇=0.117 | Q(μ=-911242816.000 σ=284394816.000 min=-1000000000.000 max=1.586) | LR=4.99e-05 | target_in=95b | 5.6 b/s ETA 8s | [data=15.9s fwd=11.2s bwd=8.4s]
+[2026-05-16 18:55:45] INFO     [Ep  30|B   220/245] α=0.500 | Loss=0.4060 (TD=0.0666 CQL=0.3394) | ∇=0.094 | Q(μ=-908911680.000 σ=287736576.000 min=-1000000000.000 max=1.744) | LR=4.99e-05 | target_in=75b | 5.7 b/s ETA 4s | [data=17.5s fwd=12.2s bwd=9.2s]
+[2026-05-16 18:55:49] INFO     [Ep  30|B   240/245] α=0.500 | Loss=0.4054 (TD=0.0672 CQL=0.3382) | ∇=0.144 | Q(μ=-911321536.000 σ=284280896.000 min=-1000000000.000 max=1.777) | LR=4.99e-05 | target_in=55b | 5.7 b/s ETA 1s | [data=19.2s fwd=13.2s bwd=9.9s]
+[2026-05-16 18:55:49] INFO     [Ep  30|B   245/245] α=0.500 | Loss=0.1014 (TD=0.0170 CQL=0.0843) | ∇=0.297 | Q(μ=-911514112.000 σ=284015808.000 min=-1000000000.000 max=1.500) | LR=4.99e-05 | target_in=50b | 5.7 b/s ETA 0s | [data=19.5s fwd=13.4s bwd=10.1s]
+[2026-05-16 18:55:49] INFO     [Ep  30 DONE] AvgLoss=0.4046 (TD=0.0659 CQL=0.3388) | 42.9s (245 batches) | [data=19.5s fwd=13.4s bwd=10.1s]
+[2026-05-16 18:55:49] INFO       Early stopping at epoch 30.
+[2026-05-16 18:55:49] INFO       CQL training complete | Best loss: 0.3973
+[2026-05-16 18:55:49] INFO     
+═══ Stage 4: Out-of-Sample Evaluation ═══
+[2026-05-16 18:55:49] INFO       NOTE: eval instances not seen during training.
+[2026-05-16 18:55:49] INFO       ── ta41  (BKS=2005) ──
+[2026-05-16 18:55:50] INFO         MLP-CQL | avg=2651 (gap +32.22%) | best=2651 (gap +32.22%)
+[2026-05-16 18:55:51] INFO         GA | Gen 1/15 | Best: 2646
+[2026-05-16 18:55:52] INFO         GA | Gen 2/15 | Best: 2646
+[2026-05-16 18:55:53] INFO         GA | Gen 3/15 | Best: 2633
+[2026-05-16 18:55:54] INFO         GA | Gen 4/15 | Best: 2633
+[2026-05-16 18:55:55] INFO         GA | Gen 5/15 | Best: 2621
+[2026-05-16 18:55:56] INFO         GA | Gen 6/15 | Best: 2581
+[2026-05-16 18:55:57] INFO         GA | Gen 7/15 | Best: 2581
+[2026-05-16 18:55:57] INFO         GA | Gen 8/15 | Best: 2581
+[2026-05-16 18:55:58] INFO         GA | Gen 9/15 | Best: 2581
+[2026-05-16 18:55:58] INFO         GA | Early stopping at gen 9.
+[2026-05-16 18:55:58] INFO         EA      | best=2581 (gap +28.73%) in 8.2s
+[2026-05-16 18:55:58] INFO       ── ta42  (BKS=1937) ──
+[2026-05-16 18:55:59] INFO         MLP-CQL | avg=2809 (gap +45.02%) | best=2809 (gap +45.02%)
+[2026-05-16 18:56:01] INFO         GA | Gen 1/15 | Best: 2549
+[2026-05-16 18:56:01] INFO         GA | Gen 2/15 | Best: 2549
+[2026-05-16 18:56:02] INFO         GA | Gen 3/15 | Best: 2549
+[2026-05-16 18:56:03] INFO         GA | Gen 4/15 | Best: 2529
+[2026-05-16 18:56:04] INFO         GA | Gen 5/15 | Best: 2508
+[2026-05-16 18:56:05] INFO         GA | Gen 6/15 | Best: 2508
+[2026-05-16 18:56:06] INFO         GA | Gen 7/15 | Best: 2508
+[2026-05-16 18:56:07] INFO         GA | Gen 8/15 | Best: 2508
+[2026-05-16 18:56:07] INFO         GA | Early stopping at gen 8.
+[2026-05-16 18:56:07] INFO         EA      | best=2508 (gap +29.48%) in 7.3s
+[2026-05-16 18:56:07] INFO       ── ta43  (BKS=1846) ──
+[2026-05-16 18:56:07] INFO         MLP-CQL | avg=2873 (gap +55.63%) | best=2873 (gap +55.63%)
+[2026-05-16 18:56:09] INFO         GA | Gen 1/15 | Best: 2488
+[2026-05-16 18:56:10] INFO         GA | Gen 2/15 | Best: 2453
+[2026-05-16 18:56:10] INFO         GA | Gen 3/15 | Best: 2453
+[2026-05-16 18:56:11] INFO         GA | Gen 4/15 | Best: 2385
+[2026-05-16 18:56:12] INFO         GA | Gen 5/15 | Best: 2385
+[2026-05-16 18:56:13] INFO         GA | Gen 6/15 | Best: 2385
+[2026-05-16 18:56:14] INFO         GA | Gen 7/15 | Best: 2385
+[2026-05-16 18:56:14] INFO         GA | Early stopping at gen 7.
+[2026-05-16 18:56:14] INFO         EA      | best=2385 (gap +29.20%) in 6.5s
+[2026-05-16 18:56:14] INFO       ── ta44  (BKS=1979) ──
+[2026-05-16 18:56:15] INFO         MLP-CQL | avg=2772 (gap +40.07%) | best=2772 (gap +40.07%)
+[2026-05-16 18:56:16] INFO         GA | Gen 1/15 | Best: 2592
+[2026-05-16 18:56:17] INFO         GA | Gen 2/15 | Best: 2561
+[2026-05-16 18:56:18] INFO         GA | Gen 3/15 | Best: 2561
+[2026-05-16 18:56:19] INFO         GA | Gen 4/15 | Best: 2561
+[2026-05-16 18:56:20] INFO         GA | Gen 5/15 | Best: 2538
+[2026-05-16 18:56:20] INFO         GA | Gen 6/15 | Best: 2538
+[2026-05-16 18:56:21] INFO         GA | Gen 7/15 | Best: 2538
+[2026-05-16 18:56:22] INFO         GA | Gen 8/15 | Best: 2538
+[2026-05-16 18:56:22] INFO         GA | Early stopping at gen 8.
+[2026-05-16 18:56:22] INFO         EA      | best=2538 (gap +28.25%) in 7.3s
+[2026-05-16 18:56:22] INFO       ── ta45  (BKS=1997) ──
+[2026-05-16 18:56:23] INFO         MLP-CQL | avg=2978 (gap +49.12%) | best=2978 (gap +49.12%)
+[2026-05-16 18:56:24] INFO         GA | Gen 1/15 | Best: 2573
+[2026-05-16 18:56:25] INFO         GA | Gen 2/15 | Best: 2568
+[2026-05-16 18:56:26] INFO         GA | Gen 3/15 | Best: 2568
+[2026-05-16 18:56:27] INFO         GA | Gen 4/15 | Best: 2568
+[2026-05-16 18:56:28] INFO         GA | Gen 5/15 | Best: 2566
+[2026-05-16 18:56:29] INFO         GA | Gen 6/15 | Best: 2515
+[2026-05-16 18:56:30] INFO         GA | Gen 7/15 | Best: 2515
+[2026-05-16 18:56:30] INFO         GA | Gen 8/15 | Best: 2515
+[2026-05-16 18:56:31] INFO         GA | Gen 9/15 | Best: 2507
+[2026-05-16 18:56:32] INFO         GA | Gen 10/15 | Best: 2507
+[2026-05-16 18:56:33] INFO         GA | Gen 11/15 | Best: 2507
+[2026-05-16 18:56:34] INFO         GA | Gen 12/15 | Best: 2507
+[2026-05-16 18:56:34] INFO         GA | Early stopping at gen 12.
+[2026-05-16 18:56:34] INFO         EA      | best=2507 (gap +25.54%) in 10.7s
+[2026-05-16 18:56:34] INFO       ── ta46  (BKS=2004) ──
+[2026-05-16 18:56:35] INFO         MLP-CQL | avg=3016 (gap +50.50%) | best=3016 (gap +50.50%)
+[2026-05-16 18:56:36] INFO         GA | Gen 1/15 | Best: 2602
+[2026-05-16 18:56:37] INFO         GA | Gen 2/15 | Best: 2593
+[2026-05-16 18:56:38] INFO         GA | Gen 3/15 | Best: 2593
+[2026-05-16 18:56:39] INFO         GA | Gen 4/15 | Best: 2583
+[2026-05-16 18:56:40] INFO         GA | Gen 5/15 | Best: 2583
+[2026-05-16 18:56:40] INFO         GA | Gen 6/15 | Best: 2583
+[2026-05-16 18:56:41] INFO         GA | Gen 7/15 | Best: 2547
+[2026-05-16 18:56:42] INFO         GA | Gen 8/15 | Best: 2547
+[2026-05-16 18:56:43] INFO         GA | Gen 9/15 | Best: 2547
+[2026-05-16 18:56:44] INFO         GA | Gen 10/15 | Best: 2546
+[2026-05-16 18:56:45] INFO         GA | Gen 11/15 | Best: 2546
+[2026-05-16 18:56:46] INFO         GA | Gen 12/15 | Best: 2546
+[2026-05-16 18:56:46] INFO         GA | Gen 13/15 | Best: 2520
+[2026-05-16 18:56:47] INFO         GA | Gen 14/15 | Best: 2520
+[2026-05-16 18:56:48] INFO         GA | Gen 15/15 | Best: 2520
+[2026-05-16 18:56:48] INFO         EA      | best=2520 (gap +25.75%) in 13.4s
+[2026-05-16 18:56:48] INFO       ── ta47  (BKS=1889) ──
+[2026-05-16 18:56:49] INFO         MLP-CQL | avg=2712 (gap +43.57%) | best=2712 (gap +43.57%)
+[2026-05-16 18:56:50] INFO         GA | Gen 1/15 | Best: 2498
+[2026-05-16 18:56:51] INFO         GA | Gen 2/15 | Best: 2496
+[2026-05-16 18:56:52] INFO         GA | Gen 3/15 | Best: 2450
+[2026-05-16 18:56:53] INFO         GA | Gen 4/15 | Best: 2450
+[2026-05-16 18:56:54] INFO         GA | Gen 5/15 | Best: 2438
+[2026-05-16 18:56:55] INFO         GA | Gen 6/15 | Best: 2438
+[2026-05-16 18:56:55] INFO         GA | Gen 7/15 | Best: 2438
+[2026-05-16 18:56:56] INFO         GA | Gen 8/15 | Best: 2438
+[2026-05-16 18:56:56] INFO         GA | Early stopping at gen 8.
+[2026-05-16 18:56:56] INFO         EA      | best=2438 (gap +29.06%) in 7.4s
+[2026-05-16 18:56:56] INFO       ── ta48  (BKS=1937) ──
+[2026-05-16 18:56:57] INFO         MLP-CQL | avg=2825 (gap +45.84%) | best=2825 (gap +45.84%)
+[2026-05-16 18:56:58] INFO         GA | Gen 1/15 | Best: 2453
+[2026-05-16 18:56:59] INFO         GA | Gen 2/15 | Best: 2453
+[2026-05-16 18:57:00] INFO         GA | Gen 3/15 | Best: 2453
+[2026-05-16 18:57:01] INFO         GA | Gen 4/15 | Best: 2453
+[2026-05-16 18:57:01] INFO         GA | Early stopping at gen 4.
+[2026-05-16 18:57:01] INFO         EA      | best=2453 (gap +26.64%) in 3.9s
+[2026-05-16 18:57:01] INFO       ── ta49  (BKS=1960) ──
+[2026-05-16 18:57:01] INFO         MLP-CQL | avg=2694 (gap +37.45%) | best=2694 (gap +37.45%)
+[2026-05-16 18:57:03] INFO         GA | Gen 1/15 | Best: 2568
+[2026-05-16 18:57:04] INFO         GA | Gen 2/15 | Best: 2568
+[2026-05-16 18:57:05] INFO         GA | Gen 3/15 | Best: 2554
+[2026-05-16 18:57:05] INFO         GA | Gen 4/15 | Best: 2554
+[2026-05-16 18:57:06] INFO         GA | Gen 5/15 | Best: 2554
+[2026-05-16 18:57:07] INFO         GA | Gen 6/15 | Best: 2541
+[2026-05-16 18:57:08] INFO         GA | Gen 7/15 | Best: 2537
+[2026-05-16 18:57:09] INFO         GA | Gen 8/15 | Best: 2537
+[2026-05-16 18:57:10] INFO         GA | Gen 9/15 | Best: 2514
+[2026-05-16 18:57:11] INFO         GA | Gen 10/15 | Best: 2514
+[2026-05-16 18:57:11] INFO         GA | Gen 11/15 | Best: 2514
+[2026-05-16 18:57:12] INFO         GA | Gen 12/15 | Best: 2514
+[2026-05-16 18:57:12] INFO         GA | Early stopping at gen 12.
+[2026-05-16 18:57:12] INFO         EA      | best=2514 (gap +28.27%) in 10.7s
+[2026-05-16 18:57:12] INFO     
+[2026-05-16 18:57:12] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-05-16 18:57:12] INFO       out_of_sample Summary
+[2026-05-16 18:57:12] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-05-16 18:57:12] INFO       Instance         BKS   MLP-CQL    gap%      Best    gap%   EA best    gap%
+[2026-05-16 18:57:12] INFO       ──────────────────────────────────────────────────────────────────────────
+[2026-05-16 18:57:12] INFO       ta41            2005      2651  +32.22%      2651  +32.22%      2581  +28.73%
+[2026-05-16 18:57:12] INFO       ta42            1937      2809  +45.02%      2809  +45.02%      2508  +29.48%
+[2026-05-16 18:57:12] INFO       ta43            1846      2873  +55.63%      2873  +55.63%      2385  +29.20%
+[2026-05-16 18:57:12] INFO       ta44            1979      2772  +40.07%      2772  +40.07%      2538  +28.25%
+[2026-05-16 18:57:12] INFO       ta45            1997      2978  +49.12%      2978  +49.12%      2507  +25.54%
+[2026-05-16 18:57:12] INFO       ta46            2004      3016  +50.50%      3016  +50.50%      2520  +25.75%
+[2026-05-16 18:57:12] INFO       ta47            1889      2712  +43.57%      2712  +43.57%      2438  +29.06%
+[2026-05-16 18:57:12] INFO       ta48            1937      2825  +45.84%      2825  +45.84%      2453  +26.64%
+[2026-05-16 18:57:12] INFO       ta49            1960      2694  +37.45%      2694  +37.45%      2514  +28.27%
+[2026-05-16 18:57:12] INFO       ──────────────────────────────────────────────────────────────────────────
+[2026-05-16 18:57:12] INFO       MEAN                            +44.38%
+[2026-05-16 18:57:12] INFO       MEAN (EA)                                                           +27.88%
+[2026-05-16 18:57:12] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-05-16 18:57:12] INFO       CSV → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_eval_out_of_sample.csv
+[2026-05-16 18:57:12] INFO     
+[2026-05-16 18:57:12] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-05-16 18:57:12] INFO       Statistical Tests
+[2026-05-16 18:57:12] INFO       α=0.05  two-sided
+[2026-05-16 18:57:12] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-05-16 18:57:12] INFO     
+  T1 MLP-CQL vs BKS  (n=9, test=Wilcoxon signed-rank)
+[2026-05-16 18:57:12] INFO          mean gap=+44.38%  p=0.0039  SIGNIFICANT
+[2026-05-16 18:57:12] INFO     
+  T2 MLP-CQL vs EA  (n=9, test=Wilcoxon signed-rank)
+[2026-05-16 18:57:12] INFO          MLP-CQL mean=+44.38%  EA mean=+27.88%  diff=+16.50%  p=0.0039  SIGNIFICANT — CQL WORSE than EA
+[2026-05-16 18:57:12] INFO     
+[2026-05-16 18:57:12] INFO       ── Descriptive Statistics ──
+[2026-05-16 18:57:12] INFO       Metric                                         Mean      Std      Min      Max
+[2026-05-16 18:57:12] INFO       ──────────────────────────────────────────────────────────────────────────────
+[2026-05-16 18:57:12] INFO       MLP-CQL gap% (avg per instance)              +44.38     6.70   +32.22   +55.63
+[2026-05-16 18:57:12] INFO       EA gap% (best per instance)                  +27.88     1.42   +25.54   +29.48
+[2026-05-16 18:57:12] INFO       CQL − EA gap% (neg = CQL better)             +16.50     7.26    +3.49   +26.44
+[2026-05-16 18:57:12] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-05-16 18:57:12] INFO     
+[2026-05-16 18:57:12] INFO     ======================================================================
+[2026-05-16 18:57:12] INFO     Complete.
+[2026-05-16 18:57:12] INFO       CQL weights:    /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 18:57:12] INFO       BC weights:     /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/mlp_bc_pretrain_weights.pt
+[2026-05-16 18:57:12] INFO       Log:            /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1808_obj2/checkpoint/results.txt
+[2026-05-16 18:57:12] INFO     ======================================================================

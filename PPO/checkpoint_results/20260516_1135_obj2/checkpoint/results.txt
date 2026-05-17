@@ -1,0 +1,53 @@
+[2026-05-16 11:35:32] INFO     Using device: cpu
+[2026-05-16 11:35:32] INFO     ======================================================================
+[2026-05-16 11:35:32] INFO     EA Warm-Start → GNN(SAGEConv) + CQL Pipeline
+[2026-05-16 11:35:32] INFO     ======================================================================
+[2026-05-16 11:35:32] INFO     Problem:          30 jobs × 20 machines
+[2026-05-16 11:35:32] INFO     Train instances:  2 synthetic
+[2026-05-16 11:35:32] INFO     Eval instances:   ['ta41', 'ta42', 'ta43', 'ta44', 'ta45', 'ta46', 'ta47', 'ta48', 'ta49']
+[2026-05-16 11:35:32] INFO     EA:               GA  pop=50  gens=5
+[2026-05-16 11:35:32] INFO     GNN (SAGEConv):   3 layers  hidden=128  [no attention — fast on CPU]
+[2026-05-16 11:35:32] INFO     CQL:              α=1.0  γ=0.99  τ=0.005
+[2026-05-16 11:35:32] INFO     Training:         10 epochs  batch=2048  lr=0.0003
+[2026-05-16 11:35:32] INFO     Demo eps/inst:    25  ε=0.05
+[2026-05-16 11:35:32] INFO     Buffer cap:       200,000
+[2026-05-16 11:35:32] INFO     Device:           cpu
+[2026-05-16 11:35:32] INFO     Output:           /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1135_obj2/checkpoint
+[2026-05-16 11:35:32] INFO     ======================================================================
+[2026-05-16 11:35:32] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-16 11:35:32] INFO       Generated 2 synthetic instance(s) (30×20) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1135_obj2/checkpoint/synthetic_instances
+[2026-05-16 11:35:32] INFO     
+═══ Stage 2: Collecting Offline EA Data ═══
+[2026-05-16 11:35:32] INFO       ── synth_1/2  (synth_30x20_seed0.txt) ──
+[2026-05-16 11:35:34] INFO         GA | Gen 1/5 | Best: 2571
+[2026-05-16 11:35:35] INFO         GA | Gen 2/5 | Best: 2559
+[2026-05-16 11:35:35] INFO         GA | Gen 3/5 | Best: 2559
+[2026-05-16 11:35:36] INFO         GA | Gen 4/5 | Best: 2535
+[2026-05-16 11:35:37] INFO         GA | Gen 5/5 | Best: 2535
+[2026-05-16 11:35:37] INFO         EA finished in 4.9s | best makespan=2535
+[2026-05-16 11:35:37] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 11:37:18] INFO         synth_1/2  (synth_30x20_seed0.txt): 15,000 transitions  (buffer RAM ≈ 922 MB)
+[2026-05-16 11:37:18] INFO       ── synth_2/2  (synth_30x20_seed1.txt) ──
+[2026-05-16 11:37:20] INFO         GA | Gen 1/5 | Best: 2601
+[2026-05-16 11:37:20] INFO         GA | Gen 2/5 | Best: 2595
+[2026-05-16 11:37:21] INFO         GA | Gen 3/5 | Best: 2594
+[2026-05-16 11:37:22] INFO         GA | Gen 4/5 | Best: 2594
+[2026-05-16 11:37:23] INFO         GA | Gen 5/5 | Best: 2587
+[2026-05-16 11:37:23] INFO         EA finished in 4.9s | best makespan=2587
+[2026-05-16 11:37:23] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 11:39:04] INFO         synth_2/2  (synth_30x20_seed1.txt): 15,000 transitions  (buffer RAM ≈ 1845 MB)
+[2026-05-16 11:39:04] INFO       Pooled 30,000 transitions  (buffer RAM ≈ 1845 MB)
+[2026-05-16 11:39:04] INFO     
+═══ Stage 3: Conservative Q-Learning (CQL) + SAGEConv GNN ═══
+[2026-05-16 11:39:04] INFO       Dataset size: 30,000 transitions  (RAM ≈ 1845 MB)
+[2026-05-16 11:39:04] INFO       GNN (SAGEConv): 3 layers, 128 hidden  [no attention heads]
+[2026-05-16 11:39:04] INFO       CQL: α=1.0, γ=0.99, τ=0.005
+[2026-05-16 11:39:04] INFO       Training: 10 epochs, batch=2048, lr=0.0003
+[2026-05-16 11:39:04] INFO       Q-network parameters: 177,410
+[2026-05-16 11:47:31] INFO     [Epoch   1 | Batch   10/15] Loss=1.2959 (TD=0.6344, CQL=0.6615) | GradNorm=0.2916 | Q(μ=0.050, σ=0.599, min=-3.245, max=0.180) | LR=3.00e-04 | 0.02 batch/s | ETA 254s | [data=7.9s fwd=214.4s bwd=285.1s]
+[2026-05-16 11:51:04] INFO     [Epoch   1 | Batch   15/15] Loss=0.6957 (TD=0.3800, CQL=0.3157) | GradNorm=0.2353 | Q(μ=0.082, σ=0.773, min=-4.165, max=0.254) | LR=3.00e-04 | 0.02 batch/s | ETA 0s | [data=11.5s fwd=293.1s bwd=415.4s]
+[2026-05-16 11:51:04] INFO     [Epoch   1 DONE] AvgLoss=1.3277 (TD=0.6763, CQL=0.6515) | Epoch time=720.0s (data=11.5s, fwd=293.1s, bwd=415.4s) | 15 batches
+[2026-05-16 11:51:04] INFO         Epoch   1/10 | Loss: 1.3277 (TD: 0.6763, CQL: 0.6515) | 720.0s
+[2026-05-16 11:51:04] INFO       CQL model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1135_obj2/checkpoint/cql_gnn_weights.pt
+[2026-05-16 11:58:34] INFO     [Epoch   2 | Batch   10/15] Loss=1.2919 (TD=0.6759, CQL=0.6160) | GradNorm=0.0598 | Q(μ=0.055, σ=0.989, min=-5.380, max=0.271) | LR=3.00e-04 | 0.02 batch/s | ETA 225s | [data=6.9s fwd=168.1s bwd=275.7s]

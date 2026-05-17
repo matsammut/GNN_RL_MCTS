@@ -1,0 +1,56 @@
+[2026-05-06 21:10:54] INFO     Using device: cpu
+[2026-05-06 21:10:54] INFO     ======================================================================
+[2026-05-06 21:10:54] INFO     EA Warm-Start → GNN + CQL (Conservative Q-Learning) Pipeline
+[2026-05-06 21:10:54] INFO     ======================================================================
+[2026-05-06 21:10:54] INFO     Problem dimensionality:  50 jobs × 15 machines
+[2026-05-06 21:10:54] INFO     Synthetic train count:   2
+[2026-05-06 21:10:54] INFO     Eval instances (real):   ['ta56', 'ta57', 'ta58']
+[2026-05-06 21:10:54] INFO     EA algorithm:            GA
+[2026-05-06 21:10:54] INFO     EA pop / gens:           50 / 10
+[2026-05-06 21:10:54] INFO     GNN:                     3 layers, 128 hidden, 4 heads
+[2026-05-06 21:10:54] INFO     CQL:                     α=1.0, γ=0.99, τ=0.005
+[2026-05-06 21:10:54] INFO     CQL epochs / batch:      100 / 256
+[2026-05-06 21:10:54] INFO     CQL demo eps/instance:   25
+[2026-05-06 21:10:54] INFO     CQL epsilon:             0.05
+[2026-05-06 21:10:54] INFO     Buffer cap:              200,000 transitions
+[2026-05-06 21:10:54] INFO     Eval episodes:           1
+[2026-05-06 21:10:54] INFO     Device:                  cpu
+[2026-05-06 21:10:54] INFO     Output dir:              /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260506_obj2_5
+[2026-05-06 21:10:54] INFO     ======================================================================
+[2026-05-06 21:10:54] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-06 21:10:54] INFO       Generated 2 synthetic instance(s) (50×15) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260506_obj2_5/synthetic_instances
+[2026-05-06 21:10:54] INFO     
+═══ Stage 2: Collecting Offline EA Data (graph-structured) ═══
+[2026-05-06 21:10:54] INFO       ── synth_1/2  (synth_50x15_seed0.txt) ──
+[2026-05-06 21:10:57] INFO         GA | Gen 1/10 | Best: 3266
+[2026-05-06 21:10:58] INFO         GA | Gen 2/10 | Best: 3225
+[2026-05-06 21:11:00] INFO         GA | Gen 3/10 | Best: 3225
+[2026-05-06 21:11:01] INFO         GA | Gen 4/10 | Best: 3225
+[2026-05-06 21:11:03] INFO         GA | Gen 5/10 | Best: 3225
+[2026-05-06 21:11:03] INFO         GA | Early stopping at gen 5.
+[2026-05-06 21:11:03] INFO         EA finished in 8.8s | best makespan=3225
+[2026-05-06 21:11:03] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-06 21:13:26] INFO         synth_1/2  (synth_50x15_seed0.txt): 18,750 transitions collected  (buffer RAM ≈ 1149 MB)
+[2026-05-06 21:13:26] INFO       ── synth_2/2  (synth_50x15_seed1.txt) ──
+[2026-05-06 21:13:28] INFO         GA | Gen 1/10 | Best: 3088
+[2026-05-06 21:13:30] INFO         GA | Gen 2/10 | Best: 3088
+[2026-05-06 21:13:31] INFO         GA | Gen 3/10 | Best: 3062
+[2026-05-06 21:13:33] INFO         GA | Gen 4/10 | Best: 3050
+[2026-05-06 21:13:34] INFO         GA | Gen 5/10 | Best: 3029
+[2026-05-06 21:13:36] INFO         GA | Gen 6/10 | Best: 3029
+[2026-05-06 21:13:38] INFO         GA | Gen 7/10 | Best: 3005
+[2026-05-06 21:13:39] INFO         GA | Gen 8/10 | Best: 3005
+[2026-05-06 21:13:41] INFO         GA | Gen 9/10 | Best: 3005
+[2026-05-06 21:13:42] INFO         GA | Gen 10/10 | Best: 2986
+[2026-05-06 21:13:42] INFO         EA finished in 16.4s | best makespan=2986
+[2026-05-06 21:13:42] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-06 21:16:05] INFO         synth_2/2  (synth_50x15_seed1.txt): 18,750 transitions collected  (buffer RAM ≈ 2298 MB)
+[2026-05-06 21:16:05] INFO       Pooled 37,500 transitions  (total buffer RAM ≈ 2298 MB)
+[2026-05-06 21:16:05] INFO     
+═══ Stage 3: Conservative Q-Learning (CQL) with GNN ═══
+[2026-05-06 21:16:05] INFO       Dataset size: 37,500 transitions  (RAM ≈ 2298 MB)
+[2026-05-06 21:16:05] INFO       GNN: 3 layers, 128 hidden, 4 heads
+[2026-05-06 21:16:05] INFO       CQL: α=1.0, γ=0.99, τ=0.005
+[2026-05-06 21:16:05] INFO       Training: 100 epochs, batch=256, lr=0.0003
+[2026-05-06 21:16:05] INFO       Q-network parameters: 177,922

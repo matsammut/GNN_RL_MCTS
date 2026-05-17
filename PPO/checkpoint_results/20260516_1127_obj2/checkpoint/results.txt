@@ -1,0 +1,69 @@
+[2026-05-16 11:27:20] INFO     Using device: cpu
+[2026-05-16 11:27:20] INFO     ======================================================================
+[2026-05-16 11:27:20] INFO     EA Warm-Start → GNN(SAGEConv) + CQL Pipeline
+[2026-05-16 11:27:20] INFO     ======================================================================
+[2026-05-16 11:27:20] INFO     Problem:          30 jobs × 20 machines
+[2026-05-16 11:27:20] INFO     Train instances:  10 synthetic
+[2026-05-16 11:27:20] INFO     Eval instances:   ['ta41', 'ta42', 'ta43', 'ta44', 'ta45', 'ta46', 'ta47', 'ta48', 'ta49']
+[2026-05-16 11:27:20] INFO     EA:               GA  pop=50  gens=10
+[2026-05-16 11:27:20] INFO     GNN (SAGEConv):   3 layers  hidden=128  [no attention — fast on CPU]
+[2026-05-16 11:27:20] INFO     CQL:              α=1.0  γ=0.99  τ=0.005
+[2026-05-16 11:27:20] INFO     Training:         30 epochs  batch=2048  lr=0.0003
+[2026-05-16 11:27:20] INFO     Demo eps/inst:    25  ε=0.05
+[2026-05-16 11:27:20] INFO     Buffer cap:       200,000
+[2026-05-16 11:27:20] INFO     Device:           cpu
+[2026-05-16 11:27:20] INFO     Output:           /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1127_obj2/checkpoint
+[2026-05-16 11:27:20] INFO     ======================================================================
+[2026-05-16 11:27:20] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-16 11:27:20] INFO       Generated 10 synthetic instance(s) (30×20) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1127_obj2/checkpoint/synthetic_instances
+[2026-05-16 11:27:20] INFO     
+═══ Stage 2: Collecting Offline EA Data ═══
+[2026-05-16 11:27:20] INFO       ── synth_1/10  (synth_30x20_seed0.txt) ──
+[2026-05-16 11:27:21] INFO         GA | Gen 1/10 | Best: 2571
+[2026-05-16 11:27:22] INFO         GA | Gen 2/10 | Best: 2559
+[2026-05-16 11:27:23] INFO         GA | Gen 3/10 | Best: 2559
+[2026-05-16 11:27:24] INFO         GA | Gen 4/10 | Best: 2535
+[2026-05-16 11:27:25] INFO         GA | Gen 5/10 | Best: 2535
+[2026-05-16 11:27:26] INFO         GA | Gen 6/10 | Best: 2535
+[2026-05-16 11:27:26] INFO         GA | Gen 7/10 | Best: 2535
+[2026-05-16 11:27:26] INFO         GA | Early stopping at gen 7.
+[2026-05-16 11:27:26] INFO         EA finished in 6.6s | best makespan=2535
+[2026-05-16 11:27:26] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 11:29:00] INFO         synth_1/10  (synth_30x20_seed0.txt): 15,000 transitions  (buffer RAM ≈ 922 MB)
+[2026-05-16 11:29:00] INFO       ── synth_2/10  (synth_30x20_seed1.txt) ──
+[2026-05-16 11:29:01] INFO         GA | Gen 1/10 | Best: 2601
+[2026-05-16 11:29:02] INFO         GA | Gen 2/10 | Best: 2595
+[2026-05-16 11:29:03] INFO         GA | Gen 3/10 | Best: 2594
+[2026-05-16 11:29:04] INFO         GA | Gen 4/10 | Best: 2594
+[2026-05-16 11:29:05] INFO         GA | Gen 5/10 | Best: 2587
+[2026-05-16 11:29:05] INFO         GA | Gen 6/10 | Best: 2548
+[2026-05-16 11:29:06] INFO         GA | Gen 7/10 | Best: 2548
+[2026-05-16 11:29:07] INFO         GA | Gen 8/10 | Best: 2548
+[2026-05-16 11:29:08] INFO         GA | Gen 9/10 | Best: 2548
+[2026-05-16 11:29:08] INFO         GA | Early stopping at gen 9.
+[2026-05-16 11:29:08] INFO         EA finished in 8.4s | best makespan=2548
+[2026-05-16 11:29:08] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 11:30:41] INFO         synth_2/10  (synth_30x20_seed1.txt): 15,000 transitions  (buffer RAM ≈ 1845 MB)
+[2026-05-16 11:30:41] INFO       ── synth_3/10  (synth_30x20_seed2.txt) ──
+[2026-05-16 11:30:43] INFO         GA | Gen 1/10 | Best: 2493
+[2026-05-16 11:30:43] INFO         GA | Gen 2/10 | Best: 2493
+[2026-05-16 11:30:44] INFO         GA | Gen 3/10 | Best: 2493
+[2026-05-16 11:30:44] INFO         GA | Early stopping at gen 3.
+[2026-05-16 11:30:44] INFO         EA finished in 3.1s | best makespan=2493
+[2026-05-16 11:30:44] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 11:32:17] INFO         synth_3/10  (synth_30x20_seed2.txt): 15,000 transitions  (buffer RAM ≈ 2767 MB)
+[2026-05-16 11:32:17] INFO       ── synth_4/10  (synth_30x20_seed3.txt) ──
+[2026-05-16 11:32:19] INFO         GA | Gen 1/10 | Best: 2452
+[2026-05-16 11:32:20] INFO         GA | Gen 2/10 | Best: 2452
+[2026-05-16 11:32:20] INFO         GA | Gen 3/10 | Best: 2449
+[2026-05-16 11:32:21] INFO         GA | Gen 4/10 | Best: 2418
+[2026-05-16 11:32:22] INFO         GA | Gen 5/10 | Best: 2418
+[2026-05-16 11:32:23] INFO         GA | Gen 6/10 | Best: 2418
+[2026-05-16 11:32:24] INFO         GA | Gen 7/10 | Best: 2394
+[2026-05-16 11:32:25] INFO         GA | Gen 8/10 | Best: 2394
+[2026-05-16 11:32:26] INFO         GA | Gen 9/10 | Best: 2394
+[2026-05-16 11:32:26] INFO         GA | Gen 10/10 | Best: 2394
+[2026-05-16 11:32:26] INFO         GA | Early stopping at gen 10.
+[2026-05-16 11:32:26] INFO         EA finished in 9.0s | best makespan=2394
+[2026-05-16 11:32:26] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)

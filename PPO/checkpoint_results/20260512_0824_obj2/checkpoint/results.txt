@@ -1,0 +1,179 @@
+[2026-05-12 08:24:26] INFO     Using device: cpu
+[2026-05-12 08:24:26] INFO     ======================================================================
+[2026-05-12 08:24:26] INFO     EA Warm-Start → GNN + CQL (Conservative Q-Learning) Pipeline
+[2026-05-12 08:24:26] INFO     ======================================================================
+[2026-05-12 08:24:26] INFO     Problem dimensionality:  30 jobs × 20 machines
+[2026-05-12 08:24:26] INFO     Synthetic train count:   10
+[2026-05-12 08:24:26] INFO     Eval instances (real):   ['ta41', 'ta42', 'ta43', 'ta44', 'ta45', 'ta46', 'ta47', 'ta48', 'ta49']
+[2026-05-12 08:24:26] INFO     EA algorithm:            GA
+[2026-05-12 08:24:26] INFO     EA pop / gens:           50 / 10
+[2026-05-12 08:24:26] INFO     GNN:                     3 layers, 128 hidden, 4 heads
+[2026-05-12 08:24:26] INFO     CQL:                     α=1.0, γ=0.99, τ=0.005
+[2026-05-12 08:24:26] INFO     CQL epochs / batch:      30 / 2048
+[2026-05-12 08:24:26] INFO     CQL demo eps/instance:   25
+[2026-05-12 08:24:26] INFO     CQL epsilon:             0.05
+[2026-05-12 08:24:26] INFO     Buffer cap:              200,000 transitions
+[2026-05-12 08:24:26] INFO     Eval episodes:           1
+[2026-05-12 08:24:26] INFO     Device:                  cpu
+[2026-05-12 08:24:26] INFO     Output dir:              /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260512_0824_obj2/checkpoint
+[2026-05-12 08:24:26] INFO     ======================================================================
+[2026-05-12 08:24:26] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-12 08:24:26] INFO       Generated 10 synthetic instance(s) (30×20) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260512_0824_obj2/checkpoint/synthetic_instances
+[2026-05-12 08:24:26] INFO     
+═══ Stage 2: Collecting Offline EA Data (graph-structured) ═══
+[2026-05-12 08:24:26] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:24:26] INFO       ── synth_1/10  (synth_30x20_seed0.txt) ──
+[2026-05-12 08:24:27] INFO         GA | Gen 1/10 | Best: 2571
+[2026-05-12 08:24:28] INFO         GA | Gen 2/10 | Best: 2559
+[2026-05-12 08:24:29] INFO         GA | Gen 3/10 | Best: 2559
+[2026-05-12 08:24:30] INFO         GA | Gen 4/10 | Best: 2535
+[2026-05-12 08:24:31] INFO         GA | Gen 5/10 | Best: 2535
+[2026-05-12 08:24:32] INFO         GA | Gen 6/10 | Best: 2535
+[2026-05-12 08:24:33] INFO         GA | Gen 7/10 | Best: 2535
+[2026-05-12 08:24:33] INFO         GA | Early stopping at gen 7.
+[2026-05-12 08:24:33] INFO         EA finished in 6.6s | best makespan=2535
+[2026-05-12 08:24:33] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-12 08:24:33] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:26:07] INFO         synth_1/10  (synth_30x20_seed0.txt): 15,000 transitions collected  (buffer RAM ≈ 922 MB)
+[2026-05-12 08:26:07] INFO       ── synth_2/10  (synth_30x20_seed1.txt) ──
+[2026-05-12 08:26:09] INFO         GA | Gen 1/10 | Best: 2601
+[2026-05-12 08:26:10] INFO         GA | Gen 2/10 | Best: 2595
+[2026-05-12 08:26:11] INFO         GA | Gen 3/10 | Best: 2594
+[2026-05-12 08:26:12] INFO         GA | Gen 4/10 | Best: 2594
+[2026-05-12 08:26:12] INFO         GA | Gen 5/10 | Best: 2587
+[2026-05-12 08:26:13] INFO         GA | Gen 6/10 | Best: 2548
+[2026-05-12 08:26:14] INFO         GA | Gen 7/10 | Best: 2548
+[2026-05-12 08:26:15] INFO         GA | Gen 8/10 | Best: 2548
+[2026-05-12 08:26:16] INFO         GA | Gen 9/10 | Best: 2548
+[2026-05-12 08:26:16] INFO         GA | Early stopping at gen 9.
+[2026-05-12 08:26:16] INFO         EA finished in 8.4s | best makespan=2548
+[2026-05-12 08:26:16] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-12 08:26:16] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:27:50] INFO         synth_2/10  (synth_30x20_seed1.txt): 15,000 transitions collected  (buffer RAM ≈ 1845 MB)
+[2026-05-12 08:27:50] INFO       ── synth_3/10  (synth_30x20_seed2.txt) ──
+[2026-05-12 08:27:52] INFO         GA | Gen 1/10 | Best: 2493
+[2026-05-12 08:27:53] INFO         GA | Gen 2/10 | Best: 2493
+[2026-05-12 08:27:53] INFO         GA | Gen 3/10 | Best: 2493
+[2026-05-12 08:27:53] INFO         GA | Early stopping at gen 3.
+[2026-05-12 08:27:53] INFO         EA finished in 3.1s | best makespan=2493
+[2026-05-12 08:27:53] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-12 08:27:53] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:29:28] INFO         synth_3/10  (synth_30x20_seed2.txt): 15,000 transitions collected  (buffer RAM ≈ 2767 MB)
+[2026-05-12 08:29:28] INFO       ── synth_4/10  (synth_30x20_seed3.txt) ──
+[2026-05-12 08:29:29] INFO         GA | Gen 1/10 | Best: 2452
+[2026-05-12 08:29:30] INFO         GA | Gen 2/10 | Best: 2452
+[2026-05-12 08:29:31] INFO         GA | Gen 3/10 | Best: 2449
+[2026-05-12 08:29:32] INFO         GA | Gen 4/10 | Best: 2418
+[2026-05-12 08:29:33] INFO         GA | Gen 5/10 | Best: 2418
+[2026-05-12 08:29:33] INFO         GA | Gen 6/10 | Best: 2418
+[2026-05-12 08:29:34] INFO         GA | Gen 7/10 | Best: 2394
+[2026-05-12 08:29:35] INFO         GA | Gen 8/10 | Best: 2394
+[2026-05-12 08:29:36] INFO         GA | Gen 9/10 | Best: 2394
+[2026-05-12 08:29:37] INFO         GA | Gen 10/10 | Best: 2394
+[2026-05-12 08:29:37] INFO         GA | Early stopping at gen 10.
+[2026-05-12 08:29:37] INFO         EA finished in 9.0s | best makespan=2394
+[2026-05-12 08:29:37] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-12 08:29:37] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:31:12] INFO         synth_4/10  (synth_30x20_seed3.txt): 15,000 transitions collected  (buffer RAM ≈ 3690 MB)
+[2026-05-12 08:31:12] INFO       ── synth_5/10  (synth_30x20_seed4.txt) ──
+[2026-05-12 08:31:13] INFO         GA | Gen 1/10 | Best: 2511
+[2026-05-12 08:31:14] INFO         GA | Gen 2/10 | Best: 2455
+[2026-05-12 08:31:15] INFO         GA | Gen 3/10 | Best: 2455
+[2026-05-12 08:31:16] INFO         GA | Gen 4/10 | Best: 2455
+[2026-05-12 08:31:16] INFO         GA | Gen 5/10 | Best: 2455
+[2026-05-12 08:31:16] INFO         GA | Early stopping at gen 5.
+[2026-05-12 08:31:16] INFO         EA finished in 4.8s | best makespan=2455
+[2026-05-12 08:31:16] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-12 08:31:16] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:32:51] INFO         synth_5/10  (synth_30x20_seed4.txt): 15,000 transitions collected  (buffer RAM ≈ 4612 MB)
+[2026-05-12 08:32:51] INFO       ── synth_6/10  (synth_30x20_seed5.txt) ──
+[2026-05-12 08:32:52] INFO         GA | Gen 1/10 | Best: 2466
+[2026-05-12 08:32:53] INFO         GA | Gen 2/10 | Best: 2456
+[2026-05-12 08:32:54] INFO         GA | Gen 3/10 | Best: 2421
+[2026-05-12 08:32:55] INFO         GA | Gen 4/10 | Best: 2421
+[2026-05-12 08:32:56] INFO         GA | Gen 5/10 | Best: 2421
+[2026-05-12 08:32:56] INFO         GA | Gen 6/10 | Best: 2421
+[2026-05-12 08:32:56] INFO         GA | Early stopping at gen 6.
+[2026-05-12 08:32:56] INFO         EA finished in 5.6s | best makespan=2421
+[2026-05-12 08:32:56] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-12 08:32:56] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:34:31] INFO         synth_6/10  (synth_30x20_seed5.txt): 15,000 transitions collected  (buffer RAM ≈ 5534 MB)
+[2026-05-12 08:34:31] INFO       ── synth_7/10  (synth_30x20_seed6.txt) ──
+[2026-05-12 08:34:32] INFO         GA | Gen 1/10 | Best: 2407
+[2026-05-12 08:34:33] INFO         GA | Gen 2/10 | Best: 2407
+[2026-05-12 08:34:34] INFO         GA | Gen 3/10 | Best: 2407
+[2026-05-12 08:34:34] INFO         GA | Early stopping at gen 3.
+[2026-05-12 08:34:34] INFO         EA finished in 3.1s | best makespan=2407
+[2026-05-12 08:34:34] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-12 08:34:34] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:36:09] INFO         synth_7/10  (synth_30x20_seed6.txt): 15,000 transitions collected  (buffer RAM ≈ 6457 MB)
+[2026-05-12 08:36:09] INFO       ── synth_8/10  (synth_30x20_seed7.txt) ──
+[2026-05-12 08:36:10] INFO         GA | Gen 1/10 | Best: 2509
+[2026-05-12 08:36:11] INFO         GA | Gen 2/10 | Best: 2499
+[2026-05-12 08:36:12] INFO         GA | Gen 3/10 | Best: 2426
+[2026-05-12 08:36:13] INFO         GA | Gen 4/10 | Best: 2426
+[2026-05-12 08:36:13] INFO         GA | Gen 5/10 | Best: 2426
+[2026-05-12 08:36:14] INFO         GA | Gen 6/10 | Best: 2426
+[2026-05-12 08:36:14] INFO         GA | Early stopping at gen 6.
+[2026-05-12 08:36:14] INFO         EA finished in 5.7s | best makespan=2426
+[2026-05-12 08:36:14] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-12 08:36:14] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:37:49] INFO         synth_8/10  (synth_30x20_seed7.txt): 15,000 transitions collected  (buffer RAM ≈ 7379 MB)
+[2026-05-12 08:37:49] INFO       ── synth_9/10  (synth_30x20_seed8.txt) ──
+[2026-05-12 08:37:50] INFO         GA | Gen 1/10 | Best: 2478
+[2026-05-12 08:37:51] INFO         GA | Gen 2/10 | Best: 2478
+[2026-05-12 08:37:52] INFO         GA | Gen 3/10 | Best: 2478
+[2026-05-12 08:37:53] INFO         GA | Gen 4/10 | Best: 2459
+[2026-05-12 08:37:54] INFO         GA | Gen 5/10 | Best: 2459
+[2026-05-12 08:37:55] INFO         GA | Gen 6/10 | Best: 2459
+[2026-05-12 08:37:55] INFO         GA | Gen 7/10 | Best: 2458
+[2026-05-12 08:37:56] INFO         GA | Gen 8/10 | Best: 2458
+[2026-05-12 08:37:57] INFO         GA | Gen 9/10 | Best: 2451
+[2026-05-12 08:37:58] INFO         GA | Gen 10/10 | Best: 2451
+[2026-05-12 08:37:58] INFO         EA finished in 9.1s | best makespan=2451
+[2026-05-12 08:37:58] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-12 08:37:58] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:39:32] INFO         synth_9/10  (synth_30x20_seed8.txt): 15,000 transitions collected  (buffer RAM ≈ 8302 MB)
+[2026-05-12 08:39:32] INFO       ── synth_10/10  (synth_30x20_seed9.txt) ──
+[2026-05-12 08:39:34] INFO         GA | Gen 1/10 | Best: 2495
+[2026-05-12 08:39:35] INFO         GA | Gen 2/10 | Best: 2479
+[2026-05-12 08:39:36] INFO         GA | Gen 3/10 | Best: 2466
+[2026-05-12 08:39:36] INFO         GA | Gen 4/10 | Best: 2447
+[2026-05-12 08:39:37] INFO         GA | Gen 5/10 | Best: 2447
+[2026-05-12 08:39:38] INFO         GA | Gen 6/10 | Best: 2447
+[2026-05-12 08:39:39] INFO         GA | Gen 7/10 | Best: 2444
+[2026-05-12 08:39:40] INFO         GA | Gen 8/10 | Best: 2444
+[2026-05-12 08:39:41] INFO         GA | Gen 9/10 | Best: 2427
+[2026-05-12 08:39:41] INFO         GA | Gen 10/10 | Best: 2427
+[2026-05-12 08:39:41] INFO         EA finished in 9.0s | best makespan=2427
+[2026-05-12 08:39:41] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-12 08:39:41] INFO       Graph edges: conj=570, disj=0 (disabled), assign=600
+[2026-05-12 08:41:16] INFO         synth_10/10  (synth_30x20_seed9.txt): 15,000 transitions collected  (buffer RAM ≈ 9224 MB)
+[2026-05-12 08:41:16] INFO       Pooled 150,000 transitions  (total buffer RAM ≈ 9224 MB)
+[2026-05-12 08:41:16] INFO     
+═══ Stage 3: Conservative Q-Learning (CQL) with GNN ═══
+[2026-05-12 08:41:16] INFO       Dataset size: 150,000 transitions  (RAM ≈ 9224 MB)
+[2026-05-12 08:41:16] INFO       GNN: 3 layers, 128 hidden, 4 heads
+[2026-05-12 08:41:16] INFO       CQL: α=1.0, γ=0.99, τ=0.005
+[2026-05-12 08:41:16] INFO       Training: 30 epochs, batch=2048, lr=0.0003
+[2026-05-12 08:41:16] INFO       Q-network parameters: 178,562
+[2026-05-12 09:48:16] INFO     [Epoch   1 | Batch   50/74] Loss=1.2626 (TD=0.6257, CQL=0.6369) | GradNorm=0.4233 | Q(μ=0.089, σ=1.227, min=-6.729, max=0.467) | LR=3.00e-04 | 0.01 batch/s | ETA 1929s | [data=51.5s fwd=1958.0s bwd=2009.8s]
+[2026-05-12 10:19:49] INFO     [Epoch   1 | Batch   74/74] Loss=0.5960 (TD=0.2989, CQL=0.2971) | GradNorm=0.7372 | Q(μ=0.111, σ=1.369, min=-7.485, max=0.520) | LR=3.00e-04 | 0.01 batch/s | ETA 0s | [data=72.2s fwd=2885.2s bwd=2954.7s]
+[2026-05-12 10:19:49] INFO     [Epoch   1 DONE] AvgLoss=1.2558 (TD=0.6247, CQL=0.6311) | Epoch time=5912.2s  (data=72.2s, fwd=2885.2s, bwd=2954.7s) | 74 batches
+[2026-05-12 10:19:49] INFO         Epoch   1/30 | Loss: 1.2558 (TD: 0.6247, CQL: 0.6311) | 5912.2s
+[2026-05-12 10:19:49] INFO       CQL model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260512_0824_obj2/checkpoint/cql_gnn_weights.pt
+[2026-05-12 11:28:31] INFO     [Epoch   2 | Batch   50/74] Loss=1.2607 (TD=0.6416, CQL=0.6191) | GradNorm=0.2597 | Q(μ=0.168, σ=1.554, min=-8.470, max=0.652) | LR=3.00e-04 | 0.01 batch/s | ETA 1979s | [data=79.5s fwd=1984.7s bwd=2058.3s]
+[2026-05-12 12:00:24] INFO     [Epoch   2 | Batch   74/74] Loss=0.5837 (TD=0.2890, CQL=0.2947) | GradNorm=0.2752 | Q(μ=0.146, σ=1.610, min=-8.820, max=0.651) | LR=3.00e-04 | 0.01 batch/s | ETA 0s | [data=109.2s fwd=2909.2s bwd=3017.1s]
+[2026-05-12 12:00:24] INFO     [Epoch   2 DONE] AvgLoss=1.2462 (TD=0.6288, CQL=0.6175) | Epoch time=6035.5s  (data=109.2s, fwd=2909.2s, bwd=3017.1s) | 74 batches
+[2026-05-12 12:00:24] INFO       CQL model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260512_0824_obj2/checkpoint/cql_gnn_weights.pt
+[2026-05-12 13:09:18] INFO     [Epoch   3 | Batch   50/74] Loss=1.2384 (TD=0.6224, CQL=0.6160) | GradNorm=0.8710 | Q(μ=0.209, σ=1.903, min=-10.356, max=0.794) | LR=3.00e-04 | 0.01 batch/s | ETA 1984s | [data=72.1s fwd=1992.2s bwd=2069.4s]
+[2026-05-12 13:40:40] INFO     [Epoch   3 | Batch   74/74] Loss=0.6163 (TD=0.3201, CQL=0.2962) | GradNorm=0.7318 | Q(μ=0.214, σ=2.005, min=-10.899, max=0.819) | LR=3.00e-04 | 0.01 batch/s | ETA 0s | [data=105.5s fwd=2895.1s bwd=3014.7s]
+[2026-05-12 13:40:40] INFO     [Epoch   3 DONE] AvgLoss=1.2532 (TD=0.6369, CQL=0.6163) | Epoch time=6015.4s  (data=105.5s, fwd=2895.1s, bwd=3014.7s) | 74 batches
+[2026-05-12 14:49:39] INFO     [Epoch   4 | Batch   50/74] Loss=1.2598 (TD=0.6450, CQL=0.6148) | GradNorm=0.7110 | Q(μ=0.140, σ=2.133, min=-11.699, max=0.807) | LR=3.00e-04 | 0.01 batch/s | ETA 1987s | [data=64.9s fwd=2002.6s bwd=2071.9s]
+[2026-05-12 15:21:50] INFO     [Epoch   4 | Batch   74/74] Loss=0.5966 (TD=0.3005, CQL=0.2962) | GradNorm=0.5460 | Q(μ=0.191, σ=2.191, min=-11.944, max=0.864) | LR=3.00e-04 | 0.01 batch/s | ETA 0s | [data=99.7s fwd=2940.1s bwd=3030.7s]
+[2026-05-12 15:21:50] INFO     [Epoch   4 DONE] AvgLoss=1.2544 (TD=0.6388, CQL=0.6155) | Epoch time=6070.5s  (data=99.7s, fwd=2940.1s, bwd=3030.7s) | 74 batches
+[2026-05-12 16:31:51] INFO     [Epoch   5 | Batch   50/74] Loss=1.2665 (TD=0.6501, CQL=0.6164) | GradNorm=0.5211 | Q(μ=0.273, σ=2.288, min=-12.429, max=0.976) | LR=3.00e-04 | 0.01 batch/s | ETA 2016s | [data=86.9s fwd=2032.4s bwd=2081.4s]
+[2026-05-12 17:03:47] INFO     [Epoch   5 | Batch   74/74] Loss=0.5878 (TD=0.2933, CQL=0.2945) | GradNorm=0.4897 | Q(μ=0.205, σ=2.290, min=-12.493, max=0.899) | LR=3.00e-04 | 0.01 batch/s | ETA 0s | [data=118.2s fwd=2967.1s bwd=3031.7s]
+[2026-05-12 17:03:47] INFO     [Epoch   5 DONE] AvgLoss=1.2529 (TD=0.6374, CQL=0.6155) | Epoch time=6117.1s  (data=118.2s, fwd=2967.1s, bwd=3031.7s) | 74 batches
+[2026-05-12 17:03:47] INFO         Epoch   5/30 | Loss: 1.2529 (TD: 0.6374, CQL: 0.6155) | 6117.1s

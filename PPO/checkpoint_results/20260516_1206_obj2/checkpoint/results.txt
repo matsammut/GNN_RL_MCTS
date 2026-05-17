@@ -1,0 +1,180 @@
+[2026-05-16 12:06:17] INFO     Using device: cpu
+[2026-05-16 12:06:17] INFO     ======================================================================
+[2026-05-16 12:06:17] INFO     EA Warm-Start → MLP + CQL (Conservative Q-Learning)
+[2026-05-16 12:06:17] INFO     ======================================================================
+[2026-05-16 12:06:17] INFO     Problem:        30 jobs × 20 machines
+[2026-05-16 12:06:17] INFO     Train instances:2 synthetic
+[2026-05-16 12:06:17] INFO     Eval instances: ['ta41', 'ta42', 'ta43', 'ta44', 'ta45', 'ta46', 'ta47', 'ta48', 'ta49']
+[2026-05-16 12:06:17] INFO     EA:             GA  pop=50  gens=5
+[2026-05-16 12:06:17] INFO     MLP:            [512, 512, 256]  dropout=0.1
+[2026-05-16 12:06:17] INFO     CQL α schedule: 0.1 → 1.0 over 10 epochs
+[2026-05-16 12:06:17] INFO     Training:       10 epochs  batch=2048  lr=0.0003
+[2026-05-16 12:06:17] INFO     Device:         cpu
+[2026-05-16 12:06:17] INFO     Output:         /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1206_obj2/checkpoint
+[2026-05-16 12:06:17] INFO     ======================================================================
+[2026-05-16 12:06:17] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-16 12:06:17] INFO       Generated 2 synthetic instance(s) (30×20) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1206_obj2/checkpoint/synthetic_instances
+[2026-05-16 12:06:17] INFO     
+═══ Stage 2: Collecting Offline EA Demonstrations ═══
+[2026-05-16 12:06:17] INFO       obs_dim=300  n_actions=31
+[2026-05-16 12:06:17] INFO       ── synth_1/2  (synth_30x20_seed0.txt) ──
+[2026-05-16 12:06:18] INFO         GA | Gen 1/5 | Best: 2571
+[2026-05-16 12:06:19] INFO         GA | Gen 2/5 | Best: 2559
+[2026-05-16 12:06:20] INFO         GA | Gen 3/5 | Best: 2559
+[2026-05-16 12:06:21] INFO         GA | Gen 4/5 | Best: 2535
+[2026-05-16 12:06:22] INFO         GA | Gen 5/5 | Best: 2535
+[2026-05-16 12:06:22] INFO         EA finished in 4.9s | best makespan=2535
+[2026-05-16 12:06:22] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 12:06:29] INFO         synth_1/2  (synth_30x20_seed0.txt): 15,000 transitions  (buffer RAM ≈ 17 MB)
+[2026-05-16 12:06:29] INFO       ── synth_2/2  (synth_30x20_seed1.txt) ──
+[2026-05-16 12:06:30] INFO         GA | Gen 1/5 | Best: 2601
+[2026-05-16 12:06:31] INFO         GA | Gen 2/5 | Best: 2595
+[2026-05-16 12:06:32] INFO         GA | Gen 3/5 | Best: 2594
+[2026-05-16 12:06:33] INFO         GA | Gen 4/5 | Best: 2594
+[2026-05-16 12:06:33] INFO         GA | Gen 5/5 | Best: 2587
+[2026-05-16 12:06:33] INFO         EA finished in 4.9s | best makespan=2587
+[2026-05-16 12:06:33] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-16 12:06:40] INFO         synth_2/2  (synth_30x20_seed1.txt): 15,000 transitions  (buffer RAM ≈ 34 MB)
+[2026-05-16 12:06:40] INFO       Pooled 30,000 transitions  (RAM ≈ 34 MB)
+[2026-05-16 12:06:40] INFO     
+═══ Stage 3: MLP Conservative Q-Learning ═══
+[2026-05-16 12:06:40] INFO       Dataset:   30,000 transitions  (RAM ≈ 34 MB)
+[2026-05-16 12:06:40] INFO       MLP arch:  [512, 512, 256]  dropout=0.1
+[2026-05-16 12:06:40] INFO       CQL α:     0.1 → 1.0 (linear schedule over 10 epochs)
+[2026-05-16 12:06:40] INFO       Training:  10 epochs  batch=2048  lr=0.0003
+[2026-05-16 12:06:40] INFO       Parameters: 556,920
+[2026-05-16 12:06:42] INFO     [Ep   1|B    15/15] α=0.100 | Loss=0.6900 (TD=0.6109 CQL=0.0790) | ∇=0.528 | Q(μ=0.284 σ=0.365 min=-2.353 max=1.313) | LR=3.00e-04 | 7.4 b/s ETA 0s | [data=1.0s fwd=0.5s bwd=0.5s]
+[2026-05-16 12:06:42] INFO     [Ep   1 DONE] α=0.100 | AvgLoss=0.6900 (TD=0.6109 CQL=0.0790) | 2.0s (15 batches) | [data=1.0s fwd=0.5s bwd=0.5s]
+[2026-05-16 12:06:42] INFO       MLP-CQL model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1206_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 12:06:44] INFO     [Ep   2|B    15/15] α=0.200 | Loss=0.6516 (TD=0.5001 CQL=0.1516) | ∇=0.964 | Q(μ=0.278 σ=0.483 min=-4.164 max=1.549) | LR=2.93e-04 | 7.2 b/s ETA 0s | [data=1.0s fwd=0.5s bwd=0.6s]
+[2026-05-16 12:06:44] INFO     [Ep   2 DONE] α=0.200 | AvgLoss=0.6516 (TD=0.5001 CQL=0.1516) | 2.1s (15 batches) | [data=1.0s fwd=0.5s bwd=0.6s]
+[2026-05-16 12:06:44] INFO       MLP-CQL model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1206_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 12:06:46] INFO     [Ep   3|B    15/15] α=0.300 | Loss=0.6659 (TD=0.4529 CQL=0.2130) | ∇=1.518 | Q(μ=0.256 σ=0.565 min=-5.705 max=1.640) | LR=2.74e-04 | 7.9 b/s ETA 0s | [data=1.0s fwd=0.5s bwd=0.4s]
+[2026-05-16 12:06:46] INFO     [Ep   3 DONE] α=0.300 | AvgLoss=0.6659 (TD=0.4529 CQL=0.2130) | 1.9s (15 batches) | [data=1.0s fwd=0.5s bwd=0.4s]
+[2026-05-16 12:06:48] INFO     [Ep   4|B    15/15] α=0.400 | Loss=0.6828 (TD=0.4139 CQL=0.2688) | ∇=1.527 | Q(μ=0.306 σ=0.583 min=-7.111 max=1.788) | LR=2.44e-04 | 8.2 b/s ETA 0s | [data=0.9s fwd=0.5s bwd=0.4s]
+[2026-05-16 12:06:48] INFO     [Ep   4 DONE] α=0.400 | AvgLoss=0.6828 (TD=0.4139 CQL=0.2688) | 1.8s (15 batches) | [data=0.9s fwd=0.5s bwd=0.4s]
+[2026-05-16 12:06:50] INFO     [Ep   5|B    15/15] α=0.500 | Loss=0.7351 (TD=0.4116 CQL=0.3236) | ∇=0.753 | Q(μ=0.257 σ=0.652 min=-6.965 max=1.540) | LR=2.07e-04 | 7.9 b/s ETA 0s | [data=1.0s fwd=0.5s bwd=0.4s]
+[2026-05-16 12:06:50] INFO     [Ep   5 DONE] α=0.500 | AvgLoss=0.7351 (TD=0.4116 CQL=0.3236) | 1.9s (15 batches) | [data=1.0s fwd=0.5s bwd=0.4s]
+[2026-05-16 12:06:52] INFO     [Ep   6|B    15/15] α=0.600 | Loss=0.7684 (TD=0.3864 CQL=0.3820) | ∇=1.256 | Q(μ=0.176 σ=0.825 min=-8.800 max=1.850) | LR=1.65e-04 | 8.1 b/s ETA 0s | [data=0.9s fwd=0.5s bwd=0.5s]
+[2026-05-16 12:06:52] INFO     [Ep   6 DONE] α=0.600 | AvgLoss=0.7684 (TD=0.3864 CQL=0.3820) | 1.9s (15 batches) | [data=0.9s fwd=0.5s bwd=0.5s]
+[2026-05-16 12:06:54] INFO     [Ep   7|B    15/15] α=0.700 | Loss=0.8189 (TD=0.3780 CQL=0.4408) | ∇=1.073 | Q(μ=0.190 σ=0.848 min=-9.910 max=1.659) | LR=1.23e-04 | 7.9 b/s ETA 0s | [data=1.0s fwd=0.5s bwd=0.4s]
+[2026-05-16 12:06:54] INFO     [Ep   7 DONE] α=0.700 | AvgLoss=0.8189 (TD=0.3780 CQL=0.4408) | 1.9s (15 batches) | [data=1.0s fwd=0.5s bwd=0.4s]
+[2026-05-16 12:06:55] INFO     [Ep   8|B    15/15] α=0.800 | Loss=0.8717 (TD=0.3705 CQL=0.5012) | ∇=1.598 | Q(μ=0.252 σ=0.915 min=-9.842 max=2.201) | LR=8.56e-05 | 8.0 b/s ETA 0s | [data=0.9s fwd=0.4s bwd=0.5s]
+[2026-05-16 12:06:55] INFO     [Ep   8 DONE] α=0.800 | AvgLoss=0.8717 (TD=0.3705 CQL=0.5012) | 1.9s (15 batches) | [data=0.9s fwd=0.4s bwd=0.5s]
+[2026-05-16 12:06:57] INFO     [Ep   9|B    15/15] α=0.900 | Loss=0.9255 (TD=0.3650 CQL=0.5605) | ∇=0.891 | Q(μ=0.238 σ=1.063 min=-10.601 max=2.122) | LR=5.58e-05 | 7.8 b/s ETA 0s | [data=0.9s fwd=0.4s bwd=0.5s]
+[2026-05-16 12:06:57] INFO     [Ep   9 DONE] α=0.900 | AvgLoss=0.9255 (TD=0.3650 CQL=0.5605) | 1.9s (15 batches) | [data=0.9s fwd=0.4s bwd=0.5s]
+[2026-05-16 12:06:59] INFO     [Ep  10|B    15/15] α=1.000 | Loss=0.9818 (TD=0.3599 CQL=0.6219) | ∇=0.813 | Q(μ=0.233 σ=1.027 min=-10.316 max=2.123) | LR=3.66e-05 | 8.3 b/s ETA 0s | [data=0.9s fwd=0.4s bwd=0.5s]
+[2026-05-16 12:06:59] INFO     [Ep  10 DONE] α=1.000 | AvgLoss=0.9818 (TD=0.3599 CQL=0.6219) | 1.8s (15 batches) | [data=0.9s fwd=0.4s bwd=0.5s]
+[2026-05-16 12:06:59] INFO       Training complete | Best loss: 0.6516
+[2026-05-16 12:06:59] INFO     
+═══ Stage 4: Out-of-Sample Evaluation ═══
+[2026-05-16 12:06:59] INFO       ── ta41  (BKS=2005) ──
+[2026-05-16 12:07:00] INFO         MLP-CQL | avg=2697 (gap +34.51%) | best=2697 (gap +34.51%)
+[2026-05-16 12:07:01] INFO         GA | Gen 1/5 | Best: 2646
+[2026-05-16 12:07:02] INFO         GA | Gen 2/5 | Best: 2646
+[2026-05-16 12:07:03] INFO         GA | Gen 3/5 | Best: 2633
+[2026-05-16 12:07:04] INFO         GA | Gen 4/5 | Best: 2633
+[2026-05-16 12:07:05] INFO         GA | Gen 5/5 | Best: 2621
+[2026-05-16 12:07:05] INFO         EA      | best=2621 (gap +30.72%) in 4.8s
+[2026-05-16 12:07:05] INFO       ── ta42  (BKS=1937) ──
+[2026-05-16 12:07:06] INFO         MLP-CQL | avg=2857 (gap +47.50%) | best=2857 (gap +47.50%)
+[2026-05-16 12:07:07] INFO         GA | Gen 1/5 | Best: 2549
+[2026-05-16 12:07:08] INFO         GA | Gen 2/5 | Best: 2549
+[2026-05-16 12:07:09] INFO         GA | Gen 3/5 | Best: 2549
+[2026-05-16 12:07:10] INFO         GA | Gen 4/5 | Best: 2529
+[2026-05-16 12:07:11] INFO         GA | Gen 5/5 | Best: 2508
+[2026-05-16 12:07:11] INFO         EA      | best=2508 (gap +29.48%) in 4.8s
+[2026-05-16 12:07:11] INFO       ── ta43  (BKS=1846) ──
+[2026-05-16 12:07:11] INFO         MLP-CQL | avg=2649 (gap +43.50%) | best=2649 (gap +43.50%)
+[2026-05-16 12:07:13] INFO         GA | Gen 1/5 | Best: 2488
+[2026-05-16 12:07:14] INFO         GA | Gen 2/5 | Best: 2453
+[2026-05-16 12:07:15] INFO         GA | Gen 3/5 | Best: 2453
+[2026-05-16 12:07:15] INFO         GA | Gen 4/5 | Best: 2385
+[2026-05-16 12:07:16] INFO         GA | Gen 5/5 | Best: 2385
+[2026-05-16 12:07:16] INFO         EA      | best=2385 (gap +29.20%) in 4.7s
+[2026-05-16 12:07:16] INFO       ── ta44  (BKS=1979) ──
+[2026-05-16 12:07:17] INFO         MLP-CQL | avg=2919 (gap +47.50%) | best=2919 (gap +47.50%)
+[2026-05-16 12:07:18] INFO         GA | Gen 1/5 | Best: 2592
+[2026-05-16 12:07:19] INFO         GA | Gen 2/5 | Best: 2561
+[2026-05-16 12:07:20] INFO         GA | Gen 3/5 | Best: 2561
+[2026-05-16 12:07:21] INFO         GA | Gen 4/5 | Best: 2561
+[2026-05-16 12:07:22] INFO         GA | Gen 5/5 | Best: 2538
+[2026-05-16 12:07:22] INFO         EA      | best=2538 (gap +28.25%) in 4.8s
+[2026-05-16 12:07:22] INFO       ── ta45  (BKS=1997) ──
+[2026-05-16 12:07:23] INFO         MLP-CQL | avg=2983 (gap +49.37%) | best=2983 (gap +49.37%)
+[2026-05-16 12:07:24] INFO         GA | Gen 1/5 | Best: 2573
+[2026-05-16 12:07:25] INFO         GA | Gen 2/5 | Best: 2568
+[2026-05-16 12:07:26] INFO         GA | Gen 3/5 | Best: 2568
+[2026-05-16 12:07:27] INFO         GA | Gen 4/5 | Best: 2568
+[2026-05-16 12:07:28] INFO         GA | Gen 5/5 | Best: 2566
+[2026-05-16 12:07:28] INFO         EA      | best=2566 (gap +28.49%) in 4.7s
+[2026-05-16 12:07:28] INFO       ── ta46  (BKS=2004) ──
+[2026-05-16 12:07:28] INFO         MLP-CQL | avg=2889 (gap +44.16%) | best=2889 (gap +44.16%)
+[2026-05-16 12:07:30] INFO         GA | Gen 1/5 | Best: 2602
+[2026-05-16 12:07:31] INFO         GA | Gen 2/5 | Best: 2593
+[2026-05-16 12:07:32] INFO         GA | Gen 3/5 | Best: 2593
+[2026-05-16 12:07:32] INFO         GA | Gen 4/5 | Best: 2583
+[2026-05-16 12:07:33] INFO         GA | Gen 5/5 | Best: 2583
+[2026-05-16 12:07:33] INFO         EA      | best=2583 (gap +28.89%) in 4.8s
+[2026-05-16 12:07:33] INFO       ── ta47  (BKS=1889) ──
+[2026-05-16 12:07:34] INFO         MLP-CQL | avg=2949 (gap +56.11%) | best=2949 (gap +56.11%)
+[2026-05-16 12:07:35] INFO         GA | Gen 1/5 | Best: 2498
+[2026-05-16 12:07:36] INFO         GA | Gen 2/5 | Best: 2496
+[2026-05-16 12:07:37] INFO         GA | Gen 3/5 | Best: 2450
+[2026-05-16 12:07:38] INFO         GA | Gen 4/5 | Best: 2450
+[2026-05-16 12:07:39] INFO         GA | Gen 5/5 | Best: 2438
+[2026-05-16 12:07:39] INFO         EA      | best=2438 (gap +29.06%) in 4.8s
+[2026-05-16 12:07:39] INFO       ── ta48  (BKS=1937) ──
+[2026-05-16 12:07:39] INFO         MLP-CQL | avg=2903 (gap +49.87%) | best=2903 (gap +49.87%)
+[2026-05-16 12:07:41] INFO         GA | Gen 1/5 | Best: 2453
+[2026-05-16 12:07:41] INFO         GA | Gen 2/5 | Best: 2453
+[2026-05-16 12:07:42] INFO         GA | Gen 3/5 | Best: 2453
+[2026-05-16 12:07:43] INFO         GA | Gen 4/5 | Best: 2453
+[2026-05-16 12:07:43] INFO         GA | Early stopping at gen 4.
+[2026-05-16 12:07:43] INFO         EA      | best=2453 (gap +26.64%) in 3.9s
+[2026-05-16 12:07:43] INFO       ── ta49  (BKS=1960) ──
+[2026-05-16 12:07:44] INFO         MLP-CQL | avg=2764 (gap +41.02%) | best=2764 (gap +41.02%)
+[2026-05-16 12:07:45] INFO         GA | Gen 1/5 | Best: 2568
+[2026-05-16 12:07:46] INFO         GA | Gen 2/5 | Best: 2568
+[2026-05-16 12:07:47] INFO         GA | Gen 3/5 | Best: 2554
+[2026-05-16 12:07:48] INFO         GA | Gen 4/5 | Best: 2554
+[2026-05-16 12:07:49] INFO         GA | Gen 5/5 | Best: 2554
+[2026-05-16 12:07:49] INFO         EA      | best=2554 (gap +30.31%) in 4.8s
+[2026-05-16 12:07:49] INFO     
+[2026-05-16 12:07:49] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-05-16 12:07:49] INFO       out_of_sample Summary
+[2026-05-16 12:07:49] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-05-16 12:07:49] INFO       Instance         BKS   MLP-CQL    gap%      Best    gap%   EA best    gap%
+[2026-05-16 12:07:49] INFO       ──────────────────────────────────────────────────────────────────────────
+[2026-05-16 12:07:49] INFO       ta41            2005      2697  +34.51%      2697  +34.51%      2621  +30.72%
+[2026-05-16 12:07:49] INFO       ta42            1937      2857  +47.50%      2857  +47.50%      2508  +29.48%
+[2026-05-16 12:07:49] INFO       ta43            1846      2649  +43.50%      2649  +43.50%      2385  +29.20%
+[2026-05-16 12:07:49] INFO       ta44            1979      2919  +47.50%      2919  +47.50%      2538  +28.25%
+[2026-05-16 12:07:49] INFO       ta45            1997      2983  +49.37%      2983  +49.37%      2566  +28.49%
+[2026-05-16 12:07:49] INFO       ta46            2004      2889  +44.16%      2889  +44.16%      2583  +28.89%
+[2026-05-16 12:07:49] INFO       ta47            1889      2949  +56.11%      2949  +56.11%      2438  +29.06%
+[2026-05-16 12:07:49] INFO       ta48            1937      2903  +49.87%      2903  +49.87%      2453  +26.64%
+[2026-05-16 12:07:49] INFO       ta49            1960      2764  +41.02%      2764  +41.02%      2554  +30.31%
+[2026-05-16 12:07:49] INFO       ──────────────────────────────────────────────────────────────────────────
+[2026-05-16 12:07:49] INFO       MEAN                            +45.95%
+[2026-05-16 12:07:49] INFO     ──────────────────────────────────────────────────────────────────────
+[2026-05-16 12:07:49] INFO       CSV → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1206_obj2/checkpoint/mlp_cql_eval_out_of_sample.csv
+[2026-05-16 12:07:49] INFO     
+[2026-05-16 12:07:49] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-05-16 12:07:49] INFO       Statistical Tests
+[2026-05-16 12:07:49] INFO       α=0.05  two-sided
+[2026-05-16 12:07:49] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-05-16 12:07:49] INFO     
+  T1 MLP-CQL vs BKS  (n=9, test=Wilcoxon signed-rank)
+[2026-05-16 12:07:49] INFO          mean gap=+45.95%  p=0.0039  SIGNIFICANT
+[2026-05-16 12:07:49] INFO     
+  T2 MLP-CQL vs EA  (n=9, test=Wilcoxon signed-rank)
+[2026-05-16 12:07:49] INFO          MLP-CQL mean=+45.95%  EA mean=+29.00%  diff=+16.95%  p=0.0039  SIGNIFICANT
+[2026-05-16 12:07:49] INFO     ══════════════════════════════════════════════════════════════════════
+[2026-05-16 12:07:49] INFO     
+[2026-05-16 12:07:49] INFO     ======================================================================
+[2026-05-16 12:07:49] INFO     Complete.
+[2026-05-16 12:07:49] INFO       Weights: /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1206_obj2/checkpoint/mlp_cql_weights.pt
+[2026-05-16 12:07:49] INFO       Log:     /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260516_1206_obj2/checkpoint/results.txt
+[2026-05-16 12:07:49] INFO     ======================================================================

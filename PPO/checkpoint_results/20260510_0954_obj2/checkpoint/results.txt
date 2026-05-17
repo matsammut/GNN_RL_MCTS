@@ -1,0 +1,75 @@
+[2026-05-10 09:54:19] INFO     Using device: cpu
+[2026-05-10 09:54:19] INFO     ======================================================================
+[2026-05-10 09:54:19] INFO     EA Warm-Start → GNN + CQL (Conservative Q-Learning) Pipeline
+[2026-05-10 09:54:19] INFO     ======================================================================
+[2026-05-10 09:54:19] INFO     Problem dimensionality:  30 jobs × 20 machines
+[2026-05-10 09:54:19] INFO     Synthetic train count:   2
+[2026-05-10 09:54:19] INFO     Eval instances (real):   ['ta46', 'ta47', 'ta48']
+[2026-05-10 09:54:19] INFO     EA algorithm:            GA
+[2026-05-10 09:54:19] INFO     EA pop / gens:           50 / 10
+[2026-05-10 09:54:19] INFO     GNN:                     3 layers, 128 hidden, 4 heads
+[2026-05-10 09:54:19] INFO     CQL:                     α=1.0, γ=0.99, τ=0.005
+[2026-05-10 09:54:19] INFO     CQL epochs / batch:      30 / 456
+[2026-05-10 09:54:19] INFO     CQL demo eps/instance:   25
+[2026-05-10 09:54:19] INFO     CQL epsilon:             0.05
+[2026-05-10 09:54:19] INFO     Buffer cap:              200,000 transitions
+[2026-05-10 09:54:19] INFO     Eval episodes:           1
+[2026-05-10 09:54:19] INFO     Device:                  cpu
+[2026-05-10 09:54:19] INFO     Output dir:              /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260510_0954_obj2/checkpoint
+[2026-05-10 09:54:19] INFO     ======================================================================
+[2026-05-10 09:54:19] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-10 09:54:19] INFO       Generated 2 synthetic instance(s) (30×20) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260510_0954_obj2/checkpoint/synthetic_instances
+[2026-05-10 09:54:19] INFO     
+═══ Stage 2: Collecting Offline EA Data (graph-structured) ═══
+[2026-05-10 09:54:19] INFO       ── synth_1/2  (synth_30x20_seed0.txt) ──
+[2026-05-10 09:54:20] INFO         GA | Gen 1/10 | Best: 2571
+[2026-05-10 09:54:21] INFO         GA | Gen 2/10 | Best: 2559
+[2026-05-10 09:54:22] INFO         GA | Gen 3/10 | Best: 2559
+[2026-05-10 09:54:23] INFO         GA | Gen 4/10 | Best: 2535
+[2026-05-10 09:54:24] INFO         GA | Gen 5/10 | Best: 2535
+[2026-05-10 09:54:24] INFO         GA | Gen 6/10 | Best: 2535
+[2026-05-10 09:54:25] INFO         GA | Gen 7/10 | Best: 2535
+[2026-05-10 09:54:25] INFO         GA | Early stopping at gen 7.
+[2026-05-10 09:54:25] INFO         EA finished in 6.6s | best makespan=2535
+[2026-05-10 09:54:25] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-10 09:56:00] INFO         synth_1/2  (synth_30x20_seed0.txt): 15,000 transitions collected  (buffer RAM ≈ 922 MB)
+[2026-05-10 09:56:00] INFO       ── synth_2/2  (synth_30x20_seed1.txt) ──
+[2026-05-10 09:56:01] INFO         GA | Gen 1/10 | Best: 2601
+[2026-05-10 09:56:02] INFO         GA | Gen 2/10 | Best: 2595
+[2026-05-10 09:56:03] INFO         GA | Gen 3/10 | Best: 2594
+[2026-05-10 09:56:04] INFO         GA | Gen 4/10 | Best: 2594
+[2026-05-10 09:56:04] INFO         GA | Gen 5/10 | Best: 2587
+[2026-05-10 09:56:05] INFO         GA | Gen 6/10 | Best: 2548
+[2026-05-10 09:56:06] INFO         GA | Gen 7/10 | Best: 2548
+[2026-05-10 09:56:07] INFO         GA | Gen 8/10 | Best: 2548
+[2026-05-10 09:56:08] INFO         GA | Gen 9/10 | Best: 2548
+[2026-05-10 09:56:08] INFO         GA | Early stopping at gen 9.
+[2026-05-10 09:56:08] INFO         EA finished in 8.3s | best makespan=2548
+[2026-05-10 09:56:08] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05)
+[2026-05-10 09:57:42] INFO         synth_2/2  (synth_30x20_seed1.txt): 15,000 transitions collected  (buffer RAM ≈ 1845 MB)
+[2026-05-10 09:57:42] INFO       Pooled 30,000 transitions  (total buffer RAM ≈ 1845 MB)
+[2026-05-10 09:57:42] INFO     
+═══ Stage 3: Conservative Q-Learning (CQL) with GNN ═══
+[2026-05-10 09:57:42] INFO       Dataset size: 30,000 transitions  (RAM ≈ 1845 MB)
+[2026-05-10 09:57:42] INFO       GNN: 3 layers, 128 hidden, 4 heads
+[2026-05-10 09:57:42] INFO       CQL: α=1.0, γ=0.99, τ=0.005
+[2026-05-10 09:57:42] INFO       Training: 30 epochs, batch=456, lr=0.0003
+[2026-05-10 09:57:42] INFO       Q-network parameters: 178,562
+[2026-05-10 11:55:05] INFO     [Epoch   1 | Batch   50/66] Loss=1.3558 (TD=0.7265, CQL=0.6292) | GradNorm=0.3205 | Q(μ=0.091, σ=1.199, min=-6.537, max=0.342) | LR=3.00e-04 | 0.01 batch/s | ETA 2254s | [data=96.9s fwd=3093.1s bwd=3853.8s]
+[2026-05-10 12:32:56] INFO     [Epoch   1 | Batch   66/66] Loss=0.3598 (TD=0.1608, CQL=0.1991) | GradNorm=0.0692 | Q(μ=0.104, σ=1.279, min=-6.946, max=0.368) | LR=3.00e-04 | 0.01 batch/s | ETA 0s | [data=126.3s fwd=4119.6s bwd=5068.7s]
+[2026-05-10 12:32:56] INFO     [Epoch   1 DONE] AvgLoss=1.2997 (TD=0.6722, CQL=0.6275) | Epoch time=9314.6s  (data=126.3s, fwd=4119.6s, bwd=5068.7s) | 66 batches
+[2026-05-10 12:32:56] INFO         Epoch   1/30 | Loss: 1.2997 (TD: 0.6722, CQL: 0.6275) | 9314.7s
+[2026-05-10 12:32:56] INFO       CQL model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260510_0954_obj2/checkpoint/cql_gnn_weights.pt
+[2026-05-10 14:28:09] INFO     [Epoch   2 | Batch   50/66] Loss=1.2551 (TD=0.6358, CQL=0.6193) | GradNorm=0.0417 | Q(μ=0.142, σ=1.444, min=-7.843, max=0.485) | LR=3.00e-04 | 0.01 batch/s | ETA 2212s | [data=89.8s fwd=3047.3s bwd=3775.3s]
+[2026-05-10 15:04:51] INFO     [Epoch   2 | Batch   66/66] Loss=0.4502 (TD=0.2562, CQL=0.1940) | GradNorm=0.5170 | Q(μ=0.085, σ=1.486, min=-8.123, max=0.438) | LR=3.00e-04 | 0.01 batch/s | ETA 0s | [data=119.3s fwd=4020.5s bwd=4975.0s]
+[2026-05-10 15:04:51] INFO     [Epoch   2 DONE] AvgLoss=1.2919 (TD=0.6757, CQL=0.6162) | Epoch time=9115.0s  (data=119.3s, fwd=4020.5s, bwd=4975.0s) | 66 batches
+[2026-05-10 15:04:52] INFO       CQL model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260510_0954_obj2/checkpoint/cql_gnn_weights.pt
+[2026-05-10 17:02:04] INFO     [Epoch   3 | Batch   50/66] Loss=1.2857 (TD=0.6718, CQL=0.6138) | GradNorm=0.4120 | Q(μ=0.159, σ=1.830, min=-9.954, max=0.655) | LR=3.00e-04 | 0.01 batch/s | ETA 2250s | [data=98.3s fwd=3109.8s bwd=3824.1s]
+[2026-05-10 17:39:23] INFO     [Epoch   3 | Batch   66/66] Loss=0.4159 (TD=0.2205, CQL=0.1954) | GradNorm=0.2181 | Q(μ=0.168, σ=1.923, min=-10.450, max=0.689) | LR=3.00e-04 | 0.01 batch/s | ETA 0s | [data=127.5s fwd=4109.3s bwd=5034.4s]
+[2026-05-10 17:39:23] INFO     [Epoch   3 DONE] AvgLoss=1.2891 (TD=0.6760, CQL=0.6131) | Epoch time=9271.4s  (data=127.5s, fwd=4109.3s, bwd=5034.4s) | 66 batches
+[2026-05-10 17:39:23] INFO       CQL model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260510_0954_obj2/checkpoint/cql_gnn_weights.pt
+[2026-05-10 19:37:43] INFO     [Epoch   4 | Batch   50/66] Loss=1.2324 (TD=0.6213, CQL=0.6112) | GradNorm=0.1334 | Q(μ=0.189, σ=2.150, min=-11.706, max=0.856) | LR=3.00e-04 | 0.01 batch/s | ETA 2272s | [data=101.5s fwd=3150.8s bwd=3847.6s]
+[2026-05-10 20:13:51] INFO     [Epoch   4 | Batch   66/66] Loss=0.4681 (TD=0.2733, CQL=0.1948) | GradNorm=0.4060 | Q(μ=0.095, σ=2.166, min=-11.867, max=0.849) | LR=3.00e-04 | 0.01 batch/s | ETA 0s | [data=132.8s fwd=4089.0s bwd=5046.2s]
+[2026-05-10 20:13:51] INFO     [Epoch   4 DONE] AvgLoss=1.2883 (TD=0.6777, CQL=0.6106) | Epoch time=9268.2s  (data=132.8s, fwd=4089.0s, bwd=5046.2s) | 66 batches
+[2026-05-10 20:13:51] INFO       CQL model saved → /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260510_0954_obj2/checkpoint/cql_gnn_weights.pt
