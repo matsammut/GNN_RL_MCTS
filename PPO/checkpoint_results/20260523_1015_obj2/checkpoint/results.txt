@@ -1,0 +1,65 @@
+[2026-05-23 10:15:04] INFO     Using device: cpu
+[2026-05-23 10:15:04] INFO     ================================================================================
+[2026-05-23 10:15:04] INFO     EA Warm-Start → MLP + CQL  (v3: gap-targeted, n-step, prioritised)
+[2026-05-23 10:15:04] INFO     ================================================================================
+[2026-05-23 10:15:04] INFO     Problem:             50 jobs × 20 machines
+[2026-05-23 10:15:04] INFO     Train instances:     200 synthetic
+[2026-05-23 10:15:04] INFO     Eval instances:      ['ta61', 'ta62', 'ta63', 'ta64', 'ta65', 'ta66', 'ta67', 'ta68', 'ta69']
+[2026-05-23 10:15:04] INFO     EA:                  GA  pop=50  max_gens=300  sa_iters=1000
+[2026-05-23 10:15:04] INFO     EA target gap:       ≤10.0% of LB (train)  / ≤10.0% of BKS (eval)
+[2026-05-23 10:15:04] INFO     MLP:                 [1024, 1024, 512, 256]  dropout=0.1  residual=True
+[2026-05-23 10:15:04] INFO     N-step returns:      n=5
+[2026-05-23 10:15:04] INFO     Priority α:          0.6
+[2026-05-23 10:15:04] INFO     BC pre-train:        20 epochs  lr=0.001
+[2026-05-23 10:15:04] INFO     CQL α (fixed):       0.2
+[2026-05-23 10:15:04] INFO     CQL target update:   hard every 100 b  τ=0.001
+[2026-05-23 10:15:04] INFO     Training:            400 epochs  batch=1024  lr=5e-05
+[2026-05-23 10:15:04] INFO     Buffer cap:          1,000,000
+[2026-05-23 10:15:04] INFO     Device:              cpu
+[2026-05-23 10:15:04] INFO     Output:              /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260523_1015_obj2/checkpoint
+[2026-05-23 10:15:04] INFO     ================================================================================
+[2026-05-23 10:15:04] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-23 10:15:04] INFO       Generated 200 synthetic instance(s) (50×20) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260523_1015_obj2/checkpoint/synthetic_instances
+[2026-05-23 10:15:04] INFO     
+═══ Stage 2: Collecting Offline EA Demonstrations ═══
+[2026-05-23 10:15:04] INFO       EA stops when gap to LB ≤ 10.0% (max 300 gens)
+[2026-05-23 10:15:04] INFO       obs_dim=500  n_actions=51
+[2026-05-23 10:15:04] INFO       ── synth_1/200  (synth_50x20_seed0.txt) ──
+[2026-05-23 10:15:08] INFO         GA | Gen 1/300 | Best: 3482 | Gap to LB: 22.1% (target ≤10.0%)
+[2026-05-23 10:15:10] INFO         GA | Gen 2/300 | Best: 3482 | Gap to LB: 22.1% (target ≤10.0%)
+[2026-05-23 10:15:13] INFO         GA | Gen 3/300 | Best: 3468 | Gap to LB: 21.6% (target ≤10.0%)
+[2026-05-23 10:15:15] INFO         GA | Gen 4/300 | Best: 3466 | Gap to LB: 21.5% (target ≤10.0%)
+[2026-05-23 10:15:17] INFO         GA | Gen 5/300 | Best: 3466 | Gap to LB: 21.5% (target ≤10.0%)
+[2026-05-23 10:15:20] INFO         GA | Gen 6/300 | Best: 3414 | Gap to LB: 19.7% (target ≤10.0%)
+[2026-05-23 10:15:22] INFO         GA | Gen 7/300 | Best: 3414 | Gap to LB: 19.7% (target ≤10.0%)
+[2026-05-23 10:15:24] INFO         GA | Gen 8/300 | Best: 3414 | Gap to LB: 19.7% (target ≤10.0%)
+[2026-05-23 10:15:27] INFO         GA | Gen 9/300 | Best: 3414 | Gap to LB: 19.7% (target ≤10.0%)
+[2026-05-23 10:15:27] INFO         GA | Stagnation early stop at gen 9.
+[2026-05-23 10:15:27] INFO         EA finished in 22.3s | makespan=3414 | LB=2852 | gap=19.7% | gens=9
+[2026-05-23 10:15:27] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05, n-step=5)
+[2026-05-23 10:15:41] INFO         synth_1/200  (synth_50x20_seed0.txt): 25,000 n-step transitions | buffer RAM ≈ 48 MB | reward mean=0.0198 std=0.0053
+[2026-05-23 10:15:41] INFO       ── synth_2/200  (synth_50x20_seed1.txt) ──
+[2026-05-23 10:15:44] INFO         GA | Gen 1/300 | Best: 3653 | Gap to LB: 25.6% (target ≤10.0%)
+[2026-05-23 10:15:46] INFO         GA | Gen 2/300 | Best: 3640 | Gap to LB: 25.1% (target ≤10.0%)
+[2026-05-23 10:15:49] INFO         GA | Gen 3/300 | Best: 3632 | Gap to LB: 24.9% (target ≤10.0%)
+[2026-05-23 10:15:51] INFO         GA | Gen 4/300 | Best: 3593 | Gap to LB: 23.5% (target ≤10.0%)
+[2026-05-23 10:15:54] INFO         GA | Gen 5/300 | Best: 3593 | Gap to LB: 23.5% (target ≤10.0%)
+[2026-05-23 10:15:56] INFO         GA | Gen 6/300 | Best: 3556 | Gap to LB: 22.2% (target ≤10.0%)
+[2026-05-23 10:15:58] INFO         GA | Gen 7/300 | Best: 3556 | Gap to LB: 22.2% (target ≤10.0%)
+[2026-05-23 10:16:01] INFO         GA | Gen 8/300 | Best: 3556 | Gap to LB: 22.2% (target ≤10.0%)
+[2026-05-23 10:16:03] INFO         GA | Gen 9/300 | Best: 3556 | Gap to LB: 22.2% (target ≤10.0%)
+[2026-05-23 10:16:03] INFO         GA | Stagnation early stop at gen 9.
+[2026-05-23 10:16:03] INFO         EA finished in 22.6s | makespan=3556 | LB=2909 | gap=22.2% | gens=9
+[2026-05-23 10:16:03] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05, n-step=5)
+[2026-05-23 10:16:17] INFO         synth_2/200  (synth_50x20_seed1.txt): 25,000 n-step transitions | buffer RAM ≈ 95 MB | reward mean=0.0198 std=0.0055
+[2026-05-23 10:16:17] INFO       ── synth_3/200  (synth_50x20_seed2.txt) ──
+[2026-05-23 10:16:21] INFO         GA | Gen 1/300 | Best: 3486 | Gap to LB: 20.3% (target ≤10.0%)
+[2026-05-23 10:16:23] INFO         GA | Gen 2/300 | Best: 3486 | Gap to LB: 20.3% (target ≤10.0%)
+[2026-05-23 10:16:25] INFO         GA | Gen 3/300 | Best: 3477 | Gap to LB: 20.0% (target ≤10.0%)
+[2026-05-23 10:16:28] INFO         GA | Gen 4/300 | Best: 3477 | Gap to LB: 20.0% (target ≤10.0%)
+[2026-05-23 10:16:30] INFO         GA | Gen 5/300 | Best: 3477 | Gap to LB: 20.0% (target ≤10.0%)
+[2026-05-23 10:16:32] INFO         GA | Gen 6/300 | Best: 3477 | Gap to LB: 20.0% (target ≤10.0%)
+[2026-05-23 10:16:32] INFO         GA | Stagnation early stop at gen 6.
+[2026-05-23 10:16:32] INFO         EA finished in 15.4s | makespan=3477 | LB=2897 | gap=20.0% | gens=6
+[2026-05-23 10:16:32] INFO         Experts: top 25 | Collecting 25 episodes (ε=0.05, n-step=5)

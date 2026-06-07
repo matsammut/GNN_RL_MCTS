@@ -1,0 +1,187 @@
+[2026-05-24 10:18:41] INFO     Using device: cpu
+[2026-05-24 10:18:41] INFO     ================================================================================
+[2026-05-24 10:18:41] INFO     EA Warm-Start → MLP + CQL  (v3: gap-targeted, n-step, prioritised)
+[2026-05-24 10:18:41] INFO     ================================================================================
+[2026-05-24 10:18:41] INFO     Problem:             50 jobs × 20 machines
+[2026-05-24 10:18:41] INFO     Train instances:     50 synthetic
+[2026-05-24 10:18:41] INFO     Eval instances:      ['ta61', 'ta62', 'ta63', 'ta64', 'ta65', 'ta66', 'ta67', 'ta68', 'ta69']
+[2026-05-24 10:18:41] INFO     EA:                  GA  pop=250  max_gens=35  sa_iters=100
+[2026-05-24 10:18:41] INFO     EA target gap:       ≤15.0% of LB (train)  / ≤15.0% of BKS (eval)
+[2026-05-24 10:18:41] INFO     MLP:                 [1024, 1024, 512, 256]  dropout=0.1  residual=True
+[2026-05-24 10:18:41] INFO     N-step returns:      n=5
+[2026-05-24 10:18:41] INFO     Priority α:          0.6
+[2026-05-24 10:18:41] INFO     BC pre-train:        20 epochs  lr=0.001
+[2026-05-24 10:18:41] INFO     CQL α (fixed):       0.2
+[2026-05-24 10:18:41] INFO     CQL target update:   hard every 100 b  τ=0.001
+[2026-05-24 10:18:41] INFO     Training:            400 epochs  batch=2048  lr=5e-05
+[2026-05-24 10:18:41] INFO     Buffer cap:          1,000,000
+[2026-05-24 10:18:41] INFO     Device:              cpu
+[2026-05-24 10:18:41] INFO     Output:              /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260524_1018_obj2/checkpoint
+[2026-05-24 10:18:41] INFO     ================================================================================
+[2026-05-24 10:18:41] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-24 10:18:41] INFO       Generated 50 synthetic instance(s) (50×20) in /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260524_1018_obj2/checkpoint/synthetic_instances
+[2026-05-24 10:18:41] INFO     
+═══ Stage 2: Collecting Offline EA Demonstrations ═══
+[2026-05-24 10:18:41] INFO       EA stops when gap to LB ≤ 15.0% (max 35 gens)
+[2026-05-24 10:18:42] INFO       obs_dim=500  n_actions=51
+[2026-05-24 10:18:42] INFO       ── synth_1/50  (synth_50x20_seed0.txt) ──
+[2026-05-24 10:18:59] INFO         GA | Gen 1/35 | Best: 3482 | Gap to LB: 22.1% (target ≤15.0%)
+[2026-05-24 10:19:11] INFO         GA | Gen 2/35 | Best: 3482 | Gap to LB: 22.1% (target ≤15.0%)
+[2026-05-24 10:19:23] INFO         GA | Gen 3/35 | Best: 3482 | Gap to LB: 22.1% (target ≤15.0%)
+[2026-05-24 10:19:34] INFO         GA | Gen 4/35 | Best: 3470 | Gap to LB: 21.7% (target ≤15.0%)
+[2026-05-24 10:19:46] INFO         GA | Gen 5/35 | Best: 3470 | Gap to LB: 21.7% (target ≤15.0%)
+[2026-05-24 10:19:58] INFO         GA | Gen 6/35 | Best: 3470 | Gap to LB: 21.7% (target ≤15.0%)
+[2026-05-24 10:20:10] INFO         GA | Gen 7/35 | Best: 3470 | Gap to LB: 21.7% (target ≤15.0%)
+[2026-05-24 10:20:22] INFO         GA | Gen 8/35 | Best: 3436 | Gap to LB: 20.5% (target ≤15.0%)
+[2026-05-24 10:20:33] INFO         GA | Gen 9/35 | Best: 3436 | Gap to LB: 20.5% (target ≤15.0%)
+[2026-05-24 10:20:45] INFO         GA | Gen 10/35 | Best: 3436 | Gap to LB: 20.5% (target ≤15.0%)
+[2026-05-24 10:20:57] INFO         GA | Gen 11/35 | Best: 3436 | Gap to LB: 20.5% (target ≤15.0%)
+[2026-05-24 10:21:09] INFO         GA | Gen 12/35 | Best: 3436 | Gap to LB: 20.5% (target ≤15.0%)
+[2026-05-24 10:21:20] INFO         GA | Gen 13/35 | Best: 3436 | Gap to LB: 20.5% (target ≤15.0%)
+[2026-05-24 10:21:32] INFO         GA | Gen 14/35 | Best: 3436 | Gap to LB: 20.5% (target ≤15.0%)
+[2026-05-24 10:21:44] INFO         GA | Gen 15/35 | Best: 3436 | Gap to LB: 20.5% (target ≤15.0%)
+[2026-05-24 10:21:56] INFO         GA | Gen 16/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:22:08] INFO         GA | Gen 17/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:22:19] INFO         GA | Gen 18/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:22:31] INFO         GA | Gen 19/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:22:43] INFO         GA | Gen 20/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:22:55] INFO         GA | Gen 21/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:23:06] INFO         GA | Gen 22/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:23:18] INFO         GA | Gen 23/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:23:30] INFO         GA | Gen 24/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:23:42] INFO         GA | Gen 25/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:23:54] INFO         GA | Gen 26/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:24:06] INFO         GA | Gen 27/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:24:17] INFO         GA | Gen 28/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:24:29] INFO         GA | Gen 29/35 | Best: 3429 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:24:40] INFO         GA | Gen 30/35 | Best: 3408 | Gap to LB: 19.5% (target ≤15.0%)
+[2026-05-24 10:24:52] INFO         GA | Gen 31/35 | Best: 3408 | Gap to LB: 19.5% (target ≤15.0%)
+[2026-05-24 10:25:04] INFO         GA | Gen 32/35 | Best: 3408 | Gap to LB: 19.5% (target ≤15.0%)
+[2026-05-24 10:25:16] INFO         GA | Gen 33/35 | Best: 3408 | Gap to LB: 19.5% (target ≤15.0%)
+[2026-05-24 10:25:27] INFO         GA | Gen 34/35 | Best: 3408 | Gap to LB: 19.5% (target ≤15.0%)
+[2026-05-24 10:25:39] INFO         GA | Gen 35/35 | Best: 3408 | Gap to LB: 19.5% (target ≤15.0%)
+[2026-05-24 10:25:39] INFO         EA finished in 417.6s | makespan=3408 | LB=2852 | gap=19.5% | gens=35
+[2026-05-24 10:25:39] INFO         Experts: top 125 | Collecting 125 episodes (ε=0.05, n-step=5)
+[2026-05-24 10:26:50] INFO         synth_1/50  (synth_50x20_seed0.txt): 125,000 n-step transitions | buffer RAM ≈ 238 MB | reward mean=0.0198 std=0.0056
+[2026-05-24 10:26:50] INFO       ── synth_2/50  (synth_50x20_seed1.txt) ──
+[2026-05-24 10:27:08] INFO         GA | Gen 1/35 | Best: 3589 | Gap to LB: 23.4% (target ≤15.0%)
+[2026-05-24 10:27:19] INFO         GA | Gen 2/35 | Best: 3589 | Gap to LB: 23.4% (target ≤15.0%)
+[2026-05-24 10:27:31] INFO         GA | Gen 3/35 | Best: 3589 | Gap to LB: 23.4% (target ≤15.0%)
+[2026-05-24 10:27:43] INFO         GA | Gen 4/35 | Best: 3570 | Gap to LB: 22.7% (target ≤15.0%)
+[2026-05-24 10:27:54] INFO         GA | Gen 5/35 | Best: 3570 | Gap to LB: 22.7% (target ≤15.0%)
+[2026-05-24 10:28:06] INFO         GA | Gen 6/35 | Best: 3570 | Gap to LB: 22.7% (target ≤15.0%)
+[2026-05-24 10:28:18] INFO         GA | Gen 7/35 | Best: 3552 | Gap to LB: 22.1% (target ≤15.0%)
+[2026-05-24 10:28:30] INFO         GA | Gen 8/35 | Best: 3552 | Gap to LB: 22.1% (target ≤15.0%)
+[2026-05-24 10:28:42] INFO         GA | Gen 9/35 | Best: 3552 | Gap to LB: 22.1% (target ≤15.0%)
+[2026-05-24 10:28:54] INFO         GA | Gen 10/35 | Best: 3552 | Gap to LB: 22.1% (target ≤15.0%)
+[2026-05-24 10:29:05] INFO         GA | Gen 11/35 | Best: 3552 | Gap to LB: 22.1% (target ≤15.0%)
+[2026-05-24 10:29:17] INFO         GA | Gen 12/35 | Best: 3541 | Gap to LB: 21.7% (target ≤15.0%)
+[2026-05-24 10:29:29] INFO         GA | Gen 13/35 | Best: 3540 | Gap to LB: 21.7% (target ≤15.0%)
+[2026-05-24 10:29:41] INFO         GA | Gen 14/35 | Best: 3509 | Gap to LB: 20.6% (target ≤15.0%)
+[2026-05-24 10:29:53] INFO         GA | Gen 15/35 | Best: 3509 | Gap to LB: 20.6% (target ≤15.0%)
+[2026-05-24 10:30:05] INFO         GA | Gen 16/35 | Best: 3509 | Gap to LB: 20.6% (target ≤15.0%)
+[2026-05-24 10:30:16] INFO         GA | Gen 17/35 | Best: 3509 | Gap to LB: 20.6% (target ≤15.0%)
+[2026-05-24 10:30:28] INFO         GA | Gen 18/35 | Best: 3509 | Gap to LB: 20.6% (target ≤15.0%)
+[2026-05-24 10:30:40] INFO         GA | Gen 19/35 | Best: 3496 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:30:52] INFO         GA | Gen 20/35 | Best: 3496 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:31:03] INFO         GA | Gen 21/35 | Best: 3496 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:31:15] INFO         GA | Gen 22/35 | Best: 3496 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:31:27] INFO         GA | Gen 23/35 | Best: 3496 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:31:38] INFO         GA | Gen 24/35 | Best: 3496 | Gap to LB: 20.2% (target ≤15.0%)
+[2026-05-24 10:31:50] INFO         GA | Gen 25/35 | Best: 3474 | Gap to LB: 19.4% (target ≤15.0%)
+[2026-05-24 10:32:02] INFO         GA | Gen 26/35 | Best: 3474 | Gap to LB: 19.4% (target ≤15.0%)
+[2026-05-24 10:32:14] INFO         GA | Gen 27/35 | Best: 3474 | Gap to LB: 19.4% (target ≤15.0%)
+[2026-05-24 10:32:26] INFO         GA | Gen 28/35 | Best: 3474 | Gap to LB: 19.4% (target ≤15.0%)
+[2026-05-24 10:32:37] INFO         GA | Gen 29/35 | Best: 3470 | Gap to LB: 19.3% (target ≤15.0%)
+[2026-05-24 10:32:49] INFO         GA | Gen 30/35 | Best: 3470 | Gap to LB: 19.3% (target ≤15.0%)
+[2026-05-24 10:33:01] INFO         GA | Gen 31/35 | Best: 3470 | Gap to LB: 19.3% (target ≤15.0%)
+[2026-05-24 10:33:13] INFO         GA | Gen 32/35 | Best: 3470 | Gap to LB: 19.3% (target ≤15.0%)
+[2026-05-24 10:33:25] INFO         GA | Gen 33/35 | Best: 3470 | Gap to LB: 19.3% (target ≤15.0%)
+[2026-05-24 10:33:37] INFO         GA | Gen 34/35 | Best: 3470 | Gap to LB: 19.3% (target ≤15.0%)
+[2026-05-24 10:33:48] INFO         GA | Gen 35/35 | Best: 3470 | Gap to LB: 19.3% (target ≤15.0%)
+[2026-05-24 10:33:48] INFO         EA finished in 418.3s | makespan=3470 | LB=2909 | gap=19.3% | gens=35
+[2026-05-24 10:33:48] INFO         Experts: top 125 | Collecting 125 episodes (ε=0.05, n-step=5)
+[2026-05-24 10:34:59] INFO         synth_2/50  (synth_50x20_seed1.txt): 125,000 n-step transitions | buffer RAM ≈ 477 MB | reward mean=0.0198 std=0.0052
+[2026-05-24 10:34:59] INFO       ── synth_3/50  (synth_50x20_seed2.txt) ──
+[2026-05-24 10:35:17] INFO         GA | Gen 1/35 | Best: 3474 | Gap to LB: 19.9% (target ≤15.0%)
+[2026-05-24 10:35:29] INFO         GA | Gen 2/35 | Best: 3435 | Gap to LB: 18.6% (target ≤15.0%)
+[2026-05-24 10:35:40] INFO         GA | Gen 3/35 | Best: 3435 | Gap to LB: 18.6% (target ≤15.0%)
+[2026-05-24 10:35:52] INFO         GA | Gen 4/35 | Best: 3435 | Gap to LB: 18.6% (target ≤15.0%)
+[2026-05-24 10:36:04] INFO         GA | Gen 5/35 | Best: 3400 | Gap to LB: 17.4% (target ≤15.0%)
+[2026-05-24 10:36:16] INFO         GA | Gen 6/35 | Best: 3400 | Gap to LB: 17.4% (target ≤15.0%)
+[2026-05-24 10:36:27] INFO         GA | Gen 7/35 | Best: 3400 | Gap to LB: 17.4% (target ≤15.0%)
+[2026-05-24 10:36:39] INFO         GA | Gen 8/35 | Best: 3400 | Gap to LB: 17.4% (target ≤15.0%)
+[2026-05-24 10:36:51] INFO         GA | Gen 9/35 | Best: 3400 | Gap to LB: 17.4% (target ≤15.0%)
+[2026-05-24 10:37:03] INFO         GA | Gen 10/35 | Best: 3400 | Gap to LB: 17.4% (target ≤15.0%)
+[2026-05-24 10:37:15] INFO         GA | Gen 11/35 | Best: 3400 | Gap to LB: 17.4% (target ≤15.0%)
+[2026-05-24 10:37:26] INFO         GA | Gen 12/35 | Best: 3400 | Gap to LB: 17.4% (target ≤15.0%)
+[2026-05-24 10:37:38] INFO         GA | Gen 13/35 | Best: 3392 | Gap to LB: 17.1% (target ≤15.0%)
+[2026-05-24 10:37:50] INFO         GA | Gen 14/35 | Best: 3392 | Gap to LB: 17.1% (target ≤15.0%)
+[2026-05-24 10:38:02] INFO         GA | Gen 15/35 | Best: 3392 | Gap to LB: 17.1% (target ≤15.0%)
+[2026-05-24 10:38:14] INFO         GA | Gen 16/35 | Best: 3392 | Gap to LB: 17.1% (target ≤15.0%)
+[2026-05-24 10:38:26] INFO         GA | Gen 17/35 | Best: 3392 | Gap to LB: 17.1% (target ≤15.0%)
+[2026-05-24 10:38:37] INFO         GA | Gen 18/35 | Best: 3392 | Gap to LB: 17.1% (target ≤15.0%)
+[2026-05-24 10:38:49] INFO         GA | Gen 19/35 | Best: 3392 | Gap to LB: 17.1% (target ≤15.0%)
+[2026-05-24 10:39:01] INFO         GA | Gen 20/35 | Best: 3392 | Gap to LB: 17.1% (target ≤15.0%)
+[2026-05-24 10:39:12] INFO         GA | Gen 21/35 | Best: 3392 | Gap to LB: 17.1% (target ≤15.0%)
+[2026-05-24 10:39:24] INFO         GA | Gen 22/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:39:36] INFO         GA | Gen 23/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:39:47] INFO         GA | Gen 24/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:39:59] INFO         GA | Gen 25/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:40:10] INFO         GA | Gen 26/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:40:22] INFO         GA | Gen 27/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:40:34] INFO         GA | Gen 28/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:40:45] INFO         GA | Gen 29/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:40:57] INFO         GA | Gen 30/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:41:09] INFO         GA | Gen 31/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:41:21] INFO         GA | Gen 32/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:41:32] INFO         GA | Gen 33/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:41:44] INFO         GA | Gen 34/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:41:56] INFO         GA | Gen 35/35 | Best: 3368 | Gap to LB: 16.3% (target ≤15.0%)
+[2026-05-24 10:41:56] INFO         EA finished in 416.5s | makespan=3368 | LB=2897 | gap=16.3% | gens=35
+[2026-05-24 10:41:56] INFO         Experts: top 125 | Collecting 125 episodes (ε=0.05, n-step=5)
+[2026-05-24 10:43:07] INFO         synth_3/50  (synth_50x20_seed2.txt): 125,000 n-step transitions | buffer RAM ≈ 715 MB | reward mean=0.0199 std=0.0043
+[2026-05-24 10:43:07] INFO       ── synth_4/50  (synth_50x20_seed3.txt) ──
+[2026-05-24 10:43:25] INFO         GA | Gen 1/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:43:36] INFO         GA | Gen 2/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:43:48] INFO         GA | Gen 3/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:44:00] INFO         GA | Gen 4/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:44:11] INFO         GA | Gen 5/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:44:23] INFO         GA | Gen 6/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:44:35] INFO         GA | Gen 7/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:44:46] INFO         GA | Gen 8/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:44:58] INFO         GA | Gen 9/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:45:10] INFO         GA | Gen 10/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:45:21] INFO         GA | Gen 11/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:45:33] INFO         GA | Gen 12/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:45:45] INFO         GA | Gen 13/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:45:57] INFO         GA | Gen 14/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:46:09] INFO         GA | Gen 15/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:46:21] INFO         GA | Gen 16/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:46:33] INFO         GA | Gen 17/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:46:44] INFO         GA | Gen 18/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:46:56] INFO         GA | Gen 19/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:47:08] INFO         GA | Gen 20/35 | Best: 3427 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:47:19] INFO         GA | Gen 21/35 | Best: 3407 | Gap to LB: 21.3% (target ≤15.0%)
+[2026-05-24 10:47:31] INFO         GA | Gen 22/35 | Best: 3398 | Gap to LB: 21.0% (target ≤15.0%)
+[2026-05-24 10:47:43] INFO         GA | Gen 23/35 | Best: 3398 | Gap to LB: 21.0% (target ≤15.0%)
+[2026-05-24 10:47:54] INFO         GA | Gen 24/35 | Best: 3398 | Gap to LB: 21.0% (target ≤15.0%)
+[2026-05-24 10:48:06] INFO         GA | Gen 25/35 | Best: 3395 | Gap to LB: 20.9% (target ≤15.0%)
+[2026-05-24 10:48:18] INFO         GA | Gen 26/35 | Best: 3395 | Gap to LB: 20.9% (target ≤15.0%)
+[2026-05-24 10:48:29] INFO         GA | Gen 27/35 | Best: 3395 | Gap to LB: 20.9% (target ≤15.0%)
+[2026-05-24 10:48:41] INFO         GA | Gen 28/35 | Best: 3395 | Gap to LB: 20.9% (target ≤15.0%)
+[2026-05-24 10:48:52] INFO         GA | Gen 29/35 | Best: 3395 | Gap to LB: 20.9% (target ≤15.0%)
+[2026-05-24 10:49:04] INFO         GA | Gen 30/35 | Best: 3394 | Gap to LB: 20.9% (target ≤15.0%)
+[2026-05-24 10:49:15] INFO         GA | Gen 31/35 | Best: 3394 | Gap to LB: 20.9% (target ≤15.0%)
+[2026-05-24 10:49:27] INFO         GA | Gen 32/35 | Best: 3387 | Gap to LB: 20.6% (target ≤15.0%)
+[2026-05-24 10:49:38] INFO         GA | Gen 33/35 | Best: 3368 | Gap to LB: 19.9% (target ≤15.0%)
+[2026-05-24 10:49:50] INFO         GA | Gen 34/35 | Best: 3368 | Gap to LB: 19.9% (target ≤15.0%)
+[2026-05-24 10:50:02] INFO         GA | Gen 35/35 | Best: 3368 | Gap to LB: 19.9% (target ≤15.0%)
+[2026-05-24 10:50:02] INFO         EA finished in 414.7s | makespan=3368 | LB=2808 | gap=19.9% | gens=35
+[2026-05-24 10:50:02] INFO         Experts: top 125 | Collecting 125 episodes (ε=0.05, n-step=5)
+[2026-05-24 10:51:13] INFO         synth_4/50  (synth_50x20_seed3.txt): 125,000 n-step transitions | buffer RAM ≈ 954 MB | reward mean=0.0198 std=0.0060
+[2026-05-24 10:51:13] INFO       ── synth_5/50  (synth_50x20_seed4.txt) ──
+[2026-05-24 10:51:31] INFO         GA | Gen 1/35 | Best: 3518 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:51:43] INFO         GA | Gen 2/35 | Best: 3518 | Gap to LB: 22.0% (target ≤15.0%)
+[2026-05-24 10:51:54] INFO         GA | Gen 3/35 | Best: 3492 | Gap to LB: 21.1% (target ≤15.0%)

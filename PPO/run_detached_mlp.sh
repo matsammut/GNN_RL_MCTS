@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+  #!/usr/bin/env bash
 # ── run_detached.sh ───────────────────────────────────────────────────────────
 # Runs the CQL pipeline detached, capturing both stdout+stderr so nothing
 # is lost when the terminal closes or the process is OOM-killed.
@@ -18,7 +18,7 @@ set -euo pipefail
 
 # ── config ────────────────────────────────────────────────────────────────────
 PYTHON=/jss_project/venv/bin/python3
-SCRIPT=/jss_project/RL-Job-Shop-Scheduling/PPO/warm_obj2_mlp_20260516.py
+SCRIPT=/jss_project/RL-Job-Shop-Scheduling/PPO/warm_obj2_20260529.py
 LOG_BASE=/jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results
 TIMESTAMP=$(date +%Y%m%d_%H%M)
 LOG_DIR="${LOG_BASE}/${TIMESTAMP}_obj2"
@@ -28,27 +28,37 @@ mkdir -p "${LOG_DIR}"
 ARGS=(
     --bks       /jss_project/RL-Job-Shop-Scheduling/PPO/bks.json
     --eval-instances
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta61
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta62
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta63
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta64
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta65
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta66
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta67
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta68
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta69
-    --num-train-instances 200
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta51
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta52
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta53
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta54
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta55
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta56
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta57
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta58
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta59
+    --num-train-instances 125
     --evo-alg GA
-    --evo-gens 25
-    --evo-early-stop
-    --cql-epochs 2000
-    --cql-alpha 0.5
-    --cql-lr 5e-5
-    --cql-batch 1024
-    --cql-tau 0.001
+    --n-workers 33
+    --evo-gens 300
+    --evo-pop 250
+    --evo-sa-iters 100
+    --evo-target-gap 5.0
+    --eval-target-gap 15.0
+    --nstep-returns 15
+    --expert-episodes 35
+    --random-episodes 15
+    --priority-alpha 0.6
+    --priority-beta 0.4
+    --cql-epochs 500
+    --cql-target-gap 12.0
+    --cql-alpha 1.0
+    --cql-lr 3e-4
+    --cql-batch 48000
+    --cql-tau 0.005
     --cql-target-update-every 100
-    --mlp-hidden 512 512 256
-    --cql-batch 2048
+    --mlp-hidden 1024 1024 512 256
+    --mlp-dropout 0.25
     --out "${LOG_DIR}/checkpoint"
 )
 

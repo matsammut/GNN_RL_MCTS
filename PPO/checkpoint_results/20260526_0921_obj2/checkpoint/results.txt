@@ -1,0 +1,95 @@
+[2026-05-26 09:21:28] INFO     Using device: cpu
+[2026-05-26 09:21:28] INFO     ================================================================================
+[2026-05-26 09:21:28] INFO     EA Warm-Start → MLP + CQL  (v5.0: mixed demonstrations, genuine contrast)
+[2026-05-26 09:21:28] INFO     ================================================================================
+[2026-05-26 09:21:28] INFO     Problem:          50 jobs × 15 machines
+[2026-05-26 09:21:28] INFO     Train instances:  50 synthetic
+[2026-05-26 09:21:28] INFO     Eval instances:   ['ta51', 'ta52', 'ta53', 'ta54', 'ta55', 'ta56', 'ta57', 'ta58', 'ta59']
+[2026-05-26 09:21:28] INFO     Workers:          33 of 35 cores
+[2026-05-26 09:21:28] INFO     EA:               GA  pop=250  gens=100
+[2026-05-26 09:21:28] INFO     Demonstrations:   25 expert + 25 random per instance
+[2026-05-26 09:21:28] INFO       ↳ Expert:       ε=0.05 — follows EA permutation
+[2026-05-26 09:21:28] INFO       ↳ Random:       ε=1.0 — fully random — provides CQL contrast
+[2026-05-26 09:21:28] INFO       ↳ Expected σ:   ~0.1-0.3 (vs ~0.004 in v4.x)
+[2026-05-26 09:21:28] INFO     BC pre-train:     50 epochs  lr=0.001
+[2026-05-26 09:21:28] INFO     CQL α:            1.0  (v5: 1.0 vs 0.2 — genuine contrast)
+[2026-05-26 09:21:28] INFO     CQL:              50 epochs  batch=20000  lr=0.0003
+[2026-05-26 09:21:28] INFO     Buffer cap:       2,000,000
+[2026-05-26 09:21:28] INFO     Device:           cpu
+[2026-05-26 09:21:28] INFO     Output:           /jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results/20260526_0921_obj2/checkpoint
+[2026-05-26 09:21:28] INFO     ================================================================================
+[2026-05-26 09:21:28] INFO     
+═══ Stage 1: Generating Synthetic Training Instances ═══
+[2026-05-26 09:21:28] INFO       Generated 50 synthetic instance(s) (50×15)
+[2026-05-26 09:21:28] INFO     
+═══ Stage 2: Collecting Mixed Demonstrations (parallel) ═══
+[2026-05-26 09:21:29] INFO       obs_dim=500  n_actions=51
+[2026-05-26 09:21:29] INFO       Parallel collection: 33 workers  (50 instances)
+[2026-05-26 09:21:29] INFO       Expert episodes: 25  Random episodes: 25
+[2026-05-26 09:21:29] INFO       Total episodes per instance: 50
+[2026-05-26 09:21:29] INFO       Merge: bulk_extend (~1-2s/file)
+[2026-05-26 09:23:52] INFO       All workers done. Merging 50 files...
+[2026-05-26 09:23:52] INFO       [  1/50] worker_0000.npz (37,500 transitions, 0.4s) | total: 37,500  RAM≈72MB
+[2026-05-26 09:23:53] INFO       [  2/50] worker_0001.npz (37,500 transitions, 0.4s) | total: 75,000  RAM≈143MB
+[2026-05-26 09:23:53] INFO       [  3/50] worker_0002.npz (37,500 transitions, 0.4s) | total: 112,500  RAM≈215MB
+[2026-05-26 09:23:54] INFO       [  4/50] worker_0003.npz (37,500 transitions, 0.4s) | total: 150,000  RAM≈286MB
+[2026-05-26 09:23:54] INFO       [  5/50] worker_0004.npz (37,500 transitions, 0.4s) | total: 187,500  RAM≈358MB
+[2026-05-26 09:23:54] INFO       [  6/50] worker_0005.npz (37,500 transitions, 0.4s) | total: 225,000  RAM≈429MB
+[2026-05-26 09:23:55] INFO       [  7/50] worker_0006.npz (37,500 transitions, 0.4s) | total: 262,500  RAM≈501MB
+[2026-05-26 09:23:55] INFO       [  8/50] worker_0007.npz (37,500 transitions, 0.4s) | total: 300,000  RAM≈572MB
+[2026-05-26 09:23:55] INFO       [  9/50] worker_0008.npz (37,500 transitions, 0.4s) | total: 337,500  RAM≈644MB
+[2026-05-26 09:23:56] INFO       [ 10/50] worker_0009.npz (37,500 transitions, 0.4s) | total: 375,000  RAM≈715MB
+[2026-05-26 09:23:56] INFO       [ 11/50] worker_0010.npz (37,500 transitions, 0.4s) | total: 412,500  RAM≈787MB
+[2026-05-26 09:23:57] INFO       [ 12/50] worker_0011.npz (37,500 transitions, 0.4s) | total: 450,000  RAM≈858MB
+[2026-05-26 09:23:57] INFO       [ 13/50] worker_0012.npz (37,500 transitions, 0.4s) | total: 487,500  RAM≈930MB
+[2026-05-26 09:23:57] INFO       [ 14/50] worker_0013.npz (37,500 transitions, 0.4s) | total: 525,000  RAM≈1001MB
+[2026-05-26 09:23:58] INFO       [ 15/50] worker_0014.npz (37,500 transitions, 0.4s) | total: 562,500  RAM≈1073MB
+[2026-05-26 09:23:58] INFO       [ 16/50] worker_0015.npz (37,500 transitions, 0.4s) | total: 600,000  RAM≈1144MB
+[2026-05-26 09:23:59] INFO       [ 17/50] worker_0016.npz (37,500 transitions, 0.4s) | total: 637,500  RAM≈1216MB
+[2026-05-26 09:23:59] INFO       [ 18/50] worker_0017.npz (37,500 transitions, 0.4s) | total: 675,000  RAM≈1287MB
+[2026-05-26 09:23:59] INFO       [ 19/50] worker_0018.npz (37,500 transitions, 0.4s) | total: 712,500  RAM≈1359MB
+[2026-05-26 09:24:00] INFO       [ 20/50] worker_0019.npz (37,500 transitions, 0.4s) | total: 750,000  RAM≈1431MB
+[2026-05-26 09:24:00] INFO       [ 21/50] worker_0020.npz (37,500 transitions, 0.4s) | total: 787,500  RAM≈1502MB
+[2026-05-26 09:24:00] INFO       [ 22/50] worker_0021.npz (37,500 transitions, 0.4s) | total: 825,000  RAM≈1574MB
+[2026-05-26 09:24:01] INFO       [ 23/50] worker_0022.npz (37,500 transitions, 0.4s) | total: 862,500  RAM≈1645MB
+[2026-05-26 09:24:01] INFO       [ 24/50] worker_0023.npz (37,500 transitions, 0.4s) | total: 900,000  RAM≈1717MB
+[2026-05-26 09:24:02] INFO       [ 25/50] worker_0024.npz (37,500 transitions, 0.4s) | total: 937,500  RAM≈1788MB
+[2026-05-26 09:24:02] INFO       [ 26/50] worker_0025.npz (37,500 transitions, 0.4s) | total: 975,000  RAM≈1860MB
+[2026-05-26 09:24:02] INFO       [ 27/50] worker_0026.npz (37,500 transitions, 0.4s) | total: 1,012,500  RAM≈1931MB
+[2026-05-26 09:24:03] INFO       [ 28/50] worker_0027.npz (37,500 transitions, 0.4s) | total: 1,050,000  RAM≈2003MB
+[2026-05-26 09:24:03] INFO       [ 29/50] worker_0028.npz (37,500 transitions, 0.4s) | total: 1,087,500  RAM≈2074MB
+[2026-05-26 09:24:03] INFO       [ 30/50] worker_0029.npz (37,500 transitions, 0.4s) | total: 1,125,000  RAM≈2146MB
+[2026-05-26 09:24:04] INFO       [ 31/50] worker_0030.npz (37,500 transitions, 0.4s) | total: 1,162,500  RAM≈2217MB
+[2026-05-26 09:24:04] INFO       [ 32/50] worker_0031.npz (37,500 transitions, 0.4s) | total: 1,200,000  RAM≈2289MB
+[2026-05-26 09:24:05] INFO       [ 33/50] worker_0032.npz (37,500 transitions, 0.4s) | total: 1,237,500  RAM≈2360MB
+[2026-05-26 09:24:05] INFO       [ 34/50] worker_0033.npz (37,500 transitions, 0.4s) | total: 1,275,000  RAM≈2432MB
+[2026-05-26 09:24:05] INFO       [ 35/50] worker_0034.npz (37,500 transitions, 0.4s) | total: 1,312,500  RAM≈2503MB
+[2026-05-26 09:24:06] INFO       [ 36/50] worker_0035.npz (37,500 transitions, 0.4s) | total: 1,350,000  RAM≈2575MB
+[2026-05-26 09:24:06] INFO       [ 37/50] worker_0036.npz (37,500 transitions, 0.4s) | total: 1,387,500  RAM≈2646MB
+[2026-05-26 09:24:07] INFO       [ 38/50] worker_0037.npz (37,500 transitions, 0.4s) | total: 1,425,000  RAM≈2718MB
+[2026-05-26 09:24:07] INFO       [ 39/50] worker_0038.npz (37,500 transitions, 0.4s) | total: 1,462,500  RAM≈2789MB
+[2026-05-26 09:24:07] INFO       [ 40/50] worker_0039.npz (37,500 transitions, 0.4s) | total: 1,500,000  RAM≈2861MB
+[2026-05-26 09:24:08] INFO       [ 41/50] worker_0040.npz (37,500 transitions, 0.4s) | total: 1,537,500  RAM≈2933MB
+[2026-05-26 09:24:08] INFO       [ 42/50] worker_0041.npz (37,500 transitions, 0.4s) | total: 1,575,000  RAM≈3004MB
+[2026-05-26 09:24:08] INFO       [ 43/50] worker_0042.npz (37,500 transitions, 0.4s) | total: 1,612,500  RAM≈3076MB
+[2026-05-26 09:24:09] INFO       [ 44/50] worker_0043.npz (37,500 transitions, 0.4s) | total: 1,650,000  RAM≈3147MB
+[2026-05-26 09:24:09] INFO       [ 45/50] worker_0044.npz (37,500 transitions, 0.4s) | total: 1,687,500  RAM≈3219MB
+[2026-05-26 09:24:10] INFO       [ 46/50] worker_0045.npz (37,500 transitions, 0.4s) | total: 1,725,000  RAM≈3290MB
+[2026-05-26 09:24:10] INFO       [ 47/50] worker_0046.npz (37,500 transitions, 0.4s) | total: 1,762,500  RAM≈3362MB
+[2026-05-26 09:24:10] INFO       [ 48/50] worker_0047.npz (37,500 transitions, 0.4s) | total: 1,800,000  RAM≈3433MB
+[2026-05-26 09:24:11] INFO       [ 49/50] worker_0048.npz (37,500 transitions, 0.4s) | total: 1,837,500  RAM≈3505MB
+[2026-05-26 09:24:11] INFO       [ 50/50] worker_0049.npz (37,500 transitions, 0.4s) | total: 1,875,000  RAM≈3576MB
+[2026-05-26 09:24:11] INFO       Merge complete: 1,875,000 transitions  RAM≈3576MB
+[2026-05-26 09:24:11] INFO     
+═══ Stage 3: BC Pre-Training + MLP Conservative Q-Learning ═══
+[2026-05-26 09:24:11] INFO       Dataset:    1,875,000 transitions  RAM≈3576MB
+[2026-05-26 09:24:11] INFO       MLP:        [1024, 1024, 512, 256]  dropout=0.1
+[2026-05-26 09:24:11] INFO       CQL α:      1.0  (v5: higher due to genuine contrast)
+[2026-05-26 09:24:11] INFO       N-step:     5  priority_α=0.6
+[2026-05-26 09:24:11] INFO       Training:   50 epochs  batch=20000  lr=0.0003
+[2026-05-26 09:24:11] INFO       Parameters: 3,416,860
+[2026-05-26 09:24:11] INFO     
+  ── BC Pre-Training (50 epochs, lr=0.001) ──
+[2026-05-26 09:24:11] INFO       Training on mixed expert+random data.
+[2026-05-26 09:24:11] INFO       Target: >40% accuracy (random baseline ~2.0%)
+[2026-05-26 09:28:31] INFO         BC Epoch   1/50 | Loss=0.9922 | Acc=49.5% (best=49.5%) | 260s
