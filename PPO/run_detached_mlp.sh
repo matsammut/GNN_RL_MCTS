@@ -18,7 +18,7 @@ set -euo pipefail
 
 # ── config ────────────────────────────────────────────────────────────────────
 PYTHON=/jss_project/venv/bin/python3
-SCRIPT=/jss_project/RL-Job-Shop-Scheduling/PPO/warm_obj2_20260529.py
+SCRIPT=/jss_project/RL-Job-Shop-Scheduling/PPO/warm_obj2_20260613.py
 LOG_BASE=/jss_project/RL-Job-Shop-Scheduling/PPO/checkpoint_results
 TIMESTAMP=$(date +%Y%m%d_%H%M)
 LOG_DIR="${LOG_BASE}/${TIMESTAMP}_obj2"
@@ -28,16 +28,16 @@ mkdir -p "${LOG_DIR}"
 ARGS=(
     --bks       /jss_project/RL-Job-Shop-Scheduling/PPO/bks.json
     --eval-instances
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta51
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta52
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta53
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta54
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta55
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta56
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta57
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta58
-        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta59
-    --num-train-instances 125
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta41
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta42
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta43
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta44
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta45
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta46
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta47
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta48
+        /jss_project/RL-Job-Shop-Scheduling/PPO/instances/ta49
+    --num-train-instances 100
     --evo-alg GA
     --n-workers 33
     --evo-gens 300
@@ -57,11 +57,14 @@ ARGS=(
     --cql-batch 48000
     --cql-tau 0.005
     --cql-target-update-every 100
+    --warmup-epochs 0
+    --lr-scheduler constant        # only once — LR fixed at 3e-4 forever
     --mlp-hidden 1024 1024 512 256
-    --mlp-dropout 0.25
+    --stag-window 50
+    --stag-noise 0.005
+    --mlp-dropout 0.05
     --out "${LOG_DIR}/checkpoint"
 )
-
 # ── launch ────────────────────────────────────────────────────────────────────
 echo "Launching — logs in ${LOG_DIR}"
 echo "  combined : ${LOG_DIR}/combined.log"
