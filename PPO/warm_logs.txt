@@ -1,3 +1,0 @@
-
-═══ Step 1: Collecting SPT demonstrations ═══
-  Collected 50/100 SPT episodes (111222 transitions)
