@@ -155,13 +155,9 @@ For reproducible comparisons, record the benchmark instances, random seeds, conf
 
 - The `MCTS/` implementation is currently unused and is not part of the main experimental comparison.
 - Directory names indicate where some outputs are stored; their contents may include legacy or intermediate results.
-- The precise roles of `CP.py` and `recreate4.py` are not specified here and should be confirmed from their source code.
 - Not every script or configuration is guaranteed to run on another machine without adjustment.
 
 ## Citation
 
 If you use this repository in academic work, cite the associated thesis or publication once its bibliographic details are available. Until then, cite the repository URL and access date according to your institution's preferred referencing style.
 
-## Licence
-
-No licence information was visible in the provided repository overview. Add a `LICENSE` file before distributing the code if you intend to grant others permission to use, modify, or redistribute it.
