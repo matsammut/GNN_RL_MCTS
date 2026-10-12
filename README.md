@@ -98,7 +98,8 @@ The tree below reflects the visible directory structure. Some directories are sh
 
 ## Requirements and setup
 
-The repository includes `requirements.txt`. Check the Python version, dependency versions, and system requirements against the environment used for the reported experiments.
+The repository includes `requirements.txt` and was ran on Python 3.8.20 on Linux Ubuntu 22.04. 
+Check the Python version, dependency versions, and system requirements against the environment used for the reported experiments.
 
 A typical setup from the repository root is:
 
@@ -109,8 +110,6 @@ cd <repository-directory>
 python -m venv .venv
 # Linux/macOS:
 source .venv/bin/activate
-# Windows PowerShell:
-# .venv\Scripts\Activate.ps1
 
 python -m pip install --upgrade pip
 pip install -r requirements.txt
@@ -129,7 +128,7 @@ python PPO/run_bc_exp2.py
 python PPO/run_cql_exp2.py
 ```
 
-Depending on the implementation, experiments may require benchmark files, BKS values, checkpoint paths, and sufficient CPU/GPU memory. Inspect `run_experiments.sh` before executing it to confirm which experiments it launches.
+Depending on the implementation, experiments may require benchmark files, BKS values, checkpoint paths, and sufficient CPU/GPU memory. Inspect the parameter and run description at the top of each file before executing to confirm functionality.
 
 ## Data and evaluation
 
