@@ -5,7 +5,7 @@ This repository contains implementations and experiment scripts for investigatin
 ## Research objectives
 
 1. **Experiment 1 — PPO and evolutionary optimisation:** compare Proximal Policy Optimisation (PPO) with a Genetic Algorithm (GA), Memetic Algorithm (MA), and Hybrid Genetic Algorithm (HGA), considering schedule quality and computational time.
-2. **Experiment 2 — offline learning from generated demonstrations:** use evolutionary-generated scheduling trajectories to train and evaluate Behaviour Cloning (BC) and Conservative Q-Learning (CQL) policies.
+2. **Experiment 2 — offline learning from generated demonstrations:** use synthetically generated demonstrations to train and evaluate Behaviour Cloning (BC) and Conservative Q-Learning (CQL) policies.
 
 The implementations are intended for research and experimental comparison. Results depend on the selected instances, configuration, compute environment, and stopping criteria.
 
