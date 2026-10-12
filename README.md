@@ -1,4 +1,4 @@
-# Job Shop Scheduling with Reinforcement Learning and Evolutionary Optimisation
+# Using Reinforcement Learning Techniques for JSSP
 
 This repository contains implementations and experiment scripts for investigating learning-based and evolutionary approaches to the **Job Shop Scheduling Problem (JSSP)**. The project compares online reinforcement learning, evolutionary optimisation, behaviour cloning, and offline reinforcement learning using Taillard benchmark instances.
 
