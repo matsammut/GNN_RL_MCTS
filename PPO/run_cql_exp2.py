@@ -1048,23 +1048,6 @@ class MLPCQLTrainer:
         q_data = qv.gather(1, actions.unsqueeze(1)).squeeze(1)
         return self.cql_alpha * (lse - q_data).mean()
 
-    def _bc_loss(self, qv, batch):
-        """
-        Auxiliary BC loss on expert transitions only.
-        Maximises Q(s, a_expert) relative to other valid actions via cross-entropy.
-        """
-        is_exp = batch["is_expert"].to(DEVICE)
-        if not is_exp.any():
-            return torch.tensor(0.0, device=DEVICE)
-        a      = batch["actions"].to(DEVICE)
-        cm     = batch["action_masks"].to(DEVICE)
-        qv_exp = qv[is_exp]
-        a_exp  = a[is_exp]
-        cm_exp = cm[is_exp]
-        qv_masked           = qv_exp.clone()
-        qv_masked[cm_exp == 0] = -1e9
-        return F.cross_entropy(qv_masked, a_exp) * 0.1
-
     def train_epoch(self, buffer, epoch, cql_batch, log_interval=20, dl_workers=4):
         self.q_net.train()
         sampler     = buffer.get_sampler(self.priority_alpha)
@@ -1081,8 +1064,8 @@ class MLPCQLTrainer:
             prefetch_factor=2 if use_workers > 0 else None,
         )
 
-        etd = ecql = ebc = etot = 0.0   # epoch totals
-        rtd = rcql = rbc = rtot = 0.0   # rolling window totals
+        etd = ecql = etot = 0.0   # epoch totals
+        rtd = rcql = rtot = 0.0   # rolling window totals
         window_n = 0                     # FIX: actual batch count in current window
         n        = 0                     # total batches processed
         t0       = time.perf_counter()
@@ -1093,8 +1076,7 @@ class MLPCQLTrainer:
 
             tdl, qv, cm, a, tde = self._td_loss(batch)
             cql_l = self._cql_loss(qv, cm, a)
-            bc_l  = self._bc_loss(qv, batch)
-            loss  = tdl + cql_l + bc_l
+            loss  = tdl + cql_l
 
             if not torch.isfinite(loss):
                 logger.error(f"[Ep{epoch}|B{bi}] non-finite loss, skip")
@@ -1108,9 +1090,9 @@ class MLPCQLTrainer:
             self._maybe_perturb(float(gn_val))
             buffer.update_priorities(batch["buffer_indices"].numpy(), tde)
 
-            tv, cv, bv, lv = tdl.item(), cql_l.item(), bc_l.item(), loss.item()
-            etd  += tv; ecql += cv; ebc  += bv; etot += lv
-            rtd  += tv; rcql += cv; rbc  += bv; rtot += lv
+            tv, cv, lv = tdl.item(), cql_l.item(), loss.item()
+            etd  += tv; ecql += cv; etot += lv
+            rtd  += tv; rcql += cv; rtot += lv
             n    += 1
             window_n += 1   # FIX: track actual window size
 
@@ -1130,18 +1112,18 @@ class MLPCQLTrainer:
                     qmax = qv_valid.max().item()   if qv_valid.numel() > 0 else float("nan")
                 logger.info(
                     f"[Ep{epoch:>4}|B{bi:>5}/{nb}] α={self.cql_alpha:.3f} | "
-                    f"Loss={rtot/w:.4f}(TD={rtd/w:.4f} CQL={rcql/w:.4f} BC={rbc/w:.4f}) | "
+                    f"Loss={rtot/w:.4f}(TD={rtd/w:.4f} CQL={rcql/w:.4f}) | "
                     f"∇={gn_val:.3f} | Q(μ={qmu:.3f} σ={qsig:.3f} "
                     f"min={qmin:.3f} max={qmax:.3f}) | "
                     f"LR={self.optimizer.param_groups[0]['lr']:.2e} | "
                     f"{bps:.1f}b/s ETA{eta:.0f}s")
-                rtd = rcql = rbc = rtot = 0.0
+                rtd = rcql = rtot = 0.0
                 window_n = 0   # FIX: reset window counter after logging
 
         n   = max(n, 1)
         et  = time.perf_counter() - t0
         logger.info(f"[Ep{epoch:>4} DONE] AvgLoss={etot/n:.4f} "
-                    f"(TD={etd/n:.4f} CQL={ecql/n:.4f} BC={ebc/n:.4f}) | "
+                    f"(TD={etd/n:.4f} CQL={ecql/n:.4f} ) | "
                     f"{et:.1f}s ({n} batches)")
         return etot / n, etd / n, ecql / n
 
