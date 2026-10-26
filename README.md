@@ -98,7 +98,7 @@ The tree below reflects the visible directory structure. Some directories are sh
 
 ## Requirements and setup
 
-The repository includes `requirements.txt` and was ran on Python 3.8.20 on Linux Ubuntu 22.04. 
+The repository was ran on Python 3.8.20 on Linux Ubuntu 22.04. 
 Check the Python version, dependency versions, and system requirements against the environment used for the reported experiments.
 
 A typical setup from the repository root is:
@@ -128,7 +128,6 @@ python PPO/run_bc_exp2.py
 python PPO/run_cql_exp2.py
 ```
 
-Depending on the implementation, experiments may require benchmark files, BKS values, checkpoint paths, and sufficient CPU/GPU memory. Inspect the parameter and run description at the top of each file before executing to confirm functionality.
 
 ## Data and evaluation
 
@@ -146,14 +145,8 @@ The principal schedule-quality measure is the makespan, \(C_{\max}\). Where BKS 
 
 A lower makespan or BKS gap indicates a better schedule. A BKS is a best-known value and does not necessarily represent a proven optimum.
 
-## Reproducibility notes
-
-For reproducible comparisons, record the benchmark instances, random seeds, configuration, stopping criteria, runtime environment, and hardware used for each run. Comparisons should use consistent evaluation procedures and distinguish training time, optimisation time, and inference time. Interpret existing result files in the context of the configuration that generated them.
-
 ## Limitations and scope
 
-- The `MCTS/` implementation is currently unused and is not part of the main experimental comparison.
-- Directory names indicate where some outputs are stored; their contents may include legacy or intermediate results.
 - Not every script or configuration is guaranteed to run on another machine without adjustment.
 
 ## Citation
